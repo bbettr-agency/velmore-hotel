@@ -31,6 +31,7 @@
 - ⛔ **No design or development authorised.** Do NOT begin: visual design · wireframes · development · component creation · image-folder setup · content writing · SEO page implementation · CRM integration · further OS architecture changes.
 - 📦 **Both repositories pushed & clean:** `velmore-hotel` and `website-os` (OS @ `3af9d3d`).
 - ➡️ **Next session starts by** reviewing the remaining Gate-1 client-confirmation requirements and determining what information still needs collecting — *before* any design.
+- 📋 **`VALIDATION.md`** (working scorecard) captures build-time evidence for the Continuous Learning Loop → drives OS v2.5.0. Fill the relevant phase table at each phase close. It does **not** modify the frozen OS.
 
 ## ⏳ Pending
 - [ ] Gate-1 confirmations (see Client-blocked) → then Phase 4 DESIGN (Visual Direction Brief + tokens)

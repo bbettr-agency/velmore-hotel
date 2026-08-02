@@ -10,6 +10,7 @@ Context for the next session. Read this + `PROJECT_STATUS.md` + `docs/CLIENT-BRI
 - 🔑 **Gate 1 still awaiting client confirmations** (`docs/03-CLIENT-INFO-REQUIRED.md` §B/C).
 - ⛔ **No design or development authorised** — no visual design, wireframes, development, components, image-folder setup, content writing, SEO implementation, CRM integration, or further OS architecture changes.
 - 📦 **Both repositories pushed & clean** (`velmore-hotel`; `website-os` @ `3af9d3d`).
+- 📋 **`VALIDATION.md`** is the project's working scorecard — fill each phase's table at that phase's close (evidence for the Continuous Learning Loop → OS v2.5.0). It does not modify the frozen OS.
 
 ## What this is
 A full **redesign** of Velmore Hotel Estate (French-Provence hotel + weddings + conferences + spa + events estate in Erasmia/Centurion, between Pretoria & Johannesburg). We have completed a research + blueprint phase (audit, business/competitor/SEO research, Client Brief, 29-part blueprint) and the client Business Knowledge Base. The primary conversion is an **enquiry/booking matched to the visitor's path** (Stay / Weddings / Conferences / Celebrations / Spa).
