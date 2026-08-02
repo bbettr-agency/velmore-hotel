@@ -4,7 +4,7 @@
 **Owner:** Bbettr Agency
 **Client:** Velmore Hotel Estate / Velmore Hotel & Spa (canonical name TBC — see blocking item)
 **Type:** full website **redesign** · hospitality (hotel + weddings + conferencing + spa)
-**Repo:** `github.com/bbettr-agency/velmore-hotel` (official — source of truth) · **OS version:** v2.3.0 (Marketing Engine); v2.4.0 Business Intelligence + Business Knowledge Base pending approval
+**Repo:** `github.com/bbettr-agency/velmore-hotel` (official — source of truth) · **OS version:** v2.3.0 Marketing Engine + v2.4.0 Business Intelligence (both approved, committed & pushed)
 **Playbook:** none yet (first flagship **hospitality** build — candidate to seed one)
 **Live:** two existing WordPress sites (velmorehotel.co.za + velmorehotelestate.co.za); new build not started. Preview port: TBD
 
@@ -24,8 +24,13 @@
 - [x] **Business Knowledge Base created** → `knowledge-base/` (BUSINESS-KNOWLEDGE-BASE.md, voice-print.md, learnings.md) — the living client-level asset; `docs/CLIENT-BRIEF.md` now references it (client facts authored once, in the BKB)
 - [x] **OS upgrade authored:** v2.4.0 Business Intelligence + Continuous Learning (`SYSTEM/03`, `PIPELINE/learning-loop.md`, root `LEARNINGS.md` + amendments) — three knowledge scopes / three intelligence layers / dual-output loop. Velmore is its first application.
 
-## 🔨 In progress
-- [ ] Awaiting **client review & approval** of the blueprint before any design/code.
+## Status (2026-08-02) — PAUSED
+- ✅ **Architecture & documentation phase COMPLETE and approved** (research + 29-part blueprint + Business Knowledge Base + OS v2.3.0/v2.4.0).
+- ✅ **Business Knowledge Base created** (`knowledge-base/`) — client knowledge separated from project knowledge.
+- 🔑 **Gate 1 still awaiting client confirmations** (see Client-blocked + `docs/03-CLIENT-INFO-REQUIRED.md`).
+- ⛔ **No design or development authorised.** Do NOT begin: visual design · wireframes · development · component creation · image-folder setup · content writing · SEO page implementation · CRM integration · further OS architecture changes.
+- 📦 **Both repositories pushed & clean:** `velmore-hotel` and `website-os` (OS @ `3af9d3d`).
+- ➡️ **Next session starts by** reviewing the remaining Gate-1 client-confirmation requirements and determining what information still needs collecting — *before* any design.
 
 ## ⏳ Pending
 - [ ] Gate-1 confirmations (see Client-blocked) → then Phase 4 DESIGN (Visual Direction Brief + tokens)

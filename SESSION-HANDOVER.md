@@ -2,10 +2,17 @@
 
 Context for the next session. Read this + `PROJECT_STATUS.md` + `docs/CLIENT-BRIEF.md` before working.
 
-> ⚠️ **Read first:** the Bbettr Website OS (`~/Documents/Bbettr-Website-Os/SYSTEM/00-OPERATING-MODEL.md`, the Design Language + Hero System, `PIPELINE/gates.md`) and this project's `docs/` blueprint. **Do NOT write code — the project is in planning, awaiting client approval.**
+> ⚠️ **Read first:** the Bbettr Website OS (`~/Documents/Bbettr-Website-Os/SYSTEM/00-OPERATING-MODEL.md`, `SYSTEM/03-BUSINESS-INTELLIGENCE.md`, `SYSTEM/04-MARKETING-ENGINE.md`, the Design Language + Hero System, `PIPELINE/gates.md`), this project's `knowledge-base/` (the BKB) and `docs/` blueprint. **PAUSED — no design or development authorised.**
+
+## Status (2026-08-02) — PAUSED
+- ✅ **Architecture & documentation phase complete and approved** (research + 29-part blueprint + OS v2.3.0/v2.4.0).
+- ✅ **Business Knowledge Base created** (`knowledge-base/`) — client knowledge, separate from project `docs/`.
+- 🔑 **Gate 1 still awaiting client confirmations** (`docs/03-CLIENT-INFO-REQUIRED.md` §B/C).
+- ⛔ **No design or development authorised** — no visual design, wireframes, development, components, image-folder setup, content writing, SEO implementation, CRM integration, or further OS architecture changes.
+- 📦 **Both repositories pushed & clean** (`velmore-hotel`; `website-os` @ `3af9d3d`).
 
 ## What this is
-A full **redesign** of Velmore Hotel Estate (French-Provence hotel + weddings + conferences + spa + events estate in Erasmia/Centurion, between Pretoria & Johannesburg). We have completed a research + blueprint phase (audit, business/competitor/SEO research, Client Brief, 23-part blueprint). The primary conversion is an **enquiry/booking matched to the visitor's path** (Stay / Weddings / Conferences / Celebrations / Spa). Stage: **Phase 1–3 planning done; awaiting client sign-off before Phase 4 design.**
+A full **redesign** of Velmore Hotel Estate (French-Provence hotel + weddings + conferences + spa + events estate in Erasmia/Centurion, between Pretoria & Johannesburg). We have completed a research + blueprint phase (audit, business/competitor/SEO research, Client Brief, 29-part blueprint) and the client Business Knowledge Base. The primary conversion is an **enquiry/booking matched to the visitor's path** (Stay / Weddings / Conferences / Celebrations / Spa).
 
 ## Hard rules (do not break)
 - **No fabrication.** Room count (99?), venue capacities, package prices, star grading are `[client-stated]`/unconfirmed — never ship as fact until Gate-1 confirmations land.
@@ -41,4 +48,4 @@ Next.js 14 + TS + Tailwind + Framer Motion on Vercel, config-driven (per OS/show
 - Repo is now `github.com/bbettr-agency/velmore-hotel` (source of truth). NOTE: stray `/Users/eloff/.git` exists — do not touch until user approves removal.
 
 ## Next session — exact starting prompt
-> Read `~/Documents/Velmore-Hotel-Estate/` README + PROJECT_STATUS + all `docs/`. If the client has returned the Gate-1 confirmations (`docs/03-CLIENT-INFO-REQUIRED.md` §B/C), update the Client Brief to gate-1-passed, then begin **Phase 4 DESIGN**: analyse the logo + photography, finalise the Visual Direction Brief (palette Direction 1 vs 2, typefaces, density, motion, contrast pairs) and the Hero Brief, and present low-fi → hi-fi of Home + one hub for approval. If confirmations are NOT back, do not start design — chase the blocking items. Still **no code** until Gate 2.
+> Read `~/Documents/Velmore-Hotel-Estate/` README + PROJECT_STATUS + `knowledge-base/` + all `docs/`. **Begin by reviewing the remaining Gate-1 client-confirmation requirements** (`docs/03-CLIENT-INFO-REQUIRED.md` §B/C) and determining exactly what information still needs to be collected from the client before design can start — e.g. produce/refresh a clean client questionnaire and update the BKB/brief with anything already answered. **Do NOT begin design or development** (no wireframes, visual design, components, image folders, content, SEO build, CRM). Phase 4 DESIGN only starts once the client returns the Gate-1 answers **and** you have explicit approval to proceed. Also: the OS remains paused — no further Website OS architecture changes without explicit approval.
