@@ -1,0 +1,13 @@
+# OS / editor
+.DS_Store
+Thumbs.db
+
+# Node / build (for later phases)
+node_modules/
+.next/
+out/
+dist/
+*.log
+.env
+.env.local
+.vercel
