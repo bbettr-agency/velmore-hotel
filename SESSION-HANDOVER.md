@@ -12,6 +12,14 @@ Context for the next session. Read this + `PROJECT_STATUS.md` + `docs/CLIENT-BRI
 - 📦 **Both repositories pushed & clean** (`velmore-hotel`; `website-os` @ `3af9d3d`).
 - 📋 **`VALIDATION.md`** is the project's working scorecard — fill each phase's table at that phase's close (evidence for the Continuous Learning Loop → OS v2.5.0). It does not modify the frozen OS.
 
+## Parallel workstream now active (2026-08-02)
+While Gate 1 is open, we are completing all **no-client-facts** architecture/UX/strategy:
+`docs/06` IA · `07` Page Blueprints (section skeletons) · `08` Conversion/Tracking/CRM spec ·
+`09` Design-system direction · `10` Component inventory. Convention: **〔G1: …〕** = pending
+client confirmation (never shipped); **`[proposed]`** = palette/type to lock against the logo
+at Gate 2. **No final copy, no visual design, no code, no real assets, no live integrations
+until Gate 1 → Gate 2.** Website OS stays frozen.
+
 ## What this is
 A full **redesign** of Velmore Hotel Estate (French-Provence hotel + weddings + conferences + spa + events estate in Erasmia/Centurion, between Pretoria & Johannesburg). We have completed a research + blueprint phase (audit, business/competitor/SEO research, Client Brief, 29-part blueprint) and the client Business Knowledge Base. The primary conversion is an **enquiry/booking matched to the visitor's path** (Stay / Weddings / Conferences / Celebrations / Spa).
 

@@ -23,15 +23,20 @@
 - [x] **OS upgrade authored:** v2.3.0 Marketing Engine (`SYSTEM/04` + operating-model/discovery/brief-schema/gates/changelog) — Velmore is its first application
 - [x] **Business Knowledge Base created** → `knowledge-base/` (BUSINESS-KNOWLEDGE-BASE.md, voice-print.md, learnings.md) — the living client-level asset; `docs/CLIENT-BRIEF.md` now references it (client facts authored once, in the BKB)
 - [x] **OS upgrade authored:** v2.4.0 Business Intelligence + Continuous Learning (`SYSTEM/03`, `PIPELINE/learning-loop.md`, root `LEARNINGS.md` + amendments) — three knowledge scopes / three intelligence layers / dual-output loop. Velmore is its first application.
+- [x] **Gate 1 client pack** → `GATE-1-COMPLETE-CHECKLIST.md` (internal) + `CLIENT-INFORMATION-REQUEST.md` + `client-pack/*.docx/.pdf` (sendable).
+- [x] **Build-ready architecture/UX specs (no client facts):** `docs/06` IA · `07` Page Blueprints · `08` Conversion/Tracking/CRM · `09` Design-system direction · `10` Component inventory.
 
-## Status (2026-08-02) — PAUSED
-- ✅ **Architecture & documentation phase COMPLETE and approved** (research + 29-part blueprint + Business Knowledge Base + OS v2.3.0/v2.4.0).
-- ✅ **Business Knowledge Base created** (`knowledge-base/`) — client knowledge separated from project knowledge.
-- 🔑 **Gate 1 still awaiting client confirmations** (see Client-blocked + `docs/03-CLIENT-INFO-REQUIRED.md`).
-- ⛔ **No design or development authorised.** Do NOT begin: visual design · wireframes · development · component creation · image-folder setup · content writing · SEO page implementation · CRM integration · further OS architecture changes.
-- 📦 **Both repositories pushed & clean:** `velmore-hotel` and `website-os` (OS @ `3af9d3d`).
-- ➡️ **Next session starts by** reviewing the remaining Gate-1 client-confirmation requirements and determining what information still needs collecting — *before* any design.
-- 📋 **`VALIDATION.md`** (working scorecard) captures build-time evidence for the Continuous Learning Loop → drives OS v2.5.0. Fill the relevant phase table at each phase close. It does **not** modify the frozen OS.
+## Status (2026-08-02) — TWO PARALLEL WORKSTREAMS
+- 🔑 **Gate 1 OPEN** — awaiting client onboarding pack (`CLIENT-INFORMATION-REQUEST.md`); confirmations tracked in `docs/03`.
+- ✅ **Strategic / architectural / UX planning IN PROGRESS (no client facts required)** — built ahead so that when answers arrive we swap placeholders and go straight to hi-fi design/dev:
+  - `docs/06-INFORMATION-ARCHITECTURE.md` · `07-PAGE-BLUEPRINTS.md` · `08-CONVERSION-TRACKING-CRM-SPEC.md` · `09-DESIGN-SYSTEM-DIRECTION.md` · `10-COMPONENT-INVENTORY.md`
+  - Placeholder convention **〔G1: …〕** for anything client-dependent; **`[proposed]`** for palette/type (locks against logo at Gate 2). No invented facts/pricing/copy/imagery.
+- ✅ **Business Knowledge Base** (`knowledge-base/`) + **client onboarding pack** (`client-pack/` — .docx + .pdf) done.
+- ⛔ **STILL BLOCKED until Gate 1 + Gate 2:** final website copy · visual/hi-fi design · development & components (code) · real imagery/shoot · live SEO/CRM/analytics integration · mission-vision-values wording · pricing/packages/menus/capacities as fact.
+- 🚫 **Website OS frozen** — no OS changes; improvements route through the Learning Loop after the build.
+- 📦 **Both repos pushed & clean:** `velmore-hotel`; `website-os` @ `3af9d3d`.
+- 📋 **`VALIDATION.md`** working scorecard — fill per phase (evidence → OS v2.5.0).
+- ➡️ **Next session:** either (a) Gate-1 answers arrive → update BKB/brief + `config/*`, mark Gate 1 passed, move to Gate 2 design; or (b) continue any remaining no-client planning. **No visual design / code until Gate 2.**
 
 ## ⏳ Pending
 - [ ] Gate-1 confirmations (see Client-blocked) → then Phase 4 DESIGN (Visual Direction Brief + tokens)
