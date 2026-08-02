@@ -4,9 +4,18 @@
 **OS:** Bbettr Website OS (see CHANGELOG) · **Type:** full website **redesign** · **Niche:** hospitality (hotel + weddings + conferencing + spa)
 **Marking rule:** every factual claim is tagged `[verified]` / `[client-stated]` / `[assumed]`. **Assumed claims may NOT appear in site copy.** Items in **§ pending** must be confirmed before build copy uses them.
 
+> **Knowledge scope (OS `SYSTEM/03`).** This is a **project** brief. Durable **client**
+> knowledge now lives authoritatively in the **Business Knowledge Base**
+> ([`../knowledge-base/BUSINESS-KNOWLEDGE-BASE.md`](../knowledge-base/BUSINESS-KNOWLEDGE-BASE.md))
+> and voice in ([`../knowledge-base/voice-print.md`](../knowledge-base/voice-print.md)).
+> §1–§7 below are client-level — the **BKB is authoritative**; this brief summarises and links.
+> §8–§10 are project-level (this website's search, conversion and constraints) and live here.
+> Where the two ever differ, the BKB wins.
+
 ---
 
 ## 1. Business Reality
+> **Client-level → authoritative in [BKB §A/§C/§E](../knowledge-base/BUSINESS-KNOWLEDGE-BASE.md).** Project-relevant summary below; the Revenue Priority Matrix is in [05-MARKETING-CONVERSION-BLUEPRINT.md](05-MARKETING-CONVERSION-BLUEPRINT.md) Part 24.
 - **What they do — plain words:** A privately-run **hotel estate** midway between Pretoria and Johannesburg (Erasmia, north-west Centurion, Gauteng) offering **accommodation, weddings, conferences, corporate & private events, team building, dining and a day spa** on one riverside, French-Provence-styled property. `[verified]`
 - **What they do — their words:** *"Your Destination For Inspired Celebrations"* / estate tagline *"Crafting Experiences, One Event at a Time."* `[verified]`
 - **Business model:** Revenue from (a) **room nights** (direct + OTA), (b) **event hire + catering** (weddings, conferences, functions — the highest-value, highest-margin line), (c) **spa**, (d) **dining**. Events and residential conferencing (event + room block + catering) are the flagship revenue engine. Average deal value: events ≫ single room nights. `[assumed — confirm mix with client]`
@@ -14,9 +23,7 @@
 - **Geographic reality:** Draws from **Centurion, Pretoria (Tshwane), Midrand and the wider Gauteng corridor**; the "between Pretoria and Johannesburg" location is a genuine, literal differentiator. `[verified]`
 
 ## 2. Why They Exist
-- **Origin story:** Not published; historically associated with the **Orion Group of Hotels** and a mooted **Best Western Plus** rebrand (~2016) that appears lapsed — now operating independently under the "Velmore" name. Founding year unknown. `[client-stated / unverified — § pending]`
-- **The estate idea:** unusual architecture "nostalgically inspired by traditional **French Provence**", aimed at an aspirational/luxury market, on the banks of the **Hennops River** with **Magaliesberg** views. `[verified]`
-- **What they refuse to do:** **Cashless establishment** — card only. `[verified]` (Other refusals: unknown.)
+> **Client-level → authoritative in [BKB §A (Purpose & Story)](../knowledge-base/BUSINESS-KNOWLEDGE-BASE.md#a-purpose--story).** In short: historically Orion / lapsed ~2016 Best Western Plus plan, now independent; French-Provence riverside estate on the Hennops River; cashless (card only); mission/vision/values/culture **pending client**.
 
 ## 3. The Customer
 
@@ -51,10 +58,7 @@ Four distinct audiences (do NOT force one generic "Book Now"):
 - **Positioning sentence:** *"Unlike the boutique venues that are too small and the chain hotels that have no soul, Velmore is the one estate between Pretoria and Johannesburg that hosts your whole occasion — stay, celebrate and unwind — at any scale."*
 
 ## 5. Voice
-- **Current phrases:** "Inspired Celebrations", "Crafting Experiences, One Event at a Time", "A Sanctuary Where Luxury Meets Legacy". `[verified]`
-- **Words to use:** estate, celebration, gather, host, riverside, gardens, occasion, unwind, delegates, capacity, package. **Words to avoid** (OS copy standard): "unparalleled luxury", "unforgettable experience", "world-class", "where luxury meets…", "pax" (jargon), empty superlatives.
-- **Dials (target):** warm 4/5 · plain-not-technical 4/5 · confident-not-boastful · elegant but human. Specific over superlative (OS Law 2).
-- **Languages:** English (SA). `[assumed]`
+> **Client-level → authoritative in [`../knowledge-base/voice-print.md`](../knowledge-base/voice-print.md).** In short: warm · elegant · specific · human; use *estate/celebration/occasion/riverside/between Pretoria & Johannesburg*; avoid hospitality clichés and "pax"; discard the current site's filler and spelling errors.
 
 ## 6. Proof Inventory
 - **Reviews:** Google **4.0★, ≈1,600 reviews** `[verified]`; TripAdvisor **3.0★, ~137** (older listing) + a duplicate listing `[verified]`; Kayak 6.4/10 (496); Expedia 76 (4–5★ skew). **Use review volume + specific proof; do not lead on the bare 4.0.** Testimonials require consent before use.
