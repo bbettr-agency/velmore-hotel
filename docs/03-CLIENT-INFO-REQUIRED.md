@@ -1,12 +1,12 @@
-# 03 — OUTSTANDING ITEMS REGISTER (post Gate-1 response)
+# 03 — CONTENT READINESS REGISTER
 
 **Updated:** 2026-08-03 · **Source of truth for client facts:** [`../knowledge-base/BUSINESS-KNOWLEDGE-BASE.md`](../knowledge-base/BUSINESS-KNOWLEDGE-BASE.md) (BKB v0.2).
-The client's completed onboarding response (2026-08-03, Yaseen Amod) resolved most Gate-1 items. This register lists **only what remains open**, mirroring the client's own Open Items Register, by priority. `[confirmed]` items now live in the BKB.
+Gate 1 (Business Discovery & Validation) is **COMPLETE** ([`../GATE-1-REVIEW.md`](../GATE-1-REVIEW.md)). Per the 2026-08-03 project decision, the items below are **Content Readiness**, not design blockers — they are content-completion items that **populate placeholders during Design/Dev**. They do **not** affect IA, navigation, journeys, conversion strategy, components, the design system, creative direction, visual hierarchy, UX or layout. `[confirmed]` items live in the BKB.
 
-> **Design-phase rule:** the **five 🔴 items block the design of their page.** Everything else can be built with a marked placeholder that swaps in on confirmation. The build is deliberately structured so these swaps need no rebuild (dual-pricing wedding page, reusable specials module, growable logo strip, conditional spa/dining pages).
+> **Rule:** each item can be **designed and built now** with a marked, config-driven placeholder; the build is structured so it swaps in with no rebuild (dual-pricing wedding page, reusable specials module, growable logo strip, conditional spa/dining pages). **Guardrail:** verified-only rendering — **a page does not go live publicly showing one of these as fact** until confirmed. Nothing fabricated ships.
 
-## 🔴 BLOCKS DESIGN (five — being chased first)
-| # | Item | Blocks | Owner |
+## 🔴 Content-critical (gate the affected page's public launch, not its design)
+| # | Item | Affects (page content) | Owner |
 |---|---|---|---|
 | 1 | **Restaurant name** (+ menu/hours) | Dining page | F&B / Management |
 | 2 | **Spa trading name + operator** (is it "Allura"? in-house/partner) | Spa page | Management |

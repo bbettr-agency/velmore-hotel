@@ -5,7 +5,7 @@
 Premium hospitality website redesign built on the **Bbettr Website OS**.
 Client: Velmore Hotel Estate / Velmore Hotel & Spa — a French-Provence hotel estate in Erasmia (Centurion), between Pretoria and Johannesburg, offering accommodation, weddings, conferences, corporate & private events, team building, dining and a day spa.
 
-**Stage:** Phase 1–3 planning (research + blueprint) complete; **awaiting client approval before any code.**
+**Stage:** **Gate 1 (Business Discovery & Validation) COMPLETE** (client onboarding integrated; BKB v0.2 authoritative). Remaining items are **Content Readiness** (populate placeholders during design/dev). **Gate 2 (Visual Design) ready to begin on approval.** No visual design or code started yet.
 **OS:** see `~/Documents/Bbettr-Website-Os/CHANGELOG.md` for the version this build follows.
 
 ## The blueprint (read in order)

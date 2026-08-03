@@ -37,7 +37,7 @@ Website OS parts earned their place and which didn't.
 
 ---
 
-## Gate 1 — Client confirmation & BKB validation  ·  status: ✅ response integrated (Gate not yet formally closed)
+## Gate 1 — Client confirmation & BKB validation  ·  status: ✅ COMPLETE (2026-08-03; remaining items reclassified as Content Readiness)
 
 | Prompt | Evidence / notes |
 |---|---|

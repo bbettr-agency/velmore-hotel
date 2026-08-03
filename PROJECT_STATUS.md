@@ -27,40 +27,36 @@
 - [x] **Build-ready architecture/UX specs (no client facts):** `docs/06` IA · `07` Page Blueprints · `08` Conversion/Tracking/CRM · `09` Design-system direction · `10` Component inventory.
 - [x] **Visual Direction — inspiration & design reasoning** → `docs/11-VISUAL-DIRECTION-INSPIRATION.md` (premium hospitality patterns analysed → reusable principles → OS + Velmore mapping; the creative foundation feeding the Phase-4 Visual Direction Brief). Not design/wireframes/code.
 
-## Status (2026-08-03) — GATE-1 RESPONSE INTEGRATED · ~90% closed
-- 📥 **Client onboarding response received & integrated** (Yaseen Amod, 2026-08-03). BKB updated to **v0.2 (authoritative)**; voice-print v0.2; `docs/03` = outstanding register; Gate-1 banners on `CLIENT-BRIEF` + `docs/05–09`. Full audit: **[`GATE-1-REVIEW.md`](GATE-1-REVIEW.md)**.
-- 🧭 **Big corrections:** brand **Velmoré Hotel & Spa** under **Velmore Hospitality Group** (**3 sites** incl. **SCC 1,300-hall**); **50 rooms** (not 99); **corrected venue registry** (Bastille 650/Trisage 300/D'Charmant 550…); **CRM = HubSpot**; **Conferences #1**; **"Book a viewing"** primary CTA; **certified halal** headline; **no alcohol/bar**; location = **Pretoria + Centurion**.
-- 🔴 **Gate 1 NOT formally closed — 5 blockers** (restaurant name · spa name/operator · room rates · wedding pricing structure · boardroom names) each block their page's design. Not closeable until these land.
-- 🔑 **Gate 1 residual** tracked in `docs/03` (5 🔴 + 8 🟠 High + Medium/Low + access batch).
-- ✅ **Strategic / architectural / UX planning IN PROGRESS (no client facts required)** — built ahead so that when answers arrive we swap placeholders and go straight to hi-fi design/dev:
-  - `docs/06-INFORMATION-ARCHITECTURE.md` · `07-PAGE-BLUEPRINTS.md` · `08-CONVERSION-TRACKING-CRM-SPEC.md` · `09-DESIGN-SYSTEM-DIRECTION.md` · `10-COMPONENT-INVENTORY.md`
-  - Placeholder convention **〔G1: …〕** for anything client-dependent; **`[proposed]`** for palette/type (locks against logo at Gate 2). No invented facts/pricing/copy/imagery.
-- ✅ **Business Knowledge Base** (`knowledge-base/`) + **client onboarding pack** (`client-pack/` — .docx + .pdf) done.
-- ⛔ **STILL BLOCKED until Gate 1 + Gate 2:** final website copy · visual/hi-fi design · development & components (code) · real imagery/shoot · live SEO/CRM/analytics integration · mission-vision-values wording · pricing/packages/menus/capacities as fact.
+## Status (2026-08-03) — GATE 1 COMPLETE · GATE 2 READY
+
+Client decision (2026-08-03): the remaining unknowns are **content-completion items, not strategic uncertainties** — they do not affect IA, navigation, journeys, conversion strategy, components, design system, creative direction, visual hierarchy, UX or layout. They are therefore reclassified from Gate-1 blockers to **Content Readiness**. (Project-level decision — Website OS unchanged.)
+
+| Stage | State |
+|---|---|
+| **Gate 1 — Business Discovery & Validation** | ✅ **COMPLETE** (client response integrated; BKB v0.2 authoritative; audit in [`GATE-1-REVIEW.md`](GATE-1-REVIEW.md)) |
+| **Content Readiness** | 🔄 **IN PROGRESS** — items populate placeholders during Design/Dev; tracked in [`docs/03-CLIENT-INFO-REQUIRED.md`](docs/03-CLIENT-INFO-REQUIRED.md) |
+| **Gate 2 — Visual Design** | 🟢 **READY TO BEGIN** (on your go-ahead) |
+
+- 🧭 **Confirmed truths (BKB v0.2):** brand **Velmoré Hotel & Spa** / **Velmore Hospitality Group** (3 sites incl. **SCC 1,300-hall**); **50 rooms**; **corrected venue registry** (Bastille 650/Trisage 300/D'Charmant 550…); **CRM = HubSpot**; **Conferences #1**; **"Book a viewing"** primary CTA; **certified halal** headline; **no alcohol/bar**; **Pretoria + Centurion**; hero = **D'Charmant Glass Hall at dusk**.
+- 🔄 **Content Readiness items** (populate placeholders, do not block design): restaurant name · spa trading name/operator · per-night room rates · wedding pricing structure · hotel boardroom names — plus High/Medium/Low + access batch (`docs/03`).
+- 🛡️ **Guardrail (unchanged):** config-driven, verified-only rendering — **no page goes live showing a Content-Readiness item as fact.** Placeholders render only when confirmed; nothing fabricated ships (OS truth standard).
+- ✅ **Foundations done:** BKB + voice-print (v0.2), `docs/06–11` (IA, page blueprints, conversion/tracking/CRM, design-system direction, components, visual direction), client onboarding pack.
 - 🚫 **Website OS frozen** — no OS changes; improvements route through the Learning Loop after the build.
 - 📦 **Both repos pushed & clean:** `velmore-hotel`; `website-os` @ `3af9d3d`.
-- 📋 **`VALIDATION.md`** working scorecard — fill per phase (evidence → OS v2.5.0).
-- ➡️ **Next session:** on approval, **Gate 2 (Visual Design) may begin on the unblocked foundation** (design system + Home/About/Contact/Events shell/Gallery + placeholder-ready structures of the 5 blocked pages); final design of the 5 blocked pages waits on their 🔴 answers. **No page ships with a 🔴 placeholder.** Awaiting explicit go-ahead for Gate 2.
+- ➡️ **Next:** on approval, begin **Gate 2 (Visual Design)** — Visual Direction Brief + Hero Brief, then low-fi→hi-fi of Home + a flagship hub (Conferences) for review.
 
-## ⏳ Pending
-- [ ] Gate-1 confirmations (see Client-blocked) → then Phase 4 DESIGN (Visual Direction Brief + tokens)
-- [ ] Create client repo from canonical structure + copy handover templates (Phase 5 start)
+## ⏳ Next
+- [ ] **Gate 2 (Visual Design)** on approval — Visual Direction Brief + Hero Brief → low-fi→hi-fi Home + Conferences hub for review.
+- [ ] Create the build repo/app scaffold (Phase 5 start) when design is approved.
 
-## 🔑 Client-blocked (waiting on client)
-- [ ] Canonical **business name** + canonical **domain** (+ 301 decision)
-- [ ] True **room count**; confirm **venue capacities**; **wedding/conference package** inclusions + current prices; **room rates**
-- [ ] **Spa** = Allura confirm + treatment menu; **restaurant** name/menu/hours; halal cert
-- [ ] Correct **phone** + **hours** + WhatsApp number; **real current offers**
-- [ ] **TGCSA grading** certificate (else no star claim); **review consent** + AggregateRating decision
-- [ ] Ownership/entity; founding year; team-building specifics; drive-times (we can measure)
-- [ ] Access: **domain/DNS, GHL, GBP, GA4, eZee booking engine, logo vectors, photography** (+ shoot approval)
-Full list: `docs/03-CLIENT-INFO-REQUIRED.md`.
+## 🔄 Content Readiness (populate placeholders during Design/Dev — NOT design blockers)
+Live register: **[`docs/03-CLIENT-INFO-REQUIRED.md`](docs/03-CLIENT-INFO-REQUIRED.md)**. Content-critical (gate only the affected page's public **launch**, not its design): restaurant name · spa trading name/operator · per-night room rates · wedding pricing structure · hotel boardroom names. Plus High (NAP/hours/WhatsApp · halal certificate · TGCSA · client naming permissions · HubSpot portal · booking engine) · Medium/Low · and the **access batch** (domain/DNS · hosting · GBP · booking engine · **HubSpot** · GA4 · Search Console · GTM · Meta). Photography gap-fill (rooms/spa/food) — decide before design sign-off.
 
 ## Gate results
 | Gate | Status | Date | Notes |
 |---|---|---|---|
-| 1 Research | **~90% — not formally closed** | 2026-08-03 | Client response integrated (BKB v0.2). 5 🔴 blockers remain → `docs/03` + `GATE-1-REVIEW.md` |
-| 2 Pre-build | — | | after Phase 4 design |
+| 1 Research | ✅ **COMPLETE** | 2026-08-03 | Client response integrated (BKB v0.2). Remaining items reclassified as **Content Readiness** → `docs/03` · audit `GATE-1-REVIEW.md` |
+| 2 Pre-build (Design) | 🟢 **READY TO BEGIN** | 2026-08-03 | Visual Direction Brief + Hero Brief next, on approval |
 | 3 Verify | — | | Lighthouse/CWV targets in blueprint Part 20 |
 | 4 Launch | — | | 301 map + citation cleanup required (redesign) |
 

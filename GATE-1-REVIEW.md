@@ -65,4 +65,16 @@ The client supplied their own **Open Items Register** (mirrored in [`docs/03-CLI
 
 ---
 
+## Addendum — decision (2026-08-03): Gate 1 declared COMPLETE
+Project-level decision (client/Bbettr): the remaining unknowns are **content-completion items, not strategic uncertainties.** They affect page *content* only; they do **not** affect Information Architecture, navigation, user journeys, conversion strategy, component planning, the design system, creative direction, visual hierarchy, UX or layout. They are therefore **reclassified from Gate-1 blockers to Content Readiness** (tracked in [`docs/03-CLIENT-INFO-REQUIRED.md`](docs/03-CLIENT-INFO-REQUIRED.md)), populating placeholders during Design/Dev.
+
+Revised status:
+- **Gate 1 (Business Discovery & Validation) — ✅ COMPLETE.**
+- **Content Readiness — 🔄 IN PROGRESS** (items swap into placeholders; no rebuild needed).
+- **Gate 2 (Visual Design) — 🟢 READY TO BEGIN** on approval.
+
+**Guardrail retained:** verified-only, config-driven rendering — no page goes live showing a Content-Readiness item as fact until confirmed; nothing fabricated ships (OS truth standard). Section 5 above is preserved as the original strict-Gate audit; this addendum records the accepted interpretation. *Website OS unchanged — Velmore-only decision.*
+
+---
+
 *No visual design, wireframes or development performed. Awaiting approval to begin Gate 2.*

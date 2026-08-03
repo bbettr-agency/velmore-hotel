@@ -12,8 +12,8 @@ Context for the next session. Read this + `PROJECT_STATUS.md` + `docs/CLIENT-BRI
 - 📦 **Both repositories pushed & clean** (`velmore-hotel`; `website-os` @ `3af9d3d`).
 - 📋 **`VALIDATION.md`** is the project's working scorecard — fill each phase's table at that phase's close (evidence for the Continuous Learning Loop → OS v2.5.0). It does not modify the frozen OS.
 
-## GATE-1 RESPONSE INTEGRATED (2026-08-03) — read first
-Client onboarding response (Yaseen Amod) is integrated. **BKB v0.2 (`knowledge-base/`) is authoritative** for all client facts; **[`GATE-1-REVIEW.md`](GATE-1-REVIEW.md)** is the full audit. Gate 1 is **~90% closed, NOT formally signed off — 5 🔴 blockers remain** (restaurant name · spa name/operator · room rates · wedding pricing · boardroom names → `docs/03`).
+## GATE 1 COMPLETE · GATE 2 READY (2026-08-03) — read first
+Client onboarding response (Yaseen Amod) is integrated. **BKB v0.2 (`knowledge-base/`) is authoritative** for all client facts; **[`GATE-1-REVIEW.md`](GATE-1-REVIEW.md)** is the full audit. **Gate 1 (Business Discovery & Validation) = COMPLETE.** The former 5 blockers are reclassified as **Content Readiness** (content-completion, not design blockers — they populate placeholders during Design/Dev; tracked in `docs/03`). **Gate 2 (Visual Design) = READY TO BEGIN on approval.** Guardrail: verified-only rendering — no page goes live showing a Content-Readiness item as fact.
 **Non-negotiable content rules now govern the build (BKB / voice-print v0.2):** brand **Velmoré Hotel & Spa** (group: Velmore Hospitality Group, 3 sites incl. **SCC 1,300-hall**); **50 rooms** (never 99/100); **capacities from the BKB registry only** (old site figures were wrong); **no alcohol/bar anywhere**; **"certified halal" only** (headline); **don't feature non-sellable assets** (old wing/pool/field/glass-garden-boardroom); **CRM = HubSpot**; **"Book a viewing" = primary CTA**; **hero = D'Charmant Glass Hall at dusk**; location = **Pretoria + Centurion**; **POPIA build requirement**.
 
 ## Parallel workstream (architecture/UX/strategy) — complete (2026-08-02)
