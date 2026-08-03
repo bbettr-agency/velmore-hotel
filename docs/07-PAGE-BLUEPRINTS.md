@@ -29,7 +29,7 @@
 | 2 | **Journey paths** | self-select | 4 cards → hubs, each w/ its own CTA + 1 proof line | light | 4 path CTAs |
 | 3–4 | **Estate Introduction / Capability** *(SHIPPED — `components/home/EstateIntro.tsx`)* | "what is this + why here + can it hold my thing?" (obj #1) | dark-spotlight editorial: the *one estate, one team, one invoice* story (voice-print) + stat pairs **1,300 seats · 3 venues · 50 rooms · 1 invoice**, certified-halal welcome, "held here" links. Narrative, not a feature list. Pretoria & Centurion. | **dark spotlight** | links → /conferences /weddings /events /accommodation |
 | 5 | **Weddings preview** | flagship interest | emotive band + 2–3 real images + capacity/price-guidance teaser 〔G1: pricing〕 | image-left | → /weddings (Request Package) |
-| 6 | **Conferences preview** | flagship interest | "with accommodation" hook + capacity highlight + config icons | image-right | → /conferences (Request Proposal) |
+| 6 | **Conferences preview** *(SHIPPED — `components/home/ConferencesPreview.tsx`)* | flagship interest (obj #1, largest revenue) | image-led editorial split: labelled photography placeholder + the *one team, one invoice, 1,300 delegates* story + 4 capability points (up to 1,300 · residential 50 rooms · certified-halal catering · one invoice); tracking-ready CTAs | light, image-left | **Book a Viewing** → /contact · **Explore Conferences** → /conferences |
 | 7 | **Stay preview** | direct booking | room type teasers + from-rates 〔G1: rates〕 | tinted | Check Availability |
 | 8 | **Spa (Allura) band** | cross-sell + local | restful image + treatment/package teaser 〔G1: menu〕 | image | → /allura-day-spa |
 | 9 | **Dining & estate experiences** | depth + local | restaurant 〔G1: name〕, boma, gardens | light | → /restaurant |

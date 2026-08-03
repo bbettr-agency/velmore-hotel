@@ -16,15 +16,20 @@ export function Button({
   variant = "primary",
   children,
   className,
+  track,
 }: {
   href: string;
   variant?: Variant;
   children: React.ReactNode;
   className?: string;
+  /** Tracking-ready hooks — GTM/analytics can select on these (docs/08 event taxonomy). */
+  track?: { cta: string; location: string };
 }) {
   return (
     <Link
       href={href}
+      data-cta={track?.cta}
+      data-location={track?.location}
       className={clsx(
         "inline-flex items-center justify-center gap-2 rounded-md px-6 py-[15px] text-[14.5px] font-semibold transition-colors duration-200",
         styles[variant],

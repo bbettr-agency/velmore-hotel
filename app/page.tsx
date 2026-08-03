@@ -2,6 +2,7 @@ import { Nav } from "@/components/site/Nav";
 import { Hero } from "@/components/hero/Hero";
 import { JourneySelector } from "@/components/home/JourneySelector";
 import { EstateIntro } from "@/components/home/EstateIntro";
+import { ConferencesPreview } from "@/components/home/ConferencesPreview";
 
 export default function HomePage() {
   return (
@@ -10,6 +11,7 @@ export default function HomePage() {
       <Hero />
       <JourneySelector />
       <EstateIntro />
+      <ConferencesPreview />
     </main>
   );
 }

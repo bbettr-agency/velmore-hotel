@@ -174,6 +174,25 @@ export const site = {
       { label: "Stays", href: routes.accommodation.href },
     ],
   },
+
+  // Homepage Conferences preview — the #1 revenue pillar (facts BKB-confirmed; prose INDICATIVE).
+  conferencesPreview: {
+    eyebrow: "Conferences & residential events",
+    heading: "A conference for thirteen hundred — held by one team, from arrival to departure.", // INDICATIVE
+    body: [
+      "At the Suleman Convention Centre — the largest hall in the area — Velmoré seats up to 1,300 delegates, with executive breakout rooms and fifty rooms for residential sessions.",
+      "One team plans it, runs it and invoices it, with a certified halal kitchen catering for everyone. A government or corporate conference arrives to one point of contact — not a dozen suppliers — held by the same hands from the first delegate to the last goodbye.",
+    ], // INDICATIVE
+    points: [
+      "Up to 1,300 delegates",
+      "Residential — 50 rooms on the estate",
+      "Certified-halal catering",
+      "One team · one invoice",
+    ],
+    imageNote: "Photography placeholder · the 1,300-seat hall (to be shot)",
+    primary: { label: "Book a Viewing", href: routes.contact.href },
+    secondary: { label: "Explore Conferences", href: routes.conferences.href },
+  },
 } as const;
 
 export type Site = typeof site;

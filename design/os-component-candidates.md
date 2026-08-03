@@ -13,7 +13,9 @@ promotion goes through `PIPELINE/learning-loop.md` on a 2nd project). Updated as
 | 5 | **Stat-pair band** (in `EstateIntro`) | numerals-as-proof, editorial not boxy — the OS "stat pairs are first-class" rule, built | `ENGINE/ui` |
 | 6 | **Dark-spotlight editorial section** (`EstateIntro`) | the Design Language's "most important trust moment" pattern, realised | `ENGINE/ui` (Section variant) |
 | 7 | **Certified/trust badge** (halal badge, reused hero+estate) | a verified-only trust emblem component | `ENGINE/ui` |
-| 8 | **CSS dusk-hero placeholder system** (`globals.css` `.hero-*`) | a photography-placeholder that still reads premium before the shoot | template pattern |
+| 8 | **CSS photography-placeholder system** (`globals.css` `.hero-*`, `.conf-*`) | premium, clearly-labelled image placeholders (dusk + warm-interior variants) before the shoot | template pattern |
+| 9 | **Tracking-ready `Button`** (`track={{cta,location}}` → `data-cta`/`data-location`) | GTM/analytics select on data-attrs; no analytics coupling in the component (docs/08 taxonomy) | `ENGINE/ui` + analytics |
+| 10 | **Image-led editorial split section** (`ConferencesPreview`) | premium "preview" pattern for a service (image + story + capability points + dual CTA), reusable for weddings/spa/etc. | `ENGINE/ui` (Section variant) |
 
 ### Not yet built, noted for later
 - **`Reveal`** (IntersectionObserver, once, reduced-motion + no-JS safe) scroll-reveal wrapper — deferred so this milestone stays no-JS-robust; strong OS candidate when added.
