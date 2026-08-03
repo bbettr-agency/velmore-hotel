@@ -150,6 +150,30 @@ export const site = {
       },
     ],
   },
+
+  // Estate Introduction / Capability — the "why different" story (facts are BKB-confirmed;
+  // prose is INDICATIVE, pending the copy stage).
+  estate: {
+    eyebrow: "One estate, three venues",
+    heading: "Not a room you hire. An estate that holds the whole occasion.", // INDICATIVE
+    body: [
+      "Velmoré is one team, running three venues across Pretoria and Centurion — including a 1,300-seat hall, the largest in the area, a kilometre and a half from the estate.",
+      "Under one roof and one invoice: executive breakout rooms, fifty rooms for the night, gardens and a chapel, and a certified halal kitchen that caters for every guest. Marry, meet, celebrate or stay — held, from the first enquiry to the last goodbye, by the same hands.",
+    ], // INDICATIVE
+    stats: [
+      { value: "1,300", unit: "seats", note: "the largest hall in the area" },
+      { value: "3", unit: "venues", note: "across Pretoria & Centurion" },
+      { value: "50", unit: "rooms", note: "for the night, on the estate" },
+      { value: "1", unit: "invoice", note: "one team, one contract" },
+    ],
+    halal: "for every guest — without being asked.", // INDICATIVE (paired with the Certified Halal badge)
+    holds: [
+      { label: "Conferences", href: routes.conferences.href },
+      { label: "Weddings", href: routes.weddings.href },
+      { label: "Celebrations", href: routes.events.href },
+      { label: "Stays", href: routes.accommodation.href },
+    ],
+  },
 } as const;
 
 export type Site = typeof site;

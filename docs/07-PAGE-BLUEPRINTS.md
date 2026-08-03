@@ -27,8 +27,7 @@
 |---|---|---|---|---|---|
 | 1 | **Hero (Editorial + journey selector)** | "what is this / is it for me / where?" | one cinematic estate image (LCP, no animate-in); H1 *ex.* "An estate for the whole occasion — between Pretoria & Johannesburg"; sub w/ breadth+location; 3 proof chips: 〔G1: rooms〕 · ~15 venues to 1,500 · day spa; **journey selector** Stay/Weddings/Conferences/Celebrations | image | persistent [Check Availability]; `Hotel`+`WebSite` schema |
 | 2 | **Journey paths** | self-select | 4 cards → hubs, each w/ its own CTA + 1 proof line | light | 4 path CTAs |
-| 3 | **Estate intro + location advantage** | "what is this + why here?" | short estate story (from voice-print), "one estate, all-in-one", drive-times 〔G1: measure/confirm〕, "between PTA & JHB" | tinted | link → /about, /contact |
-| 4 | **Capacity/scale proof strip** | objection #1 (fit) | stat pairs: 〔G1: rooms〕 · ~15 venues · 8→1,500 guests · one estate (all `[verified]` only) | light | — (stats = `Hotel` amenities) |
+| 3–4 | **Estate Introduction / Capability** *(SHIPPED — `components/home/EstateIntro.tsx`)* | "what is this + why here + can it hold my thing?" (obj #1) | dark-spotlight editorial: the *one estate, one team, one invoice* story (voice-print) + stat pairs **1,300 seats · 3 venues · 50 rooms · 1 invoice**, certified-halal welcome, "held here" links. Narrative, not a feature list. Pretoria & Centurion. | **dark spotlight** | links → /conferences /weddings /events /accommodation |
 | 5 | **Weddings preview** | flagship interest | emotive band + 2–3 real images + capacity/price-guidance teaser 〔G1: pricing〕 | image-left | → /weddings (Request Package) |
 | 6 | **Conferences preview** | flagship interest | "with accommodation" hook + capacity highlight + config icons | image-right | → /conferences (Request Proposal) |
 | 7 | **Stay preview** | direct booking | room type teasers + from-rates 〔G1: rates〕 | tinted | Check Availability |
