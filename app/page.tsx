@@ -1,13 +1,13 @@
 import { Nav } from "@/components/site/Nav";
 import { Hero } from "@/components/hero/Hero";
-import { JourneyPeek } from "@/components/home/JourneyPeek";
+import { JourneySelector } from "@/components/home/JourneySelector";
 
 export default function HomePage() {
   return (
     <main id="main">
       <Nav />
       <Hero />
-      <JourneyPeek />
+      <JourneySelector />
     </main>
   );
 }

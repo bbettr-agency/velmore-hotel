@@ -33,8 +33,8 @@ Every page has: a URL, a type, a single primary intent, a single primary convers
 | 10 | Year-end functions | `/events/year-end-functions` | Landing (seasonal) | year-end fit | Enquire / Request Proposal | P1 |
 | 11 | Team building | `/events/team-building` | Landing | host-venue fit | Enquire | P1 |
 | 12 | Celebrations | `/events/celebrations` | Landing | private-event fit (matric/birthday/gala/memorial) | Plan an Event | P1 |
-| 13 | Restaurant | `/restaurant` | Service landing | dine / private dining | Book a Table | P1 |
-| 14 | Allura Day Spa | `/allura-day-spa` | Service landing | treatments + spa day | Book a Spa Day | P0 |
+| 13 | Dining | `/dining` | Service landing | dine / private dining | Book a Table | P1 |
+| 14 | Spa | `/spa` | Service landing | treatments + spa day | Book a Spa Day | P0 |
 | 15 | Specials | `/specials` | Offers hub | current deals | Claim / Enquire | P1 |
 | 16 | Gallery | `/gallery` | Proof | see it's real | contextual path CTA | P1 |
 | 17 | About / the estate | `/about` | Trust / story | who + where + trust | contextual | P1 |
@@ -53,7 +53,8 @@ Every page has: a URL, a type, a single primary intent, a single primary convers
 ## 2. URL architecture (rules — our decision, no client input)
 
 - Lowercase, hyphen-separated, no trailing slash enforced consistently (pick one at build; canonical set either way).
-- **Descriptive, keyword-natural, stable:** `/weddings`, `/conferences`, `/allura-day-spa` — not `/services/venue-1`.
+- **Descriptive, keyword-natural, stable:** `/weddings`, `/conferences`, `/dining`, `/spa` — not `/services/venue-1`.
+- **Route-naming decision (2026-08-03, shipped):** the dining route is **`/dining`** and the spa route is **`/spa`** (generic) — *not* `/restaurant` or `/allura-day-spa`. The restaurant and spa **trading names are unconfirmed** (Content Readiness), so name-agnostic URLs stay stable and avoid a future URL change. Other inline references below that still say `/restaurant` / `/allura-day-spa` are superseded by this decision.
 - **`/events/` parent** groups non-wedding/non-conference functions; each child is a real, differentiated page (no doorway pages, OS rule).
 - No dates, no IDs, no query params in canonical URLs; campaign params (`utm_*`, `gclid`, `fbclid`) are captured but never part of the canonical (`docs/05` Part 28).
 - **One canonical per page**; self-referencing canonical tag sitewide.
@@ -130,8 +131,8 @@ Each audience can enter at **home OR directly on its service page** (paid/organi
 ├── /weddings ─ /weddings/packages · /weddings/real-weddings
 ├── /conferences ─ /conferences/venues/[venue]
 ├── /events ─ /events/year-end-functions · /events/team-building · /events/celebrations
-├── /restaurant
-├── /allura-day-spa
+├── /dining
+├── /spa
 ├── /specials
 ├── /gallery
 ├── /about
