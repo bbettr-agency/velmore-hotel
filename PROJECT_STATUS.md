@@ -47,7 +47,8 @@ Client decision (2026-08-03): the remaining unknowns are **content-completion it
 - 🎯 **Creative Concept complete** → `docs/13` — the emotional foundation ("The Confident Host": capable · gracious · quietly elegant · genuinely glad you're here). Sharpens the three pillars (Capability→confidence, Hospitality→welcome+belonging, Elegance→the manner) + Ease as the conversion emotion + the decision test. Every future decision inherits it.
 - ⭐ **North Star** (final, simplified) → `docs/14`: ***"Every occasion — and everyone in it — held in capable, caring hands."*** The one promise every decision is measured against. **Creative foundation is now complete.**
 - 🖼️ **Hero exploration complete** → `docs/15-HERO-EXPLORATION.md` — 7 directions interrogated, compared, narrowed. **Recommended: Primary = "The Glass Hall at Dusk, Held"** (editorial full-bleed of D'Charmant at dusk + a capability/trust proof strip + Book-a-viewing; journey selector demoted to a band below); **Backup = "One Site, One Team, One Invoice"** (split copy/evidence — and the natural Conferences-page hero). Awaiting your selection.
-- ➡️ **Next (on selection of a Hero direction):** design the chosen Hero (still Gate 2). No visual design until a direction is chosen.
+- 🎬 **Hero art direction complete** → `docs/16-HERO-ART-DIRECTION.md` — Creative-Director treatment of the chosen Primary hero (D'Charmant Glass Hall at dusk): camera/lens/light/atmosphere/scale/composition/depth/focus/movement/pacing, the **Hero Cinematic Narrative** (4 frames), mobile crop, anti-direction, shot note. Primary direction approved by client (2026-08-03).
+- ➡️ **Next (on approval of the art direction):** **design the Hero itself** (first visual design of Gate 2). No UI/layout/components/wireframes/mockups/code until approved.
 
 ## ⏳ Next
 - [ ] **Gate 2 (Visual Design)** on approval — Visual Direction Brief + Hero Brief → low-fi→hi-fi Home + Conferences hub for review.
