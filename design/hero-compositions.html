@@ -1,0 +1,330 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Velmoré — Hero Composition Studies</title>
+<style>
+  :root{
+    --estate900:#1E2B1F; --estate700:#2E402F; --champ:#B8923B; --champ2:#EAD9B0;
+    --ink:#1E1D1A; --steel:#6B675C; --stone:#B8B2A5; --mist:#EFEADE; --ivory:#FAF6EE; --white:#fff;
+    --serif:Georgia,'Times New Roman',serif; --sans:-apple-system,Segoe UI,Helvetica,Arial,sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:var(--sans);color:var(--ink);background:#EDE7DB;line-height:1.55;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:1180px;margin:0 auto;padding:40px 28px 80px}
+  .masthead{border-bottom:3px solid var(--champ);padding-bottom:18px;margin-bottom:10px}
+  .masthead h1{font-family:var(--serif);color:var(--estate700);font-size:30px;font-weight:600;letter-spacing:-.01em}
+  .masthead .k{font-family:var(--sans);text-transform:uppercase;letter-spacing:.18em;font-size:11px;color:var(--champ);font-weight:700;margin-bottom:6px}
+  .note{font-size:13px;color:var(--steel);margin:14px 0 30px;max-width:70ch}
+  .note b{color:var(--ink)}
+
+  .study{background:var(--ivory);border:1px solid #E2DBCC;border-radius:14px;overflow:hidden;margin:0 0 26px;box-shadow:0 20px 50px -34px rgba(30,29,26,.4)}
+  .study-head{display:flex;align-items:baseline;gap:12px;padding:16px 22px 14px;border-bottom:1px solid #ECE5D6}
+  .study-head .num{font-family:var(--serif);color:var(--champ);font-size:26px;font-weight:600;line-height:1}
+  .study-head h2{font-family:var(--serif);color:var(--estate700);font-size:21px;font-weight:600}
+  .study-head .tag{margin-left:auto;font-size:11px;text-transform:uppercase;letter-spacing:.12em;color:var(--steel);border:1px solid var(--stone);border-radius:999px;padding:4px 10px;white-space:nowrap}
+  .tag.rec{color:#fff;background:var(--estate700);border-color:var(--estate700)}
+
+  /* ---- the hero frame (dusk glass hall placeholder) ---- */
+  .hero{position:relative;aspect-ratio:12/5;min-height:300px;color:var(--ivory);
+    background:
+      radial-gradient(120% 90% at 68% 42%, rgba(216,178,90,.55) 0%, rgba(184,146,59,.18) 26%, rgba(30,43,31,0) 55%),
+      radial-gradient(60% 50% at 70% 40%, rgba(255,236,190,.55), rgba(255,236,190,0) 60%),
+      linear-gradient(180deg,#243244 0%, #1d2a32 42%, #172420 100%);
+    overflow:hidden}
+  /* faint vertical glass mullions */
+  .hero::before{content:"";position:absolute;inset:0;opacity:.16;
+    background:repeating-linear-gradient(90deg, rgba(255,255,255,.5) 0 1px, rgba(255,255,255,0) 1px 46px)}
+  /* chandelier glints */
+  .hero .glints{position:absolute;inset:0;opacity:.9;pointer-events:none;
+    background:
+      radial-gradient(circle at 62% 34%, rgba(255,240,205,.9) 0 2px, transparent 3px),
+      radial-gradient(circle at 72% 30%, rgba(255,240,205,.8) 0 2px, transparent 3px),
+      radial-gradient(circle at 80% 36%, rgba(255,240,205,.7) 0 1.5px, transparent 3px),
+      radial-gradient(circle at 55% 40%, rgba(255,240,205,.6) 0 1.5px, transparent 3px)}
+  .hero .ph{position:absolute;top:10px;right:12px;font-size:9.5px;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.5);z-index:5}
+  .hero .brand{position:absolute;top:14px;left:20px;z-index:5;font-family:var(--serif);font-weight:600;letter-spacing:.02em}
+  .hero .brand b{font-size:17px}.hero .brand span{display:block;font-family:var(--sans);font-size:8.5px;letter-spacing:.32em;text-transform:uppercase;opacity:.85;margin-top:2px}
+  /* bottom scrim reserved calm zone */
+  .hero .scrim{position:absolute;inset:0;background:linear-gradient(0deg, rgba(23,36,32,.92) 0%, rgba(23,36,32,.55) 22%, rgba(23,36,32,0) 46%)}
+
+  .copy{position:absolute;z-index:4;max-width:none}
+  .eyebrow{font-family:var(--sans);text-transform:uppercase;letter-spacing:.22em;font-size:10px;font-weight:700;color:var(--champ2)}
+  .h1{font-family:var(--serif);font-weight:600;line-height:1.06;letter-spacing:-.01em;color:#fff;margin:8px 0}
+  .sub{font-size:12.5px;line-height:1.5;color:rgba(250,246,238,.9);max-width:44ch}
+  .trust{display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center;margin-top:12px}
+  .trust span{font-size:10.5px;letter-spacing:.02em;color:rgba(250,246,238,.92);display:flex;align-items:center;gap:6px}
+  .trust span::before{content:"";width:4px;height:4px;border-radius:50%;background:var(--champ)}
+  .halal{border:1px solid var(--champ2);border-radius:999px;padding:3px 9px;color:var(--champ2)!important}
+  .halal::before{display:none!important}
+  .cta{display:flex;gap:10px;align-items:center;margin-top:14px;flex-wrap:wrap}
+  .btn{font-family:var(--sans);font-weight:600;font-size:12px;padding:10px 18px;border-radius:9px;border:1px solid transparent;white-space:nowrap}
+  .btn.p{background:var(--champ);color:var(--ink)}
+  .btn.s{background:transparent;border-color:rgba(250,246,238,.6);color:#fff}
+  .reassure{font-size:9.5px;color:rgba(250,246,238,.6);margin-top:8px}
+
+  /* ---------- composition modifiers ---------- */
+  /* 1 lower-third, left */
+  .c1 .copy{left:6%;right:6%;bottom:8%}
+  .c1 .h1{font-size:33px;max-width:16ch}
+  /* 2 left column, mid */
+  .c2 .copy{left:6%;top:50%;transform:translateY(-50%);max-width:52%}
+  .c2 .scrim{background:linear-gradient(90deg, rgba(23,36,32,.9) 0%, rgba(23,36,32,.5) 40%, rgba(23,36,32,0) 70%)}
+  .c2 .h1{font-size:34px;max-width:14ch}
+  /* 3 centered ceremonial */
+  .c3 .copy{left:8%;right:8%;top:50%;transform:translateY(-50%);text-align:center}
+  .c3 .scrim{background:radial-gradient(80% 90% at 50% 55%, rgba(23,36,32,.82), rgba(23,36,32,.25) 70%)}
+  .c3 .h1{font-size:36px;max-width:20ch;margin-left:auto;margin-right:auto}
+  .c3 .sub{margin:0 auto;max-width:52ch}.c3 .trust,.c3 .cta{justify-content:center}
+  /* 4 split panel */
+  .c4{display:grid;grid-template-columns:1.05fr .95fr}
+  .c4 .panel{background:var(--estate700);position:relative;z-index:6;display:flex;flex-direction:column;justify-content:center;padding:6% 6%}
+  .c4 .panel .h1{font-size:30px;max-width:15ch}
+  .c4 .scrim{display:none}.c4 .brand{color:#fff}
+  .c4 .copy{position:static;transform:none}
+  /* 5 overlap proof card */
+  .c5 .copy{left:6%;bottom:16%;max-width:60%}
+  .c5 .h1{font-size:32px;max-width:15ch}
+  .c5 .card{position:absolute;z-index:8;right:6%;bottom:-34px;background:var(--ivory);color:var(--ink);border-radius:12px;padding:14px 18px;box-shadow:0 24px 50px -26px rgba(30,29,26,.5);max-width:280px}
+  .c5 .card .ct{font-family:var(--serif);color:var(--estate700);font-size:14px;font-weight:600;margin-bottom:8px}
+  .c5 .card .row{font-size:11px;color:var(--ink);display:flex;gap:7px;align-items:center;margin:4px 0}
+  .c5 .card .row::before{content:"";width:4px;height:4px;border-radius:50%;background:var(--champ)}
+  .c5wrap{padding-bottom:24px}
+  /* 6 pure restraint */
+  .c6 .copy{left:6%;right:6%;bottom:9%}
+  .c6 .h1{font-size:38px;max-width:15ch}
+  .c6 .trust{margin-top:8px}
+
+  /* ---- annotations ---- */
+  .anno{padding:16px 22px 20px;display:grid;grid-template-columns:repeat(2,1fr);gap:10px 26px}
+  .anno .row2{grid-column:1/-1;display:grid;grid-template-columns:1fr 1fr;gap:10px 26px}
+  .f{font-size:12.5px;line-height:1.5}
+  .f b:first-child{display:block;font-size:10px;text-transform:uppercase;letter-spacing:.1em;color:var(--champ);font-weight:700;margin-bottom:1px}
+  .pillbar{display:flex;gap:6px;align-items:center;margin-top:2px}
+  .meter{height:6px;border-radius:3px;background:linear-gradient(90deg,var(--champ) 0 var(--e),#DfD8C8 var(--e) 100%);flex:1}
+  .meterlbl{font-size:9.5px;color:var(--steel);white-space:nowrap}
+  .adv{color:#2f6b46}.wk{color:#9a4a3f}
+  .anno .f.full{grid-column:1/-1}
+
+  /* comparison + recommendation */
+  h3.sec{font-family:var(--serif);color:var(--estate700);font-size:22px;margin:34px 0 12px}
+  table{width:100%;border-collapse:collapse;font-size:12px;background:var(--ivory);border-radius:12px;overflow:hidden;box-shadow:0 16px 40px -34px rgba(30,29,26,.4)}
+  th,td{padding:9px 11px;border:1px solid #E7E0D1;text-align:center}
+  th{background:var(--estate700);color:#fff;font-weight:600;font-size:11px}
+  td:first-child,th:first-child{text-align:left}
+  td.on{color:var(--estate700);font-weight:700}
+  .rec{background:var(--estate700);color:var(--ivory);border-radius:14px;padding:24px 26px;margin-top:22px}
+  .rec .k{color:var(--champ2);text-transform:uppercase;letter-spacing:.16em;font-size:11px;font-weight:700}
+  .rec h3{font-family:var(--serif);font-size:24px;margin:6px 0 10px;color:#fff}
+  .rec p{font-size:13.5px;color:rgba(250,246,238,.9);max-width:78ch;margin-bottom:8px}
+  .rec b{color:#fff}
+  .foot{font-size:11px;color:var(--steel);margin-top:26px;border-top:1px solid #D9D2C4;padding-top:14px}
+  @media print{ .study,.rec,table{break-inside:avoid} @page{size:1200px 1320px;margin:0} body{background:#EDE7DB} }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="masthead">
+    <div class="k">Velmoré Hotel &amp; Spa · Gate 2 · composition exploration</div>
+    <h1>Hero Composition Studies</h1>
+  </div>
+  <p class="note"><b>Same creative idea, six visual hierarchies.</b> The concept (The Confident Host), the art direction (the D'Charmant Glass Hall at dusk — warm-within-cool, guest-arrival), and the North Star are fixed. Only <b>composition</b> varies here. Imagery is a <b>placeholder</b> for the dusk hero; copy is <b>indicative, not final</b>. Confirmed facts shown: the 1,300-seat hall, 50 beds, certified halal, one invoice, Pretoria &amp; Centurion, and the <b>Book a viewing</b> primary action.</p>
+
+  <!-- ============ 1 ============ -->
+  <div class="study">
+    <div class="study-head"><span class="num">1</span><h2>Lower-Third, Left</h2><span class="tag rec">Recommended · Homepage</span></div>
+    <div class="hero c1"><div class="glints"></div><div class="ph">Photography placeholder</div>
+      <div class="brand"><b>Velmoré</b><span>Hotel &amp; Spa</span></div><div class="scrim"></div>
+      <div class="copy">
+        <div class="eyebrow">Pretoria &amp; Centurion</div>
+        <div class="h1">The whole occasion, held.</div>
+        <div class="sub">Weddings, conferences and celebrations — one estate, one team, one invoice.</div>
+        <div class="trust"><span>1,300-seat hall</span><span>50 beds</span><span class="halal">Certified Halal</span><span>One invoice</span></div>
+        <div class="cta"><span class="btn p">Book a viewing</span><span class="btn s">Enquire for your date</span></div>
+        <div class="reassure">Free · no obligation · same-day reply</div>
+      </div>
+    </div>
+    <div class="anno">
+      <div class="f"><b>Layout philosophy</b>Image full-bleed; all copy anchored in the calm lower-third, left-aligned — the art-direction-native composition. The glowing hall breathes upper-right; the eye travels glow → scale → threshold → copy.</div>
+      <div class="f"><b>Typography placement</b>Stacked lower-left: eyebrow → H1 (2–3 lines) → sub → trust → CTA. One consistent left edge to scan.</div>
+      <div class="f"><b>Trust placement</b>A single quiet strip <i>directly above the CTA</i> — trust at the point of decision (proximity principle).</div>
+      <div class="f"><b>CTA placement</b>Primary + secondary lowest in the stack, in the thumb zone; nothing competes.</div>
+      <div class="f"><b>Image treatment</b>Full-bleed dusk; bottom-to-transparent scrim only where copy sits — the photo stays at full strength above.</div>
+      <div class="f"><b>Emotion ↔ evidence</b><div class="pillbar"><div class="meter" style="--e:62%"></div><span class="meterlbl">balanced, emotion-led</span></div></div>
+      <div class="f full"><b>Mobile behaviour</b>Translates almost unchanged: the 4:5 crop keeps the glow up top, copy stacks in the lower third, trust wraps to two rows, full-width Book-a-viewing in the thumb zone. The most robust of the six on mobile.</div>
+      <div class="f adv"><b>Advantages</b>Serves both guests at once (couple: full beautiful image; procurement: proof beside the CTA); faithful to the art direction; single focal point; strongest mobile parity.</div>
+      <div class="f wk"><b>Weaknesses</b>Copy sits over the image, so the dusk region behind the lower-third must be dark enough (managed by the scrim + crop).</div>
+      <div class="f full"><b>Best use case</b>The <b>homepage</b> — brand + both audiences + the gap-close in one frame.</div>
+    </div>
+  </div>
+
+  <!-- ============ 2 ============ -->
+  <div class="study">
+    <div class="study-head"><span class="num">2</span><h2>Left Column, Mid-Height</h2></div>
+    <div class="hero c2"><div class="glints"></div><div class="ph">Photography placeholder</div>
+      <div class="brand"><b>Velmoré</b><span>Hotel &amp; Spa</span></div><div class="scrim"></div>
+      <div class="copy">
+        <div class="eyebrow">Pretoria &amp; Centurion</div>
+        <div class="h1">The whole occasion, held.</div>
+        <div class="sub">Weddings, conferences and celebrations — one estate, one team, one invoice.</div>
+        <div class="trust"><span>1,300-seat hall</span><span>50 beds</span><span class="halal">Certified Halal</span></div>
+        <div class="cta"><span class="btn p">Book a viewing</span><span class="btn s">Enquire</span></div>
+      </div>
+    </div>
+    <div class="anno">
+      <div class="f"><b>Layout philosophy</b>Copy vertically centred on the left; a left-to-right scrim keeps the right half (the glowing hall) clear. Classic editorial asymmetry.</div>
+      <div class="f"><b>Typography placement</b>Left third, vertically centred — a strong reading column with a larger H1.</div>
+      <div class="f"><b>Trust placement</b>Under the sub, above the CTA, within the left column.</div>
+      <div class="f"><b>CTA placement</b>Mid-left, immediately after trust — high on the screen, fast to reach.</div>
+      <div class="f"><b>Image treatment</b>Full-bleed; the focal glow deliberately kept on the open right side.</div>
+      <div class="f"><b>Emotion ↔ evidence</b><div class="pillbar"><div class="meter" style="--e:50%"></div><span class="meterlbl">even balance</span></div></div>
+      <div class="f full"><b>Mobile behaviour</b>The left column drops to a lower-left stack (the mid-height anchor doesn't hold on a tall crop) — effectively converges with Composition 1 on phones.</div>
+      <div class="f adv"><b>Advantages</b>Very readable; strong left-edge scan; copy sits higher (good for skimmers); premium editorial feel.</div>
+      <div class="f wk"><b>Weaknesses</b>The side scrim covers more of the image, dimming the emotion; two near-equal focal weights (copy vs glow) risk splitting attention.</div>
+      <div class="f full"><b>Best use case</b>Copy-forward inner landing pages (e.g., <b>Weddings</b> storytelling) where reading comes first.</div>
+    </div>
+  </div>
+
+  <!-- ============ 3 ============ -->
+  <div class="study">
+    <div class="study-head"><span class="num">3</span><h2>Centred Ceremonial</h2></div>
+    <div class="hero c3"><div class="glints"></div><div class="ph">Photography placeholder</div>
+      <div class="brand"><b>Velmoré</b><span>Hotel &amp; Spa</span></div><div class="scrim"></div>
+      <div class="copy">
+        <div class="eyebrow">Pretoria &amp; Centurion</div>
+        <div class="h1">The whole occasion, held.</div>
+        <div class="sub">Weddings, conferences and celebrations — one estate, one team, one invoice.</div>
+        <div class="trust"><span>1,300-seat hall</span><span class="halal">Certified Halal</span><span>One invoice</span></div>
+        <div class="cta"><span class="btn p">Book a viewing</span></div>
+      </div>
+    </div>
+    <div class="anno">
+      <div class="f"><b>Layout philosophy</b>Symmetric, centred statement over a radial scrim — formal and ceremonial, the venue as a stage.</div>
+      <div class="f"><b>Typography placement</b>Centred mid-frame; H1 as a headline statement; everything mirrored around the axis.</div>
+      <div class="f"><b>Trust placement</b>Centred beneath the sub — reads as a crest/hallmark line.</div>
+      <div class="f"><b>CTA placement</b>A single centred button (secondary dropped for purity).</div>
+      <div class="f"><b>Image treatment</b>Full-bleed with a centred radial scrim — the glow is partly veiled to hold the type.</div>
+      <div class="f"><b>Emotion ↔ evidence</b><div class="pillbar"><div class="meter" style="--e:70%"></div><span class="meterlbl">emotion-led, formal</span></div></div>
+      <div class="f full"><b>Mobile behaviour</b>Holds its symmetry but centred long lines wrap awkwardly on narrow screens; centred trust + CTA are less thumb-optimal than a left/edge stack.</div>
+      <div class="f adv"><b>Advantages</b>Grand, timeless, wedding-ceremonial; unmistakably premium; great for a single-message moment.</div>
+      <div class="f wk"><b>Weaknesses</b>Centred layouts read as "template" if not perfect; softer capability signal; weakest scannability for a procurement skimmer; veiling the glow costs emotion.</div>
+      <div class="f full"><b>Best use case</b>A <b>Weddings</b> hero or a campaign landing page with one message.</div>
+    </div>
+  </div>
+
+  <!-- ============ 4 ============ -->
+  <div class="study c4wrap">
+    <div class="study-head"><span class="num">4</span><h2>Editorial Split Panel</h2><span class="tag">Evidence-forward</span></div>
+    <div class="hero c4">
+      <div class="panel">
+        <div class="brand" style="position:static;margin-bottom:18px"><b>Velmoré</b><span>Hotel &amp; Spa</span></div>
+        <div class="copy">
+          <div class="eyebrow">Pretoria &amp; Centurion</div>
+          <div class="h1">The whole occasion, held.</div>
+          <div class="sub" style="color:rgba(250,246,238,.85)">Weddings, conferences and celebrations — one estate, one team, one invoice.</div>
+          <div class="trust"><span>1,300-seat hall</span><span>50 beds</span><span class="halal">Certified Halal</span><span>One invoice</span></div>
+          <div class="cta"><span class="btn p">Book a viewing</span><span class="btn s">Enquire for your date</span></div>
+        </div>
+      </div>
+      <div style="position:relative"><div class="glints"></div><div class="ph">Photography placeholder</div></div>
+    </div>
+    <div class="anno">
+      <div class="f"><b>Layout philosophy</b>The dusk image and a solid estate-green panel share the frame; copy lives in its own calm space rather than over the photo.</div>
+      <div class="f"><b>Typography placement</b>All type inside the panel, left-aligned, on a controlled surface — maximum legibility.</div>
+      <div class="f"><b>Trust placement</b>Full four-item strip in the panel, directly above the CTA — the clearest proof of the six.</div>
+      <div class="f"><b>CTA placement</b>Primary + secondary in the panel, unmissable on the solid ground.</div>
+      <div class="f"><b>Image treatment</b>Image is ~half-frame — still the dusk hall, but no longer full-bleed; less immersive, more "product".</div>
+      <div class="f"><b>Emotion ↔ evidence</b><div class="pillbar"><div class="meter" style="--e:34%"></div><span class="meterlbl">evidence-led</span></div></div>
+      <div class="f full"><b>Mobile behaviour</b>Panel stacks above (or below) a shortened image band — copy first, image second; very reliable, if less cinematic.</div>
+      <div class="f adv"><b>Advantages</b>Best legibility &amp; message-match; strongest for the procurement buyer and paid search; contrast is guaranteed (no text-over-image risk).</div>
+      <div class="f wk"><b>Weaknesses</b>Sacrifices the full-bleed awe — the gap-close is weaker; closest of the six to a "corporate" feel; least emotional.</div>
+      <div class="f full"><b>Best use case</b>The <b>Conferences</b> hero (the #1 paid-search landing page) — the backup direction from <code>docs/15</code>.</div>
+    </div>
+  </div>
+
+  <!-- ============ 5 ============ -->
+  <div class="study">
+    <div class="study-head"><span class="num">5</span><h2>Overlap Proof Card</h2></div>
+    <div class="hero c5"><div class="glints"></div><div class="ph">Photography placeholder</div>
+      <div class="brand"><b>Velmoré</b><span>Hotel &amp; Spa</span></div><div class="scrim"></div>
+      <div class="copy">
+        <div class="eyebrow">Pretoria &amp; Centurion</div>
+        <div class="h1">The whole occasion, held.</div>
+        <div class="sub">One estate, one team, one invoice.</div>
+        <div class="cta"><span class="btn p">Book a viewing</span><span class="btn s">Enquire</span></div>
+      </div>
+      <div class="card">
+        <div class="ct">Held here</div>
+        <div class="row">1,300-seat hall · largest in the area</div>
+        <div class="row">50 beds on the estate</div>
+        <div class="row">Certified halal kitchen</div>
+        <div class="row">One team · one invoice</div>
+      </div>
+    </div>
+    <div class="anno">
+      <div class="f"><b>Layout philosophy</b>Emotion in the frame; the proof lifted into a small card that <i>overlaps the fold</i>, signalling "there is more below" (a free scroll cue).</div>
+      <div class="f"><b>Typography placement</b>H1 + sub lower-left over the image; proof relocated into the card.</div>
+      <div class="f"><b>Trust placement</b>A dedicated floating card on the ivory surface — the proof gets its own object and maximum contrast.</div>
+      <div class="f"><b>CTA placement</b>With the H1, lower-left; the card is proof, not action.</div>
+      <div class="f"><b>Image treatment</b>Full-bleed dusk; the card breaks the bottom edge into the next section.</div>
+      <div class="f"><b>Emotion ↔ evidence</b><div class="pillbar"><div class="meter" style="--e:52%"></div><span class="meterlbl">balanced + scroll cue</span></div></div>
+      <div class="f full"><b>Mobile behaviour</b>The card drops below the image (overlap can't survive a tall crop) — becomes image → copy → proof-card stack; the scroll-cue benefit is largely lost on phones.</div>
+      <div class="f adv"><b>Advantages</b>Proof is crisp and legible on its own surface; the overlap invites the scroll; distinctive.</div>
+      <div class="f wk"><b>Weaknesses</b>Two objects competing near the fold; the overlap is fragile and doesn't translate to mobile; adds complexity for modest gain.</div>
+      <div class="f full"><b>Best use case</b>A desktop-led landing page where a strong single proof-cluster earns its own moment.</div>
+    </div>
+  </div>
+
+  <!-- ============ 6 ============ -->
+  <div class="study">
+    <div class="study-head"><span class="num">6</span><h2>Pure Restraint</h2><span class="tag">Emotion-max</span></div>
+    <div class="hero c6"><div class="glints"></div><div class="ph">Photography placeholder</div>
+      <div class="brand"><b>Velmoré</b><span>Hotel &amp; Spa</span></div><div class="scrim"></div>
+      <div class="copy">
+        <div class="eyebrow">Pretoria &amp; Centurion</div>
+        <div class="h1">The whole occasion, held.</div>
+        <div class="trust"><span class="halal">Certified Halal</span></div>
+        <div class="cta"><span class="btn p">Book a viewing</span></div>
+      </div>
+    </div>
+    <div class="anno">
+      <div class="f"><b>Layout philosophy</b>Maximum breathing room; the image carries almost everything. One line, one badge, one button.</div>
+      <div class="f"><b>Typography placement</b>A single large H1 lower-left; no sub above the fold.</div>
+      <div class="f"><b>Trust placement</b>One signal only — the certified-halal badge; all other proof deferred below the fold.</div>
+      <div class="f"><b>CTA placement</b>A single Book-a-viewing button; nothing else.</div>
+      <div class="f"><b>Image treatment</b>Full-bleed dusk at full strength; the lightest scrim of the six.</div>
+      <div class="f"><b>Emotion ↔ evidence</b><div class="pillbar"><div class="meter" style="--e:86%"></div><span class="meterlbl">emotion-max</span></div></div>
+      <div class="f full"><b>Mobile behaviour</b>Superb — the least to fit, so the fold budget is trivially met; the crop and one line do all the work.</div>
+      <div class="f adv"><b>Advantages</b>Highest premium ceiling; purest gap-close; fastest to read; most "Aman".</div>
+      <div class="f wk"><b>Weaknesses</b>Withholds the capability proof the procurement buyer needs above the fold — risks "beautiful, but can it hold my 300?"; leans hard on one perfect photograph.</div>
+      <div class="f full"><b>Best use case</b>A brand / campaign splash, or if the single hero photograph is truly exceptional and capability is proven immediately below.</div>
+    </div>
+  </div>
+
+  <!-- ============ comparison ============ -->
+  <h3 class="sec">Comparison</h3>
+  <table>
+    <tr><th>Composition</th><th>Gap-close (awe)</th><th>Capability above fold</th><th>Serves both guests</th><th>Mobile parity</th><th>Art-direction fit</th><th>Contrast safety</th></tr>
+    <tr><td class="on">1 · Lower-Third, Left</td><td>▲</td><td>▲</td><td>▲</td><td>▲</td><td>▲</td><td>●</td></tr>
+    <tr><td>2 · Left Column, Mid</td><td>●</td><td>▲</td><td>●</td><td>●</td><td>●</td><td>●</td></tr>
+    <tr><td>3 · Centred Ceremonial</td><td>●</td><td>△</td><td>●</td><td>△</td><td>●</td><td>●</td></tr>
+    <tr><td>4 · Split Panel</td><td>△</td><td>▲</td><td>●</td><td>▲</td><td>●</td><td>▲</td></tr>
+    <tr><td>5 · Overlap Card</td><td>●</td><td>▲</td><td>●</td><td>△</td><td>●</td><td>▲</td></tr>
+    <tr><td>6 · Pure Restraint</td><td>▲</td><td>△</td><td>△</td><td>▲</td><td>▲</td><td>●</td></tr>
+  </table>
+  <p style="font-size:11px;color:var(--steel);margin-top:8px">▲ strong · ● partial · △ weak</p>
+
+  <!-- ============ recommendation ============ -->
+  <div class="rec">
+    <div class="k">Recommendation · Homepage hero</div>
+    <h3>Composition 1 — Lower-Third, Left</h3>
+    <p>It is the only composition that scores <b>strong on every axis the homepage must satisfy at once</b>: it delivers the full-bleed dusk <b>awe</b> that closes the perception-vs-reality gap, keeps the <b>capability proof directly above the CTA</b> for the procurement buyer, and does both in a single frame — so it <b>serves the couple and the organiser without becoming two heroes</b>.</p>
+    <p>It is also the <b>art-direction-native</b> composition: the treatment already called for the lower region to stay calm and reserve a place for the promise and the invitation — this is that frame. Its <b>mobile parity is the best of the six</b> (the lower-third stacks straight into the 4:5 crop), and trust sits at the point of decision (the proximity principle).</p>
+    <p>The stronger alternatives aren't wrong — they're <b>right for other pages</b>: Composition 4 (Split Panel) is the natural <b>Conferences</b> hero (maximum message-match for paid search), and Composition 3 leans <b>Weddings</b>-ceremonial. One system; emphasis by intent. For the <b>homepage</b>, Composition 1 is objectively the strongest.</p>
+  </div>
+
+  <p class="foot">Composition study only — placeholder photography, indicative copy. Not the final Hero design. Velmoré Hotel &amp; Spa · Bbettr Agency. Fonts shown are system stand-ins for Fraunces (display) + Inter (body).</p>
+</div>
+</body>
+</html>
