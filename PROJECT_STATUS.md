@@ -35,7 +35,7 @@ Client decision (2026-08-03): the remaining unknowns are **content-completion it
 |---|---|
 | **Gate 1 — Business Discovery & Validation** | ✅ **COMPLETE** (client response integrated; BKB v0.2 authoritative; audit in [`GATE-1-REVIEW.md`](GATE-1-REVIEW.md)) |
 | **Content Readiness** | 🔄 **IN PROGRESS** — items populate placeholders during Design/Dev; tracked in [`docs/03-CLIENT-INFO-REQUIRED.md`](docs/03-CLIENT-INFO-REQUIRED.md) |
-| **Gate 2 — Visual Design** | 🔄 **IN PROGRESS** — **Velmoré Visual Language** (design DNA) delivered → [`docs/12-VISUAL-LANGUAGE.md`](docs/12-VISUAL-LANGUAGE.md); awaiting review/approval before any page design |
+| **Gate 2 — Visual Design** | 🔄 **IN PROGRESS** — **Visual Language** → [`docs/12`](docs/12-VISUAL-LANGUAGE.md) + **Creative Concept "The Confident Host"** → [`docs/13-CREATIVE-CONCEPT.md`](docs/13-CREATIVE-CONCEPT.md) delivered. **Hero is next, only after both are approved.** |
 
 - 🧭 **Confirmed truths (BKB v0.2):** brand **Velmoré Hotel & Spa** / **Velmore Hospitality Group** (3 sites incl. **SCC 1,300-hall**); **50 rooms**; **corrected venue registry** (Bastille 650/Trisage 300/D'Charmant 550…); **CRM = HubSpot**; **Conferences #1**; **"Book a viewing"** primary CTA; **certified halal** headline; **no alcohol/bar**; **Pretoria + Centurion**; hero = **D'Charmant Glass Hall at dusk**.
 - 🔄 **Content Readiness items** (populate placeholders, do not block design): restaurant name · spa trading name/operator · per-night room rates · wedding pricing structure · hotel boardroom names — plus High/Medium/Low + access batch (`docs/03`).
@@ -44,7 +44,8 @@ Client decision (2026-08-03): the remaining unknowns are **content-completion it
 - 🚫 **Website OS frozen** — no OS changes; improvements route through the Learning Loop after the build.
 - 📦 **Both repos pushed & clean:** `velmore-hotel`; `website-os` @ `3af9d3d`.
 - 🎨 **Gate 2 started — Visual Language (design DNA) complete** → `docs/12` (colour, type, grid, spacing, radius, shadows, buttons, forms, cards, icons, imagery, photography, motion, scroll, hover, transitions, glass/blur, luxury cues, hospitality principles, mobile, a11y, component examples). Committed values; one dependency = verify exact hex/letterforms against the **logo vector**.
-- ➡️ **Next (on approval of the Visual Language):** Visual Direction Brief + Hero Brief sign-off, then low-fi→hi-fi of **Home + Conferences** hub for review. No page design until the visual language is approved.
+- 🎯 **Creative Concept complete** → `docs/13` — the emotional foundation ("The Confident Host": capable · gracious · quietly elegant · genuinely glad you're here). Sharpens the three pillars (Capability→confidence, Hospitality→welcome+belonging, Elegance→the manner) + Ease as the conversion emotion + the decision test. Every future decision inherits it.
+- ➡️ **Next (only after Visual Language + Creative Concept approved):** design the **Hero** (built around D'Charmant Glass Hall at dusk + the confident-host proposition), then Home + Conferences hub. No page/Hero design until approved.
 
 ## ⏳ Next
 - [ ] **Gate 2 (Visual Design)** on approval — Visual Direction Brief + Hero Brief → low-fi→hi-fi Home + Conferences hub for review.
