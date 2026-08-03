@@ -35,7 +35,7 @@ Client decision (2026-08-03): the remaining unknowns are **content-completion it
 |---|---|
 | **Gate 1 — Business Discovery & Validation** | ✅ **COMPLETE** (client response integrated; BKB v0.2 authoritative; audit in [`GATE-1-REVIEW.md`](GATE-1-REVIEW.md)) |
 | **Content Readiness** | 🔄 **IN PROGRESS** — items populate placeholders during Design/Dev; tracked in [`docs/03-CLIENT-INFO-REQUIRED.md`](docs/03-CLIENT-INFO-REQUIRED.md) |
-| **Gate 2 — Visual Design** | 🟢 **READY TO BEGIN** (on your go-ahead) |
+| **Gate 2 — Visual Design** | 🔄 **IN PROGRESS** — **Velmoré Visual Language** (design DNA) delivered → [`docs/12-VISUAL-LANGUAGE.md`](docs/12-VISUAL-LANGUAGE.md); awaiting review/approval before any page design |
 
 - 🧭 **Confirmed truths (BKB v0.2):** brand **Velmoré Hotel & Spa** / **Velmore Hospitality Group** (3 sites incl. **SCC 1,300-hall**); **50 rooms**; **corrected venue registry** (Bastille 650/Trisage 300/D'Charmant 550…); **CRM = HubSpot**; **Conferences #1**; **"Book a viewing"** primary CTA; **certified halal** headline; **no alcohol/bar**; **Pretoria + Centurion**; hero = **D'Charmant Glass Hall at dusk**.
 - 🔄 **Content Readiness items** (populate placeholders, do not block design): restaurant name · spa trading name/operator · per-night room rates · wedding pricing structure · hotel boardroom names — plus High/Medium/Low + access batch (`docs/03`).
@@ -43,7 +43,8 @@ Client decision (2026-08-03): the remaining unknowns are **content-completion it
 - ✅ **Foundations done:** BKB + voice-print (v0.2), `docs/06–11` (IA, page blueprints, conversion/tracking/CRM, design-system direction, components, visual direction), client onboarding pack.
 - 🚫 **Website OS frozen** — no OS changes; improvements route through the Learning Loop after the build.
 - 📦 **Both repos pushed & clean:** `velmore-hotel`; `website-os` @ `3af9d3d`.
-- ➡️ **Next:** on approval, begin **Gate 2 (Visual Design)** — Visual Direction Brief + Hero Brief, then low-fi→hi-fi of Home + a flagship hub (Conferences) for review.
+- 🎨 **Gate 2 started — Visual Language (design DNA) complete** → `docs/12` (colour, type, grid, spacing, radius, shadows, buttons, forms, cards, icons, imagery, photography, motion, scroll, hover, transitions, glass/blur, luxury cues, hospitality principles, mobile, a11y, component examples). Committed values; one dependency = verify exact hex/letterforms against the **logo vector**.
+- ➡️ **Next (on approval of the Visual Language):** Visual Direction Brief + Hero Brief sign-off, then low-fi→hi-fi of **Home + Conferences** hub for review. No page design until the visual language is approved.
 
 ## ⏳ Next
 - [ ] **Gate 2 (Visual Design)** on approval — Visual Direction Brief + Hero Brief → low-fi→hi-fi Home + Conferences hub for review.
