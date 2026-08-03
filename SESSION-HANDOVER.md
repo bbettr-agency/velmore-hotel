@@ -12,7 +12,10 @@ Context for the next session. Read this + `PROJECT_STATUS.md` + `docs/CLIENT-BRI
 - 📦 **Both repositories pushed & clean** (`velmore-hotel`; `website-os` @ `3af9d3d`).
 - 📋 **`VALIDATION.md`** is the project's working scorecard — fill each phase's table at that phase's close (evidence for the Continuous Learning Loop → OS v2.5.0). It does not modify the frozen OS.
 
-## GATE 2 — VISUAL LANGUAGE + CREATIVE CONCEPT DELIVERED (2026-08-03) — read first
+## GATE 2 — VISUAL LANGUAGE + CREATIVE CONCEPT + NORTH STAR (2026-08-03) — read first
+**North Star** → **[`docs/14-NORTH-STAR.md`](docs/14-NORTH-STAR.md)**: *"Whatever the occasion, it is held in capable, gracious hands — so you, and everyone with you, are genuinely cared for."* The one promise every page/image/motion/CTA is measured against (works across all six services; not product-specific; timeless). **Design the Hero only after the North Star is agreed** — measured against it + the `docs/13` decision test.
+
+
 **Creative Concept: "The Confident Host"** → **[`docs/13-CREATIVE-CONCEPT.md`](docs/13-CREATIVE-CONCEPT.md)** — the emotional foundation every visual decision inherits. 5-second feeling: *"I'm in capable, gracious hands — and this is grander and warmer than I expected."* Pillars sharpened (Capability→confidence/safe-hands; Hospitality→welcome+**belonging**, incl. the certified-halal inclusion; Elegance→the *manner*, quietly elevated) + **Ease** ("it will be handled" → Book a viewing) + the concept's primary job: **close the gap** (make the online feeling match the on-arrival awe). Use the 4-part **decision test** in `docs/13` for the Hero and every page. **Design the Hero only after the Visual Language (`docs/12`) + Creative Concept (`docs/13`) are approved.**
 
 ## Visual Language delivered (2026-08-03)
