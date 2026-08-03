@@ -19,22 +19,29 @@ Works equally for **weddings · conferences · accommodation · dining · spa ·
 
 ## The North Star
 
-> ## *Whatever the occasion, it is held in capable, gracious hands — so you, and everyone with you, are genuinely cared for.*
+> ## *Every occasion — and everyone in it — held in capable, caring hands.*
 
-## Why it's the strongest
-- **It is The Confident Host, made a promise.** *Capable, gracious hands* = the concept's core, guaranteed rather than described. *(docs/13.)*
-- **"held"** carries capability **and** ease at once — the occasion is taken fully in hand (one team, one invoice → *handled*), which is the emotion that converts. *(mission; onboarding §13.6.)*
-- **"you, and everyone with you"** is belonging made explicit — every guest, every delegate, every dietary need; the emotional heart of the **certified-halal welcome** (genuinely catered for, without having to ask), and the value *Guest first, always.* *(BKB §C; onboarding §13.2.)*
-- **"genuinely cared for"** is *Warmth is non-negotiable* — and "genuinely" quietly echoes Velmoré's whole ethos: real and certified, never "friendly" or "on request." *(voice-print.)*
-- It **doesn't sound like advertising** — it is a plain, timeless promise, not a clever line — which is exactly what a measuring stick should be.
+## Final simplification pass (adopted)
+The earlier form — *"Whatever the occasion, it is held in capable, gracious hands — so you, and everyone with you, are genuinely cared for"* — is emotionally right but states its idea of care **twice**. Tested against simpler forms, this shorter promise keeps the exact meaning and becomes a truer internal compass — timeless, memorable, obvious:
+- **held** — capability + ease, the occasion taken fully in hand *(the distinctive word, kept)*.
+- **capable, caring hands** — competence *and* warmth in one phrase; *hands* ties the promise straight to **The Confident Host** (a host receives you in their hands). The specific pairing + *held* keep it clear of the "good hands" cliché.
+- **every occasion / everyone in it** — universality + belonging (every guest, every delegate, the certified-halal welcome).
+- *Grace / elegance* is deliberately **not** in the promise — it lives in the Creative Concept as the *manner* (`docs/13`). The North Star is the pure promise: **capable + caring.**
+
+## Why it works
+- **It is The Confident Host, made a promise** — *capable, caring hands* guaranteed, not described. *(docs/13.)*
+- **"held"** carries capability **and** ease at once — the occasion taken fully in hand (one team, one invoice → *handled*), the emotion that converts. *(mission; onboarding §13.6.)*
+- **"everyone in it"** is belonging made explicit — every guest, every delegate, every dietary need; the emotional heart of the **certified-halal welcome**, and the value *Guest first, always.* *(BKB §C; onboarding §13.2.)*
+- **"caring"** is *Warmth is non-negotiable* — paired with **"capable"** so warmth never reads as small and capability never reads as cold.
+- It **doesn't sound like advertising** — a plain, timeless promise, not a clever line — which is exactly what a measuring stick should be.
 
 ## It holds for every service
-- **Weddings** — the day is held; the couple and every guest cared for.
-- **Conferences** — the event is held (one team, one invoice); the organiser and all delegates cared for.
-- **Accommodation** — the stay is held; the guest cared for.
-- **Dining** — the table is held; you and your guests cared for.
-- **Spa** — the day is held; you are cared for.
-- **Celebrations** — the occasion is held; everyone in it cared for.
+- **Weddings** — the day, and every guest, in capable, caring hands.
+- **Conferences** — the event, and every delegate, in capable, caring hands (one team, one invoice).
+- **Accommodation** — your stay, and everyone with you, in capable, caring hands.
+- **Dining** — your table, and your guests, in capable, caring hands.
+- **Spa** — your day, in capable, caring hands.
+- **Celebrations** — the occasion, and everyone in it, in capable, caring hands.
 
 ## How to use it
 Measure **every** decision — the Hero first — against the promise:
@@ -42,8 +49,7 @@ Measure **every** decision — the Hero first — against the promise:
 - Does it make **you and everyone with you** feel **cared for** (belonging, warmth, the halal welcome)?
 - If an element delivers neither, it doesn't belong.
 
-*Tighter variant, if ever a shorter form is needed (same meaning, less warmth in the verb):*
-*"Whatever the occasion, it — and everyone in it — is held in capable, gracious hands."*
+*Expanded articulation (for internal reference + copy inspiration — the same promise, fuller): "Whatever the occasion, it is held in capable, gracious hands — so you, and everyone with you, are genuinely cared for."*
 
 ---
 

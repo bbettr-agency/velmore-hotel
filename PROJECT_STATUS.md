@@ -45,7 +45,7 @@ Client decision (2026-08-03): the remaining unknowns are **content-completion it
 - 📦 **Both repos pushed & clean:** `velmore-hotel`; `website-os` @ `3af9d3d`.
 - 🎨 **Gate 2 started — Visual Language (design DNA) complete** → `docs/12` (colour, type, grid, spacing, radius, shadows, buttons, forms, cards, icons, imagery, photography, motion, scroll, hover, transitions, glass/blur, luxury cues, hospitality principles, mobile, a11y, component examples). Committed values; one dependency = verify exact hex/letterforms against the **logo vector**.
 - 🎯 **Creative Concept complete** → `docs/13` — the emotional foundation ("The Confident Host": capable · gracious · quietly elegant · genuinely glad you're here). Sharpens the three pillars (Capability→confidence, Hospitality→welcome+belonging, Elegance→the manner) + Ease as the conversion emotion + the decision test. Every future decision inherits it.
-- ⭐ **North Star** → `docs/14`: *"Whatever the occasion, it is held in capable, gracious hands — so you, and everyone with you, are genuinely cared for."* The one promise every decision is measured against.
+- ⭐ **North Star** (final, simplified) → `docs/14`: ***"Every occasion — and everyone in it — held in capable, caring hands."*** The one promise every decision is measured against. **Creative foundation is now complete.**
 - ➡️ **Next (on agreement of the North Star):** design the **Hero** (D'Charmant Glass Hall at dusk + the confident-host proposition), measured against the North Star + the `docs/13` decision test. No Hero/page design until agreed.
 
 ## ⏳ Next
