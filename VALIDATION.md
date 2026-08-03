@@ -37,22 +37,17 @@ Website OS parts earned their place and which didn't.
 
 ---
 
-## Gate 1 — Client confirmation & BKB validation  ·  status: ⏳ pending
+## Gate 1 — Client confirmation & BKB validation  ·  status: ✅ response integrated (Gate not yet formally closed)
 
 | Prompt | Evidence / notes |
 |---|---|
-| Worked really well | |
-| Slowed us down | |
-| OS docs actually used | |
-| OS docs NOT used | |
-| Standards that saved time | |
-| Standards that felt unnecessary | |
-| Discovery Qs that produced value | |
-| Discovery Qs to remove | |
-| Best client-outcome drivers | |
-| Needs refinement post-launch | |
-| Unexpected lessons | |
-| Promote to OS (candidate) | |
+| Worked really well | The BKB/project-knowledge split held perfectly — client facts landed in one authoritative place and project docs referenced it. The **placeholder convention 〔G1〕** paid off exactly as designed: the build was already structured so corrections swap in without rework (dual-pricing wedding page, conditional spa/dining, reusable specials). The onboarding pack produced an unusually structured, decisive response. |
+| Slowed us down | The client's `.pages` format needed custom extraction (no LibreOffice/snappy) — a pure-Python IWA decoder. Worth noting for future client uploads. |
+| OS docs actually used | `SYSTEM/03` (BKB authority + no-duplication rule), discovery/brief schema, gates Gate 1. |
+| Standards that saved time | `SYSTEM/03` BKB-as-single-source-of-truth made a large, cross-cutting correction (multi-site, capacities, CRM) clean instead of chaotic. Marking rule (verified/confirmed/TO CONFIRM) kept truth discipline through a big change. |
+| Discovery Qs that produced value | "Rank your services by revenue" (surfaced conference-led ~37%); the capacity confirm/correct tables (caught materially wrong scraped figures); "how you work" (surfaced HubSpot + Book-a-viewing). The client also **added their own Section 13 content rules** — a signal the pack invited genuine ownership. |
+| Unexpected lessons | (1) A single-brand assumption hid a **whole 1,300-pax sister venue (SCC)** and a 3-site group. (2) **Capacities/room-counts scraped from the client's own live site were materially wrong** — must be treated as `[assumed]` until a registry is confirmed. (3) Board-level constraints (alcohol/halal) can be legally/reputationally sensitive — the pack surfacing them pre-design was high-value. |
+| Promote to OS (candidate — after validation) | (a) Discovery step: **check for a parent group / multiple sites early.** (b) Rule: **never publish capacities/counts scraped from a client's live site** — confirm a registry. (c) Onboarding-pack pattern: **invite the client to add their own non-negotiable content rules** — it caught the alcohol/halal constraints. (Logged in `knowledge-base/learnings.md`.) |
 
 ---
 

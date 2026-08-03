@@ -1,4 +1,6 @@
-# CLIENT BRIEF — Velmore Hotel Estate
+# CLIENT BRIEF — Velmoré Hotel & Spa (Velmore Hospitality Group)
+
+> **⟳ Gate-1 update (2026-08-03) — client onboarding response integrated. [`../knowledge-base/BUSINESS-KNOWLEDGE-BASE.md`](../knowledge-base/BUSINESS-KNOWLEDGE-BASE.md) v0.2 is authoritative for all client facts.** Key deltas that supersede the summaries below: brand = **Velmoré Hotel & Spa** under **Velmore Hospitality Group** (**3 sites**: Velmore Estate + SCC 1,300-hall + Laudium Ballroom 250); **50 bookable rooms** (not 99); **corrected venue registry/capacities** (BKB §E); **Conferences = #1 revenue** (~37%); **CRM = HubSpot**; **"Book a viewing" = primary CTA**; **certified halal = headline**; **no alcohol/bar** (board rule); location framed as **Pretoria + Centurion**; canonical domain **velmorehotel.co.za**; **POPIA build requirement**. §8/§9 project notes below are updated accordingly; where anything conflicts, the BKB wins.
 
 **Date:** 2026-08-02 · **Compiled by:** Bbettr Agency · **Status:** draft (pre-Gate-1; several items pending client confirmation)
 **OS:** Bbettr Website OS (see CHANGELOG) · **Type:** full website **redesign** · **Niche:** hospitality (hotel + weddings + conferencing + spa)

@@ -1,5 +1,12 @@
 # 06 — INFORMATION ARCHITECTURE
 
+> **⟳ Gate-1 update (2026-08-03) — authoritative; supersedes conflicting content below. Source of truth: [`../knowledge-base/BUSINESS-KNOWLEDGE-BASE.md`](../knowledge-base/BUSINESS-KNOWLEDGE-BASE.md).**
+> - **Nav + homepage order are now conference-led** (revenue rank confirmed: Conferences 1 · Weddings 2 · Events 3 · Accommodation 4 · Dining 5 · Spa 6). Proposed nav: **Conferences · Weddings · Events · Stay · Dining · Spa · Gallery · About · Contact** + a persistent **[ Book a viewing ]** primary action (replaces "Check Availability" as the lead CTA; availability stays on Stay).
+> - **Location:** market as **Pretoria + Centurion**; anchor NAP to Erasmia; demote "between Pretoria & Johannesburg". Canonical domain **confirmed = velmorehotel.co.za** (301 velmorehotelestate.co.za → it).
+> - **New: multi-site group.** Surface the **SCC 1,300-pax hall** (1.5 km) + **The Ballroom, Laudium (250)** prominently — chiefly on Conferences + a group/venues context on Home/About. This is the biggest asset and was invisible online.
+> - **Conditional pages:** **Spa page ON HOLD** (trading name unconfirmed) and **Dining page BLOCKED** (restaurant name unconfirmed) — both stay in the sitemap but ship only once named. **No public "Velmore Hire" catalogue this phase** (phase-2). **Events listing template** — build it, don't publish dates.
+> - Capacities: **BKB confirmed registry only** — the old figures in this doc's tables are wrong; do not use.
+
 **Project:** Velmore Hotel Estate · **Phase:** 3 ARCHITECT (build-ready, pre-Gate-1)
 **Status:** architectural work that needs **no client confirmation.** Anything client-dependent is a marked placeholder.
 **References (not duplicated):** OS `SYSTEM/00`, `SYSTEM/04-MARKETING-ENGINE`; project `docs/02-REDESIGN-BLUEPRINT` (Parts 5/6/9/21), `docs/05-MARKETING-CONVERSION-BLUEPRINT`, `knowledge-base/BUSINESS-KNOWLEDGE-BASE.md` (BKB, authoritative for client facts).

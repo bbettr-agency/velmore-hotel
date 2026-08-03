@@ -1,49 +1,48 @@
-# VOICE-PRINT — Velmore Hotel Estate
+# VOICE-PRINT — Velmoré Hotel & Spa
 
-**Authoritative for how Velmore communicates** — the source for all copy voice, on every
-project. Governed by `SYSTEM/03-BUSINESS-INTELLIGENCE.md` §3; method in `RESEARCH/COPYWRITING.md`.
-**Version:** 0.1 · **Updated:** 2026-08-02 · **Status:** founding entry (from existing channels; refine with client interview + real customer language).
+**Authoritative for how Velmoré communicates** — the source for all copy voice, every project. Governed by `SYSTEM/03-BUSINESS-INTELLIGENCE.md` §3.
+**Version:** 0.2 · **Updated:** 2026-08-03 · **Status:** client voice rules integrated (authoritative — client §13.5 + brand answers). Supersedes the v0.1 assumptions.
 
-> Note: much of Velmore's *current* published copy is a poor guide — it carries clichés,
-> demo/placeholder text and spelling errors (see `../docs/01-CURRENT-SITE-AUDIT.md`). The
-> Voice-Print below keeps the genuine brand register (warm, elegant, estate) and **discards
-> the template filler.**
+### Changelog
+- **0.2 — 2026-08-03** — Replaced assumed voice with the client's explicit use/never-use lists and content rules; corrected brand name; added halal/alcohol copy constraints.
+- **0.1 — 2026-08-02** — Founding entry from existing channels.
 
-## Channels reviewed
-Existing website (velmorehotel.co.za + velmorehotelestate.co.za) · Google Business Profile ·
-reviews (Google/TripAdvisor/Expedia) · social (Instagram @velmorehotelofficial, YouTube
-@velmorehotelestate). *(Pending: brochures, internal docs, founder interview — will deepen this.)*
+## Brand & register
+- **Public brand:** **Velmoré Hotel & Spa** (accent é). Parent **Velmore Hospitality Group** (About / corporate-procurement / footer only). Sister sites **SCC (Suleman Convention Centre)** and **The Ballroom, Laudium** are *named venues under the group*, not sub-brands.
+- **Register (client's words):** **confident host, not hotel-brochure** — *warm, grounded, a little proud; premium without being stiff.* **Specific beats grand.**
+- **Tone dials (1–5):** formal↔casual **2.5** · technical↔plain **4 (plain)** · warm↔direct **2.5 (warm but grounded)** · bold↔modest **3 (quietly proud)**.
 
-## Target register
-Warm · elegant · specific · human · confident-not-boastful · easy to scan. The founder on a
-good day, not a brochure.
+## The specificity rule (client's own example)
+> **"550 guests under chandeliers with 360° garden views"** beats **"an unforgettable experience."**
+If a sentence could describe any venue anywhere, **cut it.**
 
-**Tone dials (1–5):** formal↔casual **2.5** · technical↔plain **4 (plain)** · warm↔direct **2 (warm)** · bold↔modest **3**.
+## Words we USE (client-supplied)
+estate · campus · hall · host · gather · celebrate · **residential conference** · **one team, one invoice** · **certified halal kitchen** · on-site · seamless · your day · your delegates · **viewing · site inspection**.
 
-## Recurring language (from their own channels)
-- "estate" · "celebration(s)" · "inspired celebrations" · "crafting experiences" · "sanctuary" · "gardens" · "riverside" · French-Provence.
-- Emphasis on *occasion* and *destination* rather than transaction.
+## Words we NEVER use (client-supplied — hard bans)
+"unforgettable experience" · "world-class" · "nestled" · "look no further" · "dream come true" · "we are excited to announce" · "in today's fast-paced world".
+Also banned (OS + client): empty superlatives, "pax" in customer copy (say guests/delegates), and anything that could sit unchanged on a competitor's site.
+**Format bans:** no emoji · no ALL CAPS · no exclamation pile-ups.
 
-## Words / phrases to USE
-estate · celebration · occasion · gather · host · riverside · gardens · Magaliesberg · Hennops · unwind · stay · delegates · capacity · package · between Pretoria and Johannesburg.
+## Content-rule constraints on copy (client §13 — non-negotiable)
+- **Halal:** always **"certified halal"** — never "halal-friendly", "halal options", "halal on request". Headline, not footnote. Never qualify the certification.
+- **Alcohol:** never advertise/imply/reference a bar, drinks menu, cocktail imagery, "licensed venue" or a built-in bar — anywhere, including meta descriptions. Martels Dungeon's built-in bar → **describe the space, not the bar.**
+- **Non-sellable assets:** never mention/show the 50 old rooms, the large pool & field, or the glass garden boardroom.
+- **CTAs:** every page drives to **"Book a viewing"** (primary) or **"Enquire for your date"** — in the visitor's language.
 
-## Words / phrases to AVOID
-- Empty hospitality clichés: "unparalleled luxury", "unforgettable experience", "world-class service", "where luxury meets…", "a sanctuary where luxury meets legacy" (unless made specific).
-- Jargon: "**pax**" (say "guests" / "delegates").
-- Anything that could sit unchanged on Kleinkaap's or Casa Toscana's site (fails the Voice-Print).
-- All current spelling errors: *execlusive, Depature, derections, shuttke, SOmething* — never carry these across.
+## Terminology glossary (say their names, their way)
+- **Venues (confirmed):** The Bastille Hall (650) · The Trisage Hall (300) · The DeVoir Hall (150) · **D'Charmant Glass Hall (550, hero)** · Martels Chapel (150) · Martels Dungeon (130) · SCC Main Hall (1,300) · The Ballroom, Laudium (250). *(Never "De Bastille/Tres Sage/De Voir/De Charmant/Vieux Cheval" — those are old/incorrect.)*
+- **Conference products:** FDC (Full Day Conference) · DBB (Daily Bed & Breakfast) · **Elite Nexus** (executive).
+- **Group:** Velmore Hospitality Group · Velmore Estate (Erasmia) · SCC / Suleman Convention Centre · The Ballroom, Laudium.
+- **Spa / restaurant names:** `[TO CONFIRM]` — do not name until confirmed.
 
-## Terminology glossary (say their names, their way — confirm spellings/capacities with client)
-- **Venues:** De Bastille · De Charmant · Tres Sage · Martells · The De Voir Maison · The Vieux Cheval (Cellar) · The Satre Room · The Voltaire Room · The Cartier Room · The Vuitton / Sabor / Fumar / Zudor Boardrooms · Beach & Pool Terrace.
-- **Spa:** **Allura Day Spa** (current — *not* "Bakwena", which is stale on old listings).
-- **Wedding packages:** Classic · Grande · Royal Velmore.
-- **Room types:** Presidential Suite · Deluxe · Standard · Twin.
-
-## Specificity rule (from the OS copy standard)
-Replace generic claims with proof: not "spacious venues" → "**De Bastille — 750 guests, 1,000 m²**"; not "affordable weddings" → "**from R400 per guest**"; not "great location" → "**midway between Pretoria and Johannesburg, on the M26**".
+## Signature proposition lines (for reference — final copy at Gate 2)
+- *"One site, one team, one invoice."*
+- *"A 1,300-seat hall, executive breakout rooms, 50 beds and a certified halal kitchen — all within 1.5 km."*
+- Market as serving **Pretoria and Centurion** (not "between Pretoria and Johannesburg" — the client's framing is Pretoria/Centurion).
 
 ## Language / localisation
-English (SA). Afrikaans audience likely present in Gauteng — confirm whether any AF copy is wanted. `[assumed]`
+English (SA). Muslim-community audience is central (halal, Islamic events at Laudium) — copy must be accurate and respectful; no alcohol references. Afrikaans copy: `[assumed not required — confirm]`.
 
-## Open questions (deepen the Voice-Print)
-Founder's own words (interview) · best real customer-review phrases (headline material) · any brand guideline / brochure register · confirm the canonical name pronunciation/spelling ("Velmore" vs "Velmoré").
+## Open (deepen later)
+Founder/exec quotes for the About page · real customer-review phrases (with consent) · confirm brand guidelines (may need creating) · spa & restaurant naming.

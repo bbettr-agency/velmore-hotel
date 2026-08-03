@@ -1,5 +1,12 @@
 # 09 — DESIGN SYSTEM DIRECTION
 
+> **⟳ Gate-1 update (2026-08-03) — authoritative. Source of truth: [`../knowledge-base/BUSINESS-KNOWLEDGE-BASE.md`](../knowledge-base/BUSINESS-KNOWLEDGE-BASE.md) + [`../knowledge-base/voice-print.md`](../knowledge-base/voice-print.md).**
+> - **Brand = "Velmoré Hotel & Spa"** (accent é); parent **Velmore Hospitality Group**.
+> - **Hero image = D'Charmant Glass Hall at dusk** (client's strongest asset — glass, 360° garden views, chandeliers).
+> - **Content rules (govern imagery + copy):** **no alcohol/bar imagery or references** anywhere; **certified-halal badge is a prominent, headline trust element** (never "halal-friendly"); **never show non-sellable assets** (old wing, pool, field, glass garden boardroom).
+> - **Voice = confident host, not brochure** — apply `voice-print.md` v0.2 use/never-use lists; "specific beats grand"; no emoji/ALL CAPS/exclamations.
+> - **Photography:** rooms/spa/food coverage thin — **recommend a gap-fill shoot before design sign-off.** Logo vector available; **brand guidelines may need creating** — palette/type stay `[proposed]` and lock at Gate 2 against the logo.
+
 **Project:** Velmore Hotel Estate · **Phase:** 4 DESIGN direction (pre-Gate-1, pre-logo)
 **What this is:** the design-system *direction* — colour, type, iconography, imagery, motion, mobile UX — that can be planned before client confirmation. **Nothing here is finalised:** palette + typefaces are **`[proposed]`** and locked in Phase 4 against the **actual logo + photography** (`docs/02` Part 14, OS Design Language §13 Visual Direction Brief). **References, does not duplicate,** OS `SYSTEM/DESIGN-LANGUAGE/00+01` and `SYSTEM/01-DESIGN-TOKENS` (token *structure*; brand *overrides values*).
 **Placeholders:** **〔G1: …〕** client-dependent · **`[proposed]`** = design hypothesis to confirm at Gate 2 with logo/photography in hand.

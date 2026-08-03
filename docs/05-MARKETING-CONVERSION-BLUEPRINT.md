@@ -1,5 +1,13 @@
 # 05 — MARKETING & CONVERSION BLUEPRINT
 
+> **⟳ Gate-1 update (2026-08-03) — authoritative; supersedes conflicting content below. Source of truth: [`../knowledge-base/BUSINESS-KNOWLEDGE-BASE.md`](../knowledge-base/BUSINESS-KNOWLEDGE-BASE.md).**
+> - **Revenue rank confirmed:** **1 Conferences** (gov/corporate residential, ~37% of target) · 2 Weddings · 3 Other events (marking hubs, flagship, community, year-end) · 4 Accommodation · 5 Dining · 6 Spa. *(Dining/spa are consumed inside packages — not standalone leads. This REPLACES the earlier co-equal P0 set: **Conferences leads.**)*
+> - **Lead proposition** = *one site, one team, one invoice — a 1,300-seat hall (SCC, 1.5 km), executive breakout rooms, 50 beds and a certified halal kitchen.* **Certified halal is the headline differentiator.**
+> - **CRM = HubSpot** (not GHL): 5-stage pipeline + custom fields (Lead Source, Event Type, Estimated Pax Count, Budget Signal, Lost Reason). Forms post **directly to HubSpot** and capture **event type + pax count**. Detail in `08`.
+> - **Primary CTA = "Book a viewing"** (then "Enquire for your date") — the client's highest-converting action; overrides the per-page CTA labels below where they differ.
+> - **Paid:** no Google Ads currently; client welcomes a search view — **recommend Google Search on "conference venue with accommodation Pretoria"** (the procurement buyer). Meta moving in-house.
+> - **Location framing:** market as **Pretoria + Centurion** (not "between Pretoria & Johannesburg"). **50 bookable rooms** (not 99). Capacities per the BKB confirmed registry only.
+
 **Project:** Velmore Hotel Estate · **Standard:** `SYSTEM/04-MARKETING-ENGINE.md` (OS v2.3.0)
 **Date:** 2026-08-02 · Applies the marketing-first philosophy to Velmore.
 **Principle:** we are not building Velmore a website — we are building a **marketing platform**. Velmore will run paid search, Performance Max, Meta ads, organic, GBP, email and referral traffic into it. **Every important page must be a landing page** that converts standalone, with tracking, attribution and CRM handoff built in. Tags: `[verified] [client-stated] [assumed] [proposed]`.

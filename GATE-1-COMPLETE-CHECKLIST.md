@@ -1,5 +1,7 @@
 # GATE 1 — COMPLETE CHECKLIST · Velmore Hotel Estate
 
+> **Status (2026-08-03): client response received & integrated.** This document is preserved as the original planning checklist. For the post-response state see **[`GATE-1-REVIEW.md`](GATE-1-REVIEW.md)** (audit + close decision) and **[`docs/03-CLIENT-INFO-REQUIRED.md`](docs/03-CLIENT-INFO-REQUIRED.md)** (live outstanding register). Confirmed facts now live in the **BKB** (`knowledge-base/`, authoritative).
+
 **The definitive document we work through with the client before any design begins.**
 Goal: eliminate every assumption about Velmore so that, by the end of Gate 1, the website
 almost designs itself. Built on Bbettr Website OS v2.4.0 (frozen) · `PIPELINE/gates.md` Gate 1.

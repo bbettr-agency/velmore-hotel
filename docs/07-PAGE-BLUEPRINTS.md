@@ -1,5 +1,14 @@
 # 07 — PAGE BLUEPRINTS (section skeletons)
 
+> **⟳ Gate-1 update (2026-08-03) — authoritative; supersedes conflicting content below. Source of truth: [`../knowledge-base/BUSINESS-KNOWLEDGE-BASE.md`](../knowledge-base/BUSINESS-KNOWLEDGE-BASE.md).**
+> - **⚠️ ALL capacity figures in this doc are void** — use the **BKB confirmed venue registry only**. The old numbers (Bastille **650** not 750 · Trisage **300** not 500 · D'Charmant Glass Hall **550** not 1,500+ · DeVoir **150** · Martels Chapel **150** · **new** Martels Dungeon **130** · **SCC Main Hall 1,300** · Laudium **250**) and **50 rooms (not 99)** are the truth. Content-rule: never carry a figure from the old site.
+> - **Conferences is the #1 page.** Lead: *one site, one team, one invoice — a 1,300-seat hall, executive breakout rooms, 50 beds and a certified halal kitchen, within 1.5 km.* Boardroom names (Cartier/Satre/Voltaire) are **🔴 unconfirmed** — page structure builds now, names swap in.
+> - **Weddings:** build to display **either "from R25,000" venue-hire OR a per-head package table** without a rebuild (pricing structure 🔴 unconfirmed). **Certified halal = headline** on weddings + conferences (never "halal-friendly").
+> - **Hero image = D'Charmant Glass Hall at dusk** (client's strongest single image).
+> - **Accommodation:** 50 rooms, **package-first** (DBB R1,350 / Elite Nexus R1,950 per delegate) alongside per-night; per-night rates 🔴 unconfirmed. **No bar** listed.
+> - **Spa page ON HOLD** (name unconfirmed) · **Dining page BLOCKED** (restaurant name 🔴). Ship only when named.
+> - **Primary CTA sitewide = "Book a viewing"** (then "Enquire for your date"). **No alcohol/bar anywhere** (board rule); don't feature non-sellable assets (old wing, pool, field, glass garden boardroom).
+
 **Project:** Velmore Hotel Estate · **Phase:** 3–4 (build-ready structure, pre-Gate-1)
 **What this is:** the section-by-section structure of every page — a *wireframe in words*, not visual design and **not final copy**. It defines what each section must *do*, the content blocks it holds, its CTA, schema and internal links. Copy shown is **direction/example only** (marked *ex.*), never final.
 **References:** OS Design Language (`00` §9 Section System, `01` Hero System), `SYSTEM/04`; project `docs/02` (Parts 7/8/15), `docs/06` (IA), `docs/08` (conversion/tracking), `docs/09` (design system), `knowledge-base/` (BKB + voice-print, authoritative for facts/voice).

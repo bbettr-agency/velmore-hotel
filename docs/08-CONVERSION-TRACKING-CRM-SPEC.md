@@ -1,5 +1,13 @@
 # 08 — CONVERSION, TRACKING & CRM (implementation spec)
 
+> **⟳ Gate-1 update (2026-08-03) — authoritative; supersedes conflicting content below. Source of truth: [`../knowledge-base/BUSINESS-KNOWLEDGE-BASE.md`](../knowledge-base/BUSINESS-KNOWLEDGE-BASE.md).**
+> - **CRM = HubSpot** (NOT GHL — replace all GHL references). **Pipeline:** New Enquiry → Qualified → Site Visit → Quote Sent → Closed Won / Closed Lost. **Custom deal fields:** Lead Source · Event Type · Estimated Pax Count · Budget Signal · Lost Reason.
+> - **Forms post directly to HubSpot** and must capture at minimum: name · contact number · email · **organisation · event type · estimated pax count** · event date · lead source. Event type + pax count are what enable routing/qualification without a call. **Two HubSpot portals exist — 🔴 confirm which one integrates before building the connection.**
+> - **Primary CTA = "Book a viewing"** (then "Enquire for your date") — overrides the per-page labels below.
+> - **Prominent click-to-WhatsApp on mobile** (active enquiry channel) — not just a form.
+> - **POPIA = build requirement** (US-hosted CRM): privacy notice + consent banner + explicit consent on every form and the WhatsApp entry point.
+> - **Booking engine 🔴 TO CONFIRM** (eZee/iPMS247/other) before the booking flow. Google Ads not running (client open to search).
+
 **Project:** Velmore Hotel Estate · **Phase:** 3 ARCHITECT → 5 BUILD prep (pre-Gate-1)
 **What this is:** the *implementation-level* spec for CTAs, forms, thank-you pages, CRM routing, event tracking and analytics — the build detail beneath the strategy in `docs/05-MARKETING-CONVERSION-BLUEPRINT` (Parts 24–29). **Does not duplicate** `SYSTEM/04-MARKETING-ENGINE` (authoritative standard) — it applies it.
 **Client-dependent items** (credentials, IDs, response times, team routing) are marked **〔G1: …〕** and wired as config placeholders now, filled after Gate 1.
