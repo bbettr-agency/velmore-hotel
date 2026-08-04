@@ -161,6 +161,33 @@
 }
 .stay-detail-vignette { box-shadow: inset 0 0 110px 26px rgba(10,14,8,.34); }
 
+/* ---------------------------------------------------------------
+   Spa photography placeholder — the page's quiet exhale: warm,
+   candlelit, deliberately SOFT-FOCUS (shallow depth of field), no hard
+   structure. The most intimate/tactile of the placeholder set. Clearly
+   a temporary placeholder — real spa photography is required (docs/17
+   §3.5). Sits on the dark warm spa section ground.
+----------------------------------------------------------------*/
+.spa-ground {
+  background: radial-gradient(120% 90% at 74% 40%, rgba(120,86,44,.34) 0%, rgba(60,44,24,.10) 34%, rgba(20,15,9,0) 66%);
+}
+.spa-image {
+  background:
+    radial-gradient(78% 68% at 40% 42%, rgba(242,216,170,.62) 0%, rgba(198,152,66,.22) 34%, rgba(28,22,16,0) 68%),
+    radial-gradient(52% 52% at 64% 62%, rgba(255,240,212,.26), rgba(255,240,212,0) 72%),
+    linear-gradient(158deg, #2c231a 0%, #221a12 52%, #17110b 100%);
+}
+.spa-soft {
+  filter: blur(1.5px);
+  opacity: .9;
+  background:
+    radial-gradient(circle at 30% 42%, rgba(255,240,214,.50) 0 6px, transparent 24px),
+    radial-gradient(circle at 45% 34%, rgba(255,238,208,.34) 0 10px, transparent 34px),
+    radial-gradient(circle at 60% 58%, rgba(255,236,200,.30) 0 8px, transparent 30px),
+    radial-gradient(circle at 72% 46%, rgba(255,234,196,.22) 0 6px, transparent 26px);
+}
+.spa-vignette { box-shadow: inset 0 0 170px 48px rgba(6,5,4,.55); }
+
 /* Secondary-element reveal (LCP elements never animate; motion-safe only) */
 @media (prefers-reduced-motion: no-preference) {
   .reveal { opacity: 0; transform: translateY(14px); animation: reveal .6s cubic-bezier(.22,1,.36,1) forwards; }

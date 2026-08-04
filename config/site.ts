@@ -241,6 +241,22 @@ export const site = {
     // booking-engine integration (see docs/08 event taxonomy).
     secondary: { label: "Check Availability", href: routes.contact.href },
   },
+
+  // Homepage Spa preview — the page's quiet exhale: stillness, restoration,
+  // privacy, escape. Name-NEUTRAL (trading name/operator unconfirmed) — never
+  // "Allura". Communicates the emotional role only; NO invented services,
+  // treatments, pricing, hours, product brands, facilities or packages. The
+  // estate has a spa (confirmed — it's in "Velmoré Hotel & Spa"); nothing beyond
+  // that is asserted. Prose INDICATIVE.
+  spaPreview: {
+    eyebrow: "The spa, on the estate",
+    heading: "Somewhere to exhale.", // INDICATIVE
+    body: "When the occasion is over and the estate goes quiet, take the time you rarely take — a slow, unhurried moment that belongs to no one but you. Tell us what rest looks like for you, and we'll help you find it here.", // INDICATIVE
+    // Honest placeholder — spa photography is still required (docs/17 §3.5).
+    imageNote: "Spa photography required · treatment detail / tranquil interior (shoot pending)",
+    primary: { label: "Explore the Spa", href: routes.spa.href },
+    secondary: { label: "Enquire", href: routes.contact.href },
+  },
 } as const;
 
 export type Site = typeof site;
