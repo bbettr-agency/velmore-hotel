@@ -8,6 +8,7 @@ import { StayPreview } from "@/components/home/StayPreview";
 import { SpaPreview } from "@/components/home/SpaPreview";
 import { DiningPreview } from "@/components/home/DiningPreview";
 import { GalleryShowcase } from "@/components/home/GalleryShowcase";
+import { ReviewsTrust } from "@/components/home/ReviewsTrust";
 
 export default function HomePage() {
   return (
@@ -22,6 +23,7 @@ export default function HomePage() {
       <SpaPreview />
       <DiningPreview />
       <GalleryShowcase />
+      <ReviewsTrust />
     </main>
   );
 }

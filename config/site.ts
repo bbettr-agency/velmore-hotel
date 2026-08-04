@@ -294,6 +294,31 @@ export const site = {
     ],
     cta: { label: "Explore the gallery", href: routes.gallery.href },
   },
+
+  // Homepage Reviews / Trust — the turn from emotion into conversion. Quiet,
+  // editorial, confident — NOT a slider/cards/widget/wall of text. Answers one
+  // question: "can I trust them with one of the most important occasions in my
+  // life?" Review count, testimonials and grading are Gate-1 / consent items —
+  // so the aggregate + quotes are ELEGANT, CLEARLY-TEMPORARY placeholders,
+  // architected (data-* slots) to populate from live Google reviews later. No
+  // AggregateRating schema until consented. Heading INDICATIVE.
+  reviewsPreview: {
+    eyebrow: "Trusted with the occasion",
+    heading: "The day that matters most, in hands that have held it before.", // INDICATIVE
+    ratingLabel: "Google reviews",
+    ratingNote: "Live rating & count will appear here once connected",
+    quotes: [
+      {
+        text: "One team, one point of contact — a celebration for hundreds that somehow felt effortless. Everything, and everyone, taken care of.",
+        who: "Placeholder review",
+      },
+      {
+        text: "The certified halal catering was handled without us ever having to ask, and the team treated our family as their own.",
+        who: "Placeholder review",
+      },
+    ],
+    note: "Elegant placeholders — real Google reviews will populate here once connected (pending consent & live sync).",
+  },
 } as const;
 
 export type Site = typeof site;
