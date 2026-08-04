@@ -222,6 +222,16 @@
   }
 }
 
+/* ---------------------------------------------------------------
+   Gallery showcase — the homepage's emotional peak. An editorial
+   mosaic of curated tiles reusing the section placeholder hues to
+   preview the breadth of the estate. Each tile keeps a soft vignette,
+   a legibility scrim for its label, and a slow hover zoom (motion-safe)
+   to invite exploration. All tiles are clearly labelled placeholders.
+----------------------------------------------------------------*/
+.gal-vignette { box-shadow: inset 0 0 90px 20px rgba(10,12,9,.30); }
+.gal-chipscrim { background: linear-gradient(0deg, rgba(10,12,9,.55) 0%, rgba(10,12,9,0) 36%); }
+
 /* Secondary-element reveal (LCP elements never animate; motion-safe only) */
 @media (prefers-reduced-motion: no-preference) {
   .reveal { opacity: 0; transform: translateY(14px); animation: reveal .6s cubic-bezier(.22,1,.36,1) forwards; }

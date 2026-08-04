@@ -274,6 +274,26 @@ export const site = {
     primary: { label: "Explore Dining", href: routes.dining.href },
     secondary: { label: "Enquire", href: routes.contact.href },
   },
+
+  // Homepage Gallery showcase — the emotional PEAK. NOT a grid: an editorial
+  // mosaic that previews the breadth of the estate and invites exploration.
+  // Image-first; copy minimal. Tiles reuse the labelled placeholder hues until
+  // the curated gallery is shot (docs/17 §3.10) — every tile is a clear
+  // placeholder. Prose INDICATIVE.
+  galleryPreview: {
+    eyebrow: "A closer look",
+    heading: "One estate. Every kind of day.", // INDICATIVE
+    lead: "A glimpse of the range — weddings to conferences, gardens to the glass hall. The curated gallery is being photographed for launch; every frame below is a placeholder.",
+    // base = an existing placeholder gradient class; size drives the mosaic.
+    tiles: [
+      { label: "The glass hall", base: "hero-sky", size: "feature" as const },
+      { label: "Weddings", base: "wed-image", size: "tall" as const },
+      { label: "Conferences", base: "conf-image", size: "wide" as const },
+      { label: "Gardens", base: "stay-detail", size: "wide" as const },
+      { label: "Dining", base: "dine-image", size: "wide" as const },
+    ],
+    cta: { label: "Explore the gallery", href: routes.gallery.href },
+  },
 } as const;
 
 export type Site = typeof site;

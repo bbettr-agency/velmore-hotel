@@ -7,6 +7,7 @@ import { WeddingsPreview } from "@/components/home/WeddingsPreview";
 import { StayPreview } from "@/components/home/StayPreview";
 import { SpaPreview } from "@/components/home/SpaPreview";
 import { DiningPreview } from "@/components/home/DiningPreview";
+import { GalleryShowcase } from "@/components/home/GalleryShowcase";
 
 export default function HomePage() {
   return (
@@ -20,6 +21,7 @@ export default function HomePage() {
       <StayPreview />
       <SpaPreview />
       <DiningPreview />
+      <GalleryShowcase />
     </main>
   );
 }
