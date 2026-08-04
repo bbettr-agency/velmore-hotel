@@ -319,6 +319,17 @@ export const site = {
     ],
     note: "Elegant placeholders — real Google reviews will populate here once connected (pending consent & live sync).",
   },
+
+  // Homepage Final CTA — the natural conclusion. NOT loud or salesy; the visitor
+  // is already convinced. Image-first (a warm estate-at-golden-hour close,
+  // bookending the dusk hero), minimal copy, "the next step is easy". Uses the
+  // sitewide primary/secondary CTAs + the reassurance line (all from site.cta).
+  finalCta: {
+    eyebrow: "Come and see it",
+    heading: "The next step is easy.", // INDICATIVE
+    body: "Book a viewing, tell us your date, and one team takes it from there.", // INDICATIVE
+    imageNote: "Photography placeholder · the estate at golden hour (to be shot)",
+  },
 } as const;
 
 export type Site = typeof site;

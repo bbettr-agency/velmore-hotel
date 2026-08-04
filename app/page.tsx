@@ -9,6 +9,7 @@ import { SpaPreview } from "@/components/home/SpaPreview";
 import { DiningPreview } from "@/components/home/DiningPreview";
 import { GalleryShowcase } from "@/components/home/GalleryShowcase";
 import { ReviewsTrust } from "@/components/home/ReviewsTrust";
+import { FinalCta } from "@/components/home/FinalCta";
 
 export default function HomePage() {
   return (
@@ -24,6 +25,7 @@ export default function HomePage() {
       <DiningPreview />
       <GalleryShowcase />
       <ReviewsTrust />
+      <FinalCta />
     </main>
   );
 }
