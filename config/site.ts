@@ -193,6 +193,31 @@ export const site = {
     primary: { label: "Book a Viewing", href: routes.contact.href },
     secondary: { label: "Explore Conferences", href: routes.conferences.href },
   },
+
+  // Homepage Weddings preview — the emotive counterpoint to Conferences. Leads with
+  // feeling (chapel, gardens, dusk), supported by confidence (one team, one invoice,
+  // rooms, halal, viewings). Facts BKB-confirmed; prose INDICATIVE.
+  weddingsPreview: {
+    eyebrow: "Weddings on the estate",
+    kicker: "This is where one of the biggest days of your life belongs.", // INDICATIVE
+    heading: "A whole estate, given over to one day — and to everyone in it.", // INDICATIVE
+    body: [
+      "A ceremony in the chapel. A reception beneath the chandeliers. Gardens for the golden hour, and the soft French-Provence light that makes the photographs. Not a room you hire for a few hours — a whole estate that holds the day, from the first arrival to the last dance.",
+      "And behind the beauty, one team quietly holds every part: the viewing and the venue, a certified halal kitchen so every guest is cared for, and fifty rooms so no one has to leave. One invoice, one point of contact, one calm and unhurried plan — so the day feels like yours, never a logistics exercise.",
+    ], // INDICATIVE
+    heldLabel: "Held for you",
+    points: [
+      "Chapel & reception spaces",
+      "Gardens & estate atmosphere",
+      "Rooms for your guests",
+      "Certified-halal catering",
+      "One team · one invoice",
+      "Private venue viewings",
+    ],
+    imageNote: "Photography placeholder · a wedding on the estate (to be shot)",
+    primary: { label: "Book a Viewing", href: routes.contact.href },
+    secondary: { label: "Explore Weddings", href: routes.weddings.href },
+  },
 } as const;
 
 export type Site = typeof site;

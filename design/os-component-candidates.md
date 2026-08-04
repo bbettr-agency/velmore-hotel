@@ -16,6 +16,9 @@ promotion goes through `PIPELINE/learning-loop.md` on a 2nd project). Updated as
 | 8 | **CSS photography-placeholder system** (`globals.css` `.hero-*`, `.conf-*`) | premium, clearly-labelled image placeholders (dusk + warm-interior variants) before the shoot | template pattern |
 | 9 | **Tracking-ready `Button`** (`track={{cta,location}}` → `data-cta`/`data-location`) | GTM/analytics select on data-attrs; no analytics coupling in the component (docs/08 taxonomy) | `ENGINE/ui` + analytics |
 | 10 | **Image-led editorial split section** (`ConferencesPreview`) | premium "preview" pattern for a service (image + story + capability points + dual CTA), reusable for weddings/spa/etc. | `ENGINE/ui` (Section variant) |
+| 11 | **Emotive editorial preview section** (`WeddingsPreview`) | the *contrast* variant of #10 for emotion-led services: copy-led (image right/portrait), italic kicker, tinted ground, capability carried in an understated hairline "held for you" line — same language, deliberately varied so a page reads editorial not repetitive | `ENGINE/ui` (Section variant) |
+| 12 | **Wedding photography placeholder** (`globals.css` `.wed-*`) | third premium placeholder hue (golden-hour garden + chapel arch + string-light bokeh) extending the labelled placeholder system alongside `.hero-*` (blue dusk) and `.conf-*` (warm interior) | template pattern |
+| 13 | **Section-rhythm / "don't mirror the neighbour" rule** (Conferences vs Weddings) | adjacent preview sections should share the visual language but vary ground colour, image side, image orientation and info treatment so the page reads editorial; worth an OS composition guideline | `ENGINE` guideline |
 
 ### Not yet built, noted for later
 - **`Reveal`** (IntersectionObserver, once, reduced-motion + no-JS safe) scroll-reveal wrapper — deferred so this milestone stays no-JS-robust; strong OS candidate when added.
