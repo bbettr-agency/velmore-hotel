@@ -218,6 +218,29 @@ export const site = {
     primary: { label: "Book a Viewing", href: routes.contact.href },
     secondary: { label: "Explore Weddings", href: routes.weddings.href },
   },
+
+  // Homepage Stay preview — the third change of pace: calm and rest after the
+  // occasion. Deliberately quieter and more spacious than Conferences/Weddings.
+  // Facts BKB-confirmed (50 bookable rooms, on the estate, gardens); no invented
+  // categories, amenities, rates or grading; restoration rooms never mentioned.
+  stayPreview: {
+    eyebrow: "Stay on the estate",
+    heading: "Everything is here. There's no need to leave.", // INDICATIVE
+    lead: "When the occasion ends, the estate doesn't. Fifty rooms on the grounds keep everyone close to the celebration — no drive home, no rush, just gardens to wake up to.", // INDICATIVE
+    // Honest placeholders — clearly state the image is still required.
+    environmentalNote: "Photography required · estate accommodation (room shoot pending)",
+    detailNote: "Photography required · gardens & estate detail",
+    proof: [
+      { label: "50 rooms", note: "on the estate" },
+      { label: "Steps away", note: "from the occasion" },
+      { label: "Gardens & calm", note: "to wake up to" },
+    ],
+    primary: { label: "Explore Your Stay", href: routes.accommodation.href },
+    // No booking engine confirmed — "Check Availability" routes to the enquiry
+    // journey for now, with its own tracking label kept distinct for the future
+    // booking-engine integration (see docs/08 event taxonomy).
+    secondary: { label: "Check Availability", href: routes.contact.href },
+  },
 } as const;
 
 export type Site = typeof site;

@@ -76,6 +76,7 @@ Stack (`SYSTEM/04` §6): **GTM** (tag layer) → GA4 · Google Ads (Enhanced Con
 | Event | Fires on | Key params |
 |---|---|---|
 | `booking_click` | Check Availability / eZee open | `location`, `page` |
+| — *interim note* | **No booking engine confirmed yet.** The shipped homepage Stay "Check Availability" carries `data-cta="check_availability"` `data-location="home_stay"` and currently routes to the enquiry journey (`/contact`). Kept **distinct from** the primary `book_viewing` and from the future `booking_click`/eZee so it can be repointed to the booking engine without touching other CTAs. | `location=home_stay` |
 | `booking_confirmed` | eZee return/postback 〔G1〕 | `value?`, `currency:ZAR` |
 | `lead_form_submit` | any enquiry success | `service` (wedding/conference/event/spa/stay), `form_id`, `step_count` |
 | `call_click` | any `tel:` | `location` |

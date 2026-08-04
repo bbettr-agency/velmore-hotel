@@ -129,6 +129,38 @@
   background: linear-gradient(180deg, rgba(10,15,12,.28) 0%, rgba(10,15,12,0) 26%, rgba(10,15,12,0) 60%, rgba(10,15,12,.5) 100%);
 }
 
+/* ---------------------------------------------------------------
+   Stay photography placeholders — deliberately LIGHT and airy (a
+   restful, light-filled room per docs/17 §3.4), the calm counterpoint
+   to the moody hero/conf/wed placeholders. Clearly labelled; the real
+   room + garden shots are still required (gap-fill shoot).
+----------------------------------------------------------------*/
+.stay-image {
+  background:
+    radial-gradient(120% 96% at 80% 14%, rgba(255,248,230,.95) 0%, rgba(255,242,216,.55) 26%, rgba(238,229,210,0) 60%),
+    radial-gradient(60% 44% at 82% 20%, rgba(255,252,240,.7), rgba(255,252,240,0) 66%),
+    linear-gradient(180deg, #f1ead9 0%, #e8dec8 52%, #dbd0b7 100%);
+}
+.stay-window {
+  opacity: .5;
+  -webkit-mask-image: radial-gradient(80% 74% at 80% 20%, #000 8%, transparent 74%);
+          mask-image: radial-gradient(80% 74% at 80% 20%, #000 8%, transparent 74%);
+  background: repeating-linear-gradient(116deg, rgba(255,252,242,.55) 0 2px, rgba(255,252,242,0) 2px 52px);
+}
+.stay-floor {
+  left: 0; right: 0; bottom: 0; height: 34%;
+  background: linear-gradient(180deg, rgba(120,104,74,0) 0%, rgba(120,104,74,.14) 100%);
+}
+.stay-vignette { box-shadow: inset 0 0 120px 30px rgba(120,104,74,.14); }
+
+/* Garden / estate detail — soft estate green, calm */
+.stay-detail {
+  background:
+    radial-gradient(100% 82% at 28% 16%, rgba(226,210,158,.55), rgba(226,210,158,0) 56%),
+    linear-gradient(180deg, #74815f 0%, #5c6a4c 54%, #45513a 100%);
+}
+.stay-detail-vignette { box-shadow: inset 0 0 110px 26px rgba(10,14,8,.34); }
+
 /* Secondary-element reveal (LCP elements never animate; motion-safe only) */
 @media (prefers-reduced-motion: no-preference) {
   .reveal { opacity: 0; transform: translateY(14px); animation: reveal .6s cubic-bezier(.22,1,.36,1) forwards; }

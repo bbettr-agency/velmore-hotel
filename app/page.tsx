@@ -4,6 +4,7 @@ import { JourneySelector } from "@/components/home/JourneySelector";
 import { EstateIntro } from "@/components/home/EstateIntro";
 import { ConferencesPreview } from "@/components/home/ConferencesPreview";
 import { WeddingsPreview } from "@/components/home/WeddingsPreview";
+import { StayPreview } from "@/components/home/StayPreview";
 
 export default function HomePage() {
   return (
@@ -14,6 +15,7 @@ export default function HomePage() {
       <EstateIntro />
       <ConferencesPreview />
       <WeddingsPreview />
+      <StayPreview />
     </main>
   );
 }

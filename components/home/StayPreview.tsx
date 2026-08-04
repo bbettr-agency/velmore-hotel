@@ -1,0 +1,96 @@
+import { site } from "@/config/site";
+import { Button } from "@/components/ui/Button";
+
+function Arrow() {
+  return (
+    <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+      <path d="M5 12h14M13 6l6 6-6 6" />
+    </svg>
+  );
+}
+
+/**
+ * Homepage Stay preview — the third change of pace after Conferences (capability)
+ * and Weddings (emotion): calm, rest, "everything is here". Deliberately NOT a
+ * side-by-side split — a centered, spacious, image-led composition (wide
+ * environmental image + a quiet garden detail) with generous breathing room and
+ * a restrained on-load settle. Confirmed facts only; photography is a clearly
+ * labelled "still required" placeholder (docs/17 §3.4). Config-driven.
+ */
+export function StayPreview() {
+  const s = site.stayPreview;
+  return (
+    <section aria-labelledby="stay-heading" className="bg-ivory py-28 md:py-40">
+      <div className="mx-auto max-w-container px-6 md:px-12">
+        {/* centered header — softer rhythm, generous measure */}
+        <div className="reveal reveal-1 mx-auto max-w-[46rem] text-center">
+          <p className="flex items-center justify-center gap-3 text-[11.5px] font-semibold uppercase tracking-[.28em] text-champagne-dark">
+            <span aria-hidden className="h-px w-[26px] bg-champagne" />
+            {s.eyebrow}
+            <span aria-hidden className="h-px w-[26px] bg-champagne" />
+          </p>
+          <h2
+            id="stay-heading"
+            className="mx-auto mt-6 max-w-[16ch] font-serif text-[30px] font-semibold leading-[1.12] tracking-[-.01em] text-estate-700 md:text-[40px]"
+          >
+            {s.heading}
+          </h2>
+          <p className="mx-auto mt-6 max-w-[52ch] text-[16px] leading-[1.85] text-charcoal md:text-[17px]">
+            {s.lead}
+          </p>
+        </div>
+
+        {/* image-led band — wide environmental + quiet garden detail (both placeholders) */}
+        <div className="reveal reveal-2 mt-14 grid grid-cols-1 gap-5 md:mt-16 md:grid-cols-12 md:gap-6">
+          <div className="md:col-span-8">
+            <div className="relative aspect-[16/10] overflow-hidden rounded-lg shadow-card">
+              <div aria-hidden className="absolute inset-0 stay-image" />
+              <div aria-hidden className="absolute inset-0 stay-window" />
+              <div aria-hidden className="absolute stay-floor" />
+              <div aria-hidden className="absolute inset-0 stay-vignette" />
+              <span className="absolute left-4 top-4 rounded-full bg-black/30 px-3 py-[5px] text-[9.5px] uppercase tracking-[.12em] text-ivory/85 backdrop-blur-[2px]">
+                {s.environmentalNote}
+              </span>
+            </div>
+          </div>
+          <div className="md:col-span-4">
+            <div className="relative aspect-[16/10] w-full overflow-hidden rounded-lg shadow-card md:aspect-auto md:h-full">
+              <div aria-hidden className="absolute inset-0 stay-detail" />
+              <div aria-hidden className="absolute inset-0 stay-detail-vignette" />
+              <span className="absolute left-4 top-4 rounded-full bg-black/35 px-3 py-[5px] text-[9.5px] uppercase tracking-[.12em] text-ivory/80 backdrop-blur-[2px]">
+                {s.detailNote}
+              </span>
+            </div>
+          </div>
+        </div>
+
+        {/* quiet supporting proof — spaced, not a dense list */}
+        <ul className="reveal reveal-3 mx-auto mt-14 grid max-w-[52rem] grid-cols-1 gap-8 text-center sm:grid-cols-3 md:mt-16">
+          {s.proof.map((p) => (
+            <li key={p.label}>
+              <p className="font-serif text-[22px] font-semibold text-estate-700 md:text-[24px]">{p.label}</p>
+              <p className="mt-1 text-[13px] uppercase tracking-[.16em] text-steel">{p.note}</p>
+            </li>
+          ))}
+        </ul>
+
+        {/* centered CTAs */}
+        <div className="mt-12 flex flex-wrap items-center justify-center gap-[14px] md:mt-14">
+          <Button href={s.primary.href} variant="primary" track={{ cta: "explore_stay", location: "home_stay" }}>
+            {s.primary.label}
+            <Arrow />
+          </Button>
+          <a
+            href={s.secondary.href}
+            data-cta="check_availability"
+            data-location="home_stay"
+            className="group inline-flex items-center gap-2 text-[14.5px] font-semibold text-estate-700 underline-offset-4 hover:text-champagne-dark hover:underline"
+          >
+            {s.secondary.label}
+            <span aria-hidden className="transition-transform duration-200 group-hover:translate-x-1">→</span>
+          </a>
+        </div>
+      </div>
+    </section>
+  );
+}
