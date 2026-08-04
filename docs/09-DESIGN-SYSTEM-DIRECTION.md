@@ -52,7 +52,9 @@ Two faces max, ≤3 weights, big size jumps, tight tracking on display (OS §3).
 - Channel icons (call/WhatsApp/email) standardised via one component (`docs/10`) so they can't drift.
 
 ## 5. Image strategy & manifest (config-driven)
-Photography is the #1 premium determinant (OS §7). **No hardcoded paths** — a config manifest (`config/images.ts` pattern) doubles as the **photography shot list** (`docs/02` Part 16). Documented folders, each with a README (filenames, dimensions, aspect, optimisation, alt guidance):
+> **Authoritative imagery source: [`17-PHOTOGRAPHY-STRATEGY.md`](17-PHOTOGRAPHY-STRATEGY.md)** — the full photography philosophy, the one grade for the whole estate, per-section art direction, and the complete Image Manifest (IDs, filenames, alt, SEO). This section is the summary; docs/17 governs.
+
+Photography is the #1 premium determinant (OS §7). **No hardcoded paths** — a config manifest (`config/images.ts` pattern) doubles as the **photography shot list** (`docs/02` Part 16, now `docs/17`). Documented folders, each with a README (filenames, dimensions, aspect, optimisation, alt guidance):
 `logo · hero · exterior · architecture · rooms · weddings · conferences · events · dining · spa · gardens · team · gallery · offers`
 
 - **Specs:** hero 16:9 desktop / 4:5 mobile @2400px ≤200KB; split 4:3 @1600px ≤150KB; card 1:1/4:5 @1200px ≤120KB; AVIF+WebP via `next/image`; LCP image `priority`; explicit dimensions (CLS); **build fails on missing alt**; alt describes the evidence.
