@@ -2,7 +2,81 @@
 
 Context for the next session. Read this + `PROJECT_STATUS.md` + `docs/CLIENT-BRIEF.md` before working.
 
-> ⚠️ **Read first:** the Bbettr Website OS (`~/Documents/Bbettr-Website-Os/SYSTEM/00-OPERATING-MODEL.md`, `SYSTEM/03-BUSINESS-INTELLIGENCE.md`, `SYSTEM/04-MARKETING-ENGINE.md`, the Design Language + Hero System, `PIPELINE/gates.md`), this project's `knowledge-base/` (the BKB) and `docs/` blueprint. **PAUSED — no design or development authorised.**
+---
+
+# ⏩ END-OF-DAY HANDOVER — 2026-08-04 (READ THIS FIRST; supersedes older status blocks below)
+
+> Tomorrow, resume **immediately at the Homepage Final CTA review** (Milestone 11 is shipped & live, awaiting approval). No need to revisit earlier milestones — they are LOCKED.
+
+## Current Status
+
+### Website OS
+- **v2.4.0 remains FROZEN.**
+- **No OS changes made today.**
+- Any future OS improvements must come **only from validated project learnings** (flagged in `design/os-component-candidates.md`; promotion via `PIPELINE/learning-loop.md`).
+
+### Velmoré Website
+- **Homepage build is in progress.**
+- **All approved milestones are LOCKED** unless explicitly reopened.
+
+**Locked homepage milestones:**
+- ✅ Hero
+- ✅ Journey Selector
+- ✅ Estate Introduction
+- ✅ Conferences Preview
+- ✅ Weddings Preview
+- ✅ Stay Preview
+- ✅ Spa Preview
+- ✅ Dining Preview
+- ✅ Gallery Showcase
+- ✅ Reviews / Trust *(deployment verified green on prod — LOCK confirmed)*
+
+**Shipped, awaiting review (NOT yet locked):**
+- 🟡 **Final CTA** (Milestone 11) — shipped, deployed green, verified on prod. **First action tomorrow = get approval → lock.**
+
+**Also shipped today (chore):** production **image library** scaffold — `public/images/**` (22 `.gitkeep` folders + `public/images/README.md`). No placeholder images; no code references them yet. Build + deploy verified.
+
+**On-page order (live):** Hero → Journey Selector → Estate Introduction → Conferences → Weddings → Stay → Spa → Dining → Gallery → Reviews/Trust → Final CTA. Section-feeling rhythm: anticipation · confidence · capability · emotion · calm · restoration · gathering · inspiration/peak · trust · easy-close.
+
+## Current workflow (every milestone)
+Build → Build/Lint/Typecheck → Sync documentation → Flag OS candidates → Commit → Push to `main` → Verify production → Review → **Wait for approval** → LOCK.
+- Deploy poll: `gh api repos/bbettr-agency/velmore-hotel/commits/<sha>/status --jq '.state'`.
+- Preview server: `velmore-dev` in `~/Documents/Bbettr-Website-Os/.claude/launch.json` (port 3500).
+- Browser pane freezes on homepage scroll (100vh hero) → isolate a section via `javascript_exec` (remove sibling `<main>` children) then screenshot.
+
+## Standing project rules
+- **Photography drives every section** — design order: image → composition → copy → CTA.
+- **Images create emotion, copy provides context, CTAs capture intent.**
+- **Every new section must introduce a different emotional rhythm** (distinct feeling AND distinct composition — never repeat a prior layout).
+- **Homepage sections become progressively quieter toward conversion** (after the Gallery peak).
+- **Never invent client facts.** All unconfirmed content stays **placeholder-driven** and clearly labelled (name-neutral `/spa` `/dining`; no menus/rates/hours/chefs/operator; no alcohol/bar; no non-sellable assets; `docs/17` is the imagery authority).
+- **Keep repository documentation synchronized with implementation before every push.**
+- **Push every approved milestone to `main`** so Vercel stays reviewable.
+
+## Tomorrow's starting point (in order)
+1. ~~Verify the Reviews/Trust deployment~~ — **done, verified green; LOCK confirmed.**
+2. **Review & lock the Final CTA** (Milestone 11 — already shipped/live).
+3. Build the **Footer** — must *quietly close* the experience (not a utility strip). Then Build/Lint/Typecheck → sync docs → flag OS candidates → commit → push → verify prod → **stop for review**.
+4. On Footer approval → **homepage COMPLETE & LOCKED.**
+5. Then move to **inner pages** in this order:
+   1. Conferences
+   2. Weddings
+   3. Accommodation
+   4. Dining
+   5. Spa
+   6. Gallery
+   7. About
+   8. Contact
+
+## End-of-session state (2026-08-04)
+- ✅ Working tree **clean** (nothing uncommitted).
+- ✅ Everything **pushed to GitHub** `main` — latest commit **`984d33b`** (Final CTA). Today's commits: photography strategy, Weddings/Stay/Spa/Dining/Gallery/Reviews/FinalCTA previews, image-library scaffold.
+- ✅ **Vercel synchronized** — https://velmore-hotel.vercel.app deploy **green** on `984d33b`, verified on production.
+- ✅ Handover + `PROJECT_STATUS.md` + memory updated; **resume immediately at the Final CTA review with no need to revisit previous milestones.**
+
+---
+
+> ⚠️ **Historical context below (superseded by the END-OF-DAY HANDOVER above):** the Bbettr Website OS (`~/Documents/Bbettr-Website-Os/SYSTEM/00-OPERATING-MODEL.md`, `SYSTEM/03-BUSINESS-INTELLIGENCE.md`, `SYSTEM/04-MARKETING-ENGINE.md`, the Design Language + Hero System, `PIPELINE/gates.md`), this project's `knowledge-base/` (the BKB) and `docs/` blueprint. *(The old "PAUSED — no development authorised" banner no longer applies — the homepage build is active and approved milestone-by-milestone.)*
 
 ## Status (2026-08-02) — PAUSED
 - ✅ **Architecture & documentation phase complete and approved** (research + 29-part blueprint + OS v2.3.0/v2.4.0).
