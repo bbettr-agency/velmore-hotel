@@ -188,6 +188,40 @@
 }
 .spa-vignette { box-shadow: inset 0 0 170px 48px rgba(6,5,4,.55); }
 
+/* ---------------------------------------------------------------
+   Dining photography placeholder — image-FIRST, full-bleed. Warm,
+   appetising, social light around a set table (candles / place
+   settings — NEVER alcohol/glasses/bar, per docs/17 §3.6). Includes a
+   copy scrim so overlaid text stays legible. Clearly a placeholder —
+   real dining photography is required (gap-fill shoot).
+----------------------------------------------------------------*/
+.dine-image {
+  background:
+    radial-gradient(120% 92% at 68% 28%, rgba(242,208,152,.55) 0%, rgba(198,152,66,.20) 34%, rgba(30,22,14,0) 66%),
+    radial-gradient(60% 50% at 42% 64%, rgba(255,236,200,.30), rgba(255,236,200,0) 70%),
+    linear-gradient(162deg, #3b2d1d 0%, #2c2114 52%, #1c1610 100%);
+}
+.dine-tables {
+  -webkit-mask-image: linear-gradient(180deg, transparent 28%, #000 58%, #000 88%, transparent 100%);
+          mask-image: linear-gradient(180deg, transparent 28%, #000 58%, #000 88%, transparent 100%);
+  background:
+    radial-gradient(circle at 32% 66%, rgba(255,240,210,.80) 0 2px, transparent 8px),
+    radial-gradient(circle at 46% 62%, rgba(255,238,205,.62) 0 2.5px, transparent 9px),
+    radial-gradient(circle at 60% 66%, rgba(255,240,210,.70) 0 2px, transparent 8px),
+    radial-gradient(circle at 74% 61%, rgba(255,236,200,.52) 0 2px, transparent 8px),
+    radial-gradient(circle at 86% 67%, rgba(255,236,200,.40) 0 1.5px, transparent 7px);
+}
+.dine-scrim {
+  background:
+    linear-gradient(90deg, rgba(14,10,6,.88) 0%, rgba(14,10,6,.6) 32%, rgba(14,10,6,.06) 64%, rgba(14,10,6,0) 100%),
+    linear-gradient(0deg, rgba(14,10,6,.72) 0%, rgba(14,10,6,0) 44%);
+}
+@media (max-width: 768px) {
+  .dine-scrim {
+    background: linear-gradient(0deg, rgba(14,10,6,.9) 0%, rgba(14,10,6,.5) 38%, rgba(14,10,6,.05) 72%, rgba(14,10,6,0) 100%);
+  }
+}
+
 /* Secondary-element reveal (LCP elements never animate; motion-safe only) */
 @media (prefers-reduced-motion: no-preference) {
   .reveal { opacity: 0; transform: translateY(14px); animation: reveal .6s cubic-bezier(.22,1,.36,1) forwards; }

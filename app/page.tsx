@@ -6,6 +6,7 @@ import { ConferencesPreview } from "@/components/home/ConferencesPreview";
 import { WeddingsPreview } from "@/components/home/WeddingsPreview";
 import { StayPreview } from "@/components/home/StayPreview";
 import { SpaPreview } from "@/components/home/SpaPreview";
+import { DiningPreview } from "@/components/home/DiningPreview";
 
 export default function HomePage() {
   return (
@@ -18,6 +19,7 @@ export default function HomePage() {
       <WeddingsPreview />
       <StayPreview />
       <SpaPreview />
+      <DiningPreview />
     </main>
   );
 }

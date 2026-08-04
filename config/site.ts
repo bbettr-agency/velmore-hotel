@@ -257,6 +257,23 @@ export const site = {
     primary: { label: "Explore the Spa", href: routes.spa.href },
     secondary: { label: "Enquire", href: routes.contact.href },
   },
+
+  // Homepage Dining preview — image-FIRST (the photograph does the emotional
+  // work; copy supports). Sells the EXPERIENCE — gathering, shared meals,
+  // conversation, hospitality — and the confirmed certified-halal welcome.
+  // Name-NEUTRAL (restaurant trading name unconfirmed). NO invented menu,
+  // cuisine, pricing, chefs or hours. Content rule: NO alcohol / wine / bar
+  // (docs/17 §3.6). Prose INDICATIVE; certified-halal is BKB-confirmed.
+  diningPreview: {
+    eyebrow: "Dining on the estate",
+    heading: "A long table, and everyone at it.", // INDICATIVE
+    body: "The part of the day when the speeches soften into conversation and no one's in a hurry to leave — plates passed around a long table, and a certified halal kitchen that cooks for everyone at it, without anyone having to ask.", // INDICATIVE
+    halalChip: "Certified halal · every guest",
+    // Honest placeholder — dining photography still required (no alcohol / bar).
+    imageNote: "Dining photography required · a set table on the estate (shoot pending)",
+    primary: { label: "Explore Dining", href: routes.dining.href },
+    secondary: { label: "Enquire", href: routes.contact.href },
+  },
 } as const;
 
 export type Site = typeof site;
