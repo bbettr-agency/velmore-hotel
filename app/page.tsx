@@ -11,10 +11,13 @@ import { GalleryShowcase } from "@/components/home/GalleryShowcase";
 import { ReviewsTrust } from "@/components/home/ReviewsTrust";
 import { FinalCta } from "@/components/home/FinalCta";
 import { Footer } from "@/components/site/Footer";
+import { JsonLd } from "@/components/seo/JsonLd";
+import { homeJsonLd } from "@/lib/jsonld";
 
 export default function HomePage() {
   return (
     <main id="main">
+      <JsonLd data={homeJsonLd()} />
       <Nav />
       <Hero />
       <JourneySelector />

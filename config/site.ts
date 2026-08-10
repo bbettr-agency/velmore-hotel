@@ -305,8 +305,15 @@ export const site = {
   // architected (data-* slots) to populate from live Google reviews later. No
   // AggregateRating schema until consented. Heading INDICATIVE.
   reviewsPreview: {
+    // LAUNCH GATE: `ready` stays false until real, verified Google reviews are
+    // connected. While false, NO rating/count/quotes/schema render — only the
+    // confident statement + a link to Google if a profile URL is provided. Flip
+    // to true (and provide `googleUrl` + real `quotes`) once data exists.
+    ready: false,
+    googleUrl: "", // e.g. the Velmoré Google Business profile / reviews link (TO CONFIRM)
     eyebrow: "Trusted with the occasion",
     heading: "The day that matters most, in hands that have held it before.", // INDICATIVE
+    connectingNote: "Verified guest reviews are being connected.",
     ratingLabel: "Google reviews",
     ratingNote: "Live rating & count will appear here once connected",
     quotes: [

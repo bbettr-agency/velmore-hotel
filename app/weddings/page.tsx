@@ -7,6 +7,8 @@ import { Faq } from "@/components/sections/Faq";
 import { CtaBand } from "@/components/sections/CtaBand";
 import { Footer } from "@/components/site/Footer";
 import { pageMetadata } from "@/lib/metadata";
+import { JsonLd } from "@/components/seo/JsonLd";
+import { pageJsonLd } from "@/lib/jsonld";
 import { pages } from "@/config/pages";
 
 export const metadata = pageMetadata("weddings");
@@ -15,6 +17,7 @@ export default function WeddingsPage() {
   const p = pages.weddings;
   return (
     <main id="main">
+      <JsonLd data={pageJsonLd("weddings")} />
       <PageHero {...p.hero} />
       <Statement {...p.statement} />
       <FeatureSplit {...p.ceremonySplit} imageSide="right" tone="ivory" />

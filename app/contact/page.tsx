@@ -2,6 +2,8 @@ import { PageHero } from "@/components/sections/PageHero";
 import { Footer } from "@/components/site/Footer";
 import { EnquiryForm } from "@/components/site/EnquiryForm";
 import { pageMetadata } from "@/lib/metadata";
+import { JsonLd } from "@/components/seo/JsonLd";
+import { pageJsonLd } from "@/lib/jsonld";
 import { pages } from "@/config/pages";
 import { site } from "@/config/site";
 
@@ -11,6 +13,7 @@ export default function ContactPage() {
   const { hero, form } = pages.contact;
   return (
     <main id="main">
+      <JsonLd data={pageJsonLd("contact")} />
       <PageHero {...hero} />
 
       <section id="enquire" className="scroll-mt-24 bg-ivory py-24 md:py-28">
