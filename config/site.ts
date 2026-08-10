@@ -330,6 +330,41 @@ export const site = {
     body: "Book a viewing, tell us your date, and one team takes it from there.", // INDICATIVE
     imageNote: "Photography placeholder · the estate at golden hour (to be shot)",
   },
+
+  // Sitewide footer — quiet close (not a utility strip). Links from `routes`;
+  // contact facts BKB-confirmed (email + location only — phone/address are
+  // TO CONFIRM and must not appear as fact). Tagline INDICATIVE.
+  footer: {
+    tagline: "One estate. One team. The whole occasion — held.", // INDICATIVE
+    groups: [
+      {
+        title: "Occasions",
+        links: [
+          { label: routes.weddings.title, href: routes.weddings.href },
+          { label: routes.conferences.title, href: routes.conferences.href },
+          { label: routes.events.title, href: routes.events.href },
+        ],
+      },
+      {
+        title: "The estate",
+        links: [
+          { label: routes.accommodation.title, href: routes.accommodation.href },
+          { label: routes.dining.title, href: routes.dining.href },
+          { label: routes.spa.title, href: routes.spa.href },
+          { label: routes.gallery.title, href: routes.gallery.href },
+        ],
+      },
+      {
+        title: "Visit",
+        links: [
+          { label: routes.about.title, href: routes.about.href },
+          { label: routes.contact.title, href: routes.contact.href },
+        ],
+      },
+    ],
+    legal: "Part of the Velmore Hospitality Group.",
+    credit: { label: "Website by Bbettr", href: "https://www.bbettragency.com" },
+  },
 } as const;
 
 export type Site = typeof site;

@@ -10,6 +10,7 @@ import { DiningPreview } from "@/components/home/DiningPreview";
 import { GalleryShowcase } from "@/components/home/GalleryShowcase";
 import { ReviewsTrust } from "@/components/home/ReviewsTrust";
 import { FinalCta } from "@/components/home/FinalCta";
+import { Footer } from "@/components/site/Footer";
 
 export default function HomePage() {
   return (
@@ -26,6 +27,7 @@ export default function HomePage() {
       <GalleryShowcase />
       <ReviewsTrust />
       <FinalCta />
+      <Footer />
     </main>
   );
 }

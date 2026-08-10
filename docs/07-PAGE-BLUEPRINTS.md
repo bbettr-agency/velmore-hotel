@@ -39,7 +39,22 @@
 | 12 | **Specials** | deal-seekers | current real offers only 〔G1: real offers — else suppress section〕 | light | → /specials · `Offer` schema |
 | 13 | **Location & map** | objection #4 | map embed, address (BKB NAP), drive-times, directions | tinted | → /contact |
 | 14 | **Final CTA** *(SHIPPED — `components/home/FinalCta.tsx`)* | the natural conclusion — *"the next step is easy"* | **NOT** loud/salesy/multi-path (the Journey selector already offers paths). Image-FIRST: a warm **estate-at-golden-hour** full-bleed close (`.cta-*`, bookending the cool dusk hero) behind **centered, minimal** copy — one line + one primary + one secondary + the reassurance micro-line. Quietest, most confident invite. Photography labelled placeholder. | **full-bleed warm close, centered** | **Book a viewing** → /contact (`book_viewing`) · **Enquire for your date** → /contact (`enquire_date`) · reassurance: *free · no obligation · same-business-day reply* |
-| 15 | **Footer** | wayfinding + NAP | per `docs/06` §3.2 | dark | Bbettr credit |
+| 15 | **Footer** *(SHIPPED — `components/site/Footer.tsx`)* | quiet close (not a utility strip) | dark estate ground, brand + one-line tagline, config-driven wayfinding (Occasions / The estate / Visit from `routes`), **confirmed contact only** (email + location — NO phone/address, TO CONFIRM), © + "Website by Bbettr" credit | **dark** | — |
+
+> **HOMEPAGE COMPLETE & LOCKED** (11 sections + footer). **Production mode:** inner pages now built top-to-bottom with a shared, config-driven **section kit** (`components/sections/`: `PageHero`, `FeatureSplit`, `Statement`, `SpecList`, `ImageBand`, `Faq`, `CtaBand`, `Placeholder`) + `config/pages.ts`. Reuses the labelled placeholder hues; image-first; confirmed facts only.
+
+### Inner pages (production build status)
+| Page | Route | Status |
+|---|---|---|
+| Conferences | `/conferences` | ✅ SHIPPED — hero · one-team statement · scale split (1,300) · numbers · residential split (50 rooms + halal) · organiser FAQ · CTA · footer |
+| Weddings | `/weddings` | ⏳ building |
+| Accommodation | `/accommodation` | ⏳ building |
+| Dining | `/dining` | ⏳ building |
+| Spa | `/spa` | ⏳ building |
+| Events | `/events` | ⏳ building |
+| Gallery | `/gallery` | ⏳ building |
+| About | `/about` | ⏳ building |
+| Contact | `/contact` | ⏳ building |
 
 **On-page SEO skeleton:** Title *ex.* "Velmore Hotel Estate — Hotel, Weddings & Conferences between Pretoria & Johannesburg" (<60ch, 〔G1: canonical name〕) · one H1 (hero) · meta *ex.* breadth+location (<155ch) · H2 per section.
 **Landing-readiness:** category+location+CTA above fold; trust before final ask; attention ratio moderate (hub keeps nav). Passes Ad-Budget Test as a brand/breadth landing page.
