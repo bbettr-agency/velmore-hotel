@@ -2,6 +2,7 @@ import { PageHero } from "@/components/sections/PageHero";
 import { Statement } from "@/components/sections/Statement";
 import { FeatureSplit } from "@/components/sections/FeatureSplit";
 import { ImageBand } from "@/components/sections/ImageBand";
+import { GalleryGrid } from "@/components/sections/GalleryGrid";
 import { Faq } from "@/components/sections/Faq";
 import { CtaBand } from "@/components/sections/CtaBand";
 import { Footer } from "@/components/site/Footer";
@@ -20,8 +21,9 @@ export default function DiningPage() {
       <PageHero {...p.hero} />
       <Statement {...p.statement} />
       <FeatureSplit {...p.tableSplit} imageSide="left" tone="ivory" />
+      <GalleryGrid {...p.foodGallery} tone="mist" />
       <ImageBand {...p.halalBand} />
-      <Faq {...p.faq} tone="mist" />
+      <Faq {...p.faq} tone="ivory" />
       <CtaBand {...p.cta} />
       <Footer />
     </main>

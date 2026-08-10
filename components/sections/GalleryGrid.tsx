@@ -10,16 +10,33 @@ import { Reveal, Stagger } from "@/components/motion/Reveal";
 export function GalleryGrid({
   tiles,
   note,
+  eyebrow,
+  heading,
   tone = "ivory",
 }: {
   tiles: readonly { label: string; variant: PhVariant; image?: Img }[];
   note?: string;
+  eyebrow?: string;
+  heading?: string;
   tone?: "ivory" | "mist";
 }) {
   const bg = tone === "mist" ? "bg-mist" : "bg-ivory";
   return (
     <section className={`${bg} py-20 md:py-24`}>
       <div className="mx-auto max-w-container px-6 md:px-12">
+        {heading ? (
+          <Reveal className="mb-12 max-w-[46ch]">
+            {eyebrow ? (
+              <p className="flex items-center gap-3 text-[11.5px] font-semibold uppercase tracking-[.28em] text-champagne-dark">
+                <span aria-hidden className="h-px w-[34px] bg-champagne" />
+                {eyebrow}
+              </p>
+            ) : null}
+            <h2 className="mt-5 font-serif text-[28px] font-semibold leading-[1.12] tracking-[-.01em] text-estate-700 md:text-[36px]">
+              {heading}
+            </h2>
+          </Reveal>
+        ) : null}
         <Stagger className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 md:gap-5">
           {tiles.map((t) => (
             <Reveal key={t.label} as="figure" preset="fadeUpItem" className="group relative aspect-[4/3] overflow-hidden rounded-lg shadow-card">

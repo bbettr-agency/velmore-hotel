@@ -28,7 +28,7 @@ export function FinalCta() {
       className="relative isolate flex min-h-[520px] items-center overflow-hidden md:min-h-[580px]"
     >
       {/* full-bleed image — carries the emotional close */}
-      <Image src={img.welcomeGolden.src} alt={img.welcomeGolden.alt} fill sizes="100vw" className="object-cover" />
+      <Image src={img.entranceSignage.src} alt={img.entranceSignage.alt} fill sizes="100vw" className="object-cover" />
       <div aria-hidden className="absolute inset-0 cta-scrim" />
       <div aria-hidden className="absolute inset-0 cta-vignette" />
 

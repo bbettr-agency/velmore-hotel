@@ -85,7 +85,7 @@ export function WeddingsPreview() {
         {/* image — portrait, for intimacy vs the conference landscape */}
         <div className="md:col-span-6">
           <Reveal preset="imageReveal" className="relative mx-auto aspect-[4/5] max-w-[440px] overflow-hidden rounded-lg shadow-card md:ml-auto md:mr-0">
-            <Image src={img.receptionTable.src} alt={img.receptionTable.alt} fill sizes="(min-width: 768px) 42vw, 100vw" className="object-cover" />
+            <Image src={img.dcharmantHall.src} alt={img.dcharmantHall.alt} fill sizes="(min-width: 768px) 42vw, 100vw" className="object-cover" />
           </Reveal>
         </div>
       </div>

@@ -19,9 +19,11 @@ export default function AccommodationPage() {
       <JsonLd data={pageJsonLd("accommodation")} />
       <PageHero {...p.hero} />
       <Statement {...p.statement} />
-      <FeatureSplit {...p.roomsSplit} imageSide="left" tone="ivory" />
-      <FeatureSplit {...p.estateSplit} imageSide="right" tone="mist" />
-      <FeatureSplit {...p.guestsSplit} imageSide="left" tone="ivory" />
+      {/* the four room types — photography-led, alternating sides */}
+      {p.rooms.map((room, i) => (
+        <FeatureSplit key={room.eyebrow} {...room} imageSide={i % 2 === 0 ? "left" : "right"} tone={i % 2 === 0 ? "ivory" : "mist"} />
+      ))}
+      <FeatureSplit {...p.estateSplit} imageSide="left" tone="ivory" />
       <SpecList {...p.numbers} tone="mist" columns={4} />
       <Faq {...p.faq} tone="ivory" />
       <CtaBand {...p.cta} />

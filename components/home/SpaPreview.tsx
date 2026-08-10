@@ -23,7 +23,7 @@ function Arrow() {
 export function SpaPreview() {
   const s = site.spaPreview;
   return (
-    <section aria-labelledby="spa-heading" className="relative overflow-hidden bg-[#1b140c] py-28 md:py-40">
+    <section aria-labelledby="spa-heading" className="relative overflow-hidden bg-[#131d17] py-28 md:py-40">
       <div aria-hidden className="absolute inset-0 spa-ground" />
       <div className="relative mx-auto grid max-w-container grid-cols-1 items-center gap-14 px-6 md:grid-cols-12 md:gap-16 md:px-12">
         {/* copy — restrained, floating in negative space */}

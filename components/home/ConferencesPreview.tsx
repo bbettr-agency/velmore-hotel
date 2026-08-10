@@ -1,4 +1,6 @@
+import Image from "next/image";
 import { site } from "@/config/site";
+import { img } from "@/config/images";
 import { Button } from "@/components/ui/Button";
 import { Reveal } from "@/components/motion/Reveal";
 
@@ -26,13 +28,7 @@ export function ConferencesPreview() {
         {/* image (placeholder) */}
         <div className="md:col-span-6">
           <Reveal preset="imageReveal" className="relative aspect-[4/3] overflow-hidden rounded-lg shadow-card">
-            <div aria-hidden className="absolute inset-0 conf-image" />
-            <div aria-hidden className="absolute inset-0 conf-rows" />
-            <div aria-hidden className="absolute inset-0 conf-glints" />
-            <div aria-hidden className="absolute inset-0 conf-vignette" />
-            <span className="absolute left-4 top-4 rounded-full bg-black/35 px-3 py-[5px] text-[9.5px] uppercase tracking-[.12em] text-ivory/70 backdrop-blur-[2px]">
-              {c.imageNote}
-            </span>
+            <Image src={img.conferenceHallSet.src} alt={img.conferenceHallSet.alt} fill sizes="(min-width: 768px) 46vw, 100vw" className="object-cover" />
           </Reveal>
         </div>
 

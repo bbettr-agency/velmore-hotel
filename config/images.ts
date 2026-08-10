@@ -44,6 +44,34 @@ export const img = {
   entranceSign: { src: "/images/contact/velmore-entrance-sign.jpg", alt: "The Velmore Hotel & Spa entrance gate and signage" },
   welcomeGolden: { src: "/images/contact/velmore-welcome-golden-hour.jpg", alt: "The Velmore Estate welcome sign at golden hour" },
   arrivalGate: { src: "/images/contact/velmore-arrival-gate.jpg", alt: "The arrival gate at the Velmore Hotel & Spa estate" },
+
+  // --- second photography drop (real venue + room photography) ---
+  // Weddings / functions
+  dcharmantHall: { src: "/images/weddings/velmore-dcharmant-hall.jpg", alt: "The D'Charmant Glass Hall at Velmoré set for a wedding, chandeliers and a floral ceremony arch" },
+  weddingGlassHall: { src: "/images/weddings/velmore-wedding-glass-hall.jpg", alt: "A wedding reception down the aisle of the glass hall at Velmoré, chandeliers above and tables either side" },
+  ceremonyArch: { src: "/images/weddings/velmore-ceremony-arch.jpg", alt: "The freestanding stone ceremony archway in the Velmoré estate gardens" },
+  receptionLounge: { src: "/images/weddings/velmore-reception-lounge.jpg", alt: "A reception lounge setting in the glass hall at Velmoré with a floral backdrop" },
+  // Conferences
+  conferenceHallSet: { src: "/images/conferences/velmore-conference-hall-set.jpg", alt: "The glass hall at Velmoré set with round tables for a residential event" },
+  conferenceSeated: { src: "/images/conferences/velmore-conference-seated.jpg", alt: "A conference seated in rows facing the stage in the hall at Velmoré, chandelier above" },
+  banquetScale: { src: "/images/conferences/velmore-banquet-scale.jpg", alt: "Long banquet tables set at scale in the glass hall at Velmoré" },
+  // Events
+  functionSet: { src: "/images/events/velmore-function-set.jpg", alt: "The glass hall at Velmoré set for a celebration with warm uplighting" },
+  celebrationCatering: { src: "/images/events/velmore-celebration-catering.jpg", alt: "A catering table of canapés and pastries at a Velmoré celebration" },
+  // Dining
+  diningRoom: { src: "/images/dining/velmore-dining-room.jpg", alt: "The dining room at Velmoré, tables set beside the glass frontage" },
+  // Estate / arrival
+  entranceSignage: { src: "/images/estate/velmore-entrance-signage.jpg", alt: "The Velmore Hotel & Spa brick entrance gate and signage" },
+  estateThroughTrees: { src: "/images/estate/velmore-estate-through-trees.jpg", alt: "The arched brick facade of the Velmoré estate framed by trees and lawn" },
+  arrivalForecourt: { src: "/images/estate/velmore-arrival-forecourt.jpg", alt: "The entrance and fountain forecourt at the Velmoré estate" },
+  estateForecourt: { src: "/images/contact/velmore-estate-forecourt.jpg", alt: "The Velmoré estate facade and palm-lined forecourt on arrival" },
+  // Rooms
+  presidentialSuite: { src: "/images/rooms/velmore-presidential-suite.jpg", alt: "The Presidential Suite at Velmoré — a tufted headboard, deep colours and rich detail" },
+  presidentialSuiteDetail: { src: "/images/rooms/velmore-presidential-suite-detail.jpg", alt: "A breakfast tray beside the bed in the Presidential Suite at Velmoré" },
+  deluxeRoom: { src: "/images/rooms/velmore-deluxe-room.jpg", alt: "A Deluxe Room at Velmoré with a private balcony and estate views" },
+  deluxeRoomView: { src: "/images/rooms/velmore-deluxe-room-view.jpg", alt: "A Deluxe Room at Velmoré with a desk and a balcony overlooking the gardens" },
+  standardRoom: { src: "/images/rooms/velmore-standard-room.jpg", alt: "A Standard Room at Velmoré, warm and restful with a work desk" },
+  twinRoom: { src: "/images/rooms/velmore-twin-room.jpg", alt: "A Twin Room at Velmoré with two beds and estate-toned styling" },
 } as const;
 
 export type ImgKey = keyof typeof img;
