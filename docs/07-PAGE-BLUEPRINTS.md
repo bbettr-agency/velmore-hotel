@@ -47,7 +47,7 @@
 | Page | Route | Status |
 |---|---|---|
 | Conferences | `/conferences` | ✅ SHIPPED — hero · one-team statement · scale split (1,300) · numbers · residential split (50 rooms + halal) · organiser FAQ · CTA · footer |
-| Weddings | `/weddings` | ⏳ building |
+| Weddings | `/weddings` | ✅ SHIPPED — hero · emotion statement · ceremony split (Martels Chapel) · reception split (D'Charmant Glass Hall) · gardens image-band · everyone-held split (50 rooms + halal) · spaces · couples FAQ · CTA · footer |
 | Accommodation | `/accommodation` | ⏳ building |
 | Dining | `/dining` | ⏳ building |
 | Spa | `/spa` | ⏳ building |
