@@ -1,12 +1,17 @@
 # Project Status — Velmore Hotel Estate
 
-**Last updated:** 2026-08-02
+**Last updated:** 2026-08-10
 **Owner:** Bbettr Agency
 **Client:** Velmore Hotel Estate / Velmore Hotel & Spa (canonical name TBC — see blocking item)
 **Type:** full website **redesign** · hospitality (hotel + weddings + conferencing + spa)
-**Repo:** `github.com/bbettr-agency/velmore-hotel` (official — source of truth) · **OS version:** v2.3.0 Marketing Engine + v2.4.0 Business Intelligence (both approved, committed & pushed)
+**Repo:** `github.com/bbettr-agency/velmore-hotel` (official — source of truth) · **OS version:** v2.4.0 (FROZEN — no OS changes made during the build)
 **Playbook:** none yet (first flagship **hospitality** build — candidate to seed one)
-**Live:** two existing WordPress sites (velmorehotel.co.za + velmorehotelestate.co.za); new build not started. Preview port: TBD
+**Live:** ✅ **FULL SITE LIVE — https://velmore-hotel.vercel.app** (all 10 pages). Preview: `velmore-dev` (port 3500).
+
+> ## ✅ SITE COMPLETE (2026-08-10) — production-ready v1
+> **All 10 pages built, verified & live:** Home · Conferences · Weddings · Accommodation · Dining · Spa · Events · Gallery · About · Contact. Config-driven (`config/site.ts` + `config/pages.ts`) via a shared section kit (`components/sections/`). Image-first; confirmed facts only; all photography = clearly-labelled CSS placeholders pending the shoot (drop real photos into `public/images/**`).
+> **Full production QA PASSED:** all routes 200 · no broken links · 1 H1 + unique title + meta description + canonical per page · footer + tracking-ready CTAs everywhere · functional mobile menu · working accessible enquiry form (mailto until HubSpot wired) · lang + skip link · no console errors · no horizontal overflow (375 & 1280) · no lorem/bracket placeholders.
+> **Outstanding = client/content, not build:** real photography (shoot); confirmed names (spa/restaurant), rates, hours, phone/address; Google-reviews connection; HubSpot form wiring; logo vector. All handled as labelled placeholders today.
 
 ---
 

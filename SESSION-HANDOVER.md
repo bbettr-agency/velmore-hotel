@@ -4,7 +4,28 @@ Context for the next session. Read this + `PROJECT_STATUS.md` + `docs/CLIENT-BRI
 
 ---
 
-# ⏩ END-OF-DAY HANDOVER — 2026-08-04 (READ THIS FIRST; supersedes older status blocks below)
+# ✅ SITE COMPLETE — 2026-08-10 (READ THIS FIRST; supersedes everything below)
+
+**The full Velmoré website is built, QA'd and LIVE at https://velmore-hotel.vercel.app** — all 10 pages, latest commit `db7cb5b`, Vercel green.
+
+## What exists
+- **Pages (all live):** Home · `/conferences` · `/weddings` · `/accommodation` · `/dining` · `/spa` · `/events` · `/gallery` · `/about` · `/contact`.
+- **Architecture:** config-driven — `config/site.ts` (homepage + global) + `config/pages.ts` (inner pages) drive a shared **section kit** in `components/sections/` (`PageHero`, `FeatureSplit`, `Statement`, `SpecList`, `ImageBand`, `Faq`, `CtaBand`, `GalleryGrid`, `Placeholder`). Site chrome: `components/site/` (`Nav`, `MobileMenu`, `Footer`, `EnquiryForm`). Homepage sections in `components/home/` (LOCKED).
+- **Imagery:** all CSS placeholders (`.hero-* .conf-* .wed-* .stay-* .spa-* .dine-* .cta-* + .page-scrim`), every one clearly labelled. Real photos drop into `public/images/**` (see its README + `docs/17`).
+- **OS:** v2.4.0 FROZEN — untouched. Reusable patterns flagged in `design/os-component-candidates.md` (#1–34) for a future OS inner-page builder.
+
+## Production QA — PASSED (all 10 pages)
+Navigation + functional mobile menu · desktop & mobile responsive (no overflow @375/1280) · a11y (lang, skip link, one H1/page, labelled form, aria menu, focus rings, ≥44px targets) · no console errors · unique title + meta description + canonical each page · all internal links 200 (no broken links) · labelled placeholder imagery · tracking-ready CTAs (`data-cta`/`data-location`) sitewide · accessible enquiry form · footer everywhere · no lorem/bracket placeholders.
+
+## Outstanding — CLIENT / CONTENT, not build (all shown as labelled placeholders)
+Real photography (the shoot) · confirmed spa & restaurant **names**, **rates**, **hours**, **phone/address** · **Google reviews** connection (architected: `data-google-reviews`/`data-review-slot`, no `AggregateRating` until consented) · **HubSpot** form wiring (form composes a mailto to `bookings@velmorehotel.co.za` until then) · **logo vector**. None block the build; each is a swap-in.
+
+## Standing rules (unchanged)
+Photography-first (image → composition → copy → CTA) · never invent client facts · unconfirmed content stays labelled-placeholder · name-neutral `/spa` `/dining` · no alcohol imagery · sync docs before each push · OS frozen (flag candidates, don't modify).
+
+---
+
+# ⏩ END-OF-DAY HANDOVER — 2026-08-04 (historical)
 
 > Tomorrow, resume **immediately at the Homepage Final CTA review** (Milestone 11 is shipped & live, awaiting approval). No need to revisit earlier milestones — they are LOCKED.
 
