@@ -51,10 +51,10 @@
 | Accommodation | `/accommodation` | ✅ SHIPPED — hero (Check Availability) · rest statement · rooms split · estate (gardens/pool/spa) split · guests/delegates split · numbers · FAQ (rates → enquiry) · CTA. **No invented room categories/rates.** |
 | Dining | `/dining` | ✅ SHIPPED — NAME-NEUTRAL. hero · gathering statement · shared-tables split · certified-halal image-band · FAQ (menu → tailored/enquiry) · CTA. **No menu/cuisine/pricing/chefs/hours; no alcohol.** |
 | Spa | `/spa` | ✅ SHIPPED — NAME-NEUTRAL, emotional role only. hero ("Somewhere to exhale") · stillness statement · exhale image-band · FAQ (treatments → "being finalised") · CTA. **No services/treatments/pricing/hours/brands/facilities asserted.** |
-| Events | `/events` | ⏳ building |
-| Gallery | `/gallery` | ⏳ building |
-| About | `/about` | ⏳ building |
-| Contact | `/contact` | ⏳ building |
+| Events | `/events` | ✅ SHIPPED — hero · statement · occasions split · scale split (intimate→hundreds, SCC 1,300) · one-team image-band · FAQ · CTA. Confirmed: year-end/matric/milestones/private; certified halal. |
+| Gallery | `/gallery` | ✅ SHIPPED — hero · 9-tile curated `GalleryGrid` (captioned placeholders across verticals, hover-zoom) · honest note · CTA. |
+| About | `/about` | ✅ SHIPPED — hero · North-Star statement · estate split · one-team split · certified-halal split · numbers (1,300·3·50·1, dark) · CTA. |
+| Contact | `/contact` | ✅ SHIPPED — hero (anchors to #enquire) · enquiry section: intro + "what happens next" + email/location + **`EnquiryForm`** (7 labelled fields, accessible, tracking-ready `enquiry_submit`; **no CRM backend yet → composes a mailto to the confirmed bookings address**; swap handler for HubSpot when wired) · footer. |
 
 **On-page SEO skeleton:** Title *ex.* "Velmore Hotel Estate — Hotel, Weddings & Conferences between Pretoria & Johannesburg" (<60ch, 〔G1: canonical name〕) · one H1 (hero) · meta *ex.* breadth+location (<155ch) · H2 per section.
 **Landing-readiness:** category+location+CTA above fold; trust before final ask; attention ratio moderate (hub keeps nav). Passes Ad-Budget Test as a brand/breadth landing page.

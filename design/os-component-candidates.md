@@ -40,6 +40,8 @@ promotion goes through `PIPELINE/learning-loop.md` on a 2nd project). Updated as
 | 30 | **Shared placeholder renderer** (`components/sections/Placeholder.tsx`) | one component maps a vertical name → its labelled CSS placeholder hue, so every section/tile/hero pulls consistent honest placeholders until the shoot | template pattern |
 | 31 | **Page-hero primitive w/ hue-agnostic scrim** (`PageHero` + `.page-scrim`) | an image-first dark hero that stays legible (ivory nav + white H1) over ANY placeholder hue via a top+bottom+left scrim — reusable inner-page hero | `ENGINE/ui` |
 | 32 | **No-JS objection FAQ** (`Faq`, native `<details>`) | accessible, keyboard-operable accordion answering ranked objections in the client voice; confirmed answers only | `ENGINE/ui` |
+| 33 | **Curated gallery grid** (`GalleryGrid`) | captioned placeholder/photo tiles across verticals with motion-safe hover-zoom — reusable gallery-page grid | `ENGINE/ui` |
+| 34 | **Backend-agnostic enquiry form** (`EnquiryForm`) | accessible, tracking-ready form that composes a mailto to the confirmed address until a CRM (HubSpot) is wired — ship a working contact form on day one, swap the submit handler later without touching the UI | `ENGINE/ui` + CRM |
 
 ### Not yet built, noted for later
 - **`Reveal`** (IntersectionObserver, once, reduced-motion + no-JS safe) scroll-reveal wrapper — deferred so this milestone stays no-JS-robust; strong OS candidate when added.

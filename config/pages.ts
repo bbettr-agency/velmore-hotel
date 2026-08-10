@@ -420,4 +420,189 @@ export const pages = {
       secondary: { label: "Book a Viewing", href: contact, cta: "book_viewing", location: "spa_cta" },
     },
   },
+
+  events: {
+    hero: {
+      eyebrow: "Celebrations & functions",
+      title: "Every celebration, held on the estate.", // INDICATIVE
+      sub: "Year-end functions, matric farewells, milestones and private celebrations — halls that seat an intimate dinner or hundreds, a certified halal kitchen, and one team from the first guest to the last.", // INDICATIVE
+      variant: "estate" as const,
+      note: "Events photography required · a function on the estate (shoot pending)",
+      chips: [{ label: "Year-end functions" }, { label: "Matric farewells" }, { label: "Certified Halal", badge: true }],
+      primary: { label: "Book a Viewing", href: contact, cta: "book_viewing", location: "events_hero" },
+      secondary: { label: "Enquire for your date", href: contact, cta: "enquire_date", location: "events_hero" },
+    },
+    statement: {
+      eyebrow: "The occasion, held",
+      heading: "The celebration is yours. The logistics are ours.", // INDICATIVE
+      lead: "Whatever the reason to gather, the estate holds it — the venue, the catering and the rooms — so the day feels like a celebration, not a project to manage.", // INDICATIVE
+    },
+    occasionsSplit: {
+      eyebrow: "The occasions",
+      heading: "Whatever you're marking, there's a room for it.",
+      body: [
+        "Year-end functions and awards evenings, matric farewells, birthdays, anniversaries and family milestones — the estate hosts the celebrations that matter.",
+        "One team plans and runs it, with a certified halal kitchen catering for everyone in the room.",
+      ], // INDICATIVE
+      points: ["Year-end functions", "Matric farewells", "Milestones & birthdays", "Private celebrations"],
+      variant: "weddings" as const,
+      note: "Events photography required · a celebration set (shoot pending)",
+    },
+    scaleSplit: {
+      eyebrow: "The scale",
+      heading: "From an intimate dinner to hundreds.",
+      body: [
+        "The estate's halls flex from a private dinner to a function for hundreds — and, at the Suleman Convention Centre, up to 1,300 for the largest events.",
+        "One estate, one team, one invoice — the celebration stays in one place.",
+      ], // INDICATIVE (capacities confirmed)
+      points: ["Intimate to hundreds", "Up to 1,300 at the SCC", "Certified-halal catering", "One team · one invoice"],
+      variant: "conferences" as const,
+      note: "Events photography required · a hall set for a function (shoot pending)",
+    },
+    band: {
+      eyebrow: "One team",
+      heading: "One point of contact, from invitation to last dance.",
+      body: "The venue, the catering and the rooms — held by the same team, on one invoice, so nothing falls between suppliers.", // INDICATIVE
+      variant: "estate" as const,
+      note: "Events photography required · the estate at night (shoot pending)",
+      chip: "Certified halal · every guest",
+      align: "center" as const,
+    },
+    faq: {
+      eyebrow: "Planning your function",
+      heading: "What organisers ask first.",
+      items: [
+        { q: "What kinds of events do you host?", a: "Year-end functions, matric farewells, milestone birthdays, anniversaries and private celebrations — from intimate dinners to large functions." },
+        { q: "How many guests can you host?", a: "From an intimate dinner to hundreds on the estate, and up to 1,300 at the Suleman Convention Centre for the largest events." },
+        { q: "Is the catering halal?", a: "Yes — the kitchen is certified halal and caters for every guest as standard." },
+        { q: "Can guests stay over?", a: "Yes — fifty rooms on the estate mean guests can stay the night." },
+      ],
+    },
+    cta: {
+      heading: "Let's plan the celebration.", // INDICATIVE
+      body: "Tell us the occasion, the date and the numbers, and one team takes it from there.", // INDICATIVE
+      primary: { label: "Book a Viewing", href: contact, cta: "book_viewing", location: "events_cta" },
+      secondary: { label: "Enquire for your date", href: contact, cta: "enquire_date", location: "events_cta" },
+    },
+  },
+
+  about: {
+    hero: {
+      eyebrow: "One estate, one team",
+      title: "The whole occasion — held in one place.", // INDICATIVE
+      sub: "Velmoré Hotel & Spa is the flagship of the Velmore Hospitality Group — a French-Provence estate for weddings, conferences and celebrations, between Pretoria and Centurion.", // INDICATIVE (facts confirmed)
+      variant: "estate" as const,
+      note: "Estate photography required · the estate exterior (shoot pending)",
+      chips: [{ label: "Weddings · conferences · events" }, { label: "50 rooms" }, { label: "Certified Halal", badge: true }],
+      primary: { label: "Book a Viewing", href: contact, cta: "book_viewing", location: "about_hero" },
+      secondary: { label: "Enquire for your date", href: contact, cta: "enquire_date", location: "about_hero" },
+    },
+    statement: {
+      eyebrow: "The idea",
+      heading: "Not a room you hire. An estate that holds the whole occasion.", // INDICATIVE
+      lead: "Every occasion — and everyone in it — held in capable, caring hands. One team runs the venues, the catering and the rooms, so an important day is felt, not managed.", // INDICATIVE (North Star)
+    },
+    estateSplit: {
+      eyebrow: "The estate",
+      heading: "A French-Provence estate, with room for everything.",
+      body: [
+        "Halls for weddings and functions, a chapel, gardens, a pool and a spa — and, at the Suleman Convention Centre, the largest hall in the area.",
+        "It's all on, or moments from, the estate, between Pretoria and Centurion.",
+      ], // INDICATIVE (facts confirmed)
+      points: ["Halls, chapel & gardens", "A pool & a spa", "The 1,300-seat SCC", "Pretoria & Centurion"],
+      variant: "gardens" as const,
+      note: "Estate photography required · gardens & architecture (shoot pending)",
+    },
+    teamSplit: {
+      eyebrow: "One team, one invoice",
+      heading: "The same hands, from the first enquiry to the last goodbye.",
+      body: [
+        "Most occasions are stitched together from a dozen suppliers. Velmoré isn't — one team plans it, runs it and invoices it.",
+        "A single point of contact, one contract, and no coordinating between caterers, venues and hotels.",
+      ], // INDICATIVE
+      points: ["One point of contact", "One invoice, one contract", "Venue · catering · rooms", "Held, not managed"],
+      variant: "conferences" as const,
+      note: "Photography required · the team at work (shoot pending)",
+    },
+    halalSplit: {
+      eyebrow: "Everyone, held",
+      heading: "A certified halal kitchen — for every guest, without being asked.",
+      body: [
+        "The estate kitchen is certified halal, catering for every guest as standard — an inclusion that's built in, not bolted on.",
+        "It's part of what 'the whole occasion, held' means: everyone in the room is looked after.",
+      ], // INDICATIVE (fact confirmed)
+      points: ["Certified halal kitchen", "For every guest", "Standard, not on request", "Weddings · conferences · events"],
+      variant: "dining" as const,
+      note: "Dining photography required · a set halal table (shoot pending)",
+    },
+    numbers: {
+      eyebrow: "The estate, in numbers",
+      heading: "One estate, every occasion.",
+      items: [
+        { label: "1,300", note: "seats · largest in the area" },
+        { label: "3", note: "venues · Pretoria & Centurion" },
+        { label: "50", note: "rooms on the estate" },
+        { label: "1", note: "team · one invoice" },
+      ],
+    },
+    cta: {
+      heading: "Come and see the estate.", // INDICATIVE
+      body: "Book a viewing, tell us your occasion, and one team takes it from there.", // INDICATIVE
+      primary: { label: "Book a Viewing", href: contact, cta: "book_viewing", location: "about_cta" },
+      secondary: { label: "Enquire for your date", href: contact, cta: "enquire_date", location: "about_cta" },
+    },
+  },
+
+  gallery: {
+    hero: {
+      eyebrow: "The estate, in pictures",
+      title: "One estate. Every kind of day.", // INDICATIVE
+      sub: "Weddings to conferences, gardens to the glass hall — a glimpse of the range, with the curated gallery being photographed for launch.", // INDICATIVE
+      variant: "hero" as const,
+      note: "Gallery photography required · curated estate set (shoot pending)",
+      primary: { label: "Book a Viewing", href: contact, cta: "book_viewing", location: "gallery_hero" },
+      secondary: { label: "Enquire for your date", href: contact, cta: "enquire_date", location: "gallery_hero" },
+    },
+    gridNote: "Every frame above is a clearly-labelled placeholder. The curated gallery is being photographed for launch (see the Photography Strategy).",
+    tiles: [
+      { label: "The glass hall", variant: "hero" as const },
+      { label: "Weddings", variant: "weddings" as const },
+      { label: "Conferences", variant: "conferences" as const },
+      { label: "Gardens", variant: "gardens" as const },
+      { label: "Rooms", variant: "accommodation" as const },
+      { label: "Dining", variant: "dining" as const },
+      { label: "The spa", variant: "spa" as const },
+      { label: "The estate", variant: "estate" as const },
+      { label: "Celebrations", variant: "weddings" as const },
+    ],
+    cta: {
+      heading: "Better in person.", // INDICATIVE
+      body: "Book a viewing and see the estate for yourself — we reply the same business day.", // INDICATIVE
+      primary: { label: "Book a Viewing", href: contact, cta: "book_viewing", location: "gallery_cta" },
+      secondary: { label: "Enquire for your date", href: contact, cta: "enquire_date", location: "gallery_cta" },
+    },
+  },
+
+  contact: {
+    hero: {
+      eyebrow: "Come and see the estate",
+      title: "Book a viewing, or enquire for your date.", // INDICATIVE
+      sub: "One team, one reply — the same business day. Tell us about your occasion and we'll come back with real answers.", // INDICATIVE
+      variant: "estate" as const,
+      note: "Estate photography required · arrival & entrance (shoot pending)",
+      primary: { label: "Send an enquiry", href: "#enquire", cta: "enquiry_scroll", location: "contact_hero" },
+      secondary: { label: "Email us", href: "mailto:bookings@velmorehotel.co.za", cta: "email_click", location: "contact_hero" },
+    },
+    form: {
+      eyebrow: "Enquire",
+      heading: "Tell us about your occasion.",
+      intro: "Whether it's a wedding, a conference or a celebration, one team will come back to you the same business day — with real answers, not a call-centre.", // INDICATIVE
+      steps: [
+        "We reply the same business day",
+        "We answer your questions directly",
+        "We invite you to view the estate",
+      ],
+      location: "Pretoria & Centurion",
+    },
+  },
 } as const;
