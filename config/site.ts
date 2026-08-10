@@ -285,7 +285,7 @@ export const site = {
   galleryPreview: {
     eyebrow: "A closer look",
     heading: "One estate. Every kind of day.", // INDICATIVE
-    lead: "A glimpse of the range — weddings to conferences, gardens to the glass hall. The curated gallery is being photographed for launch; every frame below is a placeholder.",
+    lead: "A glimpse of the range — weddings and conferences, gardens and the glass hall, the arrival and the table. Real photography from across the estate.",
     // base = an existing placeholder gradient class; size drives the mosaic.
     tiles: [
       { label: "The estate", base: "hero-sky", size: "feature" as const, image: img.estateFacade },

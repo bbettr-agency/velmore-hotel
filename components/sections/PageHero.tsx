@@ -44,7 +44,7 @@ export function PageHero({
   title: string;
   sub?: string;
   variant: PhVariant;
-  note: string;
+  note?: string;
   image?: Img;
   primary: Cta;
   secondary?: Cta;

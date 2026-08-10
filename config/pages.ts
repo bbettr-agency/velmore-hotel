@@ -441,7 +441,7 @@ export const pages = {
       title: "Somewhere to exhale.", // INDICATIVE
       sub: "When the occasion is over and the estate goes quiet, take the time you rarely take — a slow, unhurried moment that belongs to no one but you.", // INDICATIVE
       variant: "spa" as const,
-      note: "Spa photography required · treatment detail / tranquil interior (shoot pending)",
+      image: img.gardensPlanting,
       chips: [{ label: "On the estate" }],
       primary: { label: "Enquire", href: contact, cta: "spa_enquire", location: "spa_hero" },
       secondary: { label: "Book a Viewing", href: contact, cta: "book_viewing", location: "spa_hero" },
@@ -456,7 +456,7 @@ export const pages = {
       heading: "The estate, quietly looking after you.",
       body: "A quiet corner of the estate for the slower part of your stay — the pause after the celebration, or a reason to arrive early.", // INDICATIVE
       variant: "spa" as const,
-      note: "Spa photography required · tranquil interior (shoot pending)",
+      image: img.gardensPergola,
       align: "center" as const,
     },
     faq: {
@@ -629,14 +629,13 @@ export const pages = {
     hero: {
       eyebrow: "The estate, in pictures",
       title: "One estate. Every kind of day.", // INDICATIVE
-      sub: "Weddings to conferences, gardens to the glass hall — a glimpse of the range, with the curated gallery being photographed for launch.", // INDICATIVE
+      sub: "Weddings to conferences, gardens to the glass hall — a glimpse of the range across the estate.", // INDICATIVE
       variant: "hero" as const,
-      note: "Gallery photography required · curated estate set (shoot pending)",
       image: img.estateFacade,
       primary: { label: "Book a Viewing", href: contact, cta: "book_viewing", location: "gallery_hero" },
       secondary: { label: "Enquire for your date", href: contact, cta: "enquire_date", location: "gallery_hero" },
     },
-    gridNote: "Real Velmoré photography. Rooms, spa and the glass hall at dusk are still being photographed and will be added as they land.",
+    gridNote: "Real photography from across the Velmoré estate. A dedicated spa shoot is still to come and will be added as it lands.",
     tiles: [
       { label: "The estate", variant: "estate" as const, image: img.estateFacade },
       { label: "The archway", variant: "estate" as const, image: img.estateArchway },

@@ -1,4 +1,6 @@
+import Image from "next/image";
 import { site } from "@/config/site";
+import { img } from "@/config/images";
 import { Button } from "@/components/ui/Button";
 import { Reveal, Stagger } from "@/components/motion/Reveal";
 
@@ -41,26 +43,18 @@ export function StayPreview() {
           </p>
         </Reveal>
 
-        {/* image-led band — wide environmental + quiet garden detail (both placeholders) */}
+        {/* image-led band — a light-filled room + a quiet garden detail */}
         <Reveal preset="imageReveal" className="mt-14 grid grid-cols-1 gap-5 md:mt-16 md:grid-cols-12 md:gap-6">
           <div className="md:col-span-8">
             <div className="relative aspect-[16/10] overflow-hidden rounded-lg shadow-card">
-              <div aria-hidden className="absolute inset-0 stay-image" />
-              <div aria-hidden className="absolute inset-0 stay-window" />
-              <div aria-hidden className="absolute stay-floor" />
+              <Image src={img.deluxeRoomView.src} alt={img.deluxeRoomView.alt} fill sizes="(min-width: 768px) 62vw, 100vw" className="object-cover" />
               <div aria-hidden className="absolute inset-0 stay-vignette" />
-              <span className="absolute left-4 top-4 rounded-full bg-black/30 px-3 py-[5px] text-[9.5px] uppercase tracking-[.12em] text-ivory/85 backdrop-blur-[2px]">
-                {s.environmentalNote}
-              </span>
             </div>
           </div>
           <div className="md:col-span-4">
             <div className="relative aspect-[16/10] w-full overflow-hidden rounded-lg shadow-card md:aspect-auto md:h-full">
-              <div aria-hidden className="absolute inset-0 stay-detail" />
+              <Image src={img.gardensArchway.src} alt={img.gardensArchway.alt} fill sizes="(min-width: 768px) 32vw, 100vw" className="object-cover" />
               <div aria-hidden className="absolute inset-0 stay-detail-vignette" />
-              <span className="absolute left-4 top-4 rounded-full bg-black/35 px-3 py-[5px] text-[9.5px] uppercase tracking-[.12em] text-ivory/80 backdrop-blur-[2px]">
-                {s.detailNote}
-              </span>
             </div>
           </div>
         </Reveal>

@@ -30,7 +30,7 @@ export function DiningPreview() {
       className="relative isolate flex min-h-[600px] overflow-hidden md:min-h-[660px]"
     >
       {/* full-bleed image — carries the emotion */}
-      <Image src={img.diningRoom.src} alt={img.diningRoom.alt} fill sizes="100vw" className="object-cover object-center" />
+      <Image src={img.grazingTable.src} alt={img.grazingTable.alt} fill sizes="100vw" className="object-cover object-center" />
       <div aria-hidden className="absolute inset-0 dine-scrim" />
 
       {/* restrained overlaid copy — supports the image */}

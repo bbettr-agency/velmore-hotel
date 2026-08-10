@@ -33,7 +33,7 @@ export function ImageBand({
   heading: string;
   body?: string;
   variant: PhVariant;
-  note: string;
+  note?: string;
   image?: Img;
   primary?: Cta;
   secondary?: Cta;

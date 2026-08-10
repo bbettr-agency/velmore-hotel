@@ -1,4 +1,6 @@
+import Image from "next/image";
 import { site } from "@/config/site";
+import { img } from "@/config/images";
 import { Button } from "@/components/ui/Button";
 import { Reveal } from "@/components/motion/Reveal";
 
@@ -59,15 +61,11 @@ export function SpaPreview() {
           </div>
         </Reveal>
 
-        {/* one soft-focus sensory image (placeholder) — dominant, intimate */}
+        {/* the estate at its quietest — a calm, green counterpoint to the copy */}
         <Reveal preset="imageReveal" className="md:col-span-7">
           <div className="relative aspect-[4/3] overflow-hidden rounded-lg shadow-ink">
-            <div aria-hidden className="absolute inset-0 spa-image" />
-            <div aria-hidden className="absolute inset-0 spa-soft" />
+            <Image src={img.estateThroughTrees.src} alt={img.estateThroughTrees.alt} fill sizes="(min-width: 768px) 56vw, 100vw" className="object-cover" />
             <div aria-hidden className="absolute inset-0 spa-vignette" />
-            <span className="absolute left-4 top-4 rounded-full bg-black/35 px-3 py-[5px] text-[9.5px] uppercase tracking-[.12em] text-ivory/75 backdrop-blur-[2px]">
-              {s.imageNote}
-            </span>
           </div>
         </Reveal>
       </div>
