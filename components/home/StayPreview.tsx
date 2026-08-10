@@ -1,5 +1,6 @@
 import { site } from "@/config/site";
 import { Button } from "@/components/ui/Button";
+import { Reveal, Stagger } from "@/components/motion/Reveal";
 
 function Arrow() {
   return (
@@ -23,7 +24,7 @@ export function StayPreview() {
     <section aria-labelledby="stay-heading" className="bg-ivory py-28 md:py-40">
       <div className="mx-auto max-w-container px-6 md:px-12">
         {/* centered header — softer rhythm, generous measure */}
-        <div className="reveal reveal-1 mx-auto max-w-[46rem] text-center">
+        <Reveal className="mx-auto max-w-[46rem] text-center">
           <p className="flex items-center justify-center gap-3 text-[11.5px] font-semibold uppercase tracking-[.28em] text-champagne-dark">
             <span aria-hidden className="h-px w-[26px] bg-champagne" />
             {s.eyebrow}
@@ -38,10 +39,10 @@ export function StayPreview() {
           <p className="mx-auto mt-6 max-w-[52ch] text-[16px] leading-[1.85] text-charcoal md:text-[17px]">
             {s.lead}
           </p>
-        </div>
+        </Reveal>
 
         {/* image-led band — wide environmental + quiet garden detail (both placeholders) */}
-        <div className="reveal reveal-2 mt-14 grid grid-cols-1 gap-5 md:mt-16 md:grid-cols-12 md:gap-6">
+        <Reveal preset="imageReveal" className="mt-14 grid grid-cols-1 gap-5 md:mt-16 md:grid-cols-12 md:gap-6">
           <div className="md:col-span-8">
             <div className="relative aspect-[16/10] overflow-hidden rounded-lg shadow-card">
               <div aria-hidden className="absolute inset-0 stay-image" />
@@ -62,17 +63,17 @@ export function StayPreview() {
               </span>
             </div>
           </div>
-        </div>
+        </Reveal>
 
         {/* quiet supporting proof — spaced, not a dense list */}
-        <ul className="reveal reveal-3 mx-auto mt-14 grid max-w-[52rem] grid-cols-1 gap-8 text-center sm:grid-cols-3 md:mt-16">
+        <Stagger as="ul" className="mx-auto mt-14 grid max-w-[52rem] grid-cols-1 gap-8 text-center sm:grid-cols-3 md:mt-16">
           {s.proof.map((p) => (
-            <li key={p.label}>
+            <Reveal key={p.label} as="li" preset="fadeUpItem">
               <p className="font-serif text-[22px] font-semibold text-estate-700 md:text-[24px]">{p.label}</p>
               <p className="mt-1 text-[13px] uppercase tracking-[.16em] text-steel">{p.note}</p>
-            </li>
+            </Reveal>
           ))}
-        </ul>
+        </Stagger>
 
         {/* centered CTAs */}
         <div className="mt-12 flex flex-wrap items-center justify-center gap-[14px] md:mt-14">

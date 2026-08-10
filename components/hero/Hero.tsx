@@ -2,6 +2,9 @@ import Image from "next/image";
 import { site } from "@/config/site";
 import { img } from "@/config/images";
 import { Button } from "@/components/ui/Button";
+import { Reveal } from "@/components/motion/Reveal";
+import { heroStack } from "@/engine/motion";
+import { MOTION_CHARACTER } from "@/config/motion";
 
 function Check() {
   return (
@@ -20,6 +23,7 @@ function Arrow() {
 
 export function Hero() {
   const { hero, trust, cta } = site;
+  const hero0 = heroStack({ character: MOTION_CHARACTER });
   return (
     <header className="relative h-[calc(100vh-76px)] min-h-[600px] overflow-hidden text-ivory [isolation:isolate]">
       {/* --- the estate façade (real photography) — LCP, never animated --- */}
@@ -36,23 +40,23 @@ export function Hero() {
 
       {/* --- content: lower-third, left (Composition 1) --- */}
       <div className="absolute bottom-[8.5%] left-6 z-10 max-w-[620px] md:left-12">
-        <p className="flex items-center gap-3 text-[11.5px] font-semibold uppercase tracking-[.30em] text-champagne-light">
+        <Reveal as="p" {...hero0.step(0)} className="flex items-center gap-3 text-[11.5px] font-semibold uppercase tracking-[.30em] text-champagne-light">
           <span aria-hidden className="h-px w-[34px] bg-champagne" />
           {hero.eyebrow}
-        </p>
+        </Reveal>
 
         {/* LCP element — renders at first paint, never animated in */}
-        <h1 className="mt-5 font-serif text-[42px] font-semibold leading-[1.02] tracking-[-.015em] text-white [text-shadow:0_2px_40px_rgba(0,0,0,.35)] sm:text-[54px] md:text-[66px]">
+        <h1 {...hero0.lcp} className="mt-5 font-serif text-[42px] font-semibold leading-[1.02] tracking-[-.015em] text-white [text-shadow:0_2px_40px_rgba(0,0,0,.35)] sm:text-[54px] md:text-[66px]">
           {hero.headline[0]}
           <br />
           <span className="italic">{hero.headline[1]}</span>
         </h1>
 
-        <p className="reveal reveal-1 mt-5 max-w-[50ch] text-[15px] leading-[1.6] text-ivory/90 md:text-[17px]">
+        <Reveal as="p" {...hero0.step(1)} className="mt-5 max-w-[50ch] text-[15px] leading-[1.6] text-ivory/90 md:text-[17px]">
           {hero.sub}
-        </p>
+        </Reveal>
 
-        <ul className="reveal reveal-2 mt-6 flex flex-wrap items-center gap-x-5 gap-y-[10px]">
+        <Reveal as="ul" {...hero0.step(2)} className="mt-6 flex flex-wrap items-center gap-x-5 gap-y-[10px]">
           {trust.map((t) =>
             t.kind === "badge" ? (
               <li key={t.label}>
@@ -68,9 +72,9 @@ export function Hero() {
               </li>
             ),
           )}
-        </ul>
+        </Reveal>
 
-        <div className="reveal reveal-3 mt-[30px] flex flex-wrap items-center gap-[14px]">
+        <Reveal {...hero0.step(3)} className="mt-[30px] flex flex-wrap items-center gap-[14px]">
           <Button href={cta.primary.href} variant="primary" className="max-sm:flex-1">
             {cta.primary.label}
             <Arrow />
@@ -78,10 +82,10 @@ export function Hero() {
           <Button href={cta.secondary.href} variant="secondary" className="max-sm:flex-1">
             {cta.secondary.label}
           </Button>
-        </div>
-        <p className="reveal reveal-3 mt-[14px] text-[11.5px] tracking-[.01em] text-ivory/60">
+        </Reveal>
+        <Reveal as="p" {...hero0.step(4)} className="mt-[14px] text-[11.5px] tracking-[.01em] text-ivory/60">
           {cta.reassurance}
-        </p>
+        </Reveal>
       </div>
 
       {/* scroll cue */}

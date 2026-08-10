@@ -264,11 +264,7 @@
 }
 .page-vignette { box-shadow: inset 0 0 220px 60px rgba(6,10,8,.5); }
 
-/* Secondary-element reveal (LCP elements never animate; motion-safe only) */
-@media (prefers-reduced-motion: no-preference) {
-  .reveal { opacity: 0; transform: translateY(14px); animation: reveal .6s cubic-bezier(.22,1,.36,1) forwards; }
-  .reveal-1 { animation-delay: .05s; }
-  .reveal-2 { animation-delay: .15s; }
-  .reveal-3 { animation-delay: .25s; }
-}
-@keyframes reveal { to { opacity: 1; transform: none; } }
+/* Entrance motion is now handled by the OS motion engine (engine/motion,
+   motion/react) via <Reveal>/<Stagger>/heroStack — single easing curve, scroll-
+   triggered, reduced-motion-safe (MotionProvider), LCP never animated. The old
+   CSS `.reveal` classes were removed when the engine was adopted. */

@@ -3,6 +3,7 @@ import { site } from "@/config/site";
 import { Placeholder } from "./Placeholder";
 import type { Cta } from "./types";
 import type { Img } from "@/config/images";
+import { Reveal } from "@/components/motion/Reveal";
 
 function Arrow() {
   return (
@@ -46,7 +47,7 @@ export function CtaBand({
         </span>
       )}
 
-      <div className="relative mx-auto w-full max-w-container px-6 py-20 text-center md:px-12 md:py-24">
+      <Reveal className="relative mx-auto w-full max-w-container px-6 py-20 text-center md:px-12 md:py-24">
         <p className="flex items-center justify-center gap-3 text-[11.5px] font-semibold uppercase tracking-[.28em] text-champagne-light">
           <span aria-hidden className="h-px w-[26px] bg-champagne/70" />
           {eyebrow}
@@ -75,7 +76,7 @@ export function CtaBand({
           ) : null}
         </div>
         <p className="mt-7 text-[12px] uppercase tracking-[.16em] text-ivory/55">{site.cta.reassurance}</p>
-      </div>
+      </Reveal>
     </section>
   );
 }

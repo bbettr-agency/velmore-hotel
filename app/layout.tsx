@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Fraunces, Inter } from "next/font/google";
 import { seo } from "@/config/seo";
+import { MotionProvider, NOSCRIPT_FALLBACK } from "@/engine/motion";
 import "./globals.css";
 
 const fraunces = Fraunces({
@@ -24,13 +25,16 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className={`${fraunces.variable} ${inter.variable}`}>
       <body>
+        <noscript>
+          <style>{NOSCRIPT_FALLBACK}</style>
+        </noscript>
         <a
           href="#main"
           className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded-md focus:bg-ivory focus:px-4 focus:py-2 focus:text-ink"
         >
           Skip to content
         </a>
-        {children}
+        <MotionProvider>{children}</MotionProvider>
       </body>
     </html>
   );

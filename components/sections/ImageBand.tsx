@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/Button";
 import { Placeholder, type PhVariant } from "./Placeholder";
 import type { Cta } from "./types";
 import type { Img } from "@/config/images";
+import { Reveal } from "@/components/motion/Reveal";
 
 function Arrow() {
   return (
@@ -52,7 +53,7 @@ export function ImageBand({
       )}
 
       <div className={`relative mx-auto flex w-full max-w-container items-end px-6 py-16 md:items-center md:px-12 md:py-24 ${centered ? "justify-center text-center" : ""}`}>
-        <div className={`${centered ? "max-w-[40rem]" : "max-w-[34rem]"}`}>
+        <Reveal className={`${centered ? "max-w-[40rem]" : "max-w-[34rem]"}`}>
           {eyebrow ? (
             <p className={`flex items-center gap-3 text-[11.5px] font-semibold uppercase tracking-[.28em] text-champagne-light ${centered ? "justify-center" : ""}`}>
               <span aria-hidden className="h-px w-[34px] bg-champagne/70" />
@@ -91,7 +92,7 @@ export function ImageBand({
               ) : null}
             </div>
           ) : null}
-        </div>
+        </Reveal>
       </div>
     </section>
   );

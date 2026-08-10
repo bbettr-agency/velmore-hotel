@@ -1,3 +1,5 @@
+import { Reveal } from "@/components/motion/Reveal";
+
 /**
  * Centered editorial statement — a quiet, confident beat between image-led
  * sections (North Star / Confident Host voice). Copy only, generous whitespace.
@@ -18,7 +20,7 @@ export function Statement({
   return (
     <section className={`${bg} py-24 md:py-32`}>
       <div className="mx-auto max-w-container px-6 md:px-12">
-        <div className="mx-auto max-w-[46rem] text-center">
+        <Reveal className="mx-auto max-w-[46rem] text-center">
           {eyebrow ? (
             <p className="flex items-center justify-center gap-3 text-[11.5px] font-semibold uppercase tracking-[.28em] text-champagne-dark">
               <span aria-hidden className="h-px w-[26px] bg-champagne" />
@@ -36,7 +38,7 @@ export function Statement({
               {lead}
             </p>
           ) : null}
-        </div>
+        </Reveal>
       </div>
     </section>
   );

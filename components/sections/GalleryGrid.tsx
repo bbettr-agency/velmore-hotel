@@ -1,5 +1,6 @@
 import { Placeholder, type PhVariant } from "./Placeholder";
 import type { Img } from "@/config/images";
+import { Reveal, Stagger } from "@/components/motion/Reveal";
 
 /**
  * A curated tile grid for the Gallery page — captioned placeholder tiles across
@@ -19,9 +20,9 @@ export function GalleryGrid({
   return (
     <section className={`${bg} py-20 md:py-24`}>
       <div className="mx-auto max-w-container px-6 md:px-12">
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 md:gap-5">
+        <Stagger className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 md:gap-5">
           {tiles.map((t) => (
-            <figure key={t.label} className="group relative aspect-[4/3] overflow-hidden rounded-lg shadow-card">
+            <Reveal key={t.label} as="figure" preset="fadeUpItem" className="group relative aspect-[4/3] overflow-hidden rounded-lg shadow-card">
               <div className="absolute inset-0 scale-[1.02] transition-transform duration-[900ms] ease-[cubic-bezier(.22,1,.36,1)] group-hover:scale-110 motion-reduce:transition-none motion-reduce:group-hover:scale-[1.02]">
                 <Placeholder variant={t.variant} image={t.image} sizes="(min-width: 768px) 33vw, (min-width: 640px) 50vw, 100vw" />
               </div>
@@ -30,9 +31,9 @@ export function GalleryGrid({
                 <span className="font-serif text-[15px] font-semibold text-ivory md:text-[16px]">{t.label}</span>
                 {t.image ? null : <span className="text-[9.5px] uppercase tracking-[.14em] text-ivory/55">· placeholder</span>}
               </figcaption>
-            </figure>
+            </Reveal>
           ))}
-        </div>
+        </Stagger>
         {note ? <p className="mx-auto mt-12 max-w-[54ch] text-center text-[12px] leading-[1.6] text-stone">{note}</p> : null}
       </div>
     </section>

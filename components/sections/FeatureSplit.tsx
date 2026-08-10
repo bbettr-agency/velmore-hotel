@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/Button";
 import { Placeholder, type PhVariant } from "./Placeholder";
 import type { Cta } from "./types";
 import type { Img } from "@/config/images";
+import { Reveal } from "@/components/motion/Reveal";
 
 function Arrow() {
   return (
@@ -55,11 +56,11 @@ export function FeatureSplit({
     <section id={id} aria-labelledby={heading ? undefined : undefined} className={`${bg} py-24 md:py-28`}>
       <div className="mx-auto grid max-w-container grid-cols-1 items-center gap-10 px-6 md:grid-cols-12 md:gap-16 md:px-12">
         <div className={`md:col-span-6 ${imageFirst ? "" : "md:order-2"}`}>
-          <div className={`relative ${portrait ? "mx-auto aspect-[4/5] max-w-[440px]" : "aspect-[4/3]"} overflow-hidden rounded-lg shadow-card`}>
+          <Reveal preset="imageReveal" className={`relative ${portrait ? "mx-auto aspect-[4/5] max-w-[440px]" : "aspect-[4/3]"} overflow-hidden rounded-lg shadow-card`}>
             <Placeholder variant={variant} note={note} image={image} sizes="(min-width: 768px) 46vw, 100vw" />
-          </div>
+          </Reveal>
         </div>
-        <div className={`md:col-span-6 ${imageFirst ? "" : "md:order-1"}`}>
+        <Reveal className={`md:col-span-6 ${imageFirst ? "" : "md:order-1"}`}>
           {eyebrow ? (
             <p className="flex items-center gap-3 text-[11.5px] font-semibold uppercase tracking-[.28em] text-champagne-dark">
               <span aria-hidden className="h-px w-[34px] bg-champagne" />
@@ -107,7 +108,7 @@ export function FeatureSplit({
               ) : null}
             </div>
           ) : null}
-        </div>
+        </Reveal>
       </div>
     </section>
   );

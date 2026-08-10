@@ -1,5 +1,6 @@
 import { site } from "@/config/site";
 import { Button } from "@/components/ui/Button";
+import { Reveal } from "@/components/motion/Reveal";
 
 function Arrow() {
   return (
@@ -26,7 +27,7 @@ export function SpaPreview() {
       <div aria-hidden className="absolute inset-0 spa-ground" />
       <div className="relative mx-auto grid max-w-container grid-cols-1 items-center gap-14 px-6 md:grid-cols-12 md:gap-16 md:px-12">
         {/* copy — restrained, floating in negative space */}
-        <div className="reveal reveal-1 md:col-span-5 md:py-6">
+        <Reveal className="md:col-span-5 md:py-6">
           <p className="flex items-center gap-3 text-[11.5px] font-semibold uppercase tracking-[.28em] text-champagne-light">
             <span aria-hidden className="h-px w-[34px] bg-champagne/70" />
             {s.eyebrow}
@@ -56,10 +57,10 @@ export function SpaPreview() {
               <span aria-hidden className="transition-transform duration-200 group-hover:translate-x-1">→</span>
             </a>
           </div>
-        </div>
+        </Reveal>
 
         {/* one soft-focus sensory image (placeholder) — dominant, intimate */}
-        <div className="reveal reveal-2 md:col-span-7">
+        <Reveal preset="imageReveal" className="md:col-span-7">
           <div className="relative aspect-[4/3] overflow-hidden rounded-lg shadow-ink">
             <div aria-hidden className="absolute inset-0 spa-image" />
             <div aria-hidden className="absolute inset-0 spa-soft" />
@@ -68,7 +69,7 @@ export function SpaPreview() {
               {s.imageNote}
             </span>
           </div>
-        </div>
+        </Reveal>
       </div>
     </section>
   );

@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { site } from "@/config/site";
+import { Reveal } from "@/components/motion/Reveal";
 
 type Tile = (typeof site.galleryPreview.tiles)[number];
 
@@ -44,7 +45,7 @@ export function GalleryShowcase() {
     <section aria-labelledby="gallery-heading" className="bg-ivory py-24 md:py-32">
       <div className="mx-auto max-w-container px-6 md:px-12">
         {/* minimal editorial header */}
-        <div className="reveal reveal-1 mx-auto max-w-[46rem] text-center">
+        <Reveal className="mx-auto max-w-[46rem] text-center">
           <p className="flex items-center justify-center gap-3 text-[11.5px] font-semibold uppercase tracking-[.28em] text-champagne-dark">
             <span aria-hidden className="h-px w-[26px] bg-champagne" />
             {g.eyebrow}
@@ -59,20 +60,20 @@ export function GalleryShowcase() {
           <p className="mx-auto mt-5 max-w-[54ch] text-[14px] leading-[1.7] text-steel md:text-[14.5px]">
             {g.lead}
           </p>
-        </div>
+        </Reveal>
 
         {/* editorial mosaic — feature + tall accent */}
-        <div className="reveal reveal-2 mt-14 grid grid-cols-1 gap-4 md:mt-16 md:grid-cols-12 md:gap-5">
+        <Reveal preset="imageReveal" className="mt-14 grid grid-cols-1 gap-4 md:mt-16 md:grid-cols-12 md:gap-5">
           <GalleryTile tile={feature} className="aspect-[4/3] md:col-span-7 md:aspect-[16/11]" />
           <GalleryTile tile={tall} className="aspect-[4/3] md:col-span-5 md:aspect-auto" />
-        </div>
+        </Reveal>
 
         {/* the trio */}
-        <div className="reveal reveal-3 mt-4 grid grid-cols-1 gap-4 sm:grid-cols-3 md:mt-5 md:gap-5">
+        <Reveal preset="imageReveal" className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-3 md:mt-5 md:gap-5">
           {wide.map((t) => (
             <GalleryTile key={t.label} tile={t} className="aspect-[4/3]" />
           ))}
-        </div>
+        </Reveal>
 
         {/* one clear invitation to keep exploring */}
         <div className="mt-12 flex justify-center md:mt-14">

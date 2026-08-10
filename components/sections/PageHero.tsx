@@ -3,6 +3,9 @@ import { Button } from "@/components/ui/Button";
 import { Placeholder, type PhVariant } from "./Placeholder";
 import type { Cta } from "./types";
 import type { Img } from "@/config/images";
+import { Reveal } from "@/components/motion/Reveal";
+import { heroStack } from "@/engine/motion";
+import { MOTION_CHARACTER } from "@/config/motion";
 
 function Arrow() {
   return (
@@ -48,6 +51,7 @@ export function PageHero({
   chips?: readonly { label: string; badge?: boolean }[];
   reassurance?: string;
 }) {
+  const hero0 = heroStack({ character: MOTION_CHARACTER });
   return (
     <>
       <Nav />
@@ -60,19 +64,19 @@ export function PageHero({
         )}
 
         <div className="relative mx-auto w-full max-w-container px-6 pb-16 pt-32 md:px-12 md:pb-20">
-          <p className="flex items-center gap-3 text-[11.5px] font-semibold uppercase tracking-[.30em] text-champagne-light">
+          <Reveal as="p" {...hero0.step(0)} className="flex items-center gap-3 text-[11.5px] font-semibold uppercase tracking-[.30em] text-champagne-light">
             <span aria-hidden className="h-px w-[34px] bg-champagne" />
             {eyebrow}
-          </p>
-          <h1 className="mt-5 max-w-[18ch] font-serif text-[40px] font-semibold leading-[1.04] tracking-[-.015em] text-white [text-shadow:0_2px_40px_rgba(0,0,0,.35)] sm:text-[52px] md:text-[62px]">
+          </Reveal>
+          <h1 {...hero0.lcp} className="mt-5 max-w-[18ch] font-serif text-[40px] font-semibold leading-[1.04] tracking-[-.015em] text-white [text-shadow:0_2px_40px_rgba(0,0,0,.35)] sm:text-[52px] md:text-[62px]">
             {title}
           </h1>
           {sub ? (
-            <p className="mt-5 max-w-[54ch] text-[15.5px] leading-[1.6] text-ivory/90 md:text-[17px]">{sub}</p>
+            <Reveal as="p" {...hero0.step(1)} className="mt-5 max-w-[54ch] text-[15.5px] leading-[1.6] text-ivory/90 md:text-[17px]">{sub}</Reveal>
           ) : null}
 
           {chips && chips.length ? (
-            <ul className="mt-6 flex flex-wrap items-center gap-x-5 gap-y-[10px]">
+            <Reveal as="ul" {...hero0.step(2)} className="mt-6 flex flex-wrap items-center gap-x-5 gap-y-[10px]">
               {chips.map((c) =>
                 c.badge ? (
                   <li key={c.label}>
@@ -88,10 +92,10 @@ export function PageHero({
                   </li>
                 ),
               )}
-            </ul>
+            </Reveal>
           ) : null}
 
-          <div className="mt-8 flex flex-wrap items-center gap-[14px]">
+          <Reveal {...hero0.step(3)} className="mt-8 flex flex-wrap items-center gap-[14px]">
             <Button href={primary.href} variant="primary" track={{ cta: primary.cta, location: primary.location }}>
               {primary.label}
               <Arrow />
@@ -101,8 +105,8 @@ export function PageHero({
                 {secondary.label}
               </Button>
             ) : null}
-          </div>
-          {reassurance ? <p className="mt-[14px] text-[11.5px] tracking-[.01em] text-ivory/60">{reassurance}</p> : null}
+          </Reveal>
+          {reassurance ? <Reveal as="p" {...hero0.step(4)} className="mt-[14px] text-[11.5px] tracking-[.01em] text-ivory/60">{reassurance}</Reveal> : null}
         </div>
       </header>
     </>

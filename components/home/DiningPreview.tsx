@@ -2,6 +2,7 @@ import Image from "next/image";
 import { site } from "@/config/site";
 import { img } from "@/config/images";
 import { Button } from "@/components/ui/Button";
+import { Reveal } from "@/components/motion/Reveal";
 
 function Arrow() {
   return (
@@ -34,7 +35,7 @@ export function DiningPreview() {
 
       {/* restrained overlaid copy — supports the image */}
       <div className="relative mx-auto flex w-full max-w-container items-end px-6 py-16 md:items-center md:px-12 md:py-24">
-        <div className="reveal reveal-1 max-w-[34rem]">
+        <Reveal className="max-w-[34rem]">
           <p className="flex items-center gap-3 text-[11.5px] font-semibold uppercase tracking-[.28em] text-champagne-light">
             <span aria-hidden className="h-px w-[34px] bg-champagne/70" />
             {d.eyebrow}
@@ -69,7 +70,7 @@ export function DiningPreview() {
               <span aria-hidden className="transition-transform duration-200 group-hover:translate-x-1">→</span>
             </a>
           </div>
-        </div>
+        </Reveal>
       </div>
     </section>
   );

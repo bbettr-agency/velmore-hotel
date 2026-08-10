@@ -2,6 +2,7 @@ import Image from "next/image";
 import { site } from "@/config/site";
 import { img } from "@/config/images";
 import { Button } from "@/components/ui/Button";
+import { Reveal } from "@/components/motion/Reveal";
 
 function Arrow() {
   return (
@@ -32,7 +33,7 @@ export function FinalCta() {
       <div aria-hidden className="absolute inset-0 cta-vignette" />
 
       {/* centered, minimal copy */}
-      <div className="reveal reveal-1 relative mx-auto w-full max-w-container px-6 py-20 text-center md:px-12 md:py-28">
+      <Reveal className="relative mx-auto w-full max-w-container px-6 py-20 text-center md:px-12 md:py-28">
         <p className="flex items-center justify-center gap-3 text-[11.5px] font-semibold uppercase tracking-[.28em] text-champagne-light">
           <span aria-hidden className="h-px w-[26px] bg-champagne/70" />
           {f.eyebrow}
@@ -65,7 +66,7 @@ export function FinalCta() {
         </div>
 
         <p className="mt-7 text-[12px] uppercase tracking-[.16em] text-ivory/55">{site.cta.reassurance}</p>
-      </div>
+      </Reveal>
     </section>
   );
 }

@@ -1,4 +1,5 @@
 import { site } from "@/config/site";
+import { Reveal } from "@/components/motion/Reveal";
 
 /** Filled star for the real (verified) rating state. */
 function Star({ filled }: { filled: boolean }) {
@@ -25,7 +26,7 @@ export function ReviewsTrust() {
   return (
     <section aria-labelledby="trust-heading" className="bg-mist py-28 md:py-40">
       <div className="mx-auto max-w-container px-6 md:px-12">
-        <div className="reveal reveal-1 mx-auto max-w-[46rem] text-center">
+        <Reveal className="mx-auto max-w-[46rem] text-center">
           <p className="flex items-center justify-center gap-3 text-[11.5px] font-semibold uppercase tracking-[.28em] text-champagne-dark">
             <span aria-hidden className="h-px w-[26px] bg-champagne" />
             {r.eyebrow}
@@ -59,10 +60,10 @@ export function ReviewsTrust() {
               )}
             </p>
           )}
-        </div>
+        </Reveal>
 
         {ready ? (
-          <div className="reveal reveal-2 mx-auto mt-16 grid max-w-[60rem] grid-cols-1 gap-12 md:mt-20 md:grid-cols-2 md:gap-16">
+          <Reveal className="mx-auto mt-16 grid max-w-[60rem] grid-cols-1 gap-12 md:mt-20 md:grid-cols-2 md:gap-16">
             {r.quotes.map((q, i) => (
               <figure key={i} data-review-slot={i} className={`text-center md:text-left ${i === 1 ? "md:border-l md:border-estate-100 md:pl-16" : ""}`}>
                 <span aria-hidden className="block font-serif text-[40px] leading-none text-champagne/60">&ldquo;</span>
@@ -70,7 +71,7 @@ export function ReviewsTrust() {
                 <figcaption className="mt-4 text-[11px] uppercase tracking-[.18em] text-steel">— {q.who}</figcaption>
               </figure>
             ))}
-          </div>
+          </Reveal>
         ) : null}
       </div>
     </section>

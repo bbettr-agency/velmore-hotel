@@ -1,3 +1,5 @@
+import { Reveal, Stagger } from "@/components/motion/Reveal";
+
 /**
  * Quiet proof grid — serif label + uppercase note per item. A calm, low-emphasis
  * way to present confirmed facts (capacities, counts, features) without a boxy
@@ -23,7 +25,7 @@ export function SpecList({
     <section className={`${bg} py-20 md:py-24`}>
       <div className="mx-auto max-w-container px-6 md:px-12">
         {eyebrow || heading ? (
-          <div className="mx-auto mb-12 max-w-[46rem] text-center md:mb-14">
+          <Reveal className="mx-auto mb-12 max-w-[46rem] text-center md:mb-14">
             {eyebrow ? (
               <p className="flex items-center justify-center gap-3 text-[11.5px] font-semibold uppercase tracking-[.28em] text-champagne-dark">
                 <span aria-hidden className="h-px w-[26px] bg-champagne" />
@@ -36,18 +38,18 @@ export function SpecList({
                 {heading}
               </h2>
             ) : null}
-          </div>
+          </Reveal>
         ) : null}
-        <ul className={`mx-auto grid max-w-[62rem] grid-cols-1 gap-10 text-center ${cols}`}>
+        <Stagger as="ul" className={`mx-auto grid max-w-[62rem] grid-cols-1 gap-10 text-center ${cols}`}>
           {items.map((it) => (
-            <li key={it.label}>
+            <Reveal key={it.label} as="li" preset="fadeUpItem">
               <p className={`font-serif text-[24px] font-semibold md:text-[26px] ${dark ? "text-champagne-light" : "text-estate-700"}`}>
                 {it.label}
               </p>
               <p className={`mt-1 text-[12.5px] uppercase tracking-[.16em] ${dark ? "text-ivory/55" : "text-steel"}`}>{it.note}</p>
-            </li>
+            </Reveal>
           ))}
-        </ul>
+        </Stagger>
       </div>
     </section>
   );
