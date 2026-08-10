@@ -4,9 +4,23 @@ Context for the next session. Read this + `PROJECT_STATUS.md` + `docs/CLIENT-BRI
 
 ---
 
-# ✅ SITE COMPLETE — 2026-08-10 (READ THIS FIRST; supersedes everything below)
+# ✅ SITE COMPLETE + LAUNCH-HARDENED + POLISHED — 2026-08-10 (READ THIS FIRST)
 
-**The full Velmoré website is built, QA'd and LIVE at https://velmore-hotel.vercel.app** — all 10 pages, latest commit `db7cb5b`, Vercel green.
+**Full Velmoré website — built, QA'd, launch-hardened, motion-synced to the OS, and polished — LIVE at https://velmore-hotel.vercel.app.**
+
+## Since "site complete": launch + OS-sync + polish (all live, console-clean on prod)
+- **Real photography** wired via `next/image` (config-driven `config/images.ts`) across hero + every section that has a real match; gallery 100% real; honest labelled placeholders remain only where no photo exists (rooms · spa · chapel · glass-hall-at-dusk · seated-conference). 246 source images in `public/images/gallery/`.
+- **SEO:** `robots.txt`, `sitemap.xml`, `Hotel`/`WebSite`/`WebPage`/`BreadcrumbList` JSON-LD (no address/phone/rating fabricated), OG+Twitter + real OG image, canonical every page, interim favicon/app-icons, custom 404.
+- **Forms:** `EnquiryForm` is HubSpot-ready (env `NEXT_PUBLIC_HUBSPOT_PORTAL_ID`/`FORM_ID`) with mailto fallback + success state.
+- **Reviews:** gated (`reviewsPreview.ready=false`) — no fake rating/quotes/schema at launch.
+- **Motion (OS Phase 0 sync):** adopted `ENGINE/motion` (`motion/react`) — `MotionProvider`+no-JS fallback, `Reveal`/`Stagger`/`heroStack`/`imageReveal`, **character `editorial`**, single easing, LCP never animates, reduced-motion-safe. Old CSS `.reveal` removed. Project layer: `components/motion/Reveal.tsx` + `config/motion.ts`.
+- **Polish:** tactile button hover-lift; scroll reveals on all homepage + inner sections; softened boxes (journey cards ring not border; contact form borderless).
+- **Launch register:** `docs/18-LAUNCH-CHECKLIST.md` (🤖 done vs 🙍 client) + readiness %s in `PROJECT_STATUS.md`. **Outstanding = client content/credentials only** (photos for the 5 gaps, names/rates/hours, phone/address, HubSpot IDs, Google reviews source, final domain + redirects, logo vector, analytics access).
+
+---
+
+## (historical) SITE COMPLETE — earlier
+**The full Velmoré website is built, QA'd and LIVE** — all 10 pages, commit `db7cb5b`.
 
 ## What exists
 - **Pages (all live):** Home · `/conferences` · `/weddings` · `/accommodation` · `/dining` · `/spa` · `/events` · `/gallery` · `/about` · `/contact`.

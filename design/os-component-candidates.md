@@ -43,6 +43,9 @@ promotion goes through `PIPELINE/learning-loop.md` on a 2nd project). Updated as
 | 33 | **Curated gallery grid** (`GalleryGrid`) | captioned placeholder/photo tiles across verticals with motion-safe hover-zoom — reusable gallery-page grid | `ENGINE/ui` |
 | 34 | **Backend-agnostic enquiry form** (`EnquiryForm`) | accessible, tracking-ready form that composes a mailto to the confirmed address until a CRM (HubSpot) is wired — ship a working contact form on day one, swap the submit handler later without touching the UI | `ENGINE/ui` + CRM |
 
+### OS motion engine — ADOPTED (not a candidate)
+Velmoré now consumes `ENGINE/motion` directly (`engine/motion/`, `motion/react`): `MotionProvider` + no-JS fallback, `Reveal`/`Stagger`/`heroStack`/`imageReveal`, single easing, editorial character, LCP-safe, reduced-motion via `MotionConfig`. This validates the ENGINE motion module on a second production project — a **learning-loop signal** (promotion evidence) rather than a new candidate. Project layer: `components/motion/Reveal.tsx` (character default) + `config/motion.ts`.
+
 ### Not yet built, noted for later
 - **`Reveal`** (IntersectionObserver, once, reduced-motion + no-JS safe) scroll-reveal wrapper — deferred so this milestone stays no-JS-robust; strong OS candidate when added.
 - **`SectionHeading`** (eyebrow/title/lead, one API) — recurring; formalise when a 3rd section repeats it.
