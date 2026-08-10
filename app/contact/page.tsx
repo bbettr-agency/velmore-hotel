@@ -52,7 +52,7 @@ export default function ContactPage() {
 
           {/* the form */}
           <div className="md:col-span-7 md:col-start-6">
-            <div className="rounded-lg border border-estate-100 bg-mist/40 p-6 shadow-card md:p-8">
+            <div className="rounded-xl bg-mist/50 p-6 shadow-card md:p-8">
               <EnquiryForm />
             </div>
           </div>

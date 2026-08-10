@@ -33,7 +33,7 @@ export function JourneySelector() {
             <Reveal key={j.name} as="li" preset="fadeUpItem">
               <Link
                 href={j.href}
-                className="group flex h-full flex-col rounded-lg border border-[#E4DCCB] bg-white p-6 shadow-card transition-transform duration-200 hover:-translate-y-1 hover:shadow-lift focus-visible:-translate-y-1"
+                className="group flex h-full flex-col rounded-lg bg-white p-6 shadow-card ring-1 ring-ink/[0.04] transition-transform duration-200 hover:-translate-y-1 hover:shadow-lift focus-visible:-translate-y-1"
               >
                 <span aria-hidden className="mb-5 flex items-center justify-between">
                   <span className="font-serif text-[15px] italic text-champagne-dark">
