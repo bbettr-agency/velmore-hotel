@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { site } from "@/config/site";
+import { MobileMenu } from "@/components/site/MobileMenu";
 
 export function Nav() {
   return (
@@ -36,16 +37,7 @@ export function Nav() {
         {site.cta.primary.label}
       </Link>
 
-      {/* Mobile menu affordance */}
-      <button
-        type="button"
-        aria-label="Open menu"
-        className="flex w-6 flex-col gap-[5px] lg:hidden"
-      >
-        <span className="h-[2px] rounded bg-ivory" />
-        <span className="h-[2px] rounded bg-ivory" />
-        <span className="h-[2px] rounded bg-ivory" />
-      </button>
+      <MobileMenu />
     </nav>
   );
 }
