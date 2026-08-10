@@ -1,8 +1,8 @@
-import Image from "next/image";
 import { site } from "@/config/site";
 import { img } from "@/config/images";
 import { Button } from "@/components/ui/Button";
 import { Reveal } from "@/components/motion/Reveal";
+import { HeroVideo } from "@/components/hero/HeroVideo";
 import { heroStack } from "@/engine/motion";
 import { MOTION_CHARACTER } from "@/config/motion";
 
@@ -26,21 +26,14 @@ export function Hero() {
   const hero0 = heroStack({ character: MOTION_CHARACTER });
   return (
     <header className="relative h-[calc(100vh-76px)] min-h-[600px] overflow-hidden text-ivory [isolation:isolate]">
-      {/* --- the estate façade (real photography) — LCP, never animated --- */}
-      <Image
-        src={img.estateFacade.src}
-        alt={img.estateFacade.alt}
-        fill
-        priority
-        sizes="100vw"
-        className="-z-[6] object-cover"
-      />
+      {/* --- ambient estate video (poster paints first; reduced-motion safe) --- */}
+      <HeroVideo poster={img.estateFacade.src} className="absolute inset-0 -z-[6] h-full w-full object-cover" />
       <div aria-hidden className="absolute inset-0 -z-[3] page-vignette" />
-      <div aria-hidden className="absolute inset-0 -z-[2] page-scrim" />
+      <div aria-hidden className="absolute inset-0 -z-[2] hero-center-scrim" />
 
-      {/* --- content: lower-third, left (Composition 1) --- */}
-      <div className="absolute bottom-[8.5%] left-6 z-10 max-w-[620px] md:left-12">
-        <Reveal as="p" {...hero0.step(0)} className="flex items-center gap-3 text-[11.5px] font-semibold uppercase tracking-[.30em] text-champagne-light">
+      {/* --- content: centred --- */}
+      <div className="absolute inset-0 z-10 flex flex-col items-center justify-center px-6 text-center md:px-12">
+        <Reveal as="p" {...hero0.step(0)} className="flex items-center justify-center gap-3 text-[11.5px] font-semibold uppercase tracking-[.30em] text-champagne-light">
           <span aria-hidden className="h-px w-[34px] bg-champagne" />
           {hero.eyebrow}
         </Reveal>
@@ -52,11 +45,11 @@ export function Hero() {
           <span className="italic">{hero.headline[1]}</span>
         </h1>
 
-        <Reveal as="p" {...hero0.step(1)} className="mt-5 max-w-[50ch] text-[15px] leading-[1.6] text-ivory/90 md:text-[17px]">
+        <Reveal as="p" {...hero0.step(1)} className="mx-auto mt-5 max-w-[52ch] text-[15px] leading-[1.6] text-ivory/90 md:text-[17px]">
           {hero.sub}
         </Reveal>
 
-        <Reveal as="ul" {...hero0.step(2)} className="mt-6 flex flex-wrap items-center gap-x-5 gap-y-[10px]">
+        <Reveal as="ul" {...hero0.step(2)} className="mt-6 flex flex-wrap items-center justify-center gap-x-5 gap-y-[10px]">
           {trust.map((t) =>
             t.kind === "badge" ? (
               <li key={t.label}>
@@ -74,7 +67,7 @@ export function Hero() {
           )}
         </Reveal>
 
-        <Reveal {...hero0.step(3)} className="mt-[30px] flex flex-wrap items-center gap-[14px]">
+        <Reveal {...hero0.step(3)} className="mt-[30px] flex flex-wrap items-center justify-center gap-[14px]">
           <Button href={cta.primary.href} variant="primary" className="max-sm:flex-1">
             {cta.primary.label}
             <Arrow />

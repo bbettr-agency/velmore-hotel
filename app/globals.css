@@ -264,6 +264,15 @@
 }
 .page-vignette { box-shadow: inset 0 0 220px 60px rgba(6,10,8,.5); }
 
+/* Centred-hero scrim — for a video/image hero with copy in the middle. Darkens
+   top+bottom and pools a soft shadow at centre so centred white text stays
+   legible while the footage still reads. */
+.hero-center-scrim {
+  background:
+    linear-gradient(180deg, rgba(10,15,12,.58) 0%, rgba(10,15,12,.28) 42%, rgba(10,15,12,.30) 58%, rgba(10,15,12,.62) 100%),
+    radial-gradient(62% 52% at 50% 50%, rgba(10,15,12,.34) 0%, rgba(10,15,12,0) 78%);
+}
+
 /* Entrance motion is now handled by the OS motion engine (engine/motion,
    motion/react) via <Reveal>/<Stagger>/heroStack — single easing curve, scroll-
    triggered, reduced-motion-safe (MotionProvider), LCP never animated. The old
