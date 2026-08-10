@@ -2,6 +2,7 @@ import { Nav } from "@/components/site/Nav";
 import { Button } from "@/components/ui/Button";
 import { Placeholder, type PhVariant } from "./Placeholder";
 import type { Cta } from "./types";
+import type { Img } from "@/config/images";
 
 function Arrow() {
   return (
@@ -30,6 +31,7 @@ export function PageHero({
   sub,
   variant,
   note,
+  image,
   primary,
   secondary,
   chips,
@@ -40,6 +42,7 @@ export function PageHero({
   sub?: string;
   variant: PhVariant;
   note: string;
+  image?: Img;
   primary: Cta;
   secondary?: Cta;
   chips?: readonly { label: string; badge?: boolean }[];
@@ -49,10 +52,12 @@ export function PageHero({
     <>
       <Nav />
       <header className="relative flex min-h-[76vh] items-end overflow-hidden text-ivory [isolation:isolate]">
-        <Placeholder variant={variant} />
+        <Placeholder variant={variant} image={image} sizes="100vw" priority />
         <div aria-hidden className="absolute inset-0 page-scrim" />
         <div aria-hidden className="absolute inset-0 page-vignette" />
-        <span className="absolute right-5 top-[92px] z-[5] text-[9px] uppercase tracking-[.1em] text-white/45">{note}</span>
+        {image ? null : (
+          <span className="absolute right-5 top-[92px] z-[5] text-[9px] uppercase tracking-[.1em] text-white/45">{note}</span>
+        )}
 
         <div className="relative mx-auto w-full max-w-container px-6 pb-16 pt-32 md:px-12 md:pb-20">
           <p className="flex items-center gap-3 text-[11.5px] font-semibold uppercase tracking-[.30em] text-champagne-light">

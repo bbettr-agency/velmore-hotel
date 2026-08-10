@@ -1,4 +1,6 @@
+import Image from "next/image";
 import { site } from "@/config/site";
+import { img } from "@/config/images";
 import { Button } from "@/components/ui/Button";
 
 function Check() {
@@ -20,17 +22,17 @@ export function Hero() {
   const { hero, trust, cta } = site;
   return (
     <header className="relative h-[calc(100vh-76px)] min-h-[600px] overflow-hidden text-ivory [isolation:isolate]">
-      {/* --- dusk glass hall (CSS photography placeholder, docs/16) --- */}
-      <div aria-hidden className="absolute inset-0 -z-[6] hero-sky" />
-      <div aria-hidden className="absolute inset-0 -z-[5] hero-mullions" />
-      <div aria-hidden className="absolute -z-[5] hero-arch" />
-      <div aria-hidden className="absolute inset-0 -z-[4] hero-chandeliers" />
-      <div aria-hidden className="absolute -z-[4] hero-groundglow" />
-      <div aria-hidden className="absolute inset-0 -z-[3] hero-vignette" />
-      <div aria-hidden className="absolute inset-0 -z-[2] hero-scrim" />
-      <p className="absolute right-5 top-[92px] z-[5] text-[9px] uppercase tracking-[.1em] text-white/40">
-        {hero.imageNote}
-      </p>
+      {/* --- the estate façade (real photography) — LCP, never animated --- */}
+      <Image
+        src={img.estateFacade.src}
+        alt={img.estateFacade.alt}
+        fill
+        priority
+        sizes="100vw"
+        className="-z-[6] object-cover"
+      />
+      <div aria-hidden className="absolute inset-0 -z-[3] page-vignette" />
+      <div aria-hidden className="absolute inset-0 -z-[2] page-scrim" />
 
       {/* --- content: lower-third, left (Composition 1) --- */}
       <div className="absolute bottom-[8.5%] left-6 z-10 max-w-[620px] md:left-12">

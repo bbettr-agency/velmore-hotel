@@ -1,4 +1,6 @@
+import Image from "next/image";
 import { site } from "@/config/site";
+import { img } from "@/config/images";
 import { Button } from "@/components/ui/Button";
 
 function Arrow() {
@@ -24,13 +26,10 @@ export function FinalCta() {
       aria-labelledby="finalcta-heading"
       className="relative isolate flex min-h-[520px] items-center overflow-hidden md:min-h-[580px]"
     >
-      {/* full-bleed image (placeholder) — carries the emotional close */}
-      <div aria-hidden className="absolute inset-0 cta-image" />
+      {/* full-bleed image — carries the emotional close */}
+      <Image src={img.welcomeGolden.src} alt={img.welcomeGolden.alt} fill sizes="100vw" className="object-cover" />
       <div aria-hidden className="absolute inset-0 cta-scrim" />
       <div aria-hidden className="absolute inset-0 cta-vignette" />
-      <span className="absolute right-4 top-4 z-10 rounded-full bg-black/35 px-3 py-[5px] text-[9.5px] uppercase tracking-[.12em] text-ivory/70 backdrop-blur-[2px]">
-        {f.imageNote}
-      </span>
 
       {/* centered, minimal copy */}
       <div className="reveal reveal-1 relative mx-auto w-full max-w-container px-6 py-20 text-center md:px-12 md:py-28">

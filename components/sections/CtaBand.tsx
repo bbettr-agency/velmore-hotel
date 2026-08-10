@@ -1,6 +1,8 @@
 import { Button } from "@/components/ui/Button";
 import { site } from "@/config/site";
+import { Placeholder } from "./Placeholder";
 import type { Cta } from "./types";
+import type { Img } from "@/config/images";
 
 function Arrow() {
   return (
@@ -22,6 +24,7 @@ export function CtaBand({
   body,
   primary,
   secondary,
+  image,
   note = "Photography placeholder · the estate at golden hour (to be shot)",
 }: {
   eyebrow?: string;
@@ -29,16 +32,19 @@ export function CtaBand({
   body?: string;
   primary: Cta;
   secondary?: Cta;
+  image?: Img;
   note?: string;
 }) {
   return (
     <section className="relative isolate flex min-h-[480px] items-center overflow-hidden md:min-h-[540px]">
-      <div aria-hidden className="absolute inset-0 cta-image" />
+      <Placeholder variant="estate" image={image} sizes="100vw" />
       <div aria-hidden className="absolute inset-0 cta-scrim" />
       <div aria-hidden className="absolute inset-0 cta-vignette" />
-      <span className="absolute right-4 top-4 z-10 rounded-full bg-black/35 px-3 py-[5px] text-[9.5px] uppercase tracking-[.12em] text-ivory/70 backdrop-blur-[2px]">
-        {note}
-      </span>
+      {image ? null : (
+        <span className="absolute right-4 top-4 z-10 rounded-full bg-black/35 px-3 py-[5px] text-[9.5px] uppercase tracking-[.12em] text-ivory/70 backdrop-blur-[2px]">
+          {note}
+        </span>
+      )}
 
       <div className="relative mx-auto w-full max-w-container px-6 py-20 text-center md:px-12 md:py-24">
         <p className="flex items-center justify-center gap-3 text-[11.5px] font-semibold uppercase tracking-[.28em] text-champagne-light">

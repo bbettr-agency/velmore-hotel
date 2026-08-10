@@ -1,4 +1,6 @@
+import Image from "next/image";
 import { site } from "@/config/site";
+import { img } from "@/config/images";
 import { Button } from "@/components/ui/Button";
 
 function Arrow() {
@@ -82,14 +84,7 @@ export function WeddingsPreview() {
         {/* image (placeholder) — portrait, for intimacy vs the conference landscape */}
         <div className="md:col-span-6">
           <div className="relative mx-auto aspect-[4/5] max-w-[440px] overflow-hidden rounded-lg shadow-card md:ml-auto md:mr-0">
-            <div aria-hidden className="absolute inset-0 wed-image" />
-            <div aria-hidden className="absolute wed-arch" />
-            <div aria-hidden className="absolute inset-0 wed-bokeh" />
-            <div aria-hidden className="absolute wed-glow" />
-            <div aria-hidden className="absolute inset-0 wed-vignette" />
-            <span className="absolute left-4 top-4 rounded-full bg-black/35 px-3 py-[5px] text-[9.5px] uppercase tracking-[.12em] text-ivory/70 backdrop-blur-[2px]">
-              {w.imageNote}
-            </span>
+            <Image src={img.receptionTable.src} alt={img.receptionTable.alt} fill sizes="(min-width: 768px) 42vw, 100vw" className="object-cover" />
           </div>
         </div>
       </div>

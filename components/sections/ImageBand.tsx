@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/Button";
 import { Placeholder, type PhVariant } from "./Placeholder";
 import type { Cta } from "./types";
+import type { Img } from "@/config/images";
 
 function Arrow() {
   return (
@@ -21,6 +22,7 @@ export function ImageBand({
   body,
   variant,
   note,
+  image,
   primary,
   secondary,
   chip,
@@ -31,6 +33,7 @@ export function ImageBand({
   body?: string;
   variant: PhVariant;
   note: string;
+  image?: Img;
   primary?: Cta;
   secondary?: Cta;
   chip?: string;
@@ -39,12 +42,14 @@ export function ImageBand({
   const centered = align === "center";
   return (
     <section className="relative isolate flex min-h-[560px] overflow-hidden md:min-h-[620px]">
-      <Placeholder variant={variant} />
+      <Placeholder variant={variant} image={image} sizes="100vw" />
       <div aria-hidden className="absolute inset-0 dine-scrim" />
       <div aria-hidden className="absolute inset-0 page-vignette" />
-      <span className="absolute right-4 top-4 z-10 rounded-full bg-black/35 px-3 py-[5px] text-[9.5px] uppercase tracking-[.12em] text-ivory/75 backdrop-blur-[2px]">
-        {note}
-      </span>
+      {image ? null : (
+        <span className="absolute right-4 top-4 z-10 rounded-full bg-black/35 px-3 py-[5px] text-[9.5px] uppercase tracking-[.12em] text-ivory/75 backdrop-blur-[2px]">
+          {note}
+        </span>
+      )}
 
       <div className={`relative mx-auto flex w-full max-w-container items-end px-6 py-16 md:items-center md:px-12 md:py-24 ${centered ? "justify-center text-center" : ""}`}>
         <div className={`${centered ? "max-w-[40rem]" : "max-w-[34rem]"}`}>

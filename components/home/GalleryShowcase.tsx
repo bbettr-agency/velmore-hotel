@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { site } from "@/config/site";
 
 type Tile = (typeof site.galleryPreview.tiles)[number];
@@ -5,16 +6,21 @@ type Tile = (typeof site.galleryPreview.tiles)[number];
 function GalleryTile({ tile, className }: { tile: Tile; className?: string }) {
   return (
     <figure className={`group relative overflow-hidden rounded-lg shadow-card ${className ?? ""}`}>
-      {/* placeholder image (reuses a labelled placeholder hue) — slow hover zoom */}
-      <div
-        aria-hidden
-        className={`absolute inset-0 ${tile.base} scale-[1.02] transition-transform duration-[900ms] ease-[cubic-bezier(.22,1,.36,1)] group-hover:scale-110 motion-reduce:transition-none motion-reduce:group-hover:scale-[1.02]`}
-      />
+      {/* real photography — slow hover zoom */}
+      <div className="absolute inset-0 scale-[1.02] transition-transform duration-[900ms] ease-[cubic-bezier(.22,1,.36,1)] group-hover:scale-110 motion-reduce:transition-none motion-reduce:group-hover:scale-[1.02]">
+        {"image" in tile && tile.image ? (
+          <Image src={tile.image.src} alt={tile.image.alt} fill sizes="(min-width: 768px) 50vw, 100vw" className="object-cover" />
+        ) : (
+          <div aria-hidden className={`absolute inset-0 ${tile.base}`} />
+        )}
+      </div>
       <div aria-hidden className="absolute inset-0 gal-vignette" />
       <div aria-hidden className="absolute inset-x-0 bottom-0 h-1/3 gal-chipscrim" />
       <figcaption className="absolute bottom-4 left-4 flex items-baseline gap-2">
         <span className="font-serif text-[15px] font-semibold text-ivory md:text-[16px]">{tile.label}</span>
-        <span className="text-[9.5px] uppercase tracking-[.14em] text-ivory/55">· placeholder</span>
+        {"image" in tile && tile.image ? null : (
+          <span className="text-[9.5px] uppercase tracking-[.14em] text-ivory/55">· placeholder</span>
+        )}
       </figcaption>
     </figure>
   );

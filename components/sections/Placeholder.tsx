@@ -1,18 +1,22 @@
+import Image from "next/image";
+import type { Img } from "@/config/images";
+
 /**
- * Shared photography-placeholder renderer for inner-page sections. Reuses the
- * labelled placeholder hues built for the homepage (one base gradient per
- * vertical) so imagery reads consistently until the real shoot (docs/17). The
- * caller supplies the positioned `relative overflow-hidden` box; this fills it.
+ * Shared image renderer for sections. When a real photo (`image`) is supplied it
+ * renders an optimised next/image (fill + object-cover + responsive sizes, AVIF/
+ * WebP, lazy unless `priority`). Otherwise it falls back to the labelled CSS
+ * placeholder hue for the vertical (honest "photography required" state until the
+ * shoot). The caller supplies the positioned `relative overflow-hidden` box.
  */
 const BASE = {
-  hero: "hero-sky", // cool dusk glass hall (signature)
-  conferences: "conf-image", // warm hall interior
-  weddings: "wed-image", // golden-hour garden / chapel
-  accommodation: "stay-image", // light, airy room
-  gardens: "stay-detail", // estate green
-  spa: "spa-image", // warm candlelit, soft-focus
-  dining: "dine-image", // warm, appetising
-  estate: "cta-image", // warm golden-hour estate
+  hero: "hero-sky",
+  conferences: "conf-image",
+  weddings: "wed-image",
+  accommodation: "stay-image",
+  gardens: "stay-detail",
+  spa: "spa-image",
+  dining: "dine-image",
+  estate: "cta-image",
 } as const;
 
 export type PhVariant = keyof typeof BASE;
@@ -20,12 +24,30 @@ export type PhVariant = keyof typeof BASE;
 export function Placeholder({
   variant,
   note,
+  image,
+  sizes = "100vw",
+  priority = false,
   noteClass,
 }: {
   variant: PhVariant;
   note?: string;
+  image?: Img;
+  sizes?: string;
+  priority?: boolean;
   noteClass?: string;
 }) {
+  if (image) {
+    return (
+      <Image
+        src={image.src}
+        alt={image.alt}
+        fill
+        sizes={sizes}
+        priority={priority}
+        className="object-cover"
+      />
+    );
+  }
   return (
     <>
       <div aria-hidden className={`absolute inset-0 ${BASE[variant]}`} />

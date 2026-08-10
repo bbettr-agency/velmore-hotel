@@ -9,6 +9,8 @@
  * stable. Recorded in docs/06-INFORMATION-ARCHITECTURE.md.
  */
 
+import { img } from "./images";
+
 export const routes = {
   weddings: {
     href: "/weddings",
@@ -286,11 +288,11 @@ export const site = {
     lead: "A glimpse of the range — weddings to conferences, gardens to the glass hall. The curated gallery is being photographed for launch; every frame below is a placeholder.",
     // base = an existing placeholder gradient class; size drives the mosaic.
     tiles: [
-      { label: "The glass hall", base: "hero-sky", size: "feature" as const },
-      { label: "Weddings", base: "wed-image", size: "tall" as const },
-      { label: "Conferences", base: "conf-image", size: "wide" as const },
-      { label: "Gardens", base: "stay-detail", size: "wide" as const },
-      { label: "Dining", base: "dine-image", size: "wide" as const },
+      { label: "The estate", base: "hero-sky", size: "feature" as const, image: img.estateFacade },
+      { label: "Weddings", base: "wed-image", size: "tall" as const, image: img.receptionTable },
+      { label: "The archway", base: "conf-image", size: "wide" as const, image: img.estateArchway },
+      { label: "Gardens", base: "stay-detail", size: "wide" as const, image: img.gardensStreamArchway },
+      { label: "Dining", base: "dine-image", size: "wide" as const, image: img.grazingTable },
     ],
     cta: { label: "Explore the gallery", href: routes.gallery.href },
   },

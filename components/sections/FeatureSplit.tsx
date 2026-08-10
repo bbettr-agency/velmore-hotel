@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/Button";
 import { Placeholder, type PhVariant } from "./Placeholder";
 import type { Cta } from "./types";
+import type { Img } from "@/config/images";
 
 function Arrow() {
   return (
@@ -26,6 +27,7 @@ export function FeatureSplit({
   points,
   variant,
   note,
+  image,
   imageSide = "left",
   tone = "ivory",
   portrait = false,
@@ -39,6 +41,7 @@ export function FeatureSplit({
   points?: readonly string[];
   variant: PhVariant;
   note: string;
+  image?: Img;
   imageSide?: "left" | "right";
   tone?: "ivory" | "mist";
   portrait?: boolean;
@@ -53,7 +56,7 @@ export function FeatureSplit({
       <div className="mx-auto grid max-w-container grid-cols-1 items-center gap-10 px-6 md:grid-cols-12 md:gap-16 md:px-12">
         <div className={`md:col-span-6 ${imageFirst ? "" : "md:order-2"}`}>
           <div className={`relative ${portrait ? "mx-auto aspect-[4/5] max-w-[440px]" : "aspect-[4/3]"} overflow-hidden rounded-lg shadow-card`}>
-            <Placeholder variant={variant} note={note} />
+            <Placeholder variant={variant} note={note} image={image} sizes="(min-width: 768px) 46vw, 100vw" />
           </div>
         </div>
         <div className={`md:col-span-6 ${imageFirst ? "" : "md:order-1"}`}>

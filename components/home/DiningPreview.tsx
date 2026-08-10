@@ -1,4 +1,6 @@
+import Image from "next/image";
 import { site } from "@/config/site";
+import { img } from "@/config/images";
 import { Button } from "@/components/ui/Button";
 
 function Arrow() {
@@ -26,13 +28,9 @@ export function DiningPreview() {
       aria-labelledby="dine-heading"
       className="relative isolate flex min-h-[600px] overflow-hidden md:min-h-[660px]"
     >
-      {/* full-bleed image (placeholder) — carries the emotion */}
-      <div aria-hidden className="absolute inset-0 dine-image" />
-      <div aria-hidden className="absolute inset-0 dine-tables" />
+      {/* full-bleed image — carries the emotion */}
+      <Image src={img.setTable.src} alt={img.setTable.alt} fill sizes="100vw" className="object-cover" />
       <div aria-hidden className="absolute inset-0 dine-scrim" />
-      <span className="absolute right-4 top-4 z-10 rounded-full bg-black/35 px-3 py-[5px] text-[9.5px] uppercase tracking-[.12em] text-ivory/75 backdrop-blur-[2px]">
-        {d.imageNote}
-      </span>
 
       {/* restrained overlaid copy — supports the image */}
       <div className="relative mx-auto flex w-full max-w-container items-end px-6 py-16 md:items-center md:px-12 md:py-24">

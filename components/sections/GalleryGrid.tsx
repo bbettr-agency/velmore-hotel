@@ -1,4 +1,5 @@
 import { Placeholder, type PhVariant } from "./Placeholder";
+import type { Img } from "@/config/images";
 
 /**
  * A curated tile grid for the Gallery page — captioned placeholder tiles across
@@ -10,7 +11,7 @@ export function GalleryGrid({
   note,
   tone = "ivory",
 }: {
-  tiles: readonly { label: string; variant: PhVariant }[];
+  tiles: readonly { label: string; variant: PhVariant; image?: Img }[];
   note?: string;
   tone?: "ivory" | "mist";
 }) {
@@ -22,12 +23,12 @@ export function GalleryGrid({
           {tiles.map((t) => (
             <figure key={t.label} className="group relative aspect-[4/3] overflow-hidden rounded-lg shadow-card">
               <div className="absolute inset-0 scale-[1.02] transition-transform duration-[900ms] ease-[cubic-bezier(.22,1,.36,1)] group-hover:scale-110 motion-reduce:transition-none motion-reduce:group-hover:scale-[1.02]">
-                <Placeholder variant={t.variant} />
+                <Placeholder variant={t.variant} image={t.image} sizes="(min-width: 768px) 33vw, (min-width: 640px) 50vw, 100vw" />
               </div>
               <div aria-hidden className="absolute inset-x-0 bottom-0 h-1/3 gal-chipscrim" />
               <figcaption className="absolute bottom-4 left-4 flex items-baseline gap-2">
                 <span className="font-serif text-[15px] font-semibold text-ivory md:text-[16px]">{t.label}</span>
-                <span className="text-[9.5px] uppercase tracking-[.14em] text-ivory/55">· placeholder</span>
+                {t.image ? null : <span className="text-[9.5px] uppercase tracking-[.14em] text-ivory/55">· placeholder</span>}
               </figcaption>
             </figure>
           ))}

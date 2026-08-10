@@ -12,6 +12,7 @@
  */
 
 import { routes } from "./site";
+import { img } from "./images";
 
 const contact = routes.contact.href;
 
@@ -23,6 +24,7 @@ export const pages = {
       sub: "The largest hall in the area, executive breakaway rooms, fifty rooms for the night and a certified halal kitchen — one team, one invoice, from the first delegate to the last goodbye.", // INDICATIVE
       variant: "conferences" as const,
       note: "Conference photography required · the 1,300-seat hall (shoot pending)",
+      image: img.estateFacade,
       chips: [
         { label: "Up to 1,300 delegates" },
         { label: "50 rooms on the estate" },
@@ -103,6 +105,7 @@ export const pages = {
     cta: {
       heading: "Come and see the hall for yourself.", // INDICATIVE
       body: "Book a viewing, tell us your dates and delegate numbers, and one team takes it from there.", // INDICATIVE
+      image: img.welcomeGolden,
       primary: { label: "Book a Viewing", href: contact, cta: "book_viewing", location: "conferences_cta" },
       secondary: { label: "Enquire for your date", href: contact, cta: "enquire_date", location: "conferences_cta" },
     },
@@ -115,6 +118,7 @@ export const pages = {
       sub: "A chapel for the ceremony, chandeliers for the reception, gardens for the golden hour — and a certified halal kitchen and rooms for your guests, all held by one team.", // INDICATIVE
       variant: "weddings" as const,
       note: "Wedding photography required · a wedding on the estate (shoot pending)",
+      image: img.receptionHall,
       chips: [
         { label: "Chapel & reception" },
         { label: "Gardens" },
@@ -151,6 +155,7 @@ export const pages = {
       points: ["The D'Charmant Glass Hall", "Chandeliers & glass", "Larger halls available", "One team · one invoice"],
       variant: "hero" as const,
       note: "Wedding photography required · the glass hall at dusk (shoot pending)",
+      image: img.receptionTable,
     },
     gardensBand: {
       eyebrow: "The golden hour",
@@ -158,6 +163,7 @@ export const pages = {
       body: "When the light softens, the estate gardens do the work no styling can — the frames you'll keep, made on the grounds you married on.", // INDICATIVE
       variant: "gardens" as const,
       note: "Garden photography required · estate gardens at golden hour (shoot pending)",
+      image: img.gardensStreamArchway,
       align: "center" as const,
     },
     heldSplit: {
@@ -210,6 +216,7 @@ export const pages = {
     cta: {
       heading: "Come and picture your day here.", // INDICATIVE
       body: "Book a viewing, tell us your date, and one team takes it from there.", // INDICATIVE
+      image: img.welcomeGolden,
       primary: { label: "Book a Viewing", href: contact, cta: "book_viewing", location: "weddings_cta" },
       secondary: { label: "Enquire for your date", href: contact, cta: "enquire_date", location: "weddings_cta" },
     },
@@ -222,6 +229,7 @@ export const pages = {
       sub: "Fifty rooms on the estate — with gardens, a pool and a spa — so your guests, your delegates and you stay close to the occasion, between Pretoria and Centurion.", // INDICATIVE (facts confirmed)
       variant: "accommodation" as const,
       note: "Accommodation photography required · estate rooms (shoot pending)",
+      image: img.estateFacadeDrive,
       chips: [
         { label: "50 rooms on the estate" },
         { label: "Gardens, pool & spa" },
@@ -257,6 +265,7 @@ export const pages = {
       points: ["Estate gardens", "Pool on the estate", "A spa on the grounds", "Certified-halal dining"],
       variant: "gardens" as const,
       note: "Estate photography required · gardens & grounds (shoot pending)",
+      image: img.gardensPergola,
     },
     guestsSplit: {
       eyebrow: "For your guests & delegates",
@@ -268,6 +277,7 @@ export const pages = {
       points: ["Wedding-guest accommodation", "Residential conferences", "One team · one invoice", "On the estate"],
       variant: "estate" as const,
       note: "Estate photography required · arrival & grounds (shoot pending)",
+      image: img.estateEntranceFountain,
     },
     numbers: {
       eyebrow: "The estate stay",
@@ -304,6 +314,7 @@ export const pages = {
     cta: {
       heading: "Come and see where you'll stay.", // INDICATIVE
       body: "Tell us your dates and group, and one team takes it from there.", // INDICATIVE
+      image: img.welcomeGolden,
       primary: { label: "Check Availability", href: contact, cta: "check_availability", location: "accommodation_cta" },
       secondary: { label: "Enquire for your date", href: contact, cta: "enquire_date", location: "accommodation_cta" },
     },
@@ -319,6 +330,7 @@ export const pages = {
       sub: "The gathering at the heart of every occasion — plates shared, conversation unhurried, and a certified halal kitchen that cooks for everyone at the table.", // INDICATIVE
       variant: "dining" as const,
       note: "Dining photography required · a set table on the estate (shoot pending)",
+      image: img.setTable,
       chips: [{ label: "Certified Halal", badge: true }, { label: "For every guest" }, { label: "On the estate" }],
       primary: { label: "Book a Viewing", href: contact, cta: "book_viewing", location: "dining_hero" },
       secondary: { label: "Enquire for your date", href: contact, cta: "enquire_date", location: "dining_hero" },
@@ -338,6 +350,7 @@ export const pages = {
       points: ["Weddings & receptions", "Conference catering", "Private celebrations", "One team · one invoice"],
       variant: "dining" as const,
       note: "Dining photography required · a set table (shoot pending)",
+      image: img.functionHall,
     },
     halalBand: {
       eyebrow: "Certified halal",
@@ -345,6 +358,7 @@ export const pages = {
       body: "The kitchen is certified halal — so every guest is catered for as standard, and no one at your occasion is an afterthought.", // INDICATIVE (fact confirmed)
       variant: "dining" as const,
       note: "Dining photography required · plated food (shoot pending)",
+      image: img.grazingTable,
       chip: "Certified halal · every guest",
       align: "center" as const,
     },
@@ -366,6 +380,7 @@ export const pages = {
     cta: {
       heading: "Come and taste the estate.", // INDICATIVE
       body: "Tell us your occasion and numbers, and one team takes it from there.", // INDICATIVE
+      image: img.welcomeGolden,
       primary: { label: "Book a Viewing", href: contact, cta: "book_viewing", location: "dining_cta" },
       secondary: { label: "Enquire for your date", href: contact, cta: "enquire_date", location: "dining_cta" },
     },
@@ -416,6 +431,7 @@ export const pages = {
     cta: {
       heading: "Give yourself the slower morning.", // INDICATIVE
       body: "Tell us your dates, and one team takes it from there.", // INDICATIVE
+      image: img.welcomeGolden,
       primary: { label: "Enquire", href: contact, cta: "spa_enquire", location: "spa_cta" },
       secondary: { label: "Book a Viewing", href: contact, cta: "book_viewing", location: "spa_cta" },
     },
@@ -428,6 +444,7 @@ export const pages = {
       sub: "Year-end functions, matric farewells, milestones and private celebrations — halls that seat an intimate dinner or hundreds, a certified halal kitchen, and one team from the first guest to the last.", // INDICATIVE
       variant: "estate" as const,
       note: "Events photography required · a function on the estate (shoot pending)",
+      image: img.functionHall,
       chips: [{ label: "Year-end functions" }, { label: "Matric farewells" }, { label: "Certified Halal", badge: true }],
       primary: { label: "Book a Viewing", href: contact, cta: "book_viewing", location: "events_hero" },
       secondary: { label: "Enquire for your date", href: contact, cta: "enquire_date", location: "events_hero" },
@@ -447,6 +464,7 @@ export const pages = {
       points: ["Year-end functions", "Matric farewells", "Milestones & birthdays", "Private celebrations"],
       variant: "weddings" as const,
       note: "Events photography required · a celebration set (shoot pending)",
+      image: img.functionCentrepieces,
     },
     scaleSplit: {
       eyebrow: "The scale",
@@ -465,6 +483,7 @@ export const pages = {
       body: "The venue, the catering and the rooms — held by the same team, on one invoice, so nothing falls between suppliers.", // INDICATIVE
       variant: "estate" as const,
       note: "Events photography required · the estate at night (shoot pending)",
+      image: img.estateFacadeDrive,
       chip: "Certified halal · every guest",
       align: "center" as const,
     },
@@ -481,6 +500,7 @@ export const pages = {
     cta: {
       heading: "Let's plan the celebration.", // INDICATIVE
       body: "Tell us the occasion, the date and the numbers, and one team takes it from there.", // INDICATIVE
+      image: img.welcomeGolden,
       primary: { label: "Book a Viewing", href: contact, cta: "book_viewing", location: "events_cta" },
       secondary: { label: "Enquire for your date", href: contact, cta: "enquire_date", location: "events_cta" },
     },
@@ -493,6 +513,7 @@ export const pages = {
       sub: "Velmoré Hotel & Spa is the flagship of the Velmore Hospitality Group — a French-Provence estate for weddings, conferences and celebrations, between Pretoria and Centurion.", // INDICATIVE (facts confirmed)
       variant: "estate" as const,
       note: "Estate photography required · the estate exterior (shoot pending)",
+      image: img.estateFacade,
       chips: [{ label: "Weddings · conferences · events" }, { label: "50 rooms" }, { label: "Certified Halal", badge: true }],
       primary: { label: "Book a Viewing", href: contact, cta: "book_viewing", location: "about_hero" },
       secondary: { label: "Enquire for your date", href: contact, cta: "enquire_date", location: "about_hero" },
@@ -512,6 +533,7 @@ export const pages = {
       points: ["Halls, chapel & gardens", "A pool & a spa", "The 1,300-seat SCC", "Pretoria & Centurion"],
       variant: "gardens" as const,
       note: "Estate photography required · gardens & architecture (shoot pending)",
+      image: img.gardensStreamArchway,
     },
     teamSplit: {
       eyebrow: "One team, one invoice",
@@ -523,6 +545,7 @@ export const pages = {
       points: ["One point of contact", "One invoice, one contract", "Venue · catering · rooms", "Held, not managed"],
       variant: "conferences" as const,
       note: "Photography required · the team at work (shoot pending)",
+      image: img.colonnade,
     },
     halalSplit: {
       eyebrow: "Everyone, held",
@@ -534,6 +557,7 @@ export const pages = {
       points: ["Certified halal kitchen", "For every guest", "Standard, not on request", "Weddings · conferences · events"],
       variant: "dining" as const,
       note: "Dining photography required · a set halal table (shoot pending)",
+      image: img.grazingTable,
     },
     numbers: {
       eyebrow: "The estate, in numbers",
@@ -548,6 +572,7 @@ export const pages = {
     cta: {
       heading: "Come and see the estate.", // INDICATIVE
       body: "Book a viewing, tell us your occasion, and one team takes it from there.", // INDICATIVE
+      image: img.welcomeGolden,
       primary: { label: "Book a Viewing", href: contact, cta: "book_viewing", location: "about_cta" },
       secondary: { label: "Enquire for your date", href: contact, cta: "enquire_date", location: "about_cta" },
     },
@@ -560,24 +585,26 @@ export const pages = {
       sub: "Weddings to conferences, gardens to the glass hall — a glimpse of the range, with the curated gallery being photographed for launch.", // INDICATIVE
       variant: "hero" as const,
       note: "Gallery photography required · curated estate set (shoot pending)",
+      image: img.estateFacade,
       primary: { label: "Book a Viewing", href: contact, cta: "book_viewing", location: "gallery_hero" },
       secondary: { label: "Enquire for your date", href: contact, cta: "enquire_date", location: "gallery_hero" },
     },
-    gridNote: "Every frame above is a clearly-labelled placeholder. The curated gallery is being photographed for launch (see the Photography Strategy).",
+    gridNote: "Real Velmoré photography. Rooms, spa and the glass hall at dusk are still being photographed and will be added as they land.",
     tiles: [
-      { label: "The glass hall", variant: "hero" as const },
-      { label: "Weddings", variant: "weddings" as const },
-      { label: "Conferences", variant: "conferences" as const },
-      { label: "Gardens", variant: "gardens" as const },
-      { label: "Rooms", variant: "accommodation" as const },
-      { label: "Dining", variant: "dining" as const },
-      { label: "The spa", variant: "spa" as const },
-      { label: "The estate", variant: "estate" as const },
-      { label: "Celebrations", variant: "weddings" as const },
+      { label: "The estate", variant: "estate" as const, image: img.estateFacade },
+      { label: "The archway", variant: "estate" as const, image: img.estateArchway },
+      { label: "Gardens", variant: "gardens" as const, image: img.gardensStreamArchway },
+      { label: "Weddings", variant: "weddings" as const, image: img.receptionTable },
+      { label: "Celebrations", variant: "weddings" as const, image: img.functionCentrepieces },
+      { label: "Dining", variant: "dining" as const, image: img.grazingTable },
+      { label: "The colonnade", variant: "estate" as const, image: img.colonnade },
+      { label: "The entrance", variant: "estate" as const, image: img.estateEntranceFountain },
+      { label: "Arrival", variant: "estate" as const, image: img.welcomeGolden },
     ],
     cta: {
       heading: "Better in person.", // INDICATIVE
       body: "Book a viewing and see the estate for yourself — we reply the same business day.", // INDICATIVE
+      image: img.gardensArchway,
       primary: { label: "Book a Viewing", href: contact, cta: "book_viewing", location: "gallery_cta" },
       secondary: { label: "Enquire for your date", href: contact, cta: "enquire_date", location: "gallery_cta" },
     },
@@ -590,6 +617,7 @@ export const pages = {
       sub: "One team, one reply — the same business day. Tell us about your occasion and we'll come back with real answers.", // INDICATIVE
       variant: "estate" as const,
       note: "Estate photography required · arrival & entrance (shoot pending)",
+      image: img.welcomeGolden,
       primary: { label: "Send an enquiry", href: "#enquire", cta: "enquiry_scroll", location: "contact_hero" },
       secondary: { label: "Email us", href: "mailto:bookings@velmorehotel.co.za", cta: "email_click", location: "contact_hero" },
     },
