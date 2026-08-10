@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { site } from "@/config/site";
+import { Reveal } from "@/components/motion/Reveal";
 
 function Check() {
   return (
@@ -33,7 +34,7 @@ export function EstateIntro() {
           {estate.eyebrow}
         </p>
 
-        <div className="mt-8 grid grid-cols-1 gap-x-16 gap-y-8 md:grid-cols-12">
+        <Reveal className="mt-8 grid grid-cols-1 gap-x-16 gap-y-8 md:grid-cols-12">
           <h2
             id="estate-heading"
             className="font-serif text-[34px] font-semibold leading-[1.08] tracking-[-.015em] text-white md:col-span-7 md:text-[48px]"
@@ -47,18 +48,18 @@ export function EstateIntro() {
               </p>
             ))}
           </div>
-        </div>
+        </Reveal>
 
         {/* stat band — proof, delivered as numerals, not cards */}
         <dl className="mt-16 grid grid-cols-2 gap-y-10 border-t border-ivory/15 pt-12 md:mt-20 md:grid-cols-4 md:gap-y-0">
           {estate.stats.map((s, i) => (
-            <div key={s.unit} className={i > 0 ? "px-2 md:border-l md:border-ivory/15 md:px-8" : "px-2 md:pr-8"}>
+            <Reveal key={s.unit} preset="fadeUpItem" index={i} className={i > 0 ? "px-2 md:border-l md:border-ivory/15 md:px-8" : "px-2 md:pr-8"}>
               <dd className="font-serif text-[46px] font-semibold leading-none text-champagne-light md:text-[58px]">
                 {s.value}
               </dd>
               <dt className="mt-3 text-[12px] font-semibold uppercase tracking-[.18em] text-ivory/75">{s.unit}</dt>
               <p className="mt-2 max-w-[22ch] text-[12.5px] leading-[1.5] text-ivory/65">{s.note}</p>
-            </div>
+            </Reveal>
           ))}
         </dl>
 

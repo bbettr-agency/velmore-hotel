@@ -2,6 +2,7 @@ import Image from "next/image";
 import { site } from "@/config/site";
 import { img } from "@/config/images";
 import { Button } from "@/components/ui/Button";
+import { Reveal } from "@/components/motion/Reveal";
 
 function Arrow() {
   return (
@@ -25,7 +26,7 @@ export function WeddingsPreview() {
     <section aria-labelledby="wed-heading" className="bg-mist py-24 md:py-32">
       <div className="mx-auto grid max-w-container grid-cols-1 items-center gap-12 px-6 md:grid-cols-12 md:gap-16 md:px-12">
         {/* copy — leads, on the left (conferences led with the image) */}
-        <div className="md:col-span-6 md:pr-6">
+        <Reveal className="md:col-span-6 md:pr-6">
           <p className="flex items-center gap-3 text-[11.5px] font-semibold uppercase tracking-[.28em] text-champagne-dark">
             <span aria-hidden className="h-px w-[34px] bg-champagne" />
             {w.eyebrow}
@@ -79,13 +80,13 @@ export function WeddingsPreview() {
               <span aria-hidden className="transition-transform duration-200 group-hover:translate-x-1">→</span>
             </a>
           </div>
-        </div>
+        </Reveal>
 
-        {/* image (placeholder) — portrait, for intimacy vs the conference landscape */}
+        {/* image — portrait, for intimacy vs the conference landscape */}
         <div className="md:col-span-6">
-          <div className="relative mx-auto aspect-[4/5] max-w-[440px] overflow-hidden rounded-lg shadow-card md:ml-auto md:mr-0">
+          <Reveal preset="imageReveal" className="relative mx-auto aspect-[4/5] max-w-[440px] overflow-hidden rounded-lg shadow-card md:ml-auto md:mr-0">
             <Image src={img.receptionTable.src} alt={img.receptionTable.alt} fill sizes="(min-width: 768px) 42vw, 100vw" className="object-cover" />
-          </div>
+          </Reveal>
         </div>
       </div>
     </section>

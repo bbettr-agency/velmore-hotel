@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { site } from "@/config/site";
+import { Reveal, Stagger } from "@/components/motion/Reveal";
 
 /**
  * Homepage Journey Selector — the complete section. Continues the dark-hero → ivory
@@ -13,21 +14,23 @@ export function JourneySelector() {
       className="relative z-20 -mt-8 rounded-t-[30px] bg-ivory px-6 pb-24 pt-14 shadow-[0_-30px_60px_-40px_rgba(10,15,12,.5)] md:px-12 md:pt-20"
     >
       <div className="mx-auto max-w-container">
-        <p className="flex items-center justify-center gap-[14px] text-[11.5px] font-semibold uppercase tracking-[.26em] text-steel">
-          <span aria-hidden className="h-px w-10 bg-stone" />
-          {journeys.kicker}
-          <span aria-hidden className="h-px w-10 bg-stone" />
-        </p>
-        <h2 className="mt-[14px] text-center font-serif text-[30px] font-semibold tracking-[-.01em] text-estate-700 md:text-[38px]">
-          {journeys.heading}
-        </h2>
-        <p className="mx-auto mt-4 max-w-[46ch] text-center text-[15px] leading-[1.6] text-steel md:text-[16px]">
-          {journeys.lead}
-        </p>
+        <Reveal>
+          <p className="flex items-center justify-center gap-[14px] text-[11.5px] font-semibold uppercase tracking-[.26em] text-steel">
+            <span aria-hidden className="h-px w-10 bg-stone" />
+            {journeys.kicker}
+            <span aria-hidden className="h-px w-10 bg-stone" />
+          </p>
+          <h2 className="mt-[14px] text-center font-serif text-[30px] font-semibold tracking-[-.01em] text-estate-700 md:text-[38px]">
+            {journeys.heading}
+          </h2>
+          <p className="mx-auto mt-4 max-w-[46ch] text-center text-[15px] leading-[1.6] text-steel md:text-[16px]">
+            {journeys.lead}
+          </p>
+        </Reveal>
 
-        <ul className="mt-10 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4 md:mt-14 md:gap-6">
+        <Stagger as="ul" className="mt-10 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4 md:mt-14 md:gap-6">
           {journeys.items.map((j, i) => (
-            <li key={j.name}>
+            <Reveal key={j.name} as="li" preset="fadeUpItem">
               <Link
                 href={j.href}
                 className="group flex h-full flex-col rounded-lg border border-[#E4DCCB] bg-white p-6 shadow-card transition-transform duration-200 hover:-translate-y-1 hover:shadow-lift focus-visible:-translate-y-1"
@@ -63,9 +66,9 @@ export function JourneySelector() {
                   </span>
                 </span>
               </Link>
-            </li>
+            </Reveal>
           ))}
-        </ul>
+        </Stagger>
       </div>
     </section>
   );

@@ -1,5 +1,6 @@
 import { site } from "@/config/site";
 import { Button } from "@/components/ui/Button";
+import { Reveal } from "@/components/motion/Reveal";
 
 function Arrow() {
   return (
@@ -24,7 +25,7 @@ export function ConferencesPreview() {
       <div className="mx-auto grid max-w-container grid-cols-1 items-center gap-10 px-6 md:grid-cols-12 md:gap-16 md:px-12">
         {/* image (placeholder) */}
         <div className="md:col-span-6">
-          <div className="relative aspect-[4/3] overflow-hidden rounded-lg shadow-card">
+          <Reveal preset="imageReveal" className="relative aspect-[4/3] overflow-hidden rounded-lg shadow-card">
             <div aria-hidden className="absolute inset-0 conf-image" />
             <div aria-hidden className="absolute inset-0 conf-rows" />
             <div aria-hidden className="absolute inset-0 conf-glints" />
@@ -32,11 +33,11 @@ export function ConferencesPreview() {
             <span className="absolute left-4 top-4 rounded-full bg-black/35 px-3 py-[5px] text-[9.5px] uppercase tracking-[.12em] text-ivory/70 backdrop-blur-[2px]">
               {c.imageNote}
             </span>
-          </div>
+          </Reveal>
         </div>
 
         {/* copy */}
-        <div className="md:col-span-6">
+        <Reveal className="md:col-span-6">
           <p className="flex items-center gap-3 text-[11.5px] font-semibold uppercase tracking-[.28em] text-champagne-dark">
             <span aria-hidden className="h-px w-[34px] bg-champagne" />
             {c.eyebrow}
@@ -80,7 +81,7 @@ export function ConferencesPreview() {
               <span aria-hidden className="transition-transform duration-200 group-hover:translate-x-1">→</span>
             </a>
           </div>
-        </div>
+        </Reveal>
       </div>
     </section>
   );
