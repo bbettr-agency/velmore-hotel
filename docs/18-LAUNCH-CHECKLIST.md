@@ -6,6 +6,21 @@
 
 ---
 
+---
+
+## 0. Readiness (as of this pass)
+
+| Track | % | Note |
+|---|---|---|
+| **Development** | **100%** | All 10 pages, section kit, forms, SEO, 404, image system — built, verified, live. |
+| **Photography** | **~75%** | Real photos live for estate, gardens, weddings-reception, events, dining, food, gallery, arrival. **Gaps (placeholder):** guest rooms, spa, seated-conference, glass-hall-at-dusk, chapel-ceremony. |
+| **Content** | **~60%** | Structure + confirmed facts in; copy is INDICATIVE pending sign-off; spa/restaurant names, rates, hours, packages unconfirmed (config-driven, name-neutral). |
+| **CRM** | **~70%** | Form built + HubSpot-ready (env-driven) + mailto fallback; needs portal/form IDs to go live. |
+| **SEO** | **~85%** | robots, sitemap, schema, OG/Twitter, canonical, titles/desc/alt done; pending final domain, old-URL redirects, GSC/GA/GBP. |
+| **LAUNCH** | **~70%** | **Not** fully launch-ready — visible placeholders remain (room/spa imagery, no phone/address, indicative copy). Everything Claude can do independently is done; the rest is client input below. |
+
+**Status: DEVELOPMENT COMPLETE — awaiting client content/credentials for public launch.**
+
 ## A. Photography (highest priority)
 Real photography (246 images) is in `public/images/gallery/`. Mapped against the Image Manifest (`docs/17`).
 
@@ -79,9 +94,9 @@ All body copy is currently INDICATIVE (placeholder voice). Config-driven in `con
 ## H. Technical / QA
 | # | Item | Owner | Status |
 |---|---|---|---|
-| H1 | Multi-width QA (1440/1280/tablet/390/375) — nav, mobile menu, CTAs, forms, footer | 🤖 | 🟡 |
-| H2 | a11y — keyboard, focus, reduced-motion, contrast over imagery, one-H1, alt | 🤖 | 🟡 |
-| H3 | No console errors / hydration warnings; CLS/LCP sane (real images = LCP now) | 🤖 | 🟡 |
+| H1 | Multi-width QA (1440/1280/768/390/375) — no overflow any page; nav, mobile menu, CTAs, form, footer all verified | 🤖 | ✅ |
+| H2 | a11y — focus-visible rings, reduced-motion (motion-safe reveals + zoom), scrims for contrast over imagery, one H1/page, alt on every image, labelled form, aria mobile menu | 🤖 | ✅ |
+| H3 | No console errors / hydration warnings (verified home + client pages); LCP = priority hero image, next/image sized to prevent CLS | 🤖 | ✅ |
 | H4 | Custom **404** page (`app/not-found.tsx`) | 🤖 | ✅ |
 | H5 | build / lint / typecheck green; Vercel deploy verified | 🤖 | ✅ (ongoing) |
 | H6 | Analytics/consent (POPIA) banner if analytics added | 🤖 (on F7) | ⬜ |
