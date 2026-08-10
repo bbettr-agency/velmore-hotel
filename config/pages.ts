@@ -214,4 +214,210 @@ export const pages = {
       secondary: { label: "Enquire for your date", href: contact, cta: "enquire_date", location: "weddings_cta" },
     },
   },
+
+  accommodation: {
+    hero: {
+      eyebrow: "Stay on the estate",
+      title: "Everything is here. No need to leave.", // INDICATIVE
+      sub: "Fifty rooms on the estate — with gardens, a pool and a spa — so your guests, your delegates and you stay close to the occasion, between Pretoria and Centurion.", // INDICATIVE (facts confirmed)
+      variant: "accommodation" as const,
+      note: "Accommodation photography required · estate rooms (shoot pending)",
+      chips: [
+        { label: "50 rooms on the estate" },
+        { label: "Gardens, pool & spa" },
+        { label: "Certified Halal", badge: true },
+        { label: "Pretoria & Centurion" },
+      ],
+      primary: { label: "Check Availability", href: contact, cta: "check_availability", location: "accommodation_hero" },
+      secondary: { label: "Enquire for your date", href: contact, cta: "enquire_date", location: "accommodation_hero" },
+    },
+    statement: {
+      eyebrow: "Rest, on the estate",
+      heading: "When the occasion ends, the estate doesn't.", // INDICATIVE
+      lead: "Fifty rooms on the grounds keep everyone close to the celebration — no drive home, no rush, just gardens to wake up to and the estate still around you.", // INDICATIVE
+    },
+    roomsSplit: {
+      eyebrow: "The rooms",
+      heading: "Calm, light-filled rooms on the estate.",
+      body: [
+        "Fifty rooms sit on the estate itself — restful, private and a short walk from wherever your occasion is held.",
+        "Stay the night after a wedding, settle in for a residential conference, or simply take a slow weekend on the grounds.",
+      ], // INDICATIVE
+      points: ["50 rooms on the estate", "Gardens & grounds", "Steps from the occasion", "Certified-halal dining"],
+      variant: "accommodation" as const,
+      note: "Accommodation photography required · a room on the estate (shoot pending)",
+    },
+    estateSplit: {
+      eyebrow: "Around your stay",
+      heading: "Gardens, a pool and a spa — a step away.",
+      body: [
+        "The stay isn't just a room. Gardens to walk, a pool on the estate, and a spa for a slower morning are all part of being here.",
+        "The certified halal kitchen caters for every guest, so no one has to leave the estate to eat well.",
+      ], // INDICATIVE (facts confirmed)
+      points: ["Estate gardens", "Pool on the estate", "A spa on the grounds", "Certified-halal dining"],
+      variant: "gardens" as const,
+      note: "Estate photography required · gardens & grounds (shoot pending)",
+    },
+    guestsSplit: {
+      eyebrow: "For your guests & delegates",
+      heading: "Keep everyone close to the occasion.",
+      body: [
+        "For weddings, fifty rooms mean your guests don't drive home after the celebration. For residential conferences, delegates stay where the sessions are — no shuttle to a separate hotel.",
+        "One team, one estate, one invoice — the stay is part of the occasion, not a separate booking to chase.",
+      ], // INDICATIVE
+      points: ["Wedding-guest accommodation", "Residential conferences", "One team · one invoice", "On the estate"],
+      variant: "estate" as const,
+      note: "Estate photography required · arrival & grounds (shoot pending)",
+    },
+    numbers: {
+      eyebrow: "The estate stay",
+      heading: "Everything, on the grounds.",
+      items: [
+        { label: "50", note: "rooms on the estate" },
+        { label: "Gardens", note: "to wake up to" },
+        { label: "Spa", note: "on the grounds" },
+        { label: "Halal", note: "certified kitchen" },
+      ],
+    },
+    faq: {
+      eyebrow: "Before you book",
+      heading: "What guests ask about staying.",
+      items: [
+        {
+          q: "Are the rooms on the estate itself?",
+          a: "Yes — the fifty rooms are on the estate, a short walk from where occasions are held, between Pretoria and Centurion.",
+        },
+        {
+          q: "Can our wedding guests or delegates stay over?",
+          a: "Yes. Fifty rooms mean wedding guests and conference delegates can stay the night without moving to a separate hotel.",
+        },
+        {
+          q: "Is the catering halal?",
+          a: "Yes — the estate kitchen is certified halal and caters for every guest as standard.",
+        },
+        {
+          q: "What are your rates and availability?",
+          a: "Rates depend on your dates and group. Tell us what you need and we'll come back to you the same business day.",
+        },
+      ],
+    },
+    cta: {
+      heading: "Come and see where you'll stay.", // INDICATIVE
+      body: "Tell us your dates and group, and one team takes it from there.", // INDICATIVE
+      primary: { label: "Check Availability", href: contact, cta: "check_availability", location: "accommodation_cta" },
+      secondary: { label: "Enquire for your date", href: contact, cta: "enquire_date", location: "accommodation_cta" },
+    },
+  },
+
+  // Dining — NAME-NEUTRAL (restaurant name unconfirmed). Sells the EXPERIENCE +
+  // the confirmed certified-halal welcome. NO invented menu/cuisine/pricing/
+  // chefs/hours; NO alcohol/bar (docs/17 §3.6).
+  dining: {
+    hero: {
+      eyebrow: "Dining on the estate",
+      title: "A long table, and everyone at it.", // INDICATIVE
+      sub: "The gathering at the heart of every occasion — plates shared, conversation unhurried, and a certified halal kitchen that cooks for everyone at the table.", // INDICATIVE
+      variant: "dining" as const,
+      note: "Dining photography required · a set table on the estate (shoot pending)",
+      chips: [{ label: "Certified Halal", badge: true }, { label: "For every guest" }, { label: "On the estate" }],
+      primary: { label: "Book a Viewing", href: contact, cta: "book_viewing", location: "dining_hero" },
+      secondary: { label: "Enquire for your date", href: contact, cta: "enquire_date", location: "dining_hero" },
+    },
+    statement: {
+      eyebrow: "The gathering",
+      heading: "The part of the day when the speeches soften into conversation.", // INDICATIVE
+      lead: "Dining on the estate isn't a course to get through — it's the table everyone remembers, catered for every guest, without anyone having to ask.", // INDICATIVE
+    },
+    tableSplit: {
+      eyebrow: "Shared tables",
+      heading: "Made for gathering, not just eating.",
+      body: [
+        "Whether it's a wedding reception, a conference lunch or a family celebration, the estate sets the table for the whole party — together, in one room.",
+        "One kitchen, one team, one invoice: dining is part of the occasion, not a supplier to coordinate.",
+      ], // INDICATIVE
+      points: ["Weddings & receptions", "Conference catering", "Private celebrations", "One team · one invoice"],
+      variant: "dining" as const,
+      note: "Dining photography required · a set table (shoot pending)",
+    },
+    halalBand: {
+      eyebrow: "Certified halal",
+      heading: "A kitchen that cooks for everyone at the table.",
+      body: "The kitchen is certified halal — so every guest is catered for as standard, and no one at your occasion is an afterthought.", // INDICATIVE (fact confirmed)
+      variant: "dining" as const,
+      note: "Dining photography required · plated food (shoot pending)",
+      chip: "Certified halal · every guest",
+      align: "center" as const,
+    },
+    faq: {
+      eyebrow: "About dining",
+      heading: "What guests ask about the food.",
+      items: [
+        { q: "Is the kitchen halal?", a: "Yes — the kitchen is certified halal and caters for every guest as standard." },
+        {
+          q: "Do you cater weddings, conferences and events?",
+          a: "Yes — the same estate kitchen caters weddings, conferences and private celebrations, all run by one team.",
+        },
+        {
+          q: "Can we see a menu and pricing?",
+          a: "Menus are tailored to your occasion and guest numbers. Tell us what you're planning and we'll put something together — we reply the same business day.",
+        },
+      ],
+    },
+    cta: {
+      heading: "Come and taste the estate.", // INDICATIVE
+      body: "Tell us your occasion and numbers, and one team takes it from there.", // INDICATIVE
+      primary: { label: "Book a Viewing", href: contact, cta: "book_viewing", location: "dining_cta" },
+      secondary: { label: "Enquire for your date", href: contact, cta: "enquire_date", location: "dining_cta" },
+    },
+  },
+
+  // Spa — NAME-NEUTRAL; EMOTIONAL ROLE ONLY. Asserts NO services/treatments/
+  // pricing/hours/product brands/facilities/packages. The estate has a spa
+  // (confirmed — in "Velmoré Hotel & Spa"); nothing more is claimed.
+  spa: {
+    hero: {
+      eyebrow: "The spa, on the estate",
+      title: "Somewhere to exhale.", // INDICATIVE
+      sub: "When the occasion is over and the estate goes quiet, take the time you rarely take — a slow, unhurried moment that belongs to no one but you.", // INDICATIVE
+      variant: "spa" as const,
+      note: "Spa photography required · treatment detail / tranquil interior (shoot pending)",
+      chips: [{ label: "On the estate" }],
+      primary: { label: "Enquire", href: contact, cta: "spa_enquire", location: "spa_hero" },
+      secondary: { label: "Book a Viewing", href: contact, cta: "book_viewing", location: "spa_hero" },
+    },
+    statement: {
+      eyebrow: "Stillness",
+      heading: "Rest, held — on the same estate as the occasion.", // INDICATIVE
+      lead: "Stay a little longer, slow the morning down, and let the estate look after you. Tell us what rest looks like for you, and we'll help you find it here.", // INDICATIVE
+    },
+    band: {
+      eyebrow: "Time for yourself",
+      heading: "The estate, quietly looking after you.",
+      body: "A quiet corner of the estate for the slower part of your stay — the pause after the celebration, or a reason to arrive early.", // INDICATIVE
+      variant: "spa" as const,
+      note: "Spa photography required · tranquil interior (shoot pending)",
+      align: "center" as const,
+    },
+    faq: {
+      eyebrow: "About the spa",
+      heading: "What you might be wondering.",
+      items: [
+        {
+          q: "What treatments does the spa offer?",
+          a: "The spa's treatment offering is being finalised. Tell us what you're looking for and we'll share what's available — we reply the same business day.",
+        },
+        { q: "Is the spa on the estate?", a: "Yes — the spa is on the estate, part of your stay between Pretoria and Centurion." },
+        {
+          q: "Can I book a visit?",
+          a: "Enquire with your dates and we'll arrange it and confirm the details with you directly.",
+        },
+      ],
+    },
+    cta: {
+      heading: "Give yourself the slower morning.", // INDICATIVE
+      body: "Tell us your dates, and one team takes it from there.", // INDICATIVE
+      primary: { label: "Enquire", href: contact, cta: "spa_enquire", location: "spa_cta" },
+      secondary: { label: "Book a Viewing", href: contact, cta: "book_viewing", location: "spa_cta" },
+    },
+  },
 } as const;

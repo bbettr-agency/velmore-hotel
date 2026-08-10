@@ -48,9 +48,9 @@
 |---|---|---|
 | Conferences | `/conferences` | ✅ SHIPPED — hero · one-team statement · scale split (1,300) · numbers · residential split (50 rooms + halal) · organiser FAQ · CTA · footer |
 | Weddings | `/weddings` | ✅ SHIPPED — hero · emotion statement · ceremony split (Martels Chapel) · reception split (D'Charmant Glass Hall) · gardens image-band · everyone-held split (50 rooms + halal) · spaces · couples FAQ · CTA · footer |
-| Accommodation | `/accommodation` | ⏳ building |
-| Dining | `/dining` | ⏳ building |
-| Spa | `/spa` | ⏳ building |
+| Accommodation | `/accommodation` | ✅ SHIPPED — hero (Check Availability) · rest statement · rooms split · estate (gardens/pool/spa) split · guests/delegates split · numbers · FAQ (rates → enquiry) · CTA. **No invented room categories/rates.** |
+| Dining | `/dining` | ✅ SHIPPED — NAME-NEUTRAL. hero · gathering statement · shared-tables split · certified-halal image-band · FAQ (menu → tailored/enquiry) · CTA. **No menu/cuisine/pricing/chefs/hours; no alcohol.** |
+| Spa | `/spa` | ✅ SHIPPED — NAME-NEUTRAL, emotional role only. hero ("Somewhere to exhale") · stillness statement · exhale image-band · FAQ (treatments → "being finalised") · CTA. **No services/treatments/pricing/hours/brands/facilities asserted.** |
 | Events | `/events` | ⏳ building |
 | Gallery | `/gallery` | ⏳ building |
 | About | `/about` | ⏳ building |
