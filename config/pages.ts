@@ -262,6 +262,7 @@ export const pages = {
         variant: "accommodation" as const,
         note: "Accommodation photography · Presidential Suite",
         image: img.presidentialSuite,
+        price: { amount: "R3,500", unit: "per night", note: "Including breakfast for 2 guests" }, // CONFIRMED (client-supplied rate)
       },
       {
         eyebrow: "The Deluxe Room",
@@ -274,6 +275,7 @@ export const pages = {
         variant: "accommodation" as const,
         note: "Accommodation photography · Deluxe Room",
         image: img.deluxeRoom,
+        price: { amount: "R1,550", unit: "per night", note: "Including breakfast for 2 guests" }, // CONFIRMED (client-supplied rate)
       },
       {
         eyebrow: "The Standard Room",
@@ -286,6 +288,7 @@ export const pages = {
         variant: "accommodation" as const,
         note: "Accommodation photography · Standard Room",
         image: img.standardRoom,
+        price: { amount: "R1,300", unit: "per night", note: "Including breakfast for 2 guests" }, // CONFIRMED (client-supplied rate)
       },
       {
         eyebrow: "The Twin Room",
@@ -298,6 +301,8 @@ export const pages = {
         variant: "accommodation" as const,
         note: "Accommodation photography · Twin Room",
         image: img.twinRoom,
+        // Twin Room rate not yet client-confirmed — routes to enquiry, no fabricated price.
+        price: { amount: "Enquire for rates", href: contact },
       },
     ],
     estateSplit: {
@@ -318,6 +323,7 @@ export const pages = {
       items: [
         { label: "50", note: "rooms on the estate" },
         { label: "4", note: "room types · suites to twins" },
+        { label: "Venues", note: "and conference centres" },
         { label: "Spa", note: "on the grounds" },
         { label: "Halal", note: "certified kitchen" },
       ],

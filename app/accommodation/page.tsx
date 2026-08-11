@@ -24,7 +24,7 @@ export default function AccommodationPage() {
         <FeatureSplit key={room.eyebrow} {...room} imageSide={i % 2 === 0 ? "left" : "right"} tone={i % 2 === 0 ? "ivory" : "mist"} />
       ))}
       <FeatureSplit {...p.estateSplit} imageSide="left" tone="ivory" />
-      <SpecList {...p.numbers} tone="mist" columns={4} />
+      <SpecList {...p.numbers} tone="mist" columns={5} />
       <Faq {...p.faq} tone="ivory" />
       <CtaBand {...p.cta} />
       <Footer />

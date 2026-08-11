@@ -34,6 +34,7 @@ export function FeatureSplit({
   portrait = false,
   primary,
   secondary,
+  price,
   id,
 }: {
   eyebrow?: string;
@@ -48,6 +49,11 @@ export function FeatureSplit({
   portrait?: boolean;
   primary?: Cta;
   secondary?: Cta;
+  // Optional, config-driven room rate. Kept deliberately quiet — a single
+  // champagne-gold figure with an inline unit and inclusion note, set off by a
+  // hairline rule (never a boxy e-commerce card). Only rendered when supplied,
+  // so every other FeatureSplit on the site is unaffected.
+  price?: { amount: string; unit?: string; note?: string; href?: string };
   id?: string;
 }) {
   const bg = tone === "mist" ? "bg-mist" : "bg-ivory";
@@ -77,6 +83,26 @@ export function FeatureSplit({
               </p>
             ))}
           </div>
+          {price ? (
+            <div className="mt-7 border-t border-estate-700/10 pt-6">
+              {price.href ? (
+                <a
+                  href={price.href}
+                  data-cta="enquire_rates"
+                  className="group inline-flex items-baseline gap-2 font-serif text-[24px] font-semibold text-champagne-dark underline-offset-4 hover:text-estate-700 md:text-[26px]"
+                >
+                  {price.amount}
+                  <span aria-hidden className="text-[15px] transition-transform duration-200 group-hover:translate-x-1">→</span>
+                </a>
+              ) : (
+                <p className="flex items-baseline gap-2">
+                  <span className="font-serif text-[27px] font-semibold text-champagne-dark md:text-[31px]">{price.amount}</span>
+                  {price.unit ? <span className="text-[13px] text-steel">{price.unit}</span> : null}
+                </p>
+              )}
+              {price.note ? <p className="mt-1.5 text-[13px] leading-[1.5] text-steel">{price.note}</p> : null}
+            </div>
+          ) : null}
           {points && points.length ? (
             <ul className="mt-7 grid grid-cols-1 gap-x-8 gap-y-[10px] sm:grid-cols-2">
               {points.map((p) => (

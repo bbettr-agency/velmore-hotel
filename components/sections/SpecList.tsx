@@ -16,11 +16,18 @@ export function SpecList({
   heading?: string;
   items: readonly { label: string; note: string }[];
   tone?: "ivory" | "mist" | "dark";
-  columns?: 2 | 3 | 4;
+  columns?: 2 | 3 | 4 | 5;
 }) {
   const dark = tone === "dark";
   const bg = dark ? "bg-estate-900" : tone === "mist" ? "bg-mist" : "bg-ivory";
   const cols = columns === 2 ? "sm:grid-cols-2" : columns === 3 ? "sm:grid-cols-3" : "sm:grid-cols-2 lg:grid-cols-4";
+  // Five items don't divide evenly across a grid, so partial rows read as
+  // left-weighted. A centered flex-wrap keeps every row balanced at all widths.
+  const five = columns === 5;
+  const containerCls = five
+    ? "mx-auto flex max-w-[64rem] flex-wrap justify-center gap-x-12 gap-y-10 text-center"
+    : `mx-auto grid max-w-[62rem] grid-cols-1 gap-10 text-center ${cols}`;
+  const itemCls = five ? "basis-[42%] sm:basis-[26%] lg:basis-[15%]" : "";
   return (
     <section className={`${bg} py-20 md:py-24`}>
       <div className="mx-auto max-w-container px-6 md:px-12">
@@ -40,9 +47,9 @@ export function SpecList({
             ) : null}
           </Reveal>
         ) : null}
-        <Stagger as="ul" className={`mx-auto grid max-w-[62rem] grid-cols-1 gap-10 text-center ${cols}`}>
+        <Stagger as="ul" className={containerCls}>
           {items.map((it) => (
-            <Reveal key={it.label} as="li" preset="fadeUpItem">
+            <Reveal key={it.label} as="li" preset="fadeUpItem" className={itemCls}>
               <p className={`font-serif text-[24px] font-semibold md:text-[26px] ${dark ? "text-champagne-light" : "text-estate-700"}`}>
                 {it.label}
               </p>
