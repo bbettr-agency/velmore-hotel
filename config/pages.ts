@@ -301,8 +301,7 @@ export const pages = {
         variant: "accommodation" as const,
         note: "Accommodation photography · Twin Room",
         image: img.twinRoom,
-        // Twin Room rate not yet client-confirmed — routes to enquiry, no fabricated price.
-        price: { amount: "Enquire for rates", href: contact },
+        price: { amount: "R1,850", unit: "per night", note: "Including breakfast for 2 guests" }, // CONFIRMED (client-supplied rate)
       },
     ],
     estateSplit: {

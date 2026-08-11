@@ -10,7 +10,7 @@ Gate 1 (Business Discovery & Validation) is **COMPLETE** ([`../GATE-1-REVIEW.md`
 |---|---|---|---|
 | 1 | **Restaurant name** (+ menu/hours) | Dining page | F&B / Management |
 | 2 | **Spa trading name + operator** (is it "Allura"? in-house/partner) | Spa page | Management |
-| 3 | ✅ **Room rates** — CONFIRMED 2026-08-11: Deluxe R1,550 · Standard R1,300 · Presidential Suite R3,500 (all per night, incl. breakfast for 2). **Still pending:** Twin Room rate (shows "Enquire for rates"), bed configuration, sleeps/occupancy | Accommodation page | Reception / Revenue |
+| 3 | ✅ **Room rates** — CONFIRMED 2026-08-11: Presidential Suite R3,500 · Twin R1,850 · Deluxe R1,550 · Standard R1,300 (all per night, incl. breakfast for 2). **Still pending:** bed configuration, sleeps/occupancy | Accommodation page | Reception / Revenue |
 | 4 | **Wedding pricing structure** — per-head packages vs venue-hire-from-R25k | Weddings page | Sales / Management |
 | 5 | **Hotel boardroom names & capacities** (Cartier / Satre / Voltaire) | Conference page | Operations |
 
