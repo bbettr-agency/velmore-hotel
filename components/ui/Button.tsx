@@ -25,17 +25,23 @@ export function Button({
   /** Tracking-ready hooks — GTM/analytics can select on these (docs/08 event taxonomy). */
   track?: { cta: string; location: string };
 }) {
+  const cls = clsx(
+    "inline-flex items-center justify-center gap-2 rounded-md px-6 py-[15px] text-[14.5px] font-semibold transition-[transform,background-color,box-shadow] duration-200 ease-[cubic-bezier(.22,1,.36,1)] hover:-translate-y-px active:translate-y-0 motion-reduce:transform-none",
+    styles[variant],
+    className,
+  );
+  // External destinations (e.g. the Allura Day Spa booking site) open safely in a
+  // new tab; internal routes use next/link for client-side navigation.
+  const isExternal = /^https?:\/\//.test(href);
+  if (isExternal) {
+    return (
+      <a href={href} target="_blank" rel="noopener noreferrer" data-cta={track?.cta} data-location={track?.location} className={cls}>
+        {children}
+      </a>
+    );
+  }
   return (
-    <Link
-      href={href}
-      data-cta={track?.cta}
-      data-location={track?.location}
-      className={clsx(
-        "inline-flex items-center justify-center gap-2 rounded-md px-6 py-[15px] text-[14.5px] font-semibold transition-[transform,background-color,box-shadow] duration-200 ease-[cubic-bezier(.22,1,.36,1)] hover:-translate-y-px active:translate-y-0 motion-reduce:transform-none",
-        styles[variant],
-        className,
-      )}
-    >
+    <Link href={href} data-cta={track?.cta} data-location={track?.location} className={cls}>
       {children}
     </Link>
   );

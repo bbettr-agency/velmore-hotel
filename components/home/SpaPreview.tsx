@@ -51,6 +51,7 @@ export function SpaPreview() {
             </Button>
             <a
               href={s.secondary.href}
+              {...(/^https?:\/\//.test(s.secondary.href) ? { target: "_blank", rel: "noopener noreferrer" } : {})}
               data-cta="spa_enquire"
               data-location="home_spa"
               className="group inline-flex items-center gap-2 text-[14.5px] font-semibold text-ivory/90 underline-offset-4 hover:text-champagne-light hover:underline"
@@ -61,10 +62,10 @@ export function SpaPreview() {
           </div>
         </Reveal>
 
-        {/* the estate at its quietest — a calm, green counterpoint to the copy */}
+        {/* the real spa — a calm, green treatment room */}
         <Reveal preset="imageReveal" className="md:col-span-7">
           <div className="relative aspect-[4/3] overflow-hidden rounded-lg shadow-ink">
-            <Image src={img.estateThroughTrees.src} alt={img.estateThroughTrees.alt} fill sizes="(min-width: 768px) 56vw, 100vw" className="object-cover" />
+            <Image src={img.spaTreatmentRoom.src} alt={img.spaTreatmentRoom.alt} fill sizes="(min-width: 768px) 56vw, 100vw" className="object-cover" />
             <div aria-hidden className="absolute inset-0 spa-vignette" />
           </div>
         </Reveal>

@@ -72,6 +72,35 @@ export const img = {
   deluxeRoomView: { src: "/images/rooms/velmore-deluxe-room-view.jpg", alt: "A Deluxe Room at Velmoré with a desk and a balcony overlooking the gardens" },
   standardRoom: { src: "/images/rooms/velmore-standard-room.jpg", alt: "A Standard Room at Velmoré, warm and restful with a work desk" },
   twinRoom: { src: "/images/rooms/velmore-twin-room.jpg", alt: "A Twin Room at Velmoré with two beds and estate-toned styling" },
+
+  // Room carousels — real supplied room photography (multiple frames per room type)
+  presidentialBed: { src: "/images/rooms/velmore-presidential-1-bedroom.jpg", alt: "The Presidential Suite bedroom at Velmoré — a tufted headboard, deep tones and a patterned rug" },
+  presidentialLounge: { src: "/images/rooms/velmore-presidential-2-lounge.jpg", alt: "The writing desk and seating corner in the Presidential Suite at Velmoré, in soft curtained light" },
+  presidentialBath: { src: "/images/rooms/velmore-presidential-3-bath.jpg", alt: "The Presidential Suite en-suite at Velmoré with a deep tub and a walk-in shower" },
+  presidentialBath2: { src: "/images/rooms/velmore-presidential-4-bath.jpg", alt: "The Presidential Suite en-suite at Velmoré with twin vanities" },
+  standardBed: { src: "/images/rooms/velmore-standard-1-bedroom.jpg", alt: "A Standard Room at Velmoré with a double bed, headboard and balcony light" },
+  standardRoomView: { src: "/images/rooms/velmore-standard-2-room.jpg", alt: "A Standard Room at Velmoré with framed artwork and a made bed in estate tones" },
+  standardDetail: { src: "/images/rooms/velmore-standard-3-detail.jpg", alt: "The dressing area and wardrobe in a Standard Room at Velmoré" },
+  deluxeBed: { src: "/images/rooms/velmore-deluxe-1-bedroom.jpg", alt: "A Deluxe Room at Velmoré with a padded headboard, work desk and reading chair" },
+  deluxeBath: { src: "/images/rooms/velmore-deluxe-2-bath.jpg", alt: "The Deluxe Room en-suite at Velmoré with a tub and vanity" },
+  deluxeBath2: { src: "/images/rooms/velmore-deluxe-3-bath.jpg", alt: "The Deluxe Room en-suite at Velmoré with a walk-in shower and vanity" },
+
+  // Spa — real supplied spa photography (Allura Day Spa, on the estate)
+  spaRobes: { src: "/images/spa/velmore-spa-robes.jpg", alt: "The spa at Velmoré — a marble corridor lined with fresh robes" },
+  spaTreatmentTwin: { src: "/images/spa/velmore-spa-treatment-twin.jpg", alt: "A twin treatment room at the Velmoré spa, two beds beneath a soft green arch" },
+  spaTreatmentRoom: { src: "/images/spa/velmore-spa-treatment-room.jpg", alt: "A treatment room at the Velmoré spa with a dressed massage bed and estate-green walls" },
+  spaTreatmentDetail: { src: "/images/spa/velmore-spa-treatment-detail.jpg", alt: "A treatment bed set with folded towels and oils at the Velmoré spa" },
+  spaReception: { src: "/images/spa/velmore-spa-reception.jpg", alt: "The spa reception at Velmoré, a marble counter beneath a softly lit green wall" },
+  spaLounge: { src: "/images/spa/velmore-spa-lounge.jpg", alt: "A relaxation lounge at the Velmoré spa with marble floors and green cabinetry" },
+  spaColonnade: { src: "/images/spa/velmore-spa-colonnade.jpg", alt: "A bright marble colonnade at the Velmoré spa" },
+  spaEntrance: { src: "/images/spa/velmore-spa-entrance.jpg", alt: "The arched brick entrance to the spa at the Velmoré estate" },
+  spaRelaxation: { src: "/images/spa/velmore-spa-relaxation.jpg", alt: "A light-filled relaxation area at the Velmoré spa with garden views" },
+  spaExterior: { src: "/images/spa/velmore-spa-exterior.jpg", alt: "The spa building and fountain forecourt at the Velmoré estate" },
+
+  // Estate — real supplied aerial / signage photography
+  estateAerial: { src: "/images/estate/velmore-estate-aerial.jpg", alt: "An aerial view of the Velmoré estate — French-Provence architecture, terracotta roofs and manicured gardens" },
+  estateAerialGardens: { src: "/images/estate/velmore-estate-aerial-gardens.jpg", alt: "An aerial view of the Velmoré estate gardens, fountain and formal beds" },
+  estateSign: { src: "/images/estate/velmore-estate-sign.jpg", alt: "The Velmoré Hotel & Spa monument sign at the estate entrance" },
 } as const;
 
 export type ImgKey = keyof typeof img;

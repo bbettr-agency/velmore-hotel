@@ -15,6 +15,8 @@ import { routes } from "./site";
 import { img } from "./images";
 
 const contact = routes.contact.href;
+// The estate spa is operated by Allura Day Spa — spa enquiries link out to their site.
+const alluraSpa = "https://www.alluradayspa.com/";
 
 export const pages = {
   conferences: {
@@ -261,7 +263,8 @@ export const pages = {
         points: ["The estate's flagship suite", "En-suite bathroom", "On the estate", "Certified-halal dining"],
         variant: "accommodation" as const,
         note: "Accommodation photography · Presidential Suite",
-        image: img.presidentialSuite,
+        image: img.presidentialBed,
+        images: [img.presidentialBed, img.presidentialLounge, img.presidentialBath, img.presidentialBath2],
         price: { amount: "R3,500", unit: "per night", note: "Including breakfast for 2 guests" }, // CONFIRMED (client-supplied rate)
       },
       {
@@ -274,7 +277,8 @@ export const pages = {
         points: ["Private balcony", "Estate views", "En-suite bathroom", "On the estate"],
         variant: "accommodation" as const,
         note: "Accommodation photography · Deluxe Room",
-        image: img.deluxeRoom,
+        image: img.deluxeBed,
+        images: [img.deluxeBed, img.deluxeBath, img.deluxeBath2],
         price: { amount: "R1,550", unit: "per night", note: "Including breakfast for 2 guests" }, // CONFIRMED (client-supplied rate)
       },
       {
@@ -287,7 +291,8 @@ export const pages = {
         points: ["Warm & restful", "Work desk", "En-suite bathroom", "On the estate"],
         variant: "accommodation" as const,
         note: "Accommodation photography · Standard Room",
-        image: img.standardRoom,
+        image: img.standardBed,
+        images: [img.standardBed, img.standardRoomView, img.standardDetail],
         price: { amount: "R1,300", unit: "per night", note: "Including breakfast for 2 guests" }, // CONFIRMED (client-supplied rate)
       },
       {
@@ -446,9 +451,10 @@ export const pages = {
       title: "Somewhere to exhale.", // INDICATIVE
       sub: "When the occasion is over and the estate goes quiet, take the time you rarely take — a slow, unhurried moment that belongs to no one but you.", // INDICATIVE
       variant: "spa" as const,
-      image: img.gardensPlanting,
-      chips: [{ label: "On the estate" }],
-      primary: { label: "Enquire", href: contact, cta: "spa_enquire", location: "spa_hero" },
+      note: "Spa photography · robe corridor",
+      image: img.spaRobes,
+      chips: [{ label: "On the estate" }, { label: "By Allura Day Spa" }],
+      primary: { label: "Enquire at Allura Day Spa", href: alluraSpa, cta: "spa_enquire", location: "spa_hero" },
       secondary: { label: "Book a Viewing", href: contact, cta: "book_viewing", location: "spa_hero" },
     },
     statement: {
@@ -461,8 +467,21 @@ export const pages = {
       heading: "The estate, quietly looking after you.",
       body: "A quiet corner of the estate for the slower part of your stay — the pause after the celebration, or a reason to arrive early.", // INDICATIVE
       variant: "spa" as const,
-      image: img.gardensPergola,
+      image: img.spaTreatmentTwin,
       align: "center" as const,
+    },
+    gallery: {
+      eyebrow: "Inside the spa",
+      heading: "Marble, green and quiet.",
+      note: "The spa on the Velmoré estate, operated by Allura Day Spa.",
+      tiles: [
+        { label: "Treatment detail", variant: "spa" as const, image: img.spaTreatmentDetail },
+        { label: "Reception", variant: "spa" as const, image: img.spaReception },
+        { label: "Relaxation lounge", variant: "spa" as const, image: img.spaLounge },
+        { label: "The colonnade", variant: "spa" as const, image: img.spaColonnade },
+        { label: "The entrance", variant: "spa" as const, image: img.spaEntrance },
+        { label: "A slower morning", variant: "spa" as const, image: img.spaRelaxation },
+      ],
     },
     faq: {
       eyebrow: "About the spa",
@@ -481,9 +500,9 @@ export const pages = {
     },
     cta: {
       heading: "Give yourself the slower morning.", // INDICATIVE
-      body: "Tell us your dates, and one team takes it from there.", // INDICATIVE
-      image: img.welcomeGolden,
-      primary: { label: "Enquire", href: contact, cta: "spa_enquire", location: "spa_cta" },
+      body: "Allura Day Spa looks after the spa on the estate — enquire with them directly.", // INDICATIVE
+      image: img.spaExterior,
+      primary: { label: "Enquire at Allura Day Spa", href: alluraSpa, cta: "spa_enquire", location: "spa_cta" },
       secondary: { label: "Book a Viewing", href: contact, cta: "book_viewing", location: "spa_cta" },
     },
   },
@@ -642,7 +661,7 @@ export const pages = {
     },
     gridNote: "Real photography from across the Velmoré estate. A dedicated spa shoot is still to come and will be added as it lands.",
     tiles: [
-      { label: "The estate", variant: "estate" as const, image: img.estateFacade },
+      { label: "The estate", variant: "estate" as const, image: img.estateAerial },
       { label: "The archway", variant: "estate" as const, image: img.estateArchway },
       { label: "Gardens", variant: "gardens" as const, image: img.gardensStreamArchway },
       { label: "Weddings", variant: "weddings" as const, image: img.receptionTable },

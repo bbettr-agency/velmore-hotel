@@ -1,6 +1,7 @@
 import { PageHero } from "@/components/sections/PageHero";
 import { Statement } from "@/components/sections/Statement";
 import { ImageBand } from "@/components/sections/ImageBand";
+import { GalleryGrid } from "@/components/sections/GalleryGrid";
 import { Faq } from "@/components/sections/Faq";
 import { CtaBand } from "@/components/sections/CtaBand";
 import { Footer } from "@/components/site/Footer";
@@ -19,7 +20,8 @@ export default function SpaPage() {
       <PageHero {...p.hero} />
       <Statement {...p.statement} />
       <ImageBand {...p.band} />
-      <Faq {...p.faq} tone="ivory" />
+      <GalleryGrid {...p.gallery} tone="ivory" />
+      <Faq {...p.faq} tone="mist" />
       <CtaBand {...p.cta} />
       <Footer />
     </main>

@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/Button";
 import { Placeholder, type PhVariant } from "./Placeholder";
+import { RoomCarousel } from "./RoomCarousel";
 import type { Cta } from "./types";
 import type { Img } from "@/config/images";
 import { Reveal } from "@/components/motion/Reveal";
@@ -29,6 +30,7 @@ export function FeatureSplit({
   variant,
   note,
   image,
+  images,
   imageSide = "left",
   tone = "ivory",
   portrait = false,
@@ -44,6 +46,10 @@ export function FeatureSplit({
   variant: PhVariant;
   note: string;
   image?: Img;
+  // When supplied (2+ frames), the image area becomes an editorial carousel
+  // (used by the accommodation room types). A single-image array or plain
+  // `image` renders a static photo. Other pages are unaffected.
+  images?: readonly Img[];
   imageSide?: "left" | "right";
   tone?: "ivory" | "mist";
   portrait?: boolean;
@@ -63,7 +69,11 @@ export function FeatureSplit({
       <div className="mx-auto grid max-w-container grid-cols-1 items-center gap-10 px-6 md:grid-cols-12 md:gap-16 md:px-12">
         <div className={`md:col-span-6 ${imageFirst ? "" : "md:order-2"}`}>
           <Reveal preset="imageReveal" className={`relative ${portrait ? "mx-auto aspect-[4/5] max-w-[440px]" : "aspect-[4/3]"} overflow-hidden rounded-lg shadow-card`}>
-            <Placeholder variant={variant} note={note} image={image} sizes="(min-width: 768px) 46vw, 100vw" />
+            {images && images.length ? (
+              <RoomCarousel images={images} label={heading} sizes="(min-width: 768px) 46vw, 100vw" />
+            ) : (
+              <Placeholder variant={variant} note={note} image={image} sizes="(min-width: 768px) 46vw, 100vw" />
+            )}
           </Reveal>
         </div>
         <Reveal className={`md:col-span-6 ${imageFirst ? "" : "md:order-1"}`}>

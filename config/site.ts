@@ -254,10 +254,9 @@ export const site = {
     eyebrow: "The spa, on the estate",
     heading: "Somewhere to exhale.", // INDICATIVE
     body: "When the occasion is over and the estate goes quiet, take the time you rarely take — a slow, unhurried moment that belongs to no one but you. Tell us what rest looks like for you, and we'll help you find it here.", // INDICATIVE
-    // Honest placeholder — spa photography is still required (docs/17 §3.5).
-    imageNote: "Spa photography required · treatment detail / tranquil interior (shoot pending)",
     primary: { label: "Explore the Spa", href: routes.spa.href },
-    secondary: { label: "Enquire", href: routes.contact.href },
+    // The estate spa is operated by Allura Day Spa — enquiries link out to their site.
+    secondary: { label: "Enquire at Allura Day Spa", href: "https://www.alluradayspa.com/" },
   },
 
   // Homepage Dining preview — image-FIRST (the photograph does the emotional
