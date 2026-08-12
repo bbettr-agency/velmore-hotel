@@ -489,12 +489,12 @@ export const pages = {
       items: [
         {
           q: "What treatments does the spa offer?",
-          a: "The spa's treatment offering is being finalised. Tell us what you're looking for and we'll share what's available — we reply the same business day.",
+          a: "Manicures and pedicures, body treatments, facials, waxing, and laser hair removal for both men and women. To book a treatment or ask about anything specific, enquire with Allura Day Spa directly.",
         },
         { q: "Is the spa on the estate?", a: "Yes — the spa is on the estate, part of your stay between Pretoria and Centurion." },
         {
           q: "Can I book a visit?",
-          a: "Enquire with your dates and we'll arrange it and confirm the details with you directly.",
+          a: "Spa bookings are looked after by Allura Day Spa, who operate the spa on the estate — enquire with them directly and they'll confirm your treatment and time.",
         },
       ],
     },
