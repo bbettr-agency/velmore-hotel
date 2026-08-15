@@ -1,5 +1,5 @@
 import { PageHero } from "@/components/sections/PageHero";
-import { GalleryGrid } from "@/components/sections/GalleryGrid";
+import { GalleryExperience } from "@/components/gallery/GalleryExperience";
 import { CtaBand } from "@/components/sections/CtaBand";
 import { Footer } from "@/components/site/Footer";
 import { pageMetadata } from "@/lib/metadata";
@@ -15,7 +15,7 @@ export default function GalleryPage() {
     <main id="main">
       <JsonLd data={pageJsonLd("gallery")} />
       <PageHero {...p.hero} />
-      <GalleryGrid tiles={p.tiles} note={p.gridNote} tone="ivory" />
+      <GalleryExperience />
       <CtaBand {...p.cta} />
       <Footer />
     </main>

@@ -101,6 +101,8 @@ export const img = {
   estateAerial: { src: "/images/estate/velmore-estate-aerial.jpg", alt: "An aerial view of the Velmoré estate — French-Provence architecture, terracotta roofs and manicured gardens" },
   estateAerialGardens: { src: "/images/estate/velmore-estate-aerial-gardens.jpg", alt: "An aerial view of the Velmoré estate gardens, fountain and formal beds" },
   estateSign: { src: "/images/estate/velmore-estate-sign.jpg", alt: "The Velmoré Hotel & Spa monument sign at the estate entrance" },
+  grandLobby: { src: "/images/estate/velmore-grand-lobby.jpg", alt: "The grand double-volume lobby at Velmoré — chandeliers, deep sofas and a sweeping staircase" },
+  grandAerial: { src: "/images/estate/velmore-grand-aerial.jpg", alt: "A wide aerial view of the Velmoré estate grounds, driveway and surrounding landscape" },
 
   // Conference & event venues — real supplied per-venue photography (optimised
   // web copies of the client uploads; originals kept untouched in their folders).

@@ -659,15 +659,15 @@ export const pages = {
     },
     estateSplit: {
       eyebrow: "The estate",
-      heading: "A French-Provence estate, with room for everything.",
+      heading: "A French-Provence estate, with room for everything.", // ABOUT estateSplit
       body: [
         "Halls for weddings and functions, a chapel, gardens, a pool and a spa — and, at the Suleman Convention Centre, the largest hall in the area.",
         "It's all on, or moments from, the estate, between Pretoria and Centurion.",
       ], // INDICATIVE (facts confirmed)
       points: ["Halls, chapel & gardens", "A pool & a spa", "The 1,300-seat SCC", "Pretoria & Centurion"],
-      variant: "gardens" as const,
-      note: "Estate photography required · gardens & architecture (shoot pending)",
-      image: img.gardensStreamArchway,
+      variant: "estate" as const,
+      note: "Estate photography · the grand lobby",
+      image: img.grandLobby,
     },
     teamSplit: {
       eyebrow: "One team, one invoice",

@@ -273,6 +273,9 @@
     radial-gradient(62% 52% at 50% 50%, rgba(10,15,12,.34) 0%, rgba(10,15,12,0) 78%);
 }
 
+/* Gallery lightbox — a soft cross-fade as images change (motion-safe only). */
+@keyframes fadeIn { from { opacity: 0 } to { opacity: 1 } }
+
 /* Entrance motion is now handled by the OS motion engine (engine/motion,
    motion/react) via <Reveal>/<Stagger>/heroStack — single easing curve, scroll-
    triggered, reduced-motion-safe (MotionProvider), LCP never animated. The old
