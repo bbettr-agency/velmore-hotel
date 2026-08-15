@@ -101,6 +101,25 @@ export const img = {
   estateAerial: { src: "/images/estate/velmore-estate-aerial.jpg", alt: "An aerial view of the Velmoré estate — French-Provence architecture, terracotta roofs and manicured gardens" },
   estateAerialGardens: { src: "/images/estate/velmore-estate-aerial-gardens.jpg", alt: "An aerial view of the Velmoré estate gardens, fountain and formal beds" },
   estateSign: { src: "/images/estate/velmore-estate-sign.jpg", alt: "The Velmoré Hotel & Spa monument sign at the estate entrance" },
+
+  // Conference & event venues — real supplied per-venue photography (optimised
+  // web copies of the client uploads; originals kept untouched in their folders).
+  dcharmont1: { src: "/images/venues/velmore-dcharmont-1-exterior.jpg", alt: "The D'Charmont glass hall at Velmoré seen from the gardens — a steel-and-glass conservatory" },
+  dcharmont2: { src: "/images/venues/velmore-dcharmont-2-interior.jpg", alt: "Inside the D'Charmont glass hall at Velmoré — a wide steel-framed glass venue ready to set" },
+  dcharmont3: { src: "/images/venues/velmore-dcharmont-3-garden.jpg", alt: "The garden approach to the D'Charmont glass hall at Velmoré, arches along the path" },
+  dcharmont4: { src: "/images/venues/velmore-dcharmont-4-glass.jpg", alt: "The glass wall of the D'Charmont hall at Velmoré looking out to the gardens and pool" },
+  dcharmont5: { src: "/images/venues/velmore-dcharmont-5-terrace.jpg", alt: "The D'Charmont glass hall at Velmoré with garden seating alongside" },
+  dcharmont6: { src: "/images/venues/velmore-dcharmont-6-aerial.jpg", alt: "An aerial view of the D'Charmont glass hall and gardens at Velmoré" },
+  bastille1: { src: "/images/venues/velmore-bastille-1-hall.jpg", alt: "The Bastille hall at Velmoré — a chandeliered banquet hall" },
+  bastille2: { src: "/images/venues/velmore-bastille-2-set.jpg", alt: "The Bastille hall at Velmoré set with banquet tables and gold chairs" },
+  bastille3: { src: "/images/venues/velmore-bastille-3-hall.jpg", alt: "The Bastille hall at Velmoré, chandeliers and space for a large celebration" },
+  trisage1: { src: "/images/venues/velmore-trisage-1-exterior.jpg", alt: "The brick entrance archway to the Trisage hall at Velmoré" },
+  trisage2: { src: "/images/venues/velmore-trisage-2-interior.jpg", alt: "The Trisage hall at Velmoré set for a banquet with round tables and chandeliers" },
+  trisage3: { src: "/images/venues/velmore-trisage-3-interior.jpg", alt: "The Trisage hall at Velmoré dressed for a celebration" },
+  martels1: { src: "/images/venues/velmore-martels-1-exterior.jpg", alt: "The Martels venue at Velmoré with its fountain and gardens" },
+  martels2: { src: "/images/venues/velmore-martels-2-entrance.jpg", alt: "The brick entrance portico of Martels at Velmoré" },
+  vieuxCheval: { src: "/images/venues/velmore-vieux-cheval.jpg", alt: "The Vieux Cheval at Velmoré seen across the estate lawns" },
+  voltaireSatre: { src: "/images/venues/velmore-voltaire-satre.jpg", alt: "The Voltaire & Satre boardroom at Velmoré — an executive meeting table" },
 } as const;
 
 export type ImgKey = keyof typeof img;

@@ -68,6 +68,69 @@ export const pages = {
         { label: "1", note: "team · one invoice" },
       ],
     },
+    venuesIntro: {
+      eyebrow: "The venues",
+      heading: "Explore the spaces.",
+      lead: "Six settings on and around the estate — from the glass hall to an executive boardroom — each held by the same team, on one invoice.", // INDICATIVE
+    },
+    // Per-venue photography (exterior-first where an exterior exists). Copy is
+    // deliberately restrained: only confirmed capacities (BKB registry) appear as
+    // points; venues without a confirmed capacity carry none. Single-image venues
+    // render one photo (no carousel); 2+ images become a carousel.
+    venues: [
+      {
+        eyebrow: "Glass hall",
+        heading: "D' Charmont",
+        body: ["Glass on every side and chandeliers overhead — the estate's signature hall, built to be photographed."], // INDICATIVE
+        points: ["Up to 550 guests", "Glass hall & gardens"],
+        variant: "conferences" as const,
+        note: "D'Charmont glass hall",
+        images: [img.dcharmont1, img.dcharmont2, img.dcharmont3, img.dcharmont4, img.dcharmont5, img.dcharmont6],
+      },
+      {
+        eyebrow: "Grand hall",
+        heading: "Bastille",
+        body: ["A grand chandeliered hall with room to seat a celebration or a conference at scale."], // INDICATIVE
+        points: ["Up to 650 guests", "Chandeliered hall"],
+        variant: "conferences" as const,
+        note: "Bastille hall",
+        images: [img.bastille1, img.bastille2, img.bastille3],
+      },
+      {
+        eyebrow: "Banquet hall",
+        heading: "Trisage",
+        body: ["A dressed banquet hall beneath chandeliers, made for a seated function."], // INDICATIVE
+        points: ["Up to 300 guests", "Seated banquets"],
+        variant: "conferences" as const,
+        note: "Trisage hall",
+        images: [img.trisage1, img.trisage2, img.trisage3],
+      },
+      {
+        eyebrow: "Chapel & gardens",
+        heading: "Martels",
+        body: ["A brick chapel and gardens for the moments that ask for something more intimate."], // INDICATIVE
+        points: ["The Chapel & the Dungeon", "Intimate gatherings"],
+        variant: "conferences" as const,
+        note: "Martels",
+        images: [img.martels1, img.martels2],
+      },
+      {
+        eyebrow: "On the estate",
+        heading: "The Vieux Cheval",
+        body: ["A quieter setting on the estate, framed by lawns and old trees."], // INDICATIVE
+        variant: "conferences" as const,
+        note: "The Vieux Cheval",
+        images: [img.vieuxCheval],
+      },
+      {
+        eyebrow: "Boardroom",
+        heading: "Voltaire & Satre",
+        body: ["An executive boardroom for smaller meetings and breakaway sessions."], // INDICATIVE
+        variant: "conferences" as const,
+        note: "Voltaire & Satre boardroom",
+        images: [img.voltaireSatre],
+      },
+    ],
     residentialSplit: {
       eyebrow: "Residential",
       heading: "Fifty rooms, so the day doesn't end at the door.",

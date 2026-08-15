@@ -21,6 +21,18 @@ export default function ConferencesPage() {
       <Statement {...p.statement} />
       <FeatureSplit {...p.scaleSplit} imageSide="left" tone="ivory" />
       <SpecList {...p.numbers} tone="mist" columns={4} />
+
+      {/* Explore the individual venues — photography-led, alternating rhythm */}
+      <Statement {...p.venuesIntro} />
+      {p.venues.map((v, i) => (
+        <FeatureSplit
+          key={v.heading}
+          {...v}
+          imageSide={i % 2 === 0 ? "left" : "right"}
+          tone={i % 2 === 0 ? "ivory" : "mist"}
+        />
+      ))}
+
       <FeatureSplit {...p.residentialSplit} imageSide="right" tone="ivory" />
       <Faq {...p.faq} tone="mist" />
       <CtaBand {...p.cta} />
