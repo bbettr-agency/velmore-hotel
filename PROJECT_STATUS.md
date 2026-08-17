@@ -1,8 +1,9 @@
 # Project Status — Velmore Hotel Estate
 
-> ## 🔒 2026-08-15 — Conferences conversion architecture LOCKED (commit `63526ad`)
-> `/conferences` is the approved Meta post-click experience — **META AD → /conferences → build confidence → BOOK A VENUE VIEWING → viewing request → sales team → booking.** Batches 1–3 (conversion hierarchy · viewing form · mobile sticky) are client-approved and **must not be redesigned unless explicitly reopened.** Details + the paused next-steps list in `SESSION-HANDOVER.md` (top).
-> **⏸ PAUSED:** HubSpot workflows, self-scheduling calendar, confirmation/reminder/no-show automation — blocked on Velmoré operational info (viewing days/hours, duration, conductor, notice, blackout dates, self-scheduling tool, directions, HubSpot portal/form IDs, reminder/SMS). Vieux Cheval / Voltaire & Satre stay capacity-neutral until confirmed.
+> ## 🔒 2026-08-15 — Conferences conversion page LOCKED (live commit `df4d5ba`)
+> `/conferences` is the approved Meta post-click viewing funnel — **META AD → /conferences → build confidence → BOOK A VENUE VIEWING → viewing request → sales team → booking.** Client-approved; **do not redesign unless explicitly reopened.** Now includes the interactive **Venue Explorer** (replaced the overview + six stacked venue sections), **"The Scale" removed** (its image is Bastille's lead slide), the **1,300 story** resolved via the explorer intro (estate ≤500 · SCC ≤1,300, 1.5km), and **location** on the first screen. **Confirmed capacities:** D'Charmont 500 · Bastille 320 · Trisage 200 · Martels 150 · Vieux Cheval 60 · Voltaire & Satre 50. Full details + next steps at the top of `SESSION-HANDOVER.md`.
+> **Paid-traffic readiness (final audit):** Page/UX 8.5/10 ✅ · Tracking 2/10 · CRM/viewing follow-up 2/10 · Trust 4/10 · **Overall ≈5.5/10 — do NOT start Meta spend yet.** Blockers are measurement + attendance, not the page.
+> **⏸ Before spend / next build:** Meta Pixel + GA4/GTM + HubSpot→Meta offline-conversion bridge; HubSpot portal/form + viewing pipeline + confirmation/reminders (needs viewing ops info: days/hours, duration, conductor, notice, blackout, directions); a first trust layer (references/logos, Google reviews, or halal certificate); pricing + conference-pack decisions. Nothing fabricated.
 
 **Last updated:** 2026-08-15
 **Owner:** Bbettr Agency
