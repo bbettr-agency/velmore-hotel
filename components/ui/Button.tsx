@@ -31,11 +31,20 @@ export function Button({
     className,
   );
   // External destinations (e.g. the Allura Day Spa booking site) open safely in a
-  // new tab; internal routes use next/link for client-side navigation.
+  // new tab; same-page hash links (#book-viewing, #venues) render as native
+  // anchors so they smooth-scroll on the current page; everything else uses
+  // next/link for client-side navigation.
   const isExternal = /^https?:\/\//.test(href);
-  if (isExternal) {
+  const isHash = href.startsWith("#");
+  if (isExternal || isHash) {
     return (
-      <a href={href} target="_blank" rel="noopener noreferrer" data-cta={track?.cta} data-location={track?.location} className={cls}>
+      <a
+        href={href}
+        {...(isExternal ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+        data-cta={track?.cta}
+        data-location={track?.location}
+        className={cls}
+      >
         {children}
       </a>
     );

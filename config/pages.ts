@@ -33,13 +33,24 @@ export const pages = {
         { label: "Certified Halal", badge: true },
         { label: "One team · one invoice" },
       ],
-      primary: { label: "Book a Viewing", href: contact, cta: "book_viewing", location: "conferences_hero" },
-      secondary: { label: "Enquire for your date", href: contact, cta: "enquire_date", location: "conferences_hero" },
+      primary: { label: "Book a Venue Viewing", href: "#book-viewing", cta: "book_viewing", location: "conferences_hero" },
+      secondary: { label: "Explore the Venues", href: "#venues", cta: "explore_venues", location: "conferences_hero" },
+    },
+    // Immediate proof strip (dark band under the hero) — a 5-second read of the
+    // conference proposition. Confirmed facts only.
+    proof: {
+      items: [
+        { label: "1,300", note: "delegates, seated" },
+        { label: "6", note: "conference venues" },
+        { label: "50", note: "rooms on the estate" },
+        { label: "Halal", note: "certified catering" },
+        { label: "One", note: "point of contact" },
+      ],
     },
     statement: {
       eyebrow: "One team, one invoice",
       heading: "A government or corporate conference arrives to one point of contact — not a dozen suppliers.", // INDICATIVE
-      lead: "From the first enquiry to the last delegate leaving, the same team plans it, runs it and invoices it. No coordinating between caterers, venues and hotels — the estate holds all of it, in capable hands.", // INDICATIVE
+      lead: "From the first enquiry to the last delegate leaving, the same team plans it, runs it and invoices it — no coordinating between caterers, venues and hotels. Planning in-house or sourcing on behalf of a client, it's the same one team from the first walkthrough to event day: Velmoré works with corporate organisers and professional event partners alike.", // INDICATIVE
     },
     scaleSplit: {
       eyebrow: "The scale",
@@ -58,16 +69,6 @@ export const pages = {
       note: "Conference photography required · plenary hall set (shoot pending)",
       image: img.conferenceSeated,
     },
-    numbers: {
-      eyebrow: "The numbers",
-      heading: "Everything an important conference needs, in one place.",
-      items: [
-        { label: "1,300", note: "delegates, seated" },
-        { label: "50", note: "rooms on the estate" },
-        { label: "Halal", note: "certified kitchen" },
-        { label: "1", note: "team · one invoice" },
-      ],
-    },
     venuesIntro: {
       eyebrow: "The venues",
       heading: "Explore the spaces.",
@@ -81,6 +82,7 @@ export const pages = {
       {
         eyebrow: "Glass hall",
         heading: "D' Charmont",
+        slug: "dcharmont",
         body: ["Glass on every side and chandeliers overhead — the estate's signature hall, built to be photographed."], // INDICATIVE
         points: ["Up to 550 guests", "Glass hall & gardens"],
         variant: "conferences" as const,
@@ -90,6 +92,7 @@ export const pages = {
       {
         eyebrow: "Grand hall",
         heading: "Bastille",
+        slug: "bastille",
         body: ["A grand chandeliered hall with room to seat a celebration or a conference at scale."], // INDICATIVE
         points: ["Up to 650 guests", "Chandeliered hall"],
         variant: "conferences" as const,
@@ -99,6 +102,7 @@ export const pages = {
       {
         eyebrow: "Banquet hall",
         heading: "Trisage",
+        slug: "trisage",
         body: ["A dressed banquet hall beneath chandeliers, made for a seated function."], // INDICATIVE
         points: ["Up to 300 guests", "Seated banquets"],
         variant: "conferences" as const,
@@ -108,6 +112,7 @@ export const pages = {
       {
         eyebrow: "Chapel & gardens",
         heading: "Martels",
+        slug: "martels",
         body: ["A brick chapel and gardens for the moments that ask for something more intimate."], // INDICATIVE
         points: ["The Chapel & the Dungeon", "Intimate gatherings"],
         variant: "conferences" as const,
@@ -117,6 +122,7 @@ export const pages = {
       {
         eyebrow: "On the estate",
         heading: "The Vieux Cheval",
+        slug: "vieux-cheval",
         body: ["A quieter setting on the estate, framed by lawns and old trees."], // INDICATIVE
         variant: "conferences" as const,
         note: "The Vieux Cheval",
@@ -125,23 +131,40 @@ export const pages = {
       {
         eyebrow: "Boardroom",
         heading: "Voltaire & Satre",
+        slug: "voltaire-satre",
         body: ["An executive boardroom for smaller meetings and breakaway sessions."], // INDICATIVE
         variant: "conferences" as const,
         note: "Voltaire & Satre boardroom",
         images: [img.voltaireSatre],
       },
     ],
-    residentialSplit: {
-      eyebrow: "Residential",
-      heading: "Fifty rooms, so the day doesn't end at the door.",
-      body: [
-        "Multi-day and residential programmes keep delegates on the estate: fifty rooms mean no shuttle to a separate hotel, and an early start that begins with breakfast, not a commute.",
-        "The certified halal kitchen caters for everyone — as standard, without anyone having to ask.",
-      ], // INDICATIVE
-      points: ["50 rooms for residential sessions", "Certified-halal catering", "Gardens & grounds to reset", "One invoice for it all"],
-      variant: "accommodation" as const,
-      note: "Accommodation photography required · estate rooms (shoot pending)",
-      image: img.deluxeRoomView,
+    // Mid-page viewing prompt — the natural next step after the venue photography.
+    midCta: {
+      heading: "Better seen in person.", // INDICATIVE
+      body: "Walk the spaces, see the setups and find the venue that fits your conference — one team takes it from there.", // INDICATIVE
+      image: img.banquetScale,
+      primary: { label: "Book a Venue Viewing", href: "#book-viewing", cta: "book_viewing", location: "conferences_mid" },
+    },
+    // More than a venue — accommodation + certified-halal catering, compact.
+    moreThanVenue: {
+      eyebrow: "More than a venue",
+      heading: "Conference. Dinner. Stay. Breakfast. All on one estate.",
+      lead: "For multi-day and residential programmes, delegates never have to leave — accommodation and a certified-halal kitchen are on the estate, held by the same team.", // INDICATIVE
+      cards: [
+        {
+          eyebrow: "Stay on the estate",
+          heading: "Fifty rooms, a short walk from the hall.",
+          body: "Multi-day programmes keep delegates on the grounds — no shuttle to a separate hotel, and a start that begins with breakfast, not a commute.", // INDICATIVE
+          image: img.deluxeRoomView,
+          link: { label: "View accommodation", href: routes.accommodation.href },
+        },
+        {
+          eyebrow: "Certified-halal catering",
+          heading: "One kitchen that caters for every delegate.",
+          body: "The estate's certified-halal kitchen caters for everyone as standard — no separate arrangements, no delegate left out.", // INDICATIVE
+          image: img.grazingTable,
+        },
+      ],
     },
     faq: {
       eyebrow: "The practical answers",
@@ -164,17 +187,26 @@ export const pages = {
           a: "No. One team plans, runs and invoices the whole event — a single point of contact from the first delegate to the last goodbye.",
         },
         {
+          q: "Do you work with event agencies and professional organisers?",
+          a: "Yes. We work with corporate organisers, internal event teams and professional event agencies sourcing on behalf of a client — book a viewing and one team walks you through the spaces.",
+        },
+        {
           q: "Where are you located?",
           a: "On an estate between Pretoria and Centurion. Full directions are shared when you book a viewing.",
         },
       ],
     },
-    cta: {
-      heading: "Come and see the hall for yourself.", // INDICATIVE
-      body: "Book a viewing, tell us your dates and delegate numbers, and one team takes it from there.", // INDICATIVE
+    // Final conversion — the on-page viewing-request form (id="book-viewing").
+    viewing: {
+      eyebrow: "Book a venue viewing",
+      heading: "Come and see the venues for yourself.", // INDICATIVE
+      intro: "Tell us a little about your event and a viewing time that suits — one team walks you through the spaces on the estate. We reply the same business day, and there's no obligation.", // INDICATIVE
+      points: [
+        "Walk the individual venues in person",
+        "See the estate, catering and accommodation",
+        "Meet the team who would run your event",
+      ],
       image: img.entranceSignage,
-      primary: { label: "Book a Viewing", href: contact, cta: "book_viewing", location: "conferences_cta" },
-      secondary: { label: "Enquire for your date", href: contact, cta: "enquire_date", location: "conferences_cta" },
     },
   },
 

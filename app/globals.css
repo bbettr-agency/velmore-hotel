@@ -4,6 +4,13 @@
 
 @layer base {
   html { -webkit-text-size-adjust: 100%; }
+  /* Smooth in-page navigation for the /conferences CTAs (Book a viewing / Explore
+     the venues). Disabled under reduced-motion. */
+  @media (prefers-reduced-motion: no-preference) {
+    html { scroll-behavior: smooth; }
+  }
+  /* Anchor targets clear a little breathing room from the top of the viewport. */
+  [id] { scroll-margin-top: 84px; }
   body { @apply bg-ivory text-ink font-sans antialiased; }
   ::selection { background: rgba(192, 151, 63, 0.25); }
   :focus-visible { outline: 2px solid #C0973F; outline-offset: 2px; border-radius: 4px; }
