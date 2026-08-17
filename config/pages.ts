@@ -31,7 +31,7 @@ export const pages = {
         { label: "Up to 1,300 delegates" },
         { label: "50 rooms on the estate" },
         { label: "Certified Halal", badge: true },
-        { label: "One team · one invoice" },
+        { label: "Pretoria & Centurion" },
       ],
       primary: { label: "Book a Venue Viewing", href: "#book-viewing", cta: "book_viewing", location: "conferences_hero" },
       secondary: { label: "Explore the Venues", href: "#venues", cta: "explore_venues", location: "conferences_hero" },
@@ -52,27 +52,12 @@ export const pages = {
       heading: "A government or corporate conference arrives to one point of contact — not a dozen suppliers.", // INDICATIVE
       lead: "From the first enquiry to the last delegate leaving, the same team plans it, runs it and invoices it — no coordinating between caterers, venues and hotels. Planning in-house or sourcing on behalf of a client, it's the same one team from the first walkthrough to event day: Velmoré works with corporate organisers and professional event partners alike.", // INDICATIVE
     },
-    scaleSplit: {
-      eyebrow: "The scale",
-      heading: "Thirteen hundred seats — the largest hall in the area.",
-      body: [
-        "At the Suleman Convention Centre, Velmoré seats up to 1,300 delegates under one roof — a kilometre and a half from the estate, and the largest hall in the area.",
-        "On the estate itself, further halls host breakaway sessions and smaller meetings, so a multi-stream programme runs in one place, coordinated by one team.",
-      ], // INDICATIVE
-      points: [
-        "1,300-seat plenary hall",
-        "Estate halls for breakaways",
-        "One coordinated programme",
-        "Between Pretoria & Centurion",
-      ],
-      variant: "conferences" as const,
-      note: "Conference photography required · plenary hall set (shoot pending)",
-      image: img.conferenceSeated,
-    },
     venuesIntro: {
       eyebrow: "The venues",
       heading: "Explore the spaces.",
-      lead: "Six settings on and around the estate — from the glass hall to an executive boardroom — each held by the same team, on one invoice.", // INDICATIVE
+      // Compactly resolves the 1,300 figure: estate venues up to 500, plus the
+      // Suleman Convention Centre for the largest events (confirmed BKB facts).
+      lead: "Six settings on and around the estate host up to 500 guests — with capacity for up to 1,300 delegates at the Suleman Convention Centre, a kilometre and a half away. Each is held by the same team, on one invoice.", // INDICATIVE
     },
     // Per-venue photography (exterior-first where an exterior exists). Copy is
     // deliberately restrained: only confirmed capacities (BKB registry) appear as
@@ -100,7 +85,10 @@ export const pages = {
         points: ["Chandeliered hall", "Seated at scale"],
         variant: "conferences" as const,
         note: "Bastille hall",
-        images: [img.bastille1, img.bastille2, img.bastille3],
+        // Lead image = the seated-conference shot moved from the old Scale section;
+        // bastille-2-set was a near-duplicate of it, so it's dropped to avoid a
+        // repetitive carousel. Sequence: conference in use → grand hall → full scale.
+        images: [img.conferenceSeated, img.bastille3, img.bastille1],
       },
       {
         eyebrow: "Banquet hall",

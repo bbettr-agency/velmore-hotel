@@ -1,6 +1,5 @@
 import { PageHero } from "@/components/sections/PageHero";
 import { Statement } from "@/components/sections/Statement";
-import { FeatureSplit } from "@/components/sections/FeatureSplit";
 import { SpecList } from "@/components/sections/SpecList";
 import { Faq } from "@/components/sections/Faq";
 import { CtaBand } from "@/components/sections/CtaBand";
@@ -31,11 +30,8 @@ export default function ConferencesPage() {
       {/* One team / one point of contact — includes agency + direct-organiser positioning */}
       <Statement {...p.statement} />
 
-      {/* The scale */}
-      <FeatureSplit {...p.scaleSplit} imageSide="left" tone="ivory" />
-
-      {/* Interactive venue explorer — one section, tabbed; replaces the six stacked
-          venue splits. Real photography / carousels retained per venue. */}
+      {/* Interactive venue explorer — one section, tabbed. The intro resolves the
+          1,300 figure (estate up to 500 · SCC up to 1,300). */}
       <VenueExplorer {...p.venuesIntro} venues={p.venues} />
 
       {/* Mid-page viewing prompt */}

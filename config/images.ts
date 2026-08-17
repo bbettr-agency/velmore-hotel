@@ -53,7 +53,7 @@ export const img = {
   receptionLounge: { src: "/images/weddings/velmore-reception-lounge.jpg", alt: "A reception lounge setting in the glass hall at Velmoré with a floral backdrop" },
   // Conferences
   conferenceHallSet: { src: "/images/conferences/velmore-conference-hall-set.jpg", alt: "The glass hall at Velmoré set with round tables for a residential event" },
-  conferenceSeated: { src: "/images/conferences/velmore-conference-seated.jpg", alt: "A conference seated in rows facing the stage in the hall at Velmoré, chandelier above" },
+  conferenceSeated: { src: "/images/conferences/velmore-conference-seated.jpg", alt: "The Bastille hall at Velmoré set with rows of seating for a conference, facing the stage beneath the chandeliers" },
   banquetScale: { src: "/images/conferences/velmore-banquet-scale.jpg", alt: "Long banquet tables set at scale in the glass hall at Velmoré" },
   // Events
   functionSet: { src: "/images/events/velmore-function-set.jpg", alt: "The glass hall at Velmoré set for a celebration with warm uplighting" },

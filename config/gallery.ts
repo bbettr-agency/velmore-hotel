@@ -39,7 +39,7 @@ export const gallery: readonly GalleryItem[] = [
   { image: img.grandAerial, category: "estate", caption: "The estate grounds", w: 2000, h: 1126 },
   { image: img.welcomeGolden, category: "estate", caption: "Welcome, at golden hour", w: 1705, h: 2560 },
   { image: img.conferenceHallSet, category: "conferences", caption: "Set for a residential event", w: 720, h: 1280 },
-  { image: img.conferenceSeated, category: "conferences", caption: "Plenary seating", w: 2560, h: 2560 },
+  { image: img.conferenceSeated, category: "conferences", caption: "Plenary seating", w: 2000, h: 2000 },
   { image: img.banquetScale, category: "conferences", caption: "Banquet scale", w: 720, h: 1280 },
   { image: img.dcharmont1, category: "conferences", caption: "From the gardens", venue: "D'Charmont", w: 2000, h: 1500 },
   { image: img.dcharmont2, category: "conferences", caption: "Inside the glass hall", venue: "D'Charmont", w: 2000, h: 1500 },
