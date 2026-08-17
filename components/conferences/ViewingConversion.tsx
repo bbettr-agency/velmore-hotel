@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { site } from "@/config/site";
 import { submitEnquiry } from "@/lib/enquiry";
 import { Reveal } from "@/components/motion/Reveal";
@@ -32,6 +32,14 @@ export function ViewingConversion({
   points?: readonly string[];
 }) {
   const [status, setStatus] = useState<Status>("idle");
+  // Optional context: the venue explorer's CTA tells us which venue prompted the
+  // viewing. Useful for the closer, never required (no added friction).
+  const [venue, setVenue] = useState("");
+  useEffect(() => {
+    const onVenue = (e: Event) => setVenue((e as CustomEvent).detail || "");
+    window.addEventListener("velmore:venue", onVenue as EventListener);
+    return () => window.removeEventListener("velmore:venue", onVenue as EventListener);
+  }, []);
 
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -40,6 +48,7 @@ export function ViewingConversion({
     setStatus("submitting");
     const message = [
       "Venue viewing request",
+      v.venueOfInterest ? `Venue of interest: ${v.venueOfInterest}` : "",
       `Organising as: ${v.organisingAs}`,
       `Preferred viewing: ${v.preferredViewing}`,
       v.conferenceType ? `Conference type: ${v.conferenceType}` : "",
@@ -121,6 +130,13 @@ export function ViewingConversion({
             </div>
           ) : (
             <form onSubmit={onSubmit} className="rounded-lg bg-white p-6 shadow-card md:p-8">
+              <input type="hidden" name="venueOfInterest" value={venue} />
+              {venue ? (
+                <p className="mb-5 flex items-center gap-2 rounded-md bg-mist px-3.5 py-2.5 text-[13px] text-estate-700">
+                  <span aria-hidden className="h-1.5 w-1.5 rounded-full bg-champagne" />
+                  <span><span className="font-semibold">Viewing:</span> {venue}</span>
+                </p>
+              ) : null}
               <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
                 <div>
                   <label htmlFor="v-firstName" className={label}>First name{req}</label>

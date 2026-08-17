@@ -78,13 +78,15 @@ export const pages = {
     // deliberately restrained: only confirmed capacities (BKB registry) appear as
     // points; venues without a confirmed capacity carry none. Single-image venues
     // render one photo (no carousel); 2+ images become a carousel.
+    // Client-confirmed capacities (2026-08-15) drive the venue explorer tabs.
     venues: [
       {
         eyebrow: "Glass hall",
         heading: "D' Charmont",
         slug: "dcharmont",
+        capacity: "Up to 500 guests",
         body: ["Glass on every side and chandeliers overhead — the estate's signature hall, built to be photographed."], // INDICATIVE
-        points: ["Up to 550 guests", "Glass hall & gardens"],
+        points: ["Glass hall & gardens", "The estate's signature space"],
         variant: "conferences" as const,
         note: "D'Charmont glass hall",
         images: [img.dcharmont1, img.dcharmont2, img.dcharmont3, img.dcharmont4, img.dcharmont5, img.dcharmont6],
@@ -93,8 +95,9 @@ export const pages = {
         eyebrow: "Grand hall",
         heading: "Bastille",
         slug: "bastille",
+        capacity: "Up to 320 guests",
         body: ["A grand chandeliered hall with room to seat a celebration or a conference at scale."], // INDICATIVE
-        points: ["Up to 650 guests", "Chandeliered hall"],
+        points: ["Chandeliered hall", "Seated at scale"],
         variant: "conferences" as const,
         note: "Bastille hall",
         images: [img.bastille1, img.bastille2, img.bastille3],
@@ -103,8 +106,9 @@ export const pages = {
         eyebrow: "Banquet hall",
         heading: "Trisage",
         slug: "trisage",
+        capacity: "Up to 200 guests",
         body: ["A dressed banquet hall beneath chandeliers, made for a seated function."], // INDICATIVE
-        points: ["Up to 300 guests", "Seated banquets"],
+        points: ["Seated banquets", "Chandeliered setting"],
         variant: "conferences" as const,
         note: "Trisage hall",
         images: [img.trisage1, img.trisage2, img.trisage3],
@@ -113,6 +117,7 @@ export const pages = {
         eyebrow: "Chapel & gardens",
         heading: "Martels",
         slug: "martels",
+        capacity: "Up to 150 guests",
         body: ["A brick chapel and gardens for the moments that ask for something more intimate."], // INDICATIVE
         points: ["The Chapel & the Dungeon", "Intimate gatherings"],
         variant: "conferences" as const,
@@ -123,7 +128,9 @@ export const pages = {
         eyebrow: "On the estate",
         heading: "The Vieux Cheval",
         slug: "vieux-cheval",
+        capacity: "Up to 60 guests",
         body: ["A quieter setting on the estate, framed by lawns and old trees."], // INDICATIVE
+        points: ["A quieter setting", "Framed by the gardens"],
         variant: "conferences" as const,
         note: "The Vieux Cheval",
         images: [img.vieuxCheval],
@@ -132,7 +139,10 @@ export const pages = {
         eyebrow: "Boardroom",
         heading: "Voltaire & Satre",
         slug: "voltaire-satre",
-        body: ["An executive boardroom for smaller meetings and breakaway sessions."], // INDICATIVE
+        capacity: "Up to 50 guests",
+        tabNote: "Hotel conference rooms",
+        body: ["Hotel conference rooms for executive meetings and breakaway sessions."], // INDICATIVE
+        points: ["Breakaway sessions", "Executive meetings"],
         variant: "conferences" as const,
         note: "Voltaire & Satre boardroom",
         images: [img.voltaireSatre],

@@ -4,7 +4,7 @@ import { FeatureSplit } from "@/components/sections/FeatureSplit";
 import { SpecList } from "@/components/sections/SpecList";
 import { Faq } from "@/components/sections/Faq";
 import { CtaBand } from "@/components/sections/CtaBand";
-import { VenueOverview } from "@/components/conferences/VenueOverview";
+import { VenueExplorer } from "@/components/conferences/VenueExplorer";
 import { MoreThanVenue } from "@/components/conferences/MoreThanVenue";
 import { ViewingConversion } from "@/components/conferences/ViewingConversion";
 import { StickyViewingCta } from "@/components/conferences/StickyViewingCta";
@@ -34,19 +34,9 @@ export default function ConferencesPage() {
       {/* The scale */}
       <FeatureSplit {...p.scaleSplit} imageSide="left" tone="ivory" />
 
-      {/* Venue overview — compact cards that smooth-scroll to the detail sections */}
-      <VenueOverview {...p.venuesIntro} venues={p.venues} />
-
-      {/* Venue detail sections — real photography / carousels, each anchorable */}
-      {p.venues.map((v, i) => (
-        <FeatureSplit
-          key={v.slug}
-          id={`venue-${v.slug}`}
-          {...v}
-          imageSide={i % 2 === 0 ? "left" : "right"}
-          tone={i % 2 === 0 ? "ivory" : "mist"}
-        />
-      ))}
+      {/* Interactive venue explorer — one section, tabbed; replaces the six stacked
+          venue splits. Real photography / carousels retained per venue. */}
+      <VenueExplorer {...p.venuesIntro} venues={p.venues} />
 
       {/* Mid-page viewing prompt */}
       <CtaBand {...p.midCta} />
