@@ -1,6 +1,10 @@
 # Project Status — Velmore Hotel Estate
 
-**Last updated:** 2026-08-10
+> ## 🔒 2026-08-15 — Conferences conversion architecture LOCKED (commit `63526ad`)
+> `/conferences` is the approved Meta post-click experience — **META AD → /conferences → build confidence → BOOK A VENUE VIEWING → viewing request → sales team → booking.** Batches 1–3 (conversion hierarchy · viewing form · mobile sticky) are client-approved and **must not be redesigned unless explicitly reopened.** Details + the paused next-steps list in `SESSION-HANDOVER.md` (top).
+> **⏸ PAUSED:** HubSpot workflows, self-scheduling calendar, confirmation/reminder/no-show automation — blocked on Velmoré operational info (viewing days/hours, duration, conductor, notice, blackout dates, self-scheduling tool, directions, HubSpot portal/form IDs, reminder/SMS). Vieux Cheval / Voltaire & Satre stay capacity-neutral until confirmed.
+
+**Last updated:** 2026-08-15
 **Owner:** Bbettr Agency
 **Client:** Velmore Hotel Estate / Velmore Hotel & Spa (canonical name TBC — see blocking item)
 **Type:** full website **redesign** · hospitality (hotel + weddings + conferencing + spa)

@@ -4,6 +4,21 @@ Context for the next session. Read this + `PROJECT_STATUS.md` + `docs/CLIENT-BRI
 
 ---
 
+# 🔒 LOCKED — 2026-08-15 · Conferences Meta post-click conversion architecture (READ THIS FIRST)
+
+**Client-approved & LOCKED (commit `63526ad`). Do NOT redesign or restructure `/conferences` unless explicitly reopened.**
+
+North-star funnel: **META AD → /conferences → explore / build confidence → BOOK A VENUE VIEWING → viewing request → Velmoré sales team → conference booking.** The goal is *qualified venue viewings that show up* — NOT proposals, cheap leads or CTA clicks.
+
+**Locked page structure (Batches 1–3):** hero (Book a Venue Viewing `#book-viewing` + Explore the Venues `#venues`, both smooth-scroll on-page) → proof strip (5 confirmed facts) → one-point-of-contact statement (incl. agency + direct-organiser positioning) → the scale → venue overview (6 cards, capacity-neutral for Vieux Cheval / Voltaire & Satre / Martels) → 6 venue detail carousels (`#venue-<slug>`) → mid-page viewing CTA → accommodation + certified-halal catering pairing → FAQ → on-page viewing form (`#book-viewing`) + confirmation → footer + mobile sticky viewing CTA.
+- New code: `components/conferences/{VenueOverview,MoreThanVenue,ViewingConversion,StickyViewingCta}.tsx`, `lib/enquiry.ts` (shared HubSpot/mailto submit). `Button` renders `#hash` hrefs as native anchors; globals.css has reduced-motion-safe smooth scroll + `[id]{scroll-margin-top}`.
+- Viewing form (light by design — books a viewing, does NOT fully qualify): **required** = firstName, lastName, email, phone, Company/Organisation/Agency, "organising as" (For my org / For a client-Event agency / Other), preferred viewing window; **optional** = conference type, delegates (bands), event date, accommodation, message. Agencies + direct organisers = ONE shared flow.
+- No fabricated facts/capacities/testimonials, no tracking scripts, Website OS untouched.
+
+**⏸ PAUSED — do NOT start until Velmoré provides operational info:** viewing days/hours · viewing duration · who conducts viewings · minimum notice · blackout dates · self-scheduling wanted? + which tool/provider · confirmation/directions details · HubSpot portal + form IDs · reminder/SMS capability. Only then build: HubSpot workflow wiring, real self-scheduling calendar, confirmation/reminder/no-show automation. Also still capacity-neutral pending client figures: The Vieux Cheval, Voltaire & Satre (+ permission to show Martels).
+
+---
+
 # ✅ SITE COMPLETE + LAUNCH-HARDENED + POLISHED — 2026-08-10 (READ THIS FIRST)
 
 **Full Velmoré website — built, QA'd, launch-hardened, motion-synced to the OS, and polished — LIVE at https://velmore-hotel.vercel.app.**
