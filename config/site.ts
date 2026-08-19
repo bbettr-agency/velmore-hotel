@@ -106,9 +106,20 @@ export const site = {
   contact: {
     // Official website enquiry/booking inbox (client-confirmed 2026). Used by the
     // footer, the contact "Email us" link, and every form's mailto fallback +
-    // "prefer to email" links. Phone/address still TO CONFIRM — not shown as fact.
+    // "prefer to email" links.
     email: "online@velmore.co.za",
     location: "Pretoria & Centurion",
+    // Client-confirmed 2026 (matches BKB). Phone shown as dialled; phoneHref is
+    // the E.164 tel: link. Address as supplied.
+    phone: "078 666 6000",
+    phoneHref: "tel:+27786666000",
+    address: "96 Main Road, Mooiplaats 355-JR, Erasmia, 0183",
+    // Structured address parts for the Hotel/LocalBusiness schema.
+    postal: { street: "96 Main Road, Mooiplaats 355-JR", locality: "Erasmia", region: "Gauteng", postalCode: "0183", country: "ZA" },
+    social: [
+      { label: "Facebook", href: "https://www.facebook.com/p/Velmore-Hotel-Estate-61578702734183/" },
+      { label: "Instagram", href: "https://www.instagram.com/velmore.official/" },
+    ],
   },
 
   hero: {

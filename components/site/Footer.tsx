@@ -1,11 +1,29 @@
 import Link from "next/link";
 import { site } from "@/config/site";
 
+function SocialIcon({ label }: { label: string }) {
+  if (label === "Facebook") {
+    return (
+      <svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor" aria-hidden>
+        <path d="M14 9.5V7.8c0-.8.2-1.3 1.4-1.3H17V3.9c-.3 0-1.3-.1-2.4-.1-2.4 0-4 1.4-4 4.1v1.6H8.2V12h2.4v8h3V12h2.3l.4-2.5H13.6z" />
+      </svg>
+    );
+  }
+  // Instagram
+  return (
+    <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" strokeWidth="1.7" aria-hidden>
+      <rect x="3.5" y="3.5" width="17" height="17" rx="5" />
+      <circle cx="12" cy="12" r="3.6" />
+      <circle cx="17" cy="7" r="1.1" fill="currentColor" stroke="none" />
+    </svg>
+  );
+}
+
 /**
  * Sitewide footer — a quiet close, not a utility strip. Dark estate ground, the
  * brand mark + one calm line, config-driven wayfinding (from `routes`), the
- * confirmed contact facts only (email + location; NO phone/address — TO CONFIRM),
- * and a restrained agency credit. Config-driven.
+ * client-confirmed contact facts (email · phone · address · location) and social
+ * profiles, and a restrained agency credit. Config-driven.
  */
 export function Footer() {
   const f = site.footer;
@@ -33,13 +51,33 @@ export function Footer() {
             <p className="mt-6 max-w-[34ch] font-serif text-[19px] italic leading-[1.5] text-ivory/80 md:text-[20px]">
               {f.tagline}
             </p>
-            <div className="mt-7 space-y-1 text-[14px] text-ivory/75">
+            <div className="mt-7 space-y-1.5 text-[14px] text-ivory/75">
               <p>
                 <a href={`mailto:${site.contact.email}`} className="underline-offset-4 hover:text-champagne-light hover:underline">
                   {site.contact.email}
                 </a>
               </p>
-              <p>{site.contact.location}</p>
+              <p>
+                <a href={site.contact.phoneHref} className="underline-offset-4 hover:text-champagne-light hover:underline">
+                  {site.contact.phone}
+                </a>
+              </p>
+              <p className="text-ivory/60">{site.contact.address}</p>
+            </div>
+
+            <div className="mt-6 flex items-center gap-3">
+              {site.contact.social.map((s) => (
+                <a
+                  key={s.label}
+                  href={s.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`Velmoré on ${s.label}`}
+                  className="grid h-9 w-9 place-items-center rounded-full border border-ivory/15 text-ivory/70 transition-colors hover:border-champagne hover:text-champagne-light"
+                >
+                  <SocialIcon label={s.label} />
+                </a>
+              ))}
             </div>
           </div>
 

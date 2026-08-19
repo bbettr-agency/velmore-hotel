@@ -1,13 +1,13 @@
 import { SITE_URL } from "@/config/seo";
-import { routes, type RouteKey } from "@/config/site";
+import { routes, site, type RouteKey } from "@/config/site";
 
 /**
- * Structured data — CONFIRMED facts only. No address, phone, rating or review
- * count is emitted until verified (address/phone are TO CONFIRM; ratings need
- * consent). Certified-halal is confirmed. Update `address`/`telephone` here once
- * the client provides them.
+ * Structured data — CONFIRMED facts only. Address, phone and social profiles are
+ * client-confirmed (2026). No rating/review count is emitted until verified
+ * (ratings need consent). Certified-halal is confirmed.
  */
 const OG = `${SITE_URL}/images/branding/social/og.jpg`;
+const c = site.contact;
 
 export function homeJsonLd() {
   return {
@@ -33,7 +33,17 @@ export function homeJsonLd() {
           { "@type": "LocationFeatureSpecification", name: "Conference & event venues", value: true },
           { "@type": "LocationFeatureSpecification", name: "Spa", value: true },
         ],
-        // address / telephone: TO CONFIRM — intentionally omitted (no fabrication).
+        address: {
+          "@type": "PostalAddress",
+          streetAddress: c.postal.street,
+          addressLocality: c.postal.locality,
+          addressRegion: c.postal.region,
+          postalCode: c.postal.postalCode,
+          addressCountry: c.postal.country,
+        },
+        telephone: "+27786666000",
+        email: c.email,
+        sameAs: c.social.map((s) => s.href),
       },
       {
         "@type": "WebSite",

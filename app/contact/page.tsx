@@ -40,13 +40,18 @@ export default function ContactPage() {
               ))}
             </ul>
 
-            <div className="mt-8 space-y-1 border-t border-estate-100 pt-6 text-[14px] text-charcoal">
+            <div className="mt-8 space-y-1.5 border-t border-estate-100 pt-6 text-[14px] text-charcoal">
               <p>
                 <a href={`mailto:${site.contact.email}`} className="font-semibold text-champagne-dark underline-offset-4 hover:underline">
                   {site.contact.email}
                 </a>
               </p>
-              <p className="text-steel">{form.location}</p>
+              <p>
+                <a href={site.contact.phoneHref} className="font-semibold text-champagne-dark underline-offset-4 hover:underline">
+                  {site.contact.phone}
+                </a>
+              </p>
+              <p className="text-steel">{site.contact.address}</p>
             </div>
           </div>
 
