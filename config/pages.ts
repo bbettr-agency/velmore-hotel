@@ -782,7 +782,7 @@ export const pages = {
       note: "Estate photography required · arrival & entrance (shoot pending)",
       image: img.estateForecourt,
       primary: { label: "Send an enquiry", href: "#enquire", cta: "enquiry_scroll", location: "contact_hero" },
-      secondary: { label: "Email us", href: "mailto:bookings@velmorehotel.co.za", cta: "email_click", location: "contact_hero" },
+      secondary: { label: "Email us", href: "mailto:online@velmore.co.za", cta: "email_click", location: "contact_hero" },
     },
     form: {
       eyebrow: "Enquire",

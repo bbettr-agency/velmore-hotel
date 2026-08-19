@@ -101,8 +101,10 @@ export const site = {
   },
 
   contact: {
-    // [confirmed] emails are live (BKB v0.2). Phone/address are TO CONFIRM — not shown as fact yet.
-    email: "bookings@velmorehotel.co.za",
+    // Official website enquiry/booking inbox (client-confirmed 2026). Used by the
+    // footer, the contact "Email us" link, and every form's mailto fallback +
+    // "prefer to email" links. Phone/address still TO CONFIRM — not shown as fact.
+    email: "online@velmore.co.za",
     location: "Pretoria & Centurion",
   },
 
