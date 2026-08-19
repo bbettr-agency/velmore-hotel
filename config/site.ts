@@ -32,32 +32,35 @@ export const routes = {
     title: "Stay",
     eyebrow: "Stay on the estate",
     blurb:
-      "50 rooms on the estate, with gardens, a pool and a spa, between Pretoria and Centurion.",
+      "50 rooms and suites on the Velmoré estate — gardens, a pool and a spa, a short walk from every venue, between Pretoria and Centurion.",
   },
   dining: {
     href: "/dining",
     title: "Dining",
     eyebrow: "Dining on the estate",
-    blurb: "Estate dining with a certified halal kitchen.",
+    blurb:
+      "A certified-halal kitchen on the Velmoré estate, catering weddings, conferences and celebrations for every guest — between Pretoria and Centurion.",
   },
   spa: {
     href: "/spa",
     title: "Spa",
     eyebrow: "A restorative day",
-    blurb: "A restorative day on the estate.",
+    blurb:
+      "A calm spa on the Velmoré estate near Pretoria and Centurion, by Allura Day Spa — a slower morning as part of your stay on the estate.",
   },
   events: {
     href: "/events",
     title: "Events",
     eyebrow: "Celebrations & functions",
     blurb:
-      "Year-end functions, matric farewells, milestones and private celebrations on the estate.",
+      "Year-end functions, matric farewells, milestones and private celebrations on the Velmoré estate — one team, certified-halal catering, in Pretoria & Centurion.",
   },
   gallery: {
     href: "/gallery",
     title: "Gallery",
     eyebrow: "The estate, in pictures",
-    blurb: "The estate at its best — venues, gardens and real occasions.",
+    blurb:
+      "Real photography of the Velmoré estate — venues, weddings, conferences, rooms, gardens and dining, between Pretoria and Centurion.",
   },
   about: {
     href: "/about",
@@ -71,7 +74,7 @@ export const routes = {
     title: "Contact & viewings",
     eyebrow: "Come and see the estate",
     blurb:
-      "Book a viewing or enquire for your date — we reply the same business day.",
+      "Book a venue viewing or enquire about weddings, conferences and events at Velmoré — one team, one reply, the same business day.",
   },
 } as const;
 
