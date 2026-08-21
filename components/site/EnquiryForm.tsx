@@ -4,21 +4,22 @@ import { useState } from "react";
 import { site } from "@/config/site";
 
 /**
- * Enquiry form — production-ready, HubSpot-first (CRM confirmed = HubSpot).
+ * Contact-page enquiry form.
  *
- * Submit routing:
- *  1. If HubSpot portal + form IDs are configured (env NEXT_PUBLIC_HUBSPOT_PORTAL_ID
- *     + NEXT_PUBLIC_HUBSPOT_FORM_ID), POST to the HubSpot Forms API (no secret
- *     needed — the submission endpoint is public per form). Contact is created/
- *     updated and routed by the form's HubSpot workflow.
- *  2. Otherwise fall back to a pre-filled mailto to the confirmed bookings inbox,
- *     so no enquiry is ever lost before the CRM is wired.
- *
- * TODO(client): provide the HubSpot portal ID + form GUID (and the internal
- * property names for Enquiry type / Event date / Guest count if custom), then set
- * the two env vars in Vercel — no code change needed. See docs/18 §D.
+ * Submit routing (primary → fallbacks, so an enquiry is never lost):
+ *  1. PRIMARY — POST to the GoHighLevel (LeadConnector) inbound webhook, which
+ *     creates/updates the contact and fires the GHL workflow. The endpoint is a
+ *     public inbound webhook (CORS-open); overridable via env.
+ *  2. If that fails and HubSpot IDs are configured, POST to the HubSpot Forms API.
+ *  3. Otherwise fall back to a pre-filled mailto to the confirmed enquiry inbox.
  */
 const OCCASIONS = ["Wedding", "Conference", "Event / function", "Stay", "Spa", "Other"];
+
+// GHL / LeadConnector inbound webhook — the primary lead destination. Public
+// inbound webhook (not a secret); env override supported for future changes.
+const GHL_WEBHOOK =
+  process.env.NEXT_PUBLIC_GHL_WEBHOOK_URL ||
+  "https://services.leadconnectorhq.com/hooks/yxytqQ4pB8M4Z4yrTIAP/webhook-trigger/c5dc931b-c196-443d-a1b6-18ee79f88d95";
 
 const PORTAL_ID = process.env.NEXT_PUBLIC_HUBSPOT_PORTAL_ID;
 const FORM_ID = process.env.NEXT_PUBLIC_HUBSPOT_FORM_ID;
@@ -27,6 +28,27 @@ type Status = "idle" | "submitting" | "success" | "error";
 
 export function EnquiryForm() {
   const [status, setStatus] = useState<Status>("idle");
+
+  async function submitToGHL(v: Record<string, string>) {
+    const res = await fetch(GHL_WEBHOOK, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        firstName: v.firstName,
+        lastName: v.lastName,
+        name: `${v.firstName} ${v.lastName}`.trim(),
+        email: v.email,
+        phone: v.phone,
+        enquiryType: v.occasion,
+        preferredDate: v.date,
+        guests: v.guests,
+        message: v.message,
+        source: "Velmoré website — contact form",
+        page: typeof window !== "undefined" ? window.location.href : "",
+      }),
+    });
+    if (!res.ok) throw new Error("GHL webhook failed");
+  }
 
   async function submitToHubSpot(v: Record<string, string>) {
     const fields = [
@@ -82,17 +104,22 @@ export function EnquiryForm() {
     const v = Object.fromEntries([...f.entries()].map(([k, val]) => [k, String(val)])) as Record<string, string>;
     setStatus("submitting");
     try {
-      if (PORTAL_ID && FORM_ID) {
-        await submitToHubSpot(v);
+      // PRIMARY — GoHighLevel webhook.
+      await submitToGHL(v);
+      setStatus("success");
+    } catch {
+      // Fallbacks so no enquiry is ever lost: HubSpot (if configured), else mailto.
+      try {
+        if (PORTAL_ID && FORM_ID) {
+          await submitToHubSpot(v);
+        } else {
+          submitViaMailto(v);
+        }
         setStatus("success");
-      } else {
+      } catch {
         submitViaMailto(v);
         setStatus("success");
       }
-    } catch {
-      // never lose an enquiry — fall back to email
-      submitViaMailto(v);
-      setStatus("success");
     }
   }
 
