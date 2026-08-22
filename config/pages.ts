@@ -36,6 +36,13 @@ export const pages = {
       primary: { label: "Book a Venue Viewing", href: "#book-viewing", cta: "book_viewing", location: "conferences_hero" },
       secondary: { label: "Explore the Venues", href: "#venues", cta: "explore_venues", location: "conferences_hero" },
     },
+    // Trusted-by marquee — a restrained credibility strip directly below the hero.
+    // Wording is a plain statement of fact (organisations whose events the estate
+    // has hosted), never a claim of partnership, endorsement or clientele.
+    trustedBy: {
+      line: "Organisations we've welcomed to the estate",
+      logos: [img.logoTelkom, img.logoExxaro, img.logoNsfIcm, img.logoCrossBorder, img.logoKitKat, img.logoNomad],
+    },
     statement: {
       eyebrow: "One team, one invoice",
       heading: "A government or corporate conference arrives to one point of contact — not a dozen suppliers.", // INDICATIVE
@@ -133,19 +140,22 @@ export const pages = {
       heading: "The spaces, in action.",
       lead: "Set tables, full halls and the evenings that follow — real occasions on the estate, so you can picture your own.", // INDICATIVE
       cta: { label: "Book a Venue Viewing", href: "#book-viewing" },
+      // Per-slide object-position: images fill the frame (object-cover), so the
+      // focal point is nudged where a centre crop would otherwise clip a subject
+      // (faces biased slightly up; the welcome signage kept toward the left).
       slides: [
-        { image: img.eventDcharmontSet, caption: "D'Charmont, set for the day" },
-        { image: img.eventHallStage, caption: "The grand hall, staged" },
-        { image: img.eventWelcome, caption: "Arrival on the estate" },
-        { image: img.eventCatering, caption: "Catered on the estate" },
-        { image: img.eventGuestsBackdrop, caption: "The occasion" },
-        { image: img.eventPodium, caption: "On stage" },
-        { image: img.eventToast, caption: "Together" },
-        { image: img.eventEvening, caption: "Into the evening" },
-        { image: img.eventLit, caption: "After dark" },
-        { image: img.eventHallSet, caption: "Set beneath the glass" },
-        { image: img.eventHallWarm, caption: "Ready for guests" },
-        { image: img.eventChandelier, caption: "Overhead" },
+        { image: img.eventDcharmontSet, caption: "D'Charmont, set for the day", position: "50% 42%" },
+        { image: img.eventHallStage, caption: "The grand hall, staged", position: "50% 50%" },
+        { image: img.eventWelcome, caption: "Arrival on the estate", position: "42% 50%" },
+        { image: img.eventCatering, caption: "Catered on the estate", position: "50% 45%" },
+        { image: img.eventGuestsBackdrop, caption: "The occasion", position: "50% 40%" },
+        { image: img.eventPodium, caption: "On stage", position: "50% 32%" },
+        { image: img.eventToast, caption: "Together", position: "50% 38%" },
+        { image: img.eventEvening, caption: "Into the evening", position: "50% 42%" },
+        { image: img.eventLit, caption: "After dark", position: "50% 38%" },
+        { image: img.eventHallSet, caption: "Set beneath the glass", position: "50% 50%" },
+        { image: img.eventHallWarm, caption: "Ready for guests", position: "50% 45%" },
+        { image: img.eventChandelier, caption: "Overhead", position: "50% 45%" },
       ],
     },
     midCta: {

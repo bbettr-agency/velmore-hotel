@@ -124,8 +124,19 @@ export const img = {
   voltaireSatre: { src: "/images/venues/velmore-voltaire-satre.jpg", alt: "The Voltaire & Satre boardroom at Velmoré — an executive meeting table" },
 
   // Conferences page — hero + "come and see it" backgrounds (real supplied assets)
-  conferencesHero: { src: "/images/conferences/velmore-conferences-hero.jpg", alt: "The D'Charmont glass hall at Velmoré set for an event beneath chandeliers and a glass roof" },
+  conferencesHero: { src: "/images/conferences/velmore-conferences-hero-2.jpg", alt: "The D'Charmont glass hall at Velmoré — a vast glass-walled event hall beneath chandeliers and a glazed roof" },
   conferencesEstate: { src: "/images/conferences/velmore-conferences-estate.jpg", alt: "An aerial view of the Velmoré estate — the building, formal gardens and fountain" },
+
+  // "Trusted by" logo marquee — organisations Velmoré has hosted. Derived
+  // transparent-background versions of the supplied logos (artwork unchanged;
+  // only non-transparent backgrounds removed). Rendered at a consistent height
+  // on the ivory marquee, so no boxes, borders or panels are needed.
+  logoExxaro: { src: "/images/conferences/velmore-logo-exarro.png", alt: "Exxaro" },
+  logoKitKat: { src: "/images/conferences/velmore-logo-kitkat.png", alt: "Kit Kat Cash and Carry" },
+  logoNsfIcm: { src: "/images/conferences/velmore-logo-nsf-icm.png", alt: "National Skills Fund · ICM" },
+  logoNomad: { src: "/images/conferences/velmore-logo-nomad.png", alt: "Nomad Coffee & Conversation" },
+  logoCrossBorder: { src: "/images/conferences/velmore-logo-cross-border.png", alt: "Cross-Border Road Transport Agency" },
+  logoTelkom: { src: "/images/conferences/velmore-logo-telkom.png", alt: "Telkom" },
 
   // Conferences "past events / real occasions" gallery — real event photography
   eventDcharmontSet: { src: "/images/conferences/velmore-event-dcharmont-set.jpg", alt: "A banquet table set with florals down the aisle of the D'Charmont glass hall at Velmoré" },

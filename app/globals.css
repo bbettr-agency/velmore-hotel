@@ -287,3 +287,31 @@
    motion/react) via <Reveal>/<Stagger>/heroStack — single easing curve, scroll-
    triggered, reduced-motion-safe (MotionProvider), LCP never animated. The old
    CSS `.reveal` classes were removed when the engine was adopted. */
+
+/* Trusted-by logo marquee — one continuous, seamless loop. The track holds two
+   identical groups and translates by exactly -50%, so the reset is invisible and
+   the strip keeps moving on hover. Under reduced motion it stops and becomes
+   horizontally scrollable instead — motion is never forced. */
+.vm-marquee {
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+          mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+}
+.vm-marquee__track { display: flex; width: max-content; animation: vm-marquee-scroll 26s linear infinite; }
+.vm-marquee__group {
+  display: flex; align-items: center; flex: 0 0 auto;
+  gap: 3.25rem; padding-inline: 1.625rem; margin: 0; list-style: none;
+}
+.vm-marquee__item { flex: 0 0 auto; display: flex; align-items: center; }
+.vm-marquee__logo { width: auto; height: 30px; object-fit: contain; }
+@media (min-width: 768px) {
+  .vm-marquee__group { gap: 4.25rem; padding-inline: 2.125rem; }
+  .vm-marquee__logo { height: 38px; }
+}
+@keyframes vm-marquee-scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+@media (prefers-reduced-motion: reduce) {
+  .vm-marquee { overflow-x: auto; -ms-overflow-style: none; scrollbar-width: none; }
+  .vm-marquee::-webkit-scrollbar { display: none; }
+  .vm-marquee__track { animation: none; }
+  .vm-marquee__group[aria-hidden="true"] { display: none; }
+}

@@ -4,16 +4,17 @@ import Image from "next/image";
 import { useCallback, useRef, useState } from "react";
 import type { Img } from "@/config/images";
 
-type Slide = { image: Img; caption?: string };
+type Slide = { image: Img; caption?: string; position?: string };
 
 /**
  * Past-events gallery — a premium, photography-led slider (real occasions on the
- * estate). One large frame, manual next/prev + swipe + keyboard, a counter and
- * slim progress dots. Images sit object-contain on a deep estate-green ground so
- * mixed portrait/landscape event photos never crop awkwardly. Restrained
- * crossfade (reduced-motion safe), NO autoplay. Performance: only the current
- * slide and its two neighbours are mounted, so the browser never loads all
- * frames at once; next/image handles responsive sizing + lazy loading.
+ * estate). One editorial frame, manual next/prev + swipe + keyboard, a counter
+ * and slim progress dots. Mixed portrait/landscape event photos fill the frame
+ * (object-cover) — no letterbox bars — with a per-slide object-position that
+ * keeps each subject in view. Restrained crossfade (reduced-motion safe), NO
+ * autoplay. Performance: only the current slide and its two neighbours are
+ * mounted, so the browser never loads all frames at once; next/image handles
+ * responsive sizing + lazy loading.
  */
 export function EventGallery({ items, label = "Past events at Velmoré" }: { items: readonly Slide[]; label?: string }) {
   const [i, setI] = useState(0);
@@ -32,7 +33,7 @@ export function EventGallery({ items, label = "Past events at Velmoré" }: { ite
   return (
     <div>
       <div
-        className="group relative overflow-hidden rounded-lg bg-estate-900 shadow-ink"
+        className="group relative overflow-hidden rounded-lg bg-estate-100 shadow-ink"
         role="group"
         aria-roledescription="carousel"
         aria-label={label}
@@ -46,7 +47,8 @@ export function EventGallery({ items, label = "Past events at Velmoré" }: { ite
           startX.current = null;
         }}
       >
-        {/* the frame — a large landscape stage; portraits letterbox elegantly on the estate ground */}
+        {/* the frame — one editorial stage; every photo fills it (object-cover), a
+            touch taller on mobile, wider on desktop. No letterbox bars. */}
         <div className="relative aspect-[4/3] w-full sm:aspect-[3/2]">
           {items.map((it, idx) =>
             near(idx) ? (
@@ -55,9 +57,10 @@ export function EventGallery({ items, label = "Past events at Velmoré" }: { ite
                 src={it.image.src}
                 alt={it.image.alt}
                 fill
-                sizes="(min-width: 1024px) 64vw, 100vw"
+                sizes="(min-width: 1024px) 60vw, 100vw"
                 priority={idx === 0}
-                className={`object-contain transition-opacity duration-500 ease-[cubic-bezier(.22,1,.36,1)] motion-reduce:transition-none ${
+                style={{ objectPosition: it.position ?? "50% 50%" }}
+                className={`object-cover transition-opacity duration-500 ease-[cubic-bezier(.22,1,.36,1)] motion-reduce:transition-none ${
                   idx === i ? "opacity-100" : "opacity-0"
                 }`}
               />

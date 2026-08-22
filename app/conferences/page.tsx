@@ -2,6 +2,7 @@ import { PageHero } from "@/components/sections/PageHero";
 import { Statement } from "@/components/sections/Statement";
 import { Faq } from "@/components/sections/Faq";
 import { CtaBand } from "@/components/sections/CtaBand";
+import { TrustedBy } from "@/components/conferences/TrustedBy";
 import { VenueExplorer } from "@/components/conferences/VenueExplorer";
 import { PastEvents } from "@/components/conferences/PastEvents";
 import { MoreThanVenue } from "@/components/conferences/MoreThanVenue";
@@ -23,6 +24,9 @@ export default function ConferencesPage() {
 
       {/* Hero → Book a Venue Viewing (#book-viewing) · Explore the Venues (#venues) */}
       <PageHero {...p.hero} />
+
+      {/* Trusted by — credibility strip: organisations the estate has hosted */}
+      <TrustedBy {...p.trustedBy} />
 
       {/* The venues — interactive explorer, directly below the hero (D'Charmont default) */}
       <VenueExplorer {...p.venuesIntro} venues={p.venues} />
