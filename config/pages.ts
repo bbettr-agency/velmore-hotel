@@ -25,8 +25,8 @@ export const pages = {
       title: "A conference for thirteen hundred, held by one team.", // INDICATIVE
       sub: "The largest hall in the area, executive breakaway rooms, fifty rooms for the night and a certified halal kitchen — one team, one invoice, from the first delegate to the last goodbye.", // INDICATIVE
       variant: "conferences" as const,
-      note: "Conference photography required · the 1,300-seat hall (shoot pending)",
-      image: img.conferenceHallSet,
+      note: "Conference hero · the D'Charmont glass hall set for an event",
+      image: img.conferencesHero,
       chips: [
         { label: "Up to 1,300 delegates" },
         { label: "50 rooms on the estate" },
@@ -35,17 +35,6 @@ export const pages = {
       ],
       primary: { label: "Book a Venue Viewing", href: "#book-viewing", cta: "book_viewing", location: "conferences_hero" },
       secondary: { label: "Explore the Venues", href: "#venues", cta: "explore_venues", location: "conferences_hero" },
-    },
-    // Immediate proof strip (dark band under the hero) — a 5-second read of the
-    // conference proposition. Confirmed facts only.
-    proof: {
-      items: [
-        { label: "1,300", note: "delegates, seated" },
-        { label: "6", note: "conference venues" },
-        { label: "50", note: "rooms on the estate" },
-        { label: "Halal", note: "certified catering" },
-        { label: "One", note: "point of contact" },
-      ],
     },
     statement: {
       eyebrow: "One team, one invoice",
@@ -137,10 +126,33 @@ export const pages = {
       },
     ],
     // Mid-page viewing prompt — the natural next step after the venue photography.
+    // Real occasions — visual proof gallery (first image = D'Charmont). Photography
+    // leads; captions are minimal. All images are real Velmoré event photography.
+    pastEvents: {
+      eyebrow: "Real occasions",
+      heading: "The spaces, in action.",
+      lead: "Set tables, full halls and the evenings that follow — real occasions on the estate, so you can picture your own.", // INDICATIVE
+      cta: { label: "Book a Venue Viewing", href: "#book-viewing" },
+      slides: [
+        { image: img.eventDcharmontSet, caption: "D'Charmont, set for the day" },
+        { image: img.eventHallStage, caption: "The grand hall, staged" },
+        { image: img.eventWelcome, caption: "Arrival on the estate" },
+        { image: img.eventCatering, caption: "Catered on the estate" },
+        { image: img.eventGuestsBackdrop, caption: "The occasion" },
+        { image: img.eventPodium, caption: "On stage" },
+        { image: img.eventToast, caption: "Together" },
+        { image: img.eventEvening, caption: "Into the evening" },
+        { image: img.eventLit, caption: "After dark" },
+        { image: img.eventHallSet, caption: "Set beneath the glass" },
+        { image: img.eventHallWarm, caption: "Ready for guests" },
+        { image: img.eventChandelier, caption: "Overhead" },
+      ],
+    },
     midCta: {
+      eyebrow: "Come and see it",
       heading: "Better seen in person.", // INDICATIVE
       body: "Walk the spaces, see the setups and find the venue that fits your conference — one team takes it from there.", // INDICATIVE
-      image: img.banquetScale,
+      image: img.conferencesEstate,
       primary: { label: "Book a Venue Viewing", href: "#book-viewing", cta: "book_viewing", location: "conferences_mid" },
     },
     // More than a venue — accommodation + certified-halal catering, compact.

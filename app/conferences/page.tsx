@@ -1,9 +1,9 @@
 import { PageHero } from "@/components/sections/PageHero";
 import { Statement } from "@/components/sections/Statement";
-import { SpecList } from "@/components/sections/SpecList";
 import { Faq } from "@/components/sections/Faq";
 import { CtaBand } from "@/components/sections/CtaBand";
 import { VenueExplorer } from "@/components/conferences/VenueExplorer";
+import { PastEvents } from "@/components/conferences/PastEvents";
 import { MoreThanVenue } from "@/components/conferences/MoreThanVenue";
 import { ViewingConversion } from "@/components/conferences/ViewingConversion";
 import { StickyViewingCta } from "@/components/conferences/StickyViewingCta";
@@ -24,21 +24,20 @@ export default function ConferencesPage() {
       {/* Hero → Book a Venue Viewing (#book-viewing) · Explore the Venues (#venues) */}
       <PageHero {...p.hero} />
 
-      {/* Immediate proof strip — confirmed facts only */}
-      <SpecList items={p.proof.items} tone="dark" columns={5} />
-
-      {/* One team / one point of contact — includes agency + direct-organiser positioning */}
-      <Statement {...p.statement} />
-
-      {/* Interactive venue explorer — one section, tabbed. The intro resolves the
-          1,300 figure (estate up to 500 · SCC up to 1,300). */}
+      {/* The venues — interactive explorer, directly below the hero (D'Charmont default) */}
       <VenueExplorer {...p.venuesIntro} venues={p.venues} />
 
-      {/* Mid-page viewing prompt */}
+      {/* Real occasions — photography-led event gallery (first image = D'Charmont) */}
+      <PastEvents {...p.pastEvents} />
+
+      {/* Come and see it — emotional viewing CTA break */}
       <CtaBand {...p.midCta} />
 
       {/* More than a venue — accommodation + certified-halal catering */}
       <MoreThanVenue {...p.moreThanVenue} />
+
+      {/* One team, one invoice — operational confidence + agency/direct-organiser positioning */}
+      <Statement {...p.statement} />
 
       {/* Objection handling */}
       <Faq {...p.faq} tone="mist" />

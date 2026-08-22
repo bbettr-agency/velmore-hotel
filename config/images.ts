@@ -122,6 +122,24 @@ export const img = {
   martels2: { src: "/images/venues/velmore-martels-2-entrance.jpg", alt: "The brick entrance portico of Martels at Velmoré" },
   vieuxCheval: { src: "/images/venues/velmore-vieux-cheval.jpg", alt: "The Vieux Cheval at Velmoré seen across the estate lawns" },
   voltaireSatre: { src: "/images/venues/velmore-voltaire-satre.jpg", alt: "The Voltaire & Satre boardroom at Velmoré — an executive meeting table" },
+
+  // Conferences page — hero + "come and see it" backgrounds (real supplied assets)
+  conferencesHero: { src: "/images/conferences/velmore-conferences-hero.jpg", alt: "The D'Charmont glass hall at Velmoré set for an event beneath chandeliers and a glass roof" },
+  conferencesEstate: { src: "/images/conferences/velmore-conferences-estate.jpg", alt: "An aerial view of the Velmoré estate — the building, formal gardens and fountain" },
+
+  // Conferences "past events / real occasions" gallery — real event photography
+  eventDcharmontSet: { src: "/images/conferences/velmore-event-dcharmont-set.jpg", alt: "A banquet table set with florals down the aisle of the D'Charmont glass hall at Velmoré" },
+  eventHallStage: { src: "/images/conferences/velmore-event-hall-stage.jpg", alt: "A grand chandeliered hall at Velmoré set with a stage for a function" },
+  eventWelcome: { src: "/images/conferences/velmore-event-welcome.jpg", alt: "The 'Velmoré welcomes you' entrance signage dressed with florals for an event" },
+  eventCatering: { src: "/images/conferences/velmore-event-catering.jpg", alt: "Guests served at a catering station during a function at Velmoré" },
+  eventGuestsBackdrop: { src: "/images/conferences/velmore-event-guests-backdrop.jpg", alt: "Guests at a Velmoré function beside the event backdrop" },
+  eventPodium: { src: "/images/conferences/velmore-event-podium.jpg", alt: "A speaker at the podium during a conference at Velmoré, stage lit behind" },
+  eventToast: { src: "/images/conferences/velmore-event-toast.jpg", alt: "Guests gathered together at a celebration on the Velmoré estate" },
+  eventEvening: { src: "/images/conferences/velmore-event-evening.jpg", alt: "The glass hall at Velmoré set and lit for an evening event" },
+  eventLit: { src: "/images/conferences/velmore-event-lit.jpg", alt: "An evening event at Velmoré under warm and coloured lighting" },
+  eventHallSet: { src: "/images/conferences/velmore-event-hall-set.jpg", alt: "The glass hall at Velmoré set with tables beneath the chandeliers" },
+  eventHallWarm: { src: "/images/conferences/velmore-event-hall-warm.jpg", alt: "The glass hall at Velmoré set with tables and chairs in warm light" },
+  eventChandelier: { src: "/images/conferences/velmore-event-chandelier.jpg", alt: "A chandelier in the glass roof of the D'Charmont hall at Velmoré" },
 } as const;
 
 export type ImgKey = keyof typeof img;
