@@ -2,13 +2,19 @@
 
 import { useEffect, useState } from "react";
 import { site } from "@/config/site";
-import { submitEnquiry } from "@/lib/enquiry";
 import { Reveal } from "@/components/motion/Reveal";
 
 const ORGANISING = ["For my organisation", "For a client / Event agency", "Other"];
 const CONFERENCE_TYPE = ["Day conference", "Residential conference", "Unsure"];
 const DELEGATES = ["Under 50", "50–150", "150–400", "400+", "Unsure"];
 const ACCOMMODATION = ["Yes", "No", "Unsure"];
+
+// GHL / LeadConnector inbound webhook — the viewing-request lead destination.
+// Separate from the contact-form webhook so viewings run on their own GHL
+// workflow. Public inbound webhook (not a secret); env override supported.
+const GHL_VIEWING_WEBHOOK =
+  process.env.NEXT_PUBLIC_GHL_VIEWING_WEBHOOK ||
+  "https://services.leadconnectorhq.com/hooks/yxytqQ4pB8M4Z4yrTIAP/webhook-trigger/75a666fe-e13d-4260-a7df-4bb50963e20c";
 
 type Status = "idle" | "submitting" | "success";
 
@@ -62,15 +68,33 @@ export function ViewingConversion({
       .join("\n");
     const subject = `Venue viewing request — ${v.company || `${v.firstName} ${v.lastName}`.trim()}`;
     try {
-      await submitEnquiry({
-        firstName: v.firstName,
-        lastName: v.lastName,
-        email: v.email,
-        phone: v.phone,
-        company: v.company,
-        subject,
-        message,
+      // PRIMARY — GoHighLevel viewing webhook. Send the structured fields (so a
+      // GHL workflow can map/notify on each one) plus a ready-to-read summary.
+      const res = await fetch(GHL_VIEWING_WEBHOOK, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          firstName: v.firstName,
+          lastName: v.lastName,
+          name: `${v.firstName} ${v.lastName}`.trim(),
+          email: v.email,
+          phone: v.phone,
+          company: v.company,
+          organisingAs: v.organisingAs,
+          preferredViewing: v.preferredViewing,
+          venueOfInterest: v.venueOfInterest,
+          conferenceType: v.conferenceType,
+          delegates: v.delegates,
+          eventDate: v.eventDate,
+          accommodation: v.accommodation,
+          message: v.message,
+          summary: message,
+          subject,
+          source: "Velmoré website — conference viewing request",
+          page: typeof window !== "undefined" ? window.location.href : "",
+        }),
       });
+      if (!res.ok) throw new Error("GHL viewing webhook failed");
       setStatus("success");
     } catch {
       // never lose a request — fall back to a prefilled email
