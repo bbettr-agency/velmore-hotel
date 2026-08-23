@@ -19,7 +19,7 @@ const OCCASIONS = ["Wedding", "Conference", "Event / function", "Stay", "Spa", "
 // inbound webhook (not a secret); env override supported for future changes.
 const GHL_WEBHOOK =
   process.env.NEXT_PUBLIC_GHL_WEBHOOK_URL ||
-  "https://services.leadconnectorhq.com/hooks/yxytqQ4pB8M4Z4yrTIAP/webhook-trigger/c5dc931b-c196-443d-a1b6-18ee79f88d95";
+  "https://services.leadconnectorhq.com/hooks/yxytqQ4pB8M4Z4yrTIAP/webhook-trigger/cc2b8e0c-5f62-43f9-8cff-171d6b5531b8";
 
 const PORTAL_ID = process.env.NEXT_PUBLIC_HUBSPOT_PORTAL_ID;
 const FORM_ID = process.env.NEXT_PUBLIC_HUBSPOT_FORM_ID;
