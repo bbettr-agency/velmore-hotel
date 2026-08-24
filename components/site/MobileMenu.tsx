@@ -15,11 +15,15 @@ import { isActivePath } from "@/components/site/Nav";
 export function MobileMenu({
   items = site.nav,
   pathname = "/",
+  ctaHref = site.cta.primary.href,
 }: {
   items?: readonly { label: string; href: string }[];
   pathname?: string;
+  ctaHref?: string;
 }) {
   const [open, setOpen] = useState(false);
+  const ctaClass =
+    "mt-8 inline-flex items-center justify-center gap-2 rounded-md bg-champagne px-6 py-[15px] text-[15px] font-semibold text-ink shadow-accent";
 
   return (
     <div className="lg:hidden">
@@ -62,15 +66,27 @@ export function MobileMenu({
               );
             })}
           </nav>
-          <Link
-            href={site.cta.primary.href}
-            onClick={() => setOpen(false)}
-            data-cta="book_viewing"
-            data-location="mobile_menu"
-            className="mt-8 inline-flex items-center justify-center gap-2 rounded-md bg-champagne px-6 py-[15px] text-[15px] font-semibold text-ink shadow-accent"
-          >
-            {site.cta.primary.label} →
-          </Link>
+          {ctaHref.startsWith("#") ? (
+            <a
+              href={ctaHref}
+              onClick={() => setOpen(false)}
+              data-cta="book_viewing"
+              data-location="mobile_menu"
+              className={ctaClass}
+            >
+              {site.cta.primary.label} →
+            </a>
+          ) : (
+            <Link
+              href={ctaHref}
+              onClick={() => setOpen(false)}
+              data-cta="book_viewing"
+              data-location="mobile_menu"
+              className={ctaClass}
+            >
+              {site.cta.primary.label} →
+            </Link>
+          )}
           <p className="mt-6 text-[13px] text-ivory/60">{site.cta.reassurance}</p>
         </div>
       ) : null}

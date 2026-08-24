@@ -17,6 +17,10 @@ export function Nav() {
   // Away from the homepage, surface an explicit Home link so visitors never have
   // to rely on the logo or the back button. The logo also always routes to "/".
   const items = onHome ? site.nav : [{ label: "Home", href: "/" }, ...site.nav];
+  // On the conferences landing page every "Book a viewing" CTA feeds the on-page
+  // viewing form (#book-viewing); keep the nav CTA consistent so paid traffic
+  // isn't leaked off-funnel to the generic /contact form. Other pages unchanged.
+  const bookingHref = pathname === "/conferences" ? "#book-viewing" : site.cta.primary.href;
 
   return (
     <nav
@@ -50,14 +54,27 @@ export function Nav() {
         })}
       </ul>
 
-      <Link
-        href={site.cta.primary.href}
-        className="hidden rounded-md bg-champagne px-5 py-[11px] text-[13px] font-semibold text-ink shadow-accent transition-colors hover:bg-champagne-dark sm:inline-block"
-      >
-        {site.cta.primary.label}
-      </Link>
+      {bookingHref.startsWith("#") ? (
+        <a
+          href={bookingHref}
+          data-cta="book_viewing"
+          data-location="nav"
+          className="hidden rounded-md bg-champagne px-5 py-[11px] text-[13px] font-semibold text-ink shadow-accent transition-colors hover:bg-champagne-dark sm:inline-block"
+        >
+          {site.cta.primary.label}
+        </a>
+      ) : (
+        <Link
+          href={bookingHref}
+          data-cta="book_viewing"
+          data-location="nav"
+          className="hidden rounded-md bg-champagne px-5 py-[11px] text-[13px] font-semibold text-ink shadow-accent transition-colors hover:bg-champagne-dark sm:inline-block"
+        >
+          {site.cta.primary.label}
+        </Link>
+      )}
 
-      <MobileMenu items={items} pathname={pathname} />
+      <MobileMenu items={items} pathname={pathname} ctaHref={bookingHref} />
     </nav>
   );
 }

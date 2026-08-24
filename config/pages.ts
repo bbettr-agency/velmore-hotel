@@ -28,7 +28,9 @@ export const pages = {
       note: "Conference hero · the D'Charmont glass hall set for an event",
       image: img.conferencesHero,
       chips: [
-        { label: "Up to 1,300 delegates" },
+        // 1,300 is the Suleman Convention Centre (1.5km away), not an on-estate
+        // hall — attribute it here so a cold skimmer can't read it as D'Charmont.
+        { label: "Up to 1,300 · Convention Centre" },
         { label: "50 rooms on the estate" },
         { label: "Certified Halal", badge: true },
         { label: "Pretoria & Centurion" },
