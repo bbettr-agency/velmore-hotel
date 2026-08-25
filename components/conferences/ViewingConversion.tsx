@@ -10,8 +10,9 @@ import { captureAttribution, getAttribution } from "@/lib/attribution";
 const EVENT_TYPES = [
   "Conference",
   "Corporate event",
+  "Government event / function",
   "Wedding",
-  "Private function",
+  "Private function / event",
   "Birthday / celebration",
   "Matric farewell",
   "Awards / gala event",
@@ -83,7 +84,7 @@ export function ViewingConversion({
       `Preferred viewing: ${v.preferredViewing}`,
       v.conferenceType ? `Conference type: ${v.conferenceType}` : "",
       v.eventDate ? `Approx. event date: ${v.eventDate}` : "",
-      v.delegates ? `Estimated delegates: ${v.delegates}` : "",
+      v.delegates ? `Estimated guests / delegates: ${v.delegates}` : "",
       v.accommodation ? `Accommodation required: ${v.accommodation}` : "",
       "",
       v.message,
@@ -106,7 +107,9 @@ export function ViewingConversion({
       preferredViewing: v.preferredViewing,
       venueOfInterest: v.venueOfInterest,
       conferenceType: v.conferenceType,
-      delegates: v.delegates,
+      // Standardised shared key (was `delegates`) — the form input name stays
+      // `delegates`, only the outgoing webhook key is standardised.
+      estimatedGuests: v.delegates,
       eventDate: v.eventDate,
       accommodation: v.accommodation,
       message: v.message,
@@ -260,7 +263,7 @@ export function ViewingConversion({
                   </select>
                 </div>
                 <div>
-                  <label htmlFor="v-delegates" className={label}>Estimated delegates</label>
+                  <label htmlFor="v-delegates" className={label}>Estimated guests / delegates</label>
                   <select id="v-delegates" name="delegates" defaultValue="" className={field}>
                     <option value="">Choose…</option>
                     {DELEGATES.map((o) => (

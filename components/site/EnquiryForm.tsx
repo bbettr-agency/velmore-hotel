@@ -13,7 +13,19 @@ import { site } from "@/config/site";
  *  2. If that fails and HubSpot IDs are configured, POST to the HubSpot Forms API.
  *  3. Otherwise fall back to a pre-filled mailto to the confirmed enquiry inbox.
  */
-const OCCASIONS = ["Wedding", "Conference", "Event / function", "Stay", "Spa", "Other"];
+// Canonical eventType values (shared with the conferences form) so GHL can route
+// a single, unambiguous set. The old "Event / function" was split into corporate /
+// government / private so the visitor makes the routing distinction for us.
+const OCCASIONS = [
+  "Wedding",
+  "Conference",
+  "Corporate event",
+  "Government event / function",
+  "Private function / event",
+  "Accommodation / Stay",
+  "Spa",
+  "Other",
+];
 
 // GHL / LeadConnector inbound webhook — the primary lead destination. Public
 // inbound webhook (not a secret); env override supported for future changes.
@@ -39,9 +51,12 @@ export function EnquiryForm() {
         name: `${v.firstName} ${v.lastName}`.trim(),
         email: v.email,
         phone: v.phone,
-        enquiryType: v.occasion,
-        preferredDate: v.date,
-        guests: v.guests,
+        // Standardised core keys (shared with the conferences form) so GHL maps
+        // one clean set of custom fields. Form input names (occasion/date/guests)
+        // are unchanged; only the outgoing webhook keys are standardised.
+        eventType: v.occasion,
+        eventDate: v.date,
+        estimatedGuests: v.guests,
         message: v.message,
         source: "Velmoré website — contact form",
         page: typeof window !== "undefined" ? window.location.href : "",
