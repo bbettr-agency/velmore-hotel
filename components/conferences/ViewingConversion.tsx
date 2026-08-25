@@ -3,7 +3,21 @@
 import { useEffect, useState } from "react";
 import { site } from "@/config/site";
 import { Reveal } from "@/components/motion/Reveal";
+import { captureAttribution, getAttribution } from "@/lib/attribution";
 
+// Qualifies the visitor's intent up front so leads can be routed in GHL. Broad
+// enough for all three Meta carousel angles (estate / glass hall / outdoor).
+const EVENT_TYPES = [
+  "Conference",
+  "Corporate event",
+  "Wedding",
+  "Private function",
+  "Birthday / celebration",
+  "Matric farewell",
+  "Awards / gala event",
+  "Outdoor event",
+  "Other",
+];
 const ORGANISING = ["For my organisation", "For a client / Event agency", "Other"];
 const CONFERENCE_TYPE = ["Day conference", "Residential conference", "Unsure"];
 const DELEGATES = ["Under 50", "50–150", "150–400", "400+", "Unsure"];
@@ -46,6 +60,11 @@ export function ViewingConversion({
     window.addEventListener("velmore:venue", onVenue as EventListener);
     return () => window.removeEventListener("velmore:venue", onVenue as EventListener);
   }, []);
+  // Capture Meta/campaign attribution on landing (first-touch, session-persisted)
+  // so it survives page interaction and rides along on the webhook submission.
+  useEffect(() => {
+    captureAttribution();
+  }, []);
 
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -54,6 +73,7 @@ export function ViewingConversion({
     setStatus("submitting");
     const message = [
       "Venue viewing request",
+      v.eventType ? `Planning: ${v.eventType}` : "",
       v.venueOfInterest ? `Venue of interest: ${v.venueOfInterest}` : "",
       `Organising as: ${v.organisingAs}`,
       `Preferred viewing: ${v.preferredViewing}`,
@@ -80,6 +100,7 @@ export function ViewingConversion({
           email: v.email,
           phone: v.phone,
           company: v.company,
+          eventType: v.eventType,
           organisingAs: v.organisingAs,
           preferredViewing: v.preferredViewing,
           venueOfInterest: v.venueOfInterest,
@@ -92,6 +113,9 @@ export function ViewingConversion({
           subject,
           source: "Velmoré website — conference viewing request",
           page: typeof window !== "undefined" ? window.location.href : "",
+          // Meta / campaign attribution (flat keys) — utm_source/medium/campaign/
+          // content/term + fbclid, first-touch from the landing URL.
+          ...getAttribution(),
         }),
       });
       if (!res.ok) throw new Error("GHL viewing webhook failed");
@@ -161,6 +185,15 @@ export function ViewingConversion({
                   <span><span className="font-semibold">Viewing:</span> {venue}</span>
                 </p>
               ) : null}
+              <div className="mb-5">
+                <label htmlFor="v-eventType" className={label}>What are you planning?{req}</label>
+                <select id="v-eventType" name="eventType" required defaultValue="" className={field}>
+                  <option value="" disabled>Choose…</option>
+                  {EVENT_TYPES.map((o) => (
+                    <option key={o} value={o}>{o}</option>
+                  ))}
+                </select>
+              </div>
               <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
                 <div>
                   <label htmlFor="v-firstName" className={label}>First name{req}</label>

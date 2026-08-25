@@ -39,6 +39,7 @@ export function PageHero({
   secondary,
   chips,
   reassurance,
+  align = "left",
 }: {
   eyebrow: string;
   title: string;
@@ -50,12 +51,16 @@ export function PageHero({
   secondary?: Cta;
   chips?: readonly { label: string; badge?: boolean }[];
   reassurance?: string;
+  /** Content alignment. Default left; "center" gives a cinematic, centred stack
+   *  (opt-in per page — used by /conferences for the broadened campaign traffic). */
+  align?: "left" | "center";
 }) {
   const hero0 = heroStack({ character: MOTION_CHARACTER });
+  const center = align === "center";
   return (
     <>
       <Nav />
-      <header className="relative flex min-h-[76vh] items-end overflow-hidden text-ivory [isolation:isolate]">
+      <header className={`relative flex min-h-[76vh] overflow-hidden text-ivory [isolation:isolate] ${center ? "items-center" : "items-end"}`}>
         <Placeholder variant={variant} image={image} sizes="100vw" priority />
         <div aria-hidden className="absolute inset-0 page-scrim" />
         <div aria-hidden className="absolute inset-0 page-vignette" />
@@ -63,50 +68,55 @@ export function PageHero({
           <span className="absolute right-5 top-[92px] z-[5] text-[9px] uppercase tracking-[.1em] text-white/45">{note}</span>
         )}
 
-        <div className="relative mx-auto w-full max-w-container px-6 pb-16 pt-32 md:px-12 md:pb-20">
-          <Reveal as="p" {...hero0.step(0)} className="flex items-center gap-3 text-[11.5px] font-semibold uppercase tracking-[.30em] text-champagne-light">
-            <span aria-hidden className="h-px w-[34px] bg-champagne" />
-            {eyebrow}
-          </Reveal>
-          <h1 {...hero0.lcp} className="mt-5 max-w-[18ch] font-serif text-[40px] font-semibold leading-[1.04] tracking-[-.015em] text-white [text-shadow:0_2px_40px_rgba(0,0,0,.35)] sm:text-[52px] md:text-[62px]">
-            {title}
-          </h1>
-          {sub ? (
-            <Reveal as="p" {...hero0.step(1)} className="mt-5 max-w-[54ch] text-[15.5px] leading-[1.6] text-ivory/90 md:text-[17px]">{sub}</Reveal>
-          ) : null}
-
-          {chips && chips.length ? (
-            <Reveal as="ul" {...hero0.step(2)} className="mt-6 flex flex-wrap items-center gap-x-5 gap-y-[10px]">
-              {chips.map((c) =>
-                c.badge ? (
-                  <li key={c.label}>
-                    <span className="inline-flex items-center gap-[7px] rounded-full border border-champagne px-[13px] py-[5px] text-[11.5px] font-semibold uppercase tracking-[.04em] text-champagne-light">
-                      <Check />
-                      {c.label}
-                    </span>
-                  </li>
-                ) : (
-                  <li key={c.label} className="flex items-center gap-[9px] text-[12.5px] text-ivory/90">
-                    <span aria-hidden className="h-1 w-1 rounded-full bg-champagne" />
-                    {c.label}
-                  </li>
-                ),
-              )}
+        <div className={`relative mx-auto w-full max-w-container px-6 md:px-12 ${center ? "py-28 text-center md:py-32" : "pb-16 pt-32 md:pb-20"}`}>
+          {/* In centre mode a flex column centres the whole content group; left mode
+              uses display:contents so the stack is byte-identical to before. */}
+          <div className={center ? "mx-auto flex max-w-[52rem] flex-col items-center" : "contents"}>
+            <Reveal as="p" {...hero0.step(0)} className={`flex items-center gap-3 text-[11.5px] font-semibold uppercase tracking-[.30em] text-champagne-light ${center ? "justify-center" : ""}`}>
+              <span aria-hidden className="h-px w-[34px] bg-champagne" />
+              {eyebrow}
+              {center ? <span aria-hidden className="h-px w-[34px] bg-champagne" /> : null}
             </Reveal>
-          ) : null}
-
-          <Reveal {...hero0.step(3)} className="mt-8 flex flex-wrap items-center gap-[14px]">
-            <Button href={primary.href} variant="primary" track={{ cta: primary.cta, location: primary.location }}>
-              {primary.label}
-              <Arrow />
-            </Button>
-            {secondary ? (
-              <Button href={secondary.href} variant="secondary" track={{ cta: secondary.cta, location: secondary.location }}>
-                {secondary.label}
-              </Button>
+            <h1 {...hero0.lcp} className={`mt-5 font-serif text-[40px] font-semibold leading-[1.04] tracking-[-.015em] text-white [text-shadow:0_2px_40px_rgba(0,0,0,.35)] sm:text-[52px] md:text-[62px] ${center ? "max-w-[22ch] text-balance whitespace-pre-line" : "max-w-[18ch]"}`}>
+              {title}
+            </h1>
+            {sub ? (
+              <Reveal as="p" {...hero0.step(1)} className="mt-5 max-w-[54ch] text-[15.5px] leading-[1.6] text-ivory/90 md:text-[17px]">{sub}</Reveal>
             ) : null}
-          </Reveal>
-          {reassurance ? <Reveal as="p" {...hero0.step(4)} className="mt-[14px] text-[11.5px] tracking-[.01em] text-ivory/60">{reassurance}</Reveal> : null}
+
+            {chips && chips.length ? (
+              <Reveal as="ul" {...hero0.step(2)} className={`mt-6 flex flex-wrap items-center gap-x-5 gap-y-[10px] ${center ? "justify-center" : ""}`}>
+                {chips.map((c) =>
+                  c.badge ? (
+                    <li key={c.label}>
+                      <span className="inline-flex items-center gap-[7px] rounded-full border border-champagne px-[13px] py-[5px] text-[11.5px] font-semibold uppercase tracking-[.04em] text-champagne-light">
+                        <Check />
+                        {c.label}
+                      </span>
+                    </li>
+                  ) : (
+                    <li key={c.label} className="flex items-center gap-[9px] text-[12.5px] text-ivory/90">
+                      <span aria-hidden className="h-1 w-1 rounded-full bg-champagne" />
+                      {c.label}
+                    </li>
+                  ),
+                )}
+              </Reveal>
+            ) : null}
+
+            <Reveal {...hero0.step(3)} className={`mt-8 flex flex-wrap items-center gap-[14px] ${center ? "justify-center" : ""}`}>
+              <Button href={primary.href} variant="primary" track={{ cta: primary.cta, location: primary.location }}>
+                {primary.label}
+                <Arrow />
+              </Button>
+              {secondary ? (
+                <Button href={secondary.href} variant="secondary" track={{ cta: secondary.cta, location: secondary.location }}>
+                  {secondary.label}
+                </Button>
+              ) : null}
+            </Reveal>
+            {reassurance ? <Reveal as="p" {...hero0.step(4)} className="mt-[14px] text-[11.5px] tracking-[.01em] text-ivory/60">{reassurance}</Reveal> : null}
+          </div>
         </div>
       </header>
     </>

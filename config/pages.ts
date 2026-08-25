@@ -21,9 +21,15 @@ const alluraSpa = "https://www.alluradayspa.com/";
 export const pages = {
   conferences: {
     hero: {
-      eyebrow: "Conferences & residential events",
-      title: "A conference for thirteen hundred, held by one team.", // INDICATIVE
-      sub: "The largest hall in the area, executive breakaway rooms, fifty rooms for the night and a certified halal kitchen — one team, one invoice, from the first delegate to the last goodbye.", // INDICATIVE
+      // Broadened for the Meta campaign: the same page now receives estate-general,
+      // glass-hall and outdoor-events traffic, so the hero speaks to every kind of
+      // gathering while still leading with venues/events (accommodation supports it).
+      align: "center" as const,
+      eyebrow: "Velmoré Estate · Pretoria",
+      // Line break is intentional (centred hero renders it via whitespace-pre-line):
+      // "One estate." / "Every kind of gathering." reads as two clean statements.
+      title: "One estate.\nEvery kind of gathering.",
+      sub: "From corporate conferences and awards evenings to private functions and celebrations, discover flexible venues across Velmoré Estate.", // INDICATIVE
       variant: "conferences" as const,
       note: "Conference hero · the D'Charmont glass hall set for an event",
       image: img.conferencesHero,
@@ -31,12 +37,12 @@ export const pages = {
         // 1,300 is the Suleman Convention Centre (1.5km away), not an on-estate
         // hall — attribute it here so a cold skimmer can't read it as D'Charmont.
         { label: "Up to 1,300 · Convention Centre" },
-        { label: "50 rooms on the estate" },
+        { label: "6 venues" },
+        { label: "50 hotel rooms" },
         { label: "Certified Halal", badge: true },
-        { label: "Pretoria & Centurion" },
       ],
-      primary: { label: "Book a Venue Viewing", href: "#book-viewing", cta: "book_viewing", location: "conferences_hero" },
-      secondary: { label: "Explore the Venues", href: "#venues", cta: "explore_venues", location: "conferences_hero" },
+      primary: { label: "Explore the venues", href: "#venues", cta: "explore_venues", location: "conferences_hero" },
+      secondary: { label: "Plan your event", href: "#book-viewing", cta: "book_viewing", location: "conferences_hero" },
     },
     // Trusted-by marquee — a restrained credibility strip directly below the hero.
     // Wording is a plain statement of fact (organisations whose events the estate
@@ -47,15 +53,15 @@ export const pages = {
     },
     statement: {
       eyebrow: "One team, one invoice",
-      heading: "A government or corporate conference arrives to one point of contact — not a dozen suppliers.", // INDICATIVE
-      lead: "From the first enquiry to the last delegate leaving, the same team plans it, runs it and invoices it — no coordinating between caterers, venues and hotels. Planning in-house or sourcing on behalf of a client, it's the same one team from the first walkthrough to event day: Velmoré works with corporate organisers and professional event partners alike.", // INDICATIVE
+      heading: "A conference, wedding or corporate event arrives to one point of contact — not a dozen suppliers.", // INDICATIVE
+      lead: "From the first enquiry to the last guest leaving, the same team plans it, runs it and invoices it — no coordinating between caterers, venues and hotels. Planning in-house or sourcing on behalf of a client, it's the same one team from the first walkthrough to event day: Velmoré works with corporate organisers, private hosts and professional event partners alike.", // INDICATIVE
     },
     venuesIntro: {
       eyebrow: "The venues",
       heading: "Explore the spaces.",
       // Compactly resolves the 1,300 figure: estate venues up to 500, plus the
       // Suleman Convention Centre for the largest events (confirmed BKB facts).
-      lead: "Six settings on and around the estate host up to 500 guests — with capacity for up to 1,300 delegates at the Suleman Convention Centre, a kilometre and a half away. Each is held by the same team, on one invoice.", // INDICATIVE
+      lead: "Six settings on and around the estate host up to 500 guests — with capacity for up to 1,300 at the Suleman Convention Centre, a kilometre and a half away. Each is held by the same team, on one invoice.", // INDICATIVE
     },
     // Per-venue photography (exterior-first where an exterior exists). Copy is
     // deliberately restrained: only confirmed capacities (BKB registry) appear as
@@ -139,8 +145,8 @@ export const pages = {
     // leads; captions are minimal. All images are real Velmoré event photography.
     pastEvents: {
       eyebrow: "Real occasions",
-      heading: "The spaces, in action.",
-      lead: "Set tables, full halls and the evenings that follow — real occasions on the estate, so you can picture your own.", // INDICATIVE
+      heading: "See how Velmoré comes to life.",
+      lead: "Conferences, weddings, awards evenings, functions and celebrations — explore real occasions hosted across the estate.", // INDICATIVE
       cta: { label: "Book a Venue Viewing", href: "#book-viewing" },
       // Per-slide object-position: images fill the frame (object-cover), so the
       // focal point is nudged where a centre crop would otherwise clip a subject
@@ -163,7 +169,7 @@ export const pages = {
     midCta: {
       eyebrow: "Come and see it",
       heading: "Better seen in person.", // INDICATIVE
-      body: "Walk the spaces, see the setups and find the venue that fits your conference — one team takes it from there.", // INDICATIVE
+      body: "Walk the spaces, see the setups and find the venue that fits your event — one team takes it from there.", // INDICATIVE
       image: img.conferencesEstate,
       primary: { label: "Book a Venue Viewing", href: "#book-viewing", cta: "book_viewing", location: "conferences_mid" },
     },
@@ -171,12 +177,12 @@ export const pages = {
     moreThanVenue: {
       eyebrow: "More than a venue",
       heading: "Conference. Dinner. Stay. Breakfast. All on one estate.",
-      lead: "For multi-day and residential programmes, delegates never have to leave — accommodation and a certified-halal kitchen are on the estate, held by the same team.", // INDICATIVE
+      lead: "For multi-day programmes and celebrations, guests never have to leave — accommodation and a certified-halal kitchen are on the estate, held by the same team.", // INDICATIVE
       cards: [
         {
           eyebrow: "Stay on the estate",
           heading: "Fifty rooms, a short walk from the hall.",
-          body: "Multi-day programmes keep delegates on the grounds — no shuttle to a separate hotel, and a start that begins with breakfast, not a commute.", // INDICATIVE
+          body: "Multi-day programmes and celebrations keep guests on the grounds — no shuttle to a separate hotel, and a start that begins with breakfast, not a commute.", // INDICATIVE
           image: img.deluxeRoomView,
           link: { label: "View accommodation", href: routes.accommodation.href },
         },
@@ -190,7 +196,7 @@ export const pages = {
     },
     faq: {
       eyebrow: "The practical answers",
-      heading: "What conference organisers ask first.",
+      heading: "What event organisers ask first.",
       items: [
         {
           q: "How many delegates can you seat?",

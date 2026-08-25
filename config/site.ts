@@ -25,7 +25,7 @@ export const routes = {
     title: "Conferences",
     eyebrow: "Residential conferencing",
     blurb:
-      "One site, one team, one invoice — a 1,300-seat hall, executive breakout rooms and 50 beds, with a certified halal kitchen, in Pretoria & Centurion.",
+      "One estate, one team, one invoice — venues for conferences, corporate events, functions and celebrations, with a 1,300-seat Convention Centre, 50 rooms and a certified halal kitchen, in Pretoria & Centurion.",
   },
   accommodation: {
     href: "/accommodation",
