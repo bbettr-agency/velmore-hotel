@@ -23,12 +23,16 @@ const CONFERENCE_TYPE = ["Day conference", "Residential conference", "Unsure"];
 const DELEGATES = ["Under 50", "50–150", "150–400", "400+", "Unsure"];
 const ACCOMMODATION = ["Yes", "No", "Unsure"];
 
-// GHL / LeadConnector inbound webhook — the viewing-request lead destination.
-// Separate from the contact-form webhook so viewings run on their own GHL
-// workflow. Public inbound webhook (not a secret); env override supported.
-const GHL_VIEWING_WEBHOOK =
+// GHL / LeadConnector inbound webhooks — the viewing-request lead destinations.
+// Every submission is delivered to BOTH webhooks in parallel (two independent
+// GHL workflows each receive the full lead). Separate from the contact-form
+// webhook. Public inbound webhooks (not secrets); each is env-overridable.
+const GHL_VIEWING_WEBHOOKS = [
   process.env.NEXT_PUBLIC_GHL_VIEWING_WEBHOOK ||
-  "https://services.leadconnectorhq.com/hooks/yxytqQ4pB8M4Z4yrTIAP/webhook-trigger/75a666fe-e13d-4260-a7df-4bb50963e20c";
+    "https://services.leadconnectorhq.com/hooks/yxytqQ4pB8M4Z4yrTIAP/webhook-trigger/75a666fe-e13d-4260-a7df-4bb50963e20c",
+  process.env.NEXT_PUBLIC_GHL_VIEWING_WEBHOOK_2 ||
+    "https://services.leadconnectorhq.com/hooks/yxytqQ4pB8M4Z4yrTIAP/webhook-trigger/d2279152-c84d-4b21-8d6c-58c7fe9524af",
+];
 
 type Status = "idle" | "submitting" | "success";
 
@@ -87,38 +91,48 @@ export function ViewingConversion({
       .filter(Boolean)
       .join("\n");
     const subject = `Venue viewing request — ${v.company || `${v.firstName} ${v.lastName}`.trim()}`;
+    // Structured fields (so each GHL workflow can map/notify on them) plus a
+    // ready-to-read summary and first-touch Meta attribution — sent to both
+    // webhooks as one identical payload.
+    const payload = JSON.stringify({
+      firstName: v.firstName,
+      lastName: v.lastName,
+      name: `${v.firstName} ${v.lastName}`.trim(),
+      email: v.email,
+      phone: v.phone,
+      company: v.company,
+      eventType: v.eventType,
+      organisingAs: v.organisingAs,
+      preferredViewing: v.preferredViewing,
+      venueOfInterest: v.venueOfInterest,
+      conferenceType: v.conferenceType,
+      delegates: v.delegates,
+      eventDate: v.eventDate,
+      accommodation: v.accommodation,
+      message: v.message,
+      summary: message,
+      subject,
+      source: "Velmoré website — conference viewing request",
+      page: typeof window !== "undefined" ? window.location.href : "",
+      // Meta / campaign attribution (flat keys) — utm_source/medium/campaign/
+      // content/term + fbclid, first-touch from the landing URL.
+      ...getAttribution(),
+    });
     try {
-      // PRIMARY — GoHighLevel viewing webhook. Send the structured fields (so a
-      // GHL workflow can map/notify on each one) plus a ready-to-read summary.
-      const res = await fetch(GHL_VIEWING_WEBHOOK, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          firstName: v.firstName,
-          lastName: v.lastName,
-          name: `${v.firstName} ${v.lastName}`.trim(),
-          email: v.email,
-          phone: v.phone,
-          company: v.company,
-          eventType: v.eventType,
-          organisingAs: v.organisingAs,
-          preferredViewing: v.preferredViewing,
-          venueOfInterest: v.venueOfInterest,
-          conferenceType: v.conferenceType,
-          delegates: v.delegates,
-          eventDate: v.eventDate,
-          accommodation: v.accommodation,
-          message: v.message,
-          summary: message,
-          subject,
-          source: "Velmoré website — conference viewing request",
-          page: typeof window !== "undefined" ? window.location.href : "",
-          // Meta / campaign attribution (flat keys) — utm_source/medium/campaign/
-          // content/term + fbclid, first-touch from the landing URL.
-          ...getAttribution(),
-        }),
-      });
-      if (!res.ok) throw new Error("GHL viewing webhook failed");
+      // Deliver to BOTH GoHighLevel viewing webhooks in parallel (two independent
+      // workflows). Success if at least one accepts it; only if both fail do we
+      // fall back to a prefilled email so a request is never lost.
+      const results = await Promise.allSettled(
+        GHL_VIEWING_WEBHOOKS.map((url) =>
+          fetch(url, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: payload,
+          }),
+        ),
+      );
+      const anyOk = results.some((r) => r.status === "fulfilled" && r.value.ok);
+      if (!anyOk) throw new Error("all GHL viewing webhooks failed");
       setStatus("success");
     } catch {
       // never lose a request — fall back to a prefilled email
