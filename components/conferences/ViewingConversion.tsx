@@ -103,19 +103,33 @@ export function ViewingConversion({
     estimatedSubtotal: "",
     recommendedVenue: "",
   });
+  // Raw numeric estimate — kept as component state (NOT a form field), so the
+  // form's String() serialization can't turn it into "204000"; it reaches the
+  // webhook payload as a real JSON number. null when there is no estimate.
+  const [estValue, setEstValue] = useState<number | null>(null);
   useEffect(() => {
     const onEst = (e: Event) => {
-      const d = ((e as CustomEvent).detail || {}) as Record<string, string>;
+      const detail = ((e as CustomEvent).detail || {}) as {
+        eventType?: string;
+        organisationType?: string;
+        estimatedGuests?: string;
+        eventDate?: string;
+        ratePerPerson?: string;
+        estimatedSubtotal?: string;
+        recommendedVenue?: string;
+        estimatedValue?: number | null;
+      };
       setEst({
-        estimatedGuests: d.estimatedGuests || "",
-        organisationType: d.organisationType || "",
-        ratePerPerson: d.ratePerPerson || "",
-        estimatedSubtotal: d.estimatedSubtotal || "",
-        recommendedVenue: d.recommendedVenue || "",
+        estimatedGuests: detail.estimatedGuests || "",
+        organisationType: detail.organisationType || "",
+        ratePerPerson: detail.ratePerPerson || "",
+        estimatedSubtotal: detail.estimatedSubtotal || "",
+        recommendedVenue: detail.recommendedVenue || "",
       });
-      if (d.eventType) setEventTypeVal(d.eventType);
-      if (d.eventDate) setEventDateVal(d.eventDate);
-      if (d.estimatedGuests) setDelegatesVal(bandForGuests(Number(d.estimatedGuests)));
+      setEstValue(typeof detail.estimatedValue === "number" ? detail.estimatedValue : null);
+      if (detail.eventType) setEventTypeVal(detail.eventType);
+      if (detail.eventDate) setEventDateVal(detail.eventDate);
+      if (detail.estimatedGuests) setDelegatesVal(bandForGuests(Number(detail.estimatedGuests)));
       setRevealed(true);
     };
     window.addEventListener("velmore:estimate", onEst as EventListener);
@@ -184,6 +198,9 @@ export function ViewingConversion({
       organisationType: v.organisationType,
       ratePerPerson: v.ratePerPerson,
       estimatedSubtotal: v.estimatedSubtotal,
+      // Raw numeric estimate for GHL Opportunity Value — a real JSON number,
+      // included only when an automatic estimate exists (absent otherwise).
+      ...(typeof estValue === "number" ? { estimatedValue: estValue } : {}),
       recommendedVenue: v.recommendedVenue,
       message: v.message,
       summary: message,

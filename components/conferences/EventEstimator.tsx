@@ -127,6 +127,10 @@ export function EventEstimator({
           eventDate: date,
           ratePerPerson: rateLabel,
           estimatedSubtotal: subtotalLabel,
+          // Raw numeric estimate (same `subtotal` source of truth as the display
+          // string) — carried as a real number for GHL Opportunity Value. `null`
+          // when there is no automatic estimate (e.g. Wedding / Other).
+          estimatedValue: subtotal,
           recommendedVenue,
         },
       }),
