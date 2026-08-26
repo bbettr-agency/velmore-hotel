@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Fraunces, Inter } from "next/font/google";
 import { seo } from "@/config/seo";
 import { MotionProvider, NOSCRIPT_FALLBACK } from "@/engine/motion";
+import { MetaPixel } from "@/components/analytics/MetaPixel";
 import "./globals.css";
 
 const fraunces = Fraunces({
@@ -25,6 +26,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className={`${fraunces.variable} ${inter.variable}`}>
       <body>
+        <MetaPixel />
         <noscript>
           <style>{NOSCRIPT_FALLBACK}</style>
         </noscript>
