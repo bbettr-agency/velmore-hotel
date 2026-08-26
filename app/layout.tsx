@@ -3,6 +3,7 @@ import { Fraunces, Inter } from "next/font/google";
 import { seo } from "@/config/seo";
 import { MotionProvider, NOSCRIPT_FALLBACK } from "@/engine/motion";
 import { MetaPixel } from "@/components/analytics/MetaPixel";
+import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 
 const fraunces = Fraunces({
@@ -37,6 +38,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           Skip to content
         </a>
         <MotionProvider>{children}</MotionProvider>
+        <Analytics />
       </body>
     </html>
   );
