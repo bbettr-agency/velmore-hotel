@@ -147,7 +147,8 @@ export const pages = {
       eyebrow: "Real occasions",
       heading: "See how Velmoré comes to life.",
       lead: "Conferences, weddings, awards evenings, functions and celebrations — explore real occasions hosted across the estate.", // INDICATIVE
-      cta: { label: "Book a Venue Viewing", href: "#book-viewing" },
+      // Enquiry now starts at the estimator (#estimate); it reveals the form.
+      cta: { label: "Book a Venue Viewing", href: "#estimate" },
       // Per-slide object-position: images fill the frame (object-cover), so the
       // focal point is nudged where a centre crop would otherwise clip a subject
       // (faces biased slightly up; the welcome signage kept toward the left).
@@ -171,7 +172,7 @@ export const pages = {
       heading: "Better seen in person.", // INDICATIVE
       body: "Walk the spaces, see the setups and find the venue that fits your event — one team takes it from there.", // INDICATIVE
       image: img.conferencesEstate,
-      primary: { label: "Book a Venue Viewing", href: "#book-viewing", cta: "book_viewing", location: "conferences_mid" },
+      primary: { label: "Book a Venue Viewing", href: "#estimate", cta: "book_viewing", location: "conferences_mid" },
     },
     // More than a venue — accommodation + certified-halal catering, compact.
     moreThanVenue: {

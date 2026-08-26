@@ -178,7 +178,7 @@ export function VenueExplorer({
             ) : null}
             <div className="mt-7">
               <a
-                href="#book-viewing"
+                href="#estimate"
                 onClick={bookViewing}
                 data-cta="book_viewing"
                 data-location={`conferences_venue_${v.slug}`}

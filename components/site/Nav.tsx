@@ -17,10 +17,10 @@ export function Nav() {
   // Away from the homepage, surface an explicit Home link so visitors never have
   // to rely on the logo or the back button. The logo also always routes to "/".
   const items = onHome ? site.nav : [{ label: "Home", href: "/" }, ...site.nav];
-  // On the conferences landing page every "Book a viewing" CTA feeds the on-page
-  // viewing form (#book-viewing); keep the nav CTA consistent so paid traffic
-  // isn't leaked off-funnel to the generic /contact form. Other pages unchanged.
-  const bookingHref = pathname === "/conferences" ? "#book-viewing" : site.cta.primary.href;
+  // On the conferences landing page the enquiry starts at the Event Estimator
+  // (#estimate), which reveals the form — so the nav CTA feeds the calculator-
+  // first journey rather than jumping past it. Other pages unchanged.
+  const bookingHref = pathname === "/conferences" ? "#estimate" : site.cta.primary.href;
 
   return (
     <nav

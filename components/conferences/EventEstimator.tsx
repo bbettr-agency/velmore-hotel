@@ -107,8 +107,17 @@ export function EventEstimator({
   const rateLabel = rate != null ? `R${rate} pp excl. VAT` : "";
   const subtotalLabel = subtotal != null ? `${zar(subtotal)} excl. VAT` : "";
 
+  // The form is gated behind a valid qualification result: an estimate, or a
+  // no-estimate type (Wedding / Other) that still produces a "we'll prepare
+  // pricing" outcome. Continue stays disabled until then, so an invalid state
+  // can never reveal the form.
+  const canContinue = noEstimate || showEstimate;
+
   function onContinue() {
-    if (typeof window === "undefined") return;
+    if (typeof window === "undefined" || !canContinue) return;
+    // Dispatch the qualification data — the enquiry form listens, reveals itself,
+    // prefills, and moves focus/scroll. The estimator does NOT scroll (the form
+    // doesn't exist in the DOM until it receives this event).
     window.dispatchEvent(
       new CustomEvent("velmore:estimate", {
         detail: {
@@ -122,14 +131,11 @@ export function EventEstimator({
         },
       }),
     );
-    document.getElementById("book-viewing")?.scrollIntoView({ behavior: "smooth", block: "start" });
   }
 
   const field =
     "mt-1.5 w-full rounded-md border border-estate-100 bg-white px-3.5 py-2.5 text-[15px] text-ink outline-none transition-colors placeholder:text-stone focus:border-champagne";
   const label = "block text-[12px] font-semibold uppercase tracking-[.12em] text-steel";
-
-  const canContinue = eventType !== "";
 
   return (
     <section id="estimate" className="scroll-mt-24 bg-ivory py-20 md:py-28">

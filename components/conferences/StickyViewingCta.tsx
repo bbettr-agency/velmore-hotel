@@ -24,7 +24,10 @@ export function StickyViewingCta() {
     window.addEventListener("scroll", onScroll, { passive: true });
     onScroll();
 
-    const target = document.getElementById("book-viewing");
+    // Enquiry now starts at the estimator — hide the sticky while it's in view so
+    // it never covers it, and dismiss it entirely once the visitor continues into
+    // the form (they're in the enquiry flow and no longer need the nudge).
+    const target = document.getElementById("estimate");
     let io: IntersectionObserver | undefined;
     if (target) {
       io = new IntersectionObserver(
@@ -36,8 +39,11 @@ export function StickyViewingCta() {
       );
       io.observe(target);
     }
+    const onEstimate = () => setDismissed(true);
+    window.addEventListener("velmore:estimate", onEstimate as EventListener);
     return () => {
       window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("velmore:estimate", onEstimate as EventListener);
       io?.disconnect();
     };
   }, []);
@@ -56,7 +62,7 @@ export function StickyViewingCta() {
       >
         <p className="min-w-0 flex-1 text-[13.5px] font-semibold text-ivory">Planning a conference?</p>
         <a
-          href="#book-viewing"
+          href="#estimate"
           data-cta="book_viewing"
           data-location="conferences_sticky"
           className="inline-flex h-11 shrink-0 items-center rounded-md bg-champagne px-4 text-[13px] font-semibold text-ink shadow-accent"

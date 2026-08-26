@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { site } from "@/config/site";
 import { Reveal } from "@/components/motion/Reveal";
 import { captureAttribution, getAttribution } from "@/lib/attribution";
@@ -68,6 +68,13 @@ export function ViewingConversion({
   points?: readonly string[];
 }) {
   const [status, setStatus] = useState<Status>("idle");
+  // The form is gated behind the Event Estimator: it stays unmounted (not just
+  // hidden) until the visitor completes the calculator and clicks "Continue",
+  // which fires velmore:estimate. So it never shows below the calculator, takes
+  // no vertical space, and its controls can't be tabbed into before that.
+  const [revealed, setRevealed] = useState(false);
+  const sectionRef = useRef<HTMLElement>(null);
+  const headingRef = useRef<HTMLHeadingElement>(null);
   // Optional context: the venue explorer's CTA tells us which venue prompted the
   // viewing. Useful for the closer, never required (no added friction).
   const [venue, setVenue] = useState("");
@@ -109,10 +116,22 @@ export function ViewingConversion({
       if (d.eventType) setEventTypeVal(d.eventType);
       if (d.eventDate) setEventDateVal(d.eventDate);
       if (d.estimatedGuests) setDelegatesVal(bandForGuests(Number(d.estimatedGuests)));
+      setRevealed(true);
     };
     window.addEventListener("velmore:estimate", onEst as EventListener);
     return () => window.removeEventListener("velmore:estimate", onEst as EventListener);
   }, []);
+
+  // On reveal: scroll the form into view and move focus into it (accessibility),
+  // respecting reduced-motion. The Reveal children fade in via the existing
+  // motion system; reduced-motion users get an immediate, animation-free reveal.
+  useEffect(() => {
+    if (!revealed) return;
+    const reduce = typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    sectionRef.current?.scrollIntoView({ behavior: reduce ? "auto" : "smooth", block: "start" });
+    const t = window.setTimeout(() => headingRef.current?.focus(), reduce ? 0 : 350);
+    return () => window.clearTimeout(t);
+  }, [revealed]);
 
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -203,8 +222,11 @@ export function ViewingConversion({
   const label = "block text-[12px] font-semibold uppercase tracking-[.12em] text-steel";
   const req = <span className="text-champagne-dark"> *</span>;
 
+  // Not revealed yet → render nothing at all (no DOM, no space, not focusable).
+  if (!revealed) return null;
+
   return (
-    <section id="book-viewing" className="scroll-mt-24 bg-ivory py-20 md:py-28">
+    <section id="book-viewing" ref={sectionRef} className="scroll-mt-24 bg-ivory py-20 md:py-28">
       <div className="mx-auto grid max-w-container grid-cols-1 items-start gap-10 px-6 md:grid-cols-12 md:gap-16 md:px-12">
         {/* left — the invitation */}
         <Reveal className="md:col-span-5">
@@ -214,7 +236,7 @@ export function ViewingConversion({
               {eyebrow}
             </p>
           ) : null}
-          <h2 className="mt-5 max-w-[16ch] font-serif text-[30px] font-semibold leading-[1.1] tracking-[-.01em] text-estate-700 md:text-[40px]">
+          <h2 ref={headingRef} tabIndex={-1} className="mt-5 max-w-[16ch] font-serif text-[30px] font-semibold leading-[1.1] tracking-[-.01em] text-estate-700 outline-none md:text-[40px]">
             {heading}
           </h2>
           {intro ? <p className="mt-6 max-w-[46ch] text-[15.5px] leading-[1.75] text-charcoal md:text-[16px]">{intro}</p> : null}
