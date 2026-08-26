@@ -35,6 +35,17 @@ const GHL_VIEWING_WEBHOOKS = [
     "https://services.leadconnectorhq.com/hooks/yxytqQ4pB8M4Z4yrTIAP/webhook-trigger/d2279152-c84d-4b21-8d6c-58c7fe9524af",
 ];
 
+// Map an exact guest count (from the estimator) to the form's existing band, so
+// the prefilled band select shows a sensible value. The exact number still rides
+// through to GHL via a hidden field (see estimatedGuestsExact).
+function bandForGuests(n: number): string {
+  if (!Number.isFinite(n) || n <= 0) return "";
+  if (n < 50) return "Under 50";
+  if (n <= 150) return "50–150";
+  if (n <= 400) return "150–400";
+  return "400+";
+}
+
 type Status = "idle" | "submitting" | "success";
 
 /**
@@ -71,20 +82,57 @@ export function ViewingConversion({
     captureAttribution();
   }, []);
 
+  // Prefill carried from the Event Estimator (velmore:estimate) — the visitor
+  // never re-enters what they already told the calculator. eventType/date/band
+  // become controlled so they can be set; the exact count + qualification data
+  // ride through as hidden fields.
+  const [eventTypeVal, setEventTypeVal] = useState("");
+  const [eventDateVal, setEventDateVal] = useState("");
+  const [delegatesVal, setDelegatesVal] = useState("");
+  const [est, setEst] = useState({
+    estimatedGuests: "",
+    organisationType: "",
+    ratePerPerson: "",
+    estimatedSubtotal: "",
+    recommendedVenue: "",
+  });
+  useEffect(() => {
+    const onEst = (e: Event) => {
+      const d = ((e as CustomEvent).detail || {}) as Record<string, string>;
+      setEst({
+        estimatedGuests: d.estimatedGuests || "",
+        organisationType: d.organisationType || "",
+        ratePerPerson: d.ratePerPerson || "",
+        estimatedSubtotal: d.estimatedSubtotal || "",
+        recommendedVenue: d.recommendedVenue || "",
+      });
+      if (d.eventType) setEventTypeVal(d.eventType);
+      if (d.eventDate) setEventDateVal(d.eventDate);
+      if (d.estimatedGuests) setDelegatesVal(bandForGuests(Number(d.estimatedGuests)));
+    };
+    window.addEventListener("velmore:estimate", onEst as EventListener);
+    return () => window.removeEventListener("velmore:estimate", onEst as EventListener);
+  }, []);
+
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     const f = new FormData(e.currentTarget);
     const v = Object.fromEntries([...f.entries()].map(([k, val]) => [k, String(val)])) as Record<string, string>;
     setStatus("submitting");
+    const guestsOut = v.estimatedGuestsExact || v.delegates;
     const message = [
       "Venue viewing request",
       v.eventType ? `Planning: ${v.eventType}` : "",
+      v.organisationType ? `Organisation type: ${v.organisationType}` : "",
       v.venueOfInterest ? `Venue of interest: ${v.venueOfInterest}` : "",
       `Organising as: ${v.organisingAs}`,
       `Preferred viewing: ${v.preferredViewing}`,
       v.conferenceType ? `Conference type: ${v.conferenceType}` : "",
       v.eventDate ? `Approx. event date: ${v.eventDate}` : "",
-      v.delegates ? `Estimated guests / delegates: ${v.delegates}` : "",
+      guestsOut ? `Estimated guests / delegates: ${guestsOut}` : "",
+      v.ratePerPerson ? `Indicative rate: ${v.ratePerPerson}` : "",
+      v.estimatedSubtotal ? `Indicative estimate: ${v.estimatedSubtotal}` : "",
+      v.recommendedVenue ? `Potential venues: ${v.recommendedVenue}` : "",
       v.accommodation ? `Accommodation required: ${v.accommodation}` : "",
       "",
       v.message,
@@ -107,11 +155,17 @@ export function ViewingConversion({
       preferredViewing: v.preferredViewing,
       venueOfInterest: v.venueOfInterest,
       conferenceType: v.conferenceType,
-      // Standardised shared key (was `delegates`) — the form input name stays
-      // `delegates`, only the outgoing webhook key is standardised.
-      estimatedGuests: v.delegates,
+      // Standardised shared key (was `delegates`). Prefer the estimator's exact
+      // numeric count when present, else the form's band select.
+      estimatedGuests: v.estimatedGuestsExact || v.delegates,
       eventDate: v.eventDate,
       accommodation: v.accommodation,
+      // Event Estimator qualification fields — empty for direct form submissions
+      // that skipped the calculator. Indicative only (excl. VAT), never a quote.
+      organisationType: v.organisationType,
+      ratePerPerson: v.ratePerPerson,
+      estimatedSubtotal: v.estimatedSubtotal,
+      recommendedVenue: v.recommendedVenue,
       message: v.message,
       summary: message,
       subject,
@@ -196,15 +250,30 @@ export function ViewingConversion({
           ) : (
             <form onSubmit={onSubmit} className="rounded-lg bg-white p-6 shadow-card md:p-8">
               <input type="hidden" name="venueOfInterest" value={venue} />
+              {/* Qualification data carried from the Event Estimator (if used) */}
+              <input type="hidden" name="estimatedGuestsExact" value={est.estimatedGuests} />
+              <input type="hidden" name="organisationType" value={est.organisationType} />
+              <input type="hidden" name="ratePerPerson" value={est.ratePerPerson} />
+              <input type="hidden" name="estimatedSubtotal" value={est.estimatedSubtotal} />
+              <input type="hidden" name="recommendedVenue" value={est.recommendedVenue} />
               {venue ? (
                 <p className="mb-5 flex items-center gap-2 rounded-md bg-mist px-3.5 py-2.5 text-[13px] text-estate-700">
                   <span aria-hidden className="h-1.5 w-1.5 rounded-full bg-champagne" />
                   <span><span className="font-semibold">Viewing:</span> {venue}</span>
                 </p>
               ) : null}
+              {est.estimatedSubtotal ? (
+                <p className="mb-5 flex items-center gap-2 rounded-md bg-mist px-3.5 py-2.5 text-[13px] text-estate-700">
+                  <span aria-hidden className="h-1.5 w-1.5 rounded-full bg-champagne" />
+                  <span>
+                    <span className="font-semibold">Your estimate:</span> from {est.estimatedSubtotal}
+                    {est.estimatedGuests ? ` · ${est.estimatedGuests} guests` : ""}
+                  </span>
+                </p>
+              ) : null}
               <div className="mb-5">
                 <label htmlFor="v-eventType" className={label}>What are you planning?{req}</label>
-                <select id="v-eventType" name="eventType" required defaultValue="" className={field}>
+                <select id="v-eventType" name="eventType" required value={eventTypeVal} onChange={(e) => setEventTypeVal(e.target.value)} className={field}>
                   <option value="" disabled>Choose…</option>
                   {EVENT_TYPES.map((o) => (
                     <option key={o} value={o}>{o}</option>
@@ -264,7 +333,7 @@ export function ViewingConversion({
                 </div>
                 <div>
                   <label htmlFor="v-delegates" className={label}>Estimated guests / delegates</label>
-                  <select id="v-delegates" name="delegates" defaultValue="" className={field}>
+                  <select id="v-delegates" name="delegates" value={delegatesVal} onChange={(e) => setDelegatesVal(e.target.value)} className={field}>
                     <option value="">Choose…</option>
                     {DELEGATES.map((o) => (
                       <option key={o} value={o}>{o}</option>
@@ -273,7 +342,7 @@ export function ViewingConversion({
                 </div>
                 <div>
                   <label htmlFor="v-eventDate" className={label}>Approximate event date</label>
-                  <input id="v-eventDate" name="eventDate" type="date" className={field} />
+                  <input id="v-eventDate" name="eventDate" type="date" value={eventDateVal} onChange={(e) => setEventDateVal(e.target.value)} className={field} />
                 </div>
                 <div>
                   <label htmlFor="v-accommodation" className={label}>Accommodation required</label>

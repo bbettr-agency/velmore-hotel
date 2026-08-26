@@ -6,6 +6,7 @@ import { TrustedBy } from "@/components/conferences/TrustedBy";
 import { VenueExplorer } from "@/components/conferences/VenueExplorer";
 import { PastEvents } from "@/components/conferences/PastEvents";
 import { MoreThanVenue } from "@/components/conferences/MoreThanVenue";
+import { EventEstimator } from "@/components/conferences/EventEstimator";
 import { ViewingConversion } from "@/components/conferences/ViewingConversion";
 import { StickyViewingCta } from "@/components/conferences/StickyViewingCta";
 import { Footer } from "@/components/site/Footer";
@@ -45,6 +46,9 @@ export default function ConferencesPage() {
 
       {/* Objection handling */}
       <Faq {...p.faq} tone="mist" />
+
+      {/* Event Estimate / qualification — indicative estimate → hands data to the form */}
+      <EventEstimator {...p.estimator} venues={p.venues} />
 
       {/* Final conversion — the on-page viewing request + confirmation */}
       <ViewingConversion {...p.viewing} />

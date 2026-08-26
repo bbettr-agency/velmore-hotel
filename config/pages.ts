@@ -42,7 +42,7 @@ export const pages = {
         { label: "Certified Halal", badge: true },
       ],
       primary: { label: "Explore the venues", href: "#venues", cta: "explore_venues", location: "conferences_hero" },
-      secondary: { label: "Plan your event", href: "#book-viewing", cta: "book_viewing", location: "conferences_hero" },
+      secondary: { label: "Plan your event", href: "#estimate", cta: "plan_event", location: "conferences_hero" },
     },
     // Trusted-by marquee — a restrained credibility strip directly below the hero.
     // Wording is a plain statement of fact (organisations whose events the estate
@@ -235,6 +235,16 @@ export const pages = {
         "Meet the team who would run your event",
       ],
       image: img.entranceSignage,
+    },
+    // Event Estimate / Qualification calculator (V1) — copy only. The pricing
+    // rules and venue-fit logic live in components/conferences/EventEstimator.tsx
+    // (confirmed rates: Gov/NGO/SOE R550pp, Corporate/Other + private R680pp, all
+    // excl. VAT; indicative only, never a quotation).
+    estimator: {
+      eyebrow: "Plan your event",
+      heading: "See your indicative estimate.",
+      intro:
+        "A quick, indicative guide to your event investment — tell us a little about your event and we'll estimate it on Velmoré's current package rates. Final pricing depends on your requirements.",
     },
   },
 
