@@ -3,8 +3,8 @@ import type { Metadata } from "next";
 /**
  * Canonical production origin — the connected live domain (velmorehotel.co.za
  * redirects to www). Single source used by metadata, sitemap, robots and
- * structured data. NOTE: the website enquiry inbox is online@velmore.co.za (a
- * different domain to the website) — confirmed by the client.
+ * structured data. Public inboxes (client-confirmed 2026) live in config/site.ts:
+ * info@ (general/hotel), booking@ (conferences/corporate), online@ (weddings).
  */
 export const SITE_URL = "https://www.velmorehotel.co.za";
 

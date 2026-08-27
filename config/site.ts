@@ -104,10 +104,13 @@ export const site = {
   },
 
   contact: {
-    // Official website enquiry/booking inbox (client-confirmed 2026). Used by the
-    // footer, the contact "Email us" link, and every form's mailto fallback +
-    // "prefer to email" links.
-    email: "online@velmore.co.za",
+    // Confirmed department inboxes (client-confirmed 2026). `email` is the generic
+    // hotel / accommodation / general inbox (footer, contact page, contact form,
+    // schema). Conferences + corporate + government use `emailConferences`;
+    // weddings + private events use `emailEvents`.
+    email: "info@velmorehotel.co.za",
+    emailConferences: "booking@velmorehotel.co.za",
+    emailEvents: "online@velmorehotel.co.za",
     location: "Pretoria & Centurion",
     // Client-confirmed 2026 (matches BKB). Phone shown as dialled; phoneHref is
     // the E.164 tel: link. Address as supplied.

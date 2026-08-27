@@ -229,8 +229,7 @@ export function EventEstimator({
                 guestsNum={guestsNum}
                 isPrivate={isPrivate}
                 showEstimate={showEstimate}
-                rateLabel={rateLabel}
-                subtotal={subtotal}
+                rate={rate}
                 venueFit={venueFit}
               />
 
@@ -265,8 +264,7 @@ function EstimateResult({
   guestsNum,
   isPrivate,
   showEstimate,
-  rateLabel,
-  subtotal,
+  rate,
   venueFit,
 }: {
   eventType: string;
@@ -277,14 +275,13 @@ function EstimateResult({
   guestsNum: number;
   isPrivate: boolean;
   showEstimate: boolean;
-  rateLabel: string;
-  subtotal: number | null;
+  rate: number | null;
   venueFit: { list: { name: string; cap: number }[]; overflow: boolean };
 }) {
   const hint = (text: string) => <p className="text-[15px] leading-[1.7] text-charcoal">{text}</p>;
 
   // Empty / prompting states.
-  if (!eventType) return hint("Tell us a little about your event to see an indicative estimate.");
+  if (!eventType) return hint("Tell us a little about your event to see your indicative rate.");
   if (noEstimate)
     return (
       <div>
@@ -295,28 +292,29 @@ function EstimateResult({
         </p>
       </div>
     );
-  if (needsOrg && !organisationType) return hint("Select the organisation type to see your indicative estimate.");
-  if (!guestsValid) return hint("Add your estimated guest count to see an indicative estimate.");
+  if (needsOrg && !organisationType) return hint("Select the organisation type to see your indicative rate.");
+  if (!guestsValid) return hint("Add your estimated guest count to see your indicative rate.");
 
-  // Estimate available.
+  // Rate available. We deliberately lead with the per-person RATE (the hero
+  // figure) rather than the full subtotal — the subtotal still flows to GHL as
+  // estimatedSubtotal / estimatedValue, it is just not shown to the visitor.
   return (
     <div>
       <p className="text-[11px] font-semibold uppercase tracking-[.22em] text-champagne-dark">
-        {isPrivate ? "Indicative package estimate" : "Your indicative event estimate"}
+        {isPrivate ? "Indicative package rate" : "Your indicative event rate"}
       </p>
-      <p className="mt-3 text-[14px] text-steel">
-        {guestsNum.toLocaleString("en-US")} guests / delegates · {rateLabel}
-      </p>
+      <p className="mt-3 text-[14px] text-steel">{guestsNum.toLocaleString("en-US")} guests / delegates</p>
       <p className="mt-4 text-[12px] font-semibold uppercase tracking-[.24em] text-stone">From</p>
-      <p className="font-serif text-[40px] font-semibold leading-[1.05] tracking-[-.01em] text-estate-700 md:text-[46px]">
-        {subtotal != null ? `R${subtotal.toLocaleString("en-US")}` : ""}
-        <span className="ml-2 align-middle text-[14px] font-sans font-medium tracking-normal text-steel">excl. VAT</span>
+      <p className="font-serif text-[44px] font-semibold leading-[1.05] tracking-[-.01em] text-estate-700 md:text-[52px]">
+        {rate != null ? `R${rate.toLocaleString("en-US")}` : ""}
+        <span className="ml-1.5 align-baseline text-[22px] font-sans font-medium tracking-normal text-steel md:text-[24px]">pp</span>
       </p>
+      <p className="mt-1.5 text-[13px] font-medium uppercase tracking-[.14em] text-steel">excl. VAT</p>
 
       <p className="mt-5 text-[13.5px] leading-[1.65] text-charcoal">
         {isPrivate
           ? "Based on Velmoré's current second-tier private-event package. Alternative packages and additional options are available — final pricing will depend on your event requirements."
-          : "An indicative estimate on Velmoré's current package rate. Final pricing may vary with your requirements, venue, accommodation, date and additional services."}
+          : "An indicative per-person rate based on Velmoré's current package. Final pricing may vary depending on your requirements, venue, accommodation, date and additional services."}
       </p>
 
       {/* venue fit */}

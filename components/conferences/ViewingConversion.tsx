@@ -228,8 +228,8 @@ export function ViewingConversion({
       if (!anyOk) throw new Error("all GHL viewing webhooks failed");
       setStatus("success");
     } catch {
-      // never lose a request — fall back to a prefilled email
-      window.location.href = `mailto:${site.contact.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(message)}`;
+      // never lose a request — fall back to a prefilled email (conferences inbox)
+      window.location.href = `mailto:${site.contact.emailConferences}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(message)}`;
       setStatus("success");
     }
   }
@@ -280,8 +280,8 @@ export function ViewingConversion({
               </p>
               <p className="mt-4 text-[15px] leading-[1.75] text-charcoal">
                 Prefer to talk sooner? Email us at{" "}
-                <a href={`mailto:${site.contact.email}`} className="font-semibold text-champagne-dark underline-offset-4 hover:underline">
-                  {site.contact.email}
+                <a href={`mailto:${site.contact.emailConferences}`} className="font-semibold text-champagne-dark underline-offset-4 hover:underline">
+                  {site.contact.emailConferences}
                 </a>
                 .
               </p>
