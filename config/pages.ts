@@ -243,7 +243,7 @@ export const pages = {
     // excl. VAT; indicative only, never a quotation).
     estimator: {
       eyebrow: "Plan your event",
-      heading: "See your indicative estimate.",
+      heading: "See your indicative rate.",
       intro:
         "A quick, indicative guide to your event investment — tell us a little about your event and we'll estimate it on Velmoré's current package rates. Final pricing depends on your requirements.",
     },
