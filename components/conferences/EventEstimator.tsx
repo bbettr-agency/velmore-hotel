@@ -2,64 +2,37 @@
 
 import { useMemo, useState } from "react";
 import { Reveal } from "@/components/motion/Reveal";
+import {
+  CANONICAL_EVENT_TYPES,
+  ORG_OPTIONS,
+  ORG_RATES,
+  ORG_EVENT_TYPES,
+  PRIVATE_RATE,
+  PRIVATE_EVENT_TYPES,
+  WEDDING_VENUES,
+  WEDDING_INCLUSION,
+  ROOM_TYPES,
+  BREAKFAST_RATE,
+  SPA_PACKAGES,
+  zar,
+} from "@/config/estimator";
 
 /**
- * Event Estimate / Qualification calculator (V1). A calm, editorial step between
- * exploring the venues and enquiring — it gives an INDICATIVE, "from" estimate on
- * Velmoré's confirmed 2026/27 package rates, suggests venues that could fit, then
- * hands the answers to the existing viewing form (no re-entry) via a
- * `velmore:estimate` CustomEvent — the same pattern the venue explorer uses.
- *
- * It never fabricates pricing: only event types covered by the confirmed rates get
- * a number; Wedding / Other continue to enquiry with a "we'll prepare pricing"
- * note. Everything shown is indicative and excl. VAT — never a quotation. This is
- * analytics-neutral: it fires no Meta Pixel / Lead event (a Lead is a successful
- * enquiry submission, not an estimate).
+ * Shared qualification calculator — the ONE calculator used on both /conferences
+ * and /contact. All pricing comes from config/estimator.ts (single source of
+ * truth), so the two pages can never drift. It asks only the questions relevant
+ * to the chosen enquiry type, leads with an indicative PER-PERSON / PER-ROOM /
+ * PACKAGE rate, and hands every answer (including a hidden numeric estimatedValue)
+ * to the page's enquiry form via a `velmore:estimate` CustomEvent — the form
+ * stays gated/unmounted until Continue fires. It fires no Meta Pixel / Lead event.
  */
 
-// Confirmed rates (excl. VAT). Gov / NGO / SOE = R550pp; Corporate / Other and
-// private events = R680pp. Private R680 is Velmoré's second-tier package.
-const ORG_RATES: Record<string, number> = {
-  Government: 550,
-  NGO: 550,
-  SOE: 550,
-  Corporate: 680,
-  Other: 680,
+const SULEMAN = { name: "Suleman Convention Centre", cap: 1300 };
+
+const posInt = (s: string) => {
+  const n = /^\d+$/.test(s.trim()) ? parseInt(s, 10) : NaN;
+  return Number.isFinite(n) && n > 0 ? n : null;
 };
-const PRIVATE_RATE = 680;
-const ORG_OPTIONS = ["Government", "NGO", "SOE", "Corporate", "Other"];
-
-const EVENT_TYPES = [
-  "Conference",
-  "Corporate event",
-  "Government event / function",
-  "Wedding",
-  "Private function / event",
-  "Birthday / celebration",
-  "Matric farewell",
-  "Awards / gala event",
-  "Outdoor event",
-  "Other",
-];
-// Event types that ask the organisation question (rate is R550 or R680).
-const ORG_EVENT_TYPES = ["Conference", "Corporate event", "Government event / function"];
-// Private / celebration types — flat R680 second-tier package (no org question).
-const PRIVATE_EVENT_TYPES = [
-  "Private function / event",
-  "Birthday / celebration",
-  "Matric farewell",
-  "Awards / gala event",
-  "Outdoor event",
-];
-// Not covered by confirmed rates → no auto estimate, continue to enquiry.
-const NO_ESTIMATE_TYPES = ["Wedding", "Other"];
-
-// Suleman Convention Centre — confirmed larger option (1,300), a short distance
-// from the estate (see the venues-intro copy). Sourced from confirmed facts, not
-// invented; the on-estate capacities come from the venue config passed in.
-const SULEMAN = { name: "Suleman Convention Centre", cap: 1300, offsite: true };
-
-const zar = (n: number) => `R${n.toLocaleString("en-US")}`;
 
 type Venue = { heading: string; capacity?: string };
 
@@ -68,31 +41,52 @@ export function EventEstimator({
   heading,
   intro,
   venues,
+  ctaLocation = "conferences_estimator",
 }: {
   eyebrow: string;
   heading: string;
   intro?: string;
   venues: readonly Venue[];
+  ctaLocation?: string;
 }) {
   const [eventType, setEventType] = useState("");
+  const [date, setDate] = useState("");
+  // conference / wedding / private
   const [organisationType, setOrganisationType] = useState("");
   const [guests, setGuests] = useState("");
-  const [date, setDate] = useState("");
+  const [weddingVenue, setWeddingVenue] = useState("");
+  // accommodation
+  const [roomType, setRoomType] = useState("");
+  const [rooms, setRooms] = useState("");
+  const [nights, setNights] = useState("");
+  const [breakfast, setBreakfast] = useState("No");
+  // spa
+  const [spaPackage, setSpaPackage] = useState("");
+  const [spaBasis, setSpaBasis] = useState("");
+  const [spaQty, setSpaQty] = useState("1");
 
-  const needsOrg = ORG_EVENT_TYPES.includes(eventType);
-  const isPrivate = PRIVATE_EVENT_TYPES.includes(eventType);
-  const noEstimate = NO_ESTIMATE_TYPES.includes(eventType);
+  const mode = ORG_EVENT_TYPES.includes(eventType)
+    ? "conference"
+    : eventType === "Wedding"
+      ? "wedding"
+      : PRIVATE_EVENT_TYPES.includes(eventType)
+        ? "private"
+        : eventType === "Accommodation / Stay"
+          ? "accommodation"
+          : eventType === "Spa"
+            ? "spa"
+            : eventType === "Other"
+              ? "other"
+              : "";
 
-  const guestsNum = /^\d+$/.test(guests.trim()) ? parseInt(guests, 10) : NaN;
-  const guestsValid = Number.isFinite(guestsNum) && guestsNum > 0;
+  const guestsNum = posInt(guests);
+  const roomsNum = posInt(rooms);
+  const nightsNum = posInt(nights);
+  const qtyNum = posInt(spaQty);
 
-  const rate = needsOrg ? (organisationType ? ORG_RATES[organisationType] : null) : isPrivate ? PRIVATE_RATE : null;
-  const subtotal = rate != null && guestsValid ? rate * guestsNum : null;
-  const showEstimate = rate != null && guestsValid;
-
-  // Venue fit — on-estate capacities from config; Suleman for larger groups.
+  // Conference/private venue fit (from confirmed config capacities + Suleman).
   const venueFit = useMemo(() => {
-    if (!guestsValid) return { list: [] as { name: string; cap: number }[], overflow: false };
+    if (!guestsNum) return { list: [] as { name: string; cap: number }[], overflow: false };
     const estate = venues
       .map((v) => ({ name: v.heading.trim(), cap: parseInt((v.capacity || "").replace(/[^\d]/g, ""), 10) }))
       .filter((v) => Number.isFinite(v.cap) && v.cap >= guestsNum)
@@ -101,37 +95,189 @@ export function EventEstimator({
     if (estate.length) return { list: estate, overflow: false };
     if (guestsNum <= SULEMAN.cap) return { list: [{ name: SULEMAN.name, cap: SULEMAN.cap }], overflow: false };
     return { list: [], overflow: true };
-  }, [venues, guestsNum, guestsValid]);
+  }, [venues, guestsNum]);
 
-  const recommendedVenue = venueFit.list.map((v) => v.name).join(", ");
-  const rateLabel = rate != null ? `R${rate} pp excl. VAT` : "";
-  const subtotalLabel = subtotal != null ? `${zar(subtotal)} excl. VAT` : "";
+  // The single compute — returns everything the display AND the dispatch need.
+  const r = useMemo(() => {
+    // Defaults / no-estimate.
+    const base = {
+      ready: false,
+      eyebrow: "Your indicative rate",
+      contextLine: "",
+      rateNumber: null as number | null,
+      rateUnit: "pp",
+      vat: false,
+      supporting: "",
+      inclusion: "",
+      capacityWarning: "",
+      showVenues: false,
+      ratePerPerson: "",
+      estimatedSubtotal: "",
+      estimatedValue: null as number | null,
+      recommendedVenue: "",
+      organisationType: "",
+      weddingVenue: "",
+      roomType: "",
+      numberOfRooms: "",
+      numberOfNights: "",
+      breakfastRequired: "",
+      spaPackage: "",
+      spaBookingBasis: "",
+      spaQuantity: "",
+    };
 
-  // The form is gated behind a valid qualification result: an estimate, or a
-  // no-estimate type (Wedding / Other) that still produces a "we'll prepare
-  // pricing" outcome. Continue stays disabled until then, so an invalid state
-  // can never reveal the form.
-  const canContinue = noEstimate || showEstimate;
+    if (mode === "conference") {
+      const rate = organisationType ? ORG_RATES[organisationType] : null;
+      const ready = rate != null && !!guestsNum;
+      const value = ready ? rate! * guestsNum! : null;
+      return {
+        ...base,
+        ready,
+        eyebrow: "Your indicative event rate",
+        contextLine: guestsNum ? `${guestsNum.toLocaleString("en-US")} guests / delegates` : "",
+        rateNumber: rate,
+        rateUnit: "pp",
+        vat: true,
+        supporting:
+          "An indicative per-person rate based on Velmoré's current package. Final pricing may vary depending on your requirements, venue, accommodation, date and additional services.",
+        showVenues: true,
+        ratePerPerson: rate != null ? `R${rate} pp excl. VAT` : "",
+        estimatedSubtotal: value != null ? `${zar(value)} excl. VAT` : "",
+        estimatedValue: value,
+        recommendedVenue: venueFit.list.map((v) => v.name).join(", "),
+        organisationType,
+      };
+    }
+
+    if (mode === "private") {
+      const ready = !!guestsNum;
+      const value = ready ? PRIVATE_RATE * guestsNum! : null;
+      return {
+        ...base,
+        ready,
+        eyebrow: "Indicative package rate",
+        contextLine: guestsNum ? `${guestsNum.toLocaleString("en-US")} guests` : "",
+        rateNumber: PRIVATE_RATE,
+        rateUnit: "pp",
+        vat: true,
+        supporting:
+          "Based on Velmoré's current second-tier private-event package. Alternative packages and add-ons are available — final pricing will depend on your event requirements.",
+        showVenues: true,
+        ratePerPerson: `R${PRIVATE_RATE} pp excl. VAT`,
+        estimatedSubtotal: value != null ? `${zar(value)} excl. VAT` : "",
+        estimatedValue: value,
+        recommendedVenue: venueFit.list.map((v) => v.name).join(", "),
+      };
+    }
+
+    if (mode === "wedding") {
+      const v = WEDDING_VENUES.find((w) => w.name === weddingVenue) || null;
+      const ready = v != null && !!guestsNum;
+      const value = ready ? v!.rate * guestsNum! : null;
+      const tooSmall = v && v.capacity != null && guestsNum != null && guestsNum > v.capacity;
+      return {
+        ...base,
+        ready,
+        eyebrow: "Your indicative wedding rate",
+        contextLine: guestsNum ? `${guestsNum.toLocaleString("en-US")} guests` : "",
+        rateNumber: v ? v.rate : null,
+        rateUnit: "pp",
+        vat: false, // wedding VAT treatment not confirmed → no label
+        supporting: "An indicative per-person rate for your chosen venue. Final pricing is confirmed by the Velmoré team.",
+        inclusion: WEDDING_INCLUSION,
+        capacityWarning: tooSmall
+          ? `${v!.name} currently seats up to ${v!.capacity!.toLocaleString("en-US")} — above your guest count. Choose another venue, or continue and the team will advise on a tailored option.`
+          : "",
+        ratePerPerson: v ? `R${v.rate} pp` : "",
+        estimatedSubtotal: value != null ? zar(value) : "",
+        estimatedValue: value,
+        recommendedVenue: v ? v.name : "",
+        weddingVenue: v ? v.name : "",
+      };
+    }
+
+    if (mode === "accommodation") {
+      const rt = ROOM_TYPES.find((t) => t.name === roomType) || null;
+      const included = !!rt?.breakfastIncluded;
+      const ready = rt != null && !!roomsNum && !!nightsNum;
+      const roomTotal = ready ? rt!.rate * roomsNum! * nightsNum! : null;
+      const bfast = ready && !included && breakfast === "Yes" ? BREAKFAST_RATE * roomsNum! * nightsNum! : 0;
+      const value = ready ? roomTotal! + bfast : null;
+      return {
+        ...base,
+        ready,
+        eyebrow: "Your indicative room rate",
+        contextLine: roomsNum && nightsNum ? `${roomsNum} room${roomsNum > 1 ? "s" : ""} · ${nightsNum} night${nightsNum > 1 ? "s" : ""}` : "",
+        rateNumber: rt ? rt.rate : null,
+        rateUnit: "per room / night",
+        vat: false,
+        supporting: included ? "Breakfast included." : "Breakfast available at R200 per room per day.",
+        ratePerPerson: rt ? `${zar(rt.rate)} per room / night` : "",
+        estimatedSubtotal: value != null ? zar(value) : "",
+        estimatedValue: value,
+        roomType: rt ? rt.name : "",
+        numberOfRooms: roomsNum ? String(roomsNum) : "",
+        numberOfNights: nightsNum ? String(nightsNum) : "",
+        breakfastRequired: rt ? (included ? "Included" : breakfast) : "",
+      };
+    }
+
+    if (mode === "spa") {
+      const pkg = SPA_PACKAGES.find((s) => s.name === spaPackage) || null;
+      const hasBoth = !!pkg && pkg.couple != null && pkg.perPerson != null;
+      const basis = pkg ? (hasBoth ? spaBasis : pkg.couple != null ? "Couple" : pkg.perPerson != null ? "Per Person" : "Package") : "";
+      const unit =
+        basis === "Couple" ? pkg?.couple ?? null : basis === "Per Person" ? pkg?.perPerson ?? null : basis === "Package" ? pkg?.flat ?? null : null;
+      const ready = pkg != null && (hasBoth ? !!basis : true) && unit != null && !!qtyNum;
+      const value = ready ? unit! * qtyNum! : null;
+      const unitLabel = basis === "Couple" ? "per couple" : basis === "Per Person" ? "pp" : "per package";
+      return {
+        ...base,
+        ready,
+        eyebrow: "Your indicative spa rate",
+        contextLine: pkg ? `${pkg.name}${hasBoth && basis ? ` · ${basis}` : ""}` : "",
+        rateNumber: unit,
+        rateUnit: unitLabel,
+        vat: false,
+        supporting: "A confirmed Allura Day Spa package. Your booking is finalised with the spa team.",
+        ratePerPerson: unit != null ? `${zar(unit)} ${unitLabel}` : "",
+        estimatedSubtotal: value != null ? zar(value) : "",
+        estimatedValue: value,
+        spaPackage: pkg ? pkg.name : "",
+        spaBookingBasis: basis,
+        spaQuantity: qtyNum ? String(qtyNum) : "",
+      };
+    }
+
+    // other / not chosen — no fabricated price.
+    return base;
+  }, [mode, organisationType, guestsNum, weddingVenue, roomType, roomsNum, nightsNum, breakfast, spaPackage, spaBasis, qtyNum, venueFit]);
+
+  const canContinue = mode === "other" ? true : r.ready;
 
   function onContinue() {
     if (typeof window === "undefined" || !canContinue) return;
-    // Dispatch the qualification data — the enquiry form listens, reveals itself,
-    // prefills, and moves focus/scroll. The estimator does NOT scroll (the form
-    // doesn't exist in the DOM until it receives this event).
     window.dispatchEvent(
       new CustomEvent("velmore:estimate", {
         detail: {
           eventType,
-          organisationType: needsOrg ? organisationType : "",
-          estimatedGuests: guestsValid ? String(guestsNum) : "",
           eventDate: date,
-          ratePerPerson: rateLabel,
-          estimatedSubtotal: subtotalLabel,
-          // Raw numeric estimate (same `subtotal` source of truth as the display
-          // string) — carried as a real number for GHL Opportunity Value. `null`
-          // when there is no automatic estimate (e.g. Wedding / Other).
-          estimatedValue: subtotal,
-          recommendedVenue,
+          estimatedGuests: mode === "conference" || mode === "wedding" || mode === "private" ? (guestsNum ? String(guestsNum) : "") : "",
+          organisationType: r.organisationType,
+          ratePerPerson: r.ratePerPerson,
+          estimatedSubtotal: r.estimatedSubtotal,
+          // Raw numeric estimate — real number for GHL Opportunity Value (null when
+          // there is no safely-calculable total, e.g. Other).
+          estimatedValue: r.estimatedValue,
+          recommendedVenue: r.recommendedVenue,
+          weddingVenue: r.weddingVenue,
+          roomType: r.roomType,
+          numberOfRooms: r.numberOfRooms,
+          numberOfNights: r.numberOfNights,
+          breakfastRequired: r.breakfastRequired,
+          spaPackage: r.spaPackage,
+          spaBookingBasis: r.spaBookingBasis,
+          spaQuantity: r.spaQuantity,
         },
       }),
     );
@@ -140,6 +286,10 @@ export function EventEstimator({
   const field =
     "mt-1.5 w-full rounded-md border border-estate-100 bg-white px-3.5 py-2.5 text-[15px] text-ink outline-none transition-colors placeholder:text-stone focus:border-champagne";
   const label = "block text-[12px] font-semibold uppercase tracking-[.12em] text-steel";
+  const rt = ROOM_TYPES.find((t) => t.name === roomType);
+  const spaPkg = SPA_PACKAGES.find((s) => s.name === spaPackage);
+  const spaHasBoth = !!spaPkg && spaPkg.couple != null && spaPkg.perPerson != null;
+  const spaQtyLabel = r.spaBookingBasis === "Couple" ? "How many couples?" : r.spaBookingBasis === "Package" ? "How many packages?" : "How many people?";
 
   return (
     <section id="estimate" className="scroll-mt-24 bg-ivory py-20 md:py-28">
@@ -164,28 +314,18 @@ export function EventEstimator({
             <div>
               <div>
                 <label htmlFor="est-eventType" className={label}>What are you planning?</label>
-                <select
-                  id="est-eventType"
-                  value={eventType}
-                  onChange={(e) => setEventType(e.target.value)}
-                  className={field}
-                >
+                <select id="est-eventType" value={eventType} onChange={(e) => setEventType(e.target.value)} className={field}>
                   <option value="">Choose…</option>
-                  {EVENT_TYPES.map((o) => (
+                  {CANONICAL_EVENT_TYPES.map((o) => (
                     <option key={o} value={o}>{o}</option>
                   ))}
                 </select>
               </div>
 
-              {needsOrg ? (
+              {mode === "conference" ? (
                 <div className="mt-5">
                   <label htmlFor="est-org" className={label}>What type of organisation are you booking for?</label>
-                  <select
-                    id="est-org"
-                    value={organisationType}
-                    onChange={(e) => setOrganisationType(e.target.value)}
-                    className={field}
-                  >
+                  <select id="est-org" value={organisationType} onChange={(e) => setOrganisationType(e.target.value)} className={field}>
                     <option value="">Choose…</option>
                     {ORG_OPTIONS.map((o) => (
                       <option key={o} value={o}>{o}</option>
@@ -194,51 +334,109 @@ export function EventEstimator({
                 </div>
               ) : null}
 
-              <div className="mt-5">
-                <label htmlFor="est-guests" className={label}>Estimated guests / delegates</label>
-                <input
-                  id="est-guests"
-                  type="number"
-                  min={1}
-                  step={1}
-                  inputMode="numeric"
-                  value={guests}
-                  onChange={(e) => setGuests(e.target.value)}
-                  className={field}
-                  placeholder="e.g. 300"
-                />
-                {guests.trim() !== "" && !guestsValid ? (
-                  <p className="mt-1.5 text-[12.5px] text-champagne-dark">Enter a whole number of guests.</p>
-                ) : null}
-              </div>
+              {mode === "wedding" ? (
+                <div className="mt-5">
+                  <label htmlFor="est-venue" className={label}>Preferred venue</label>
+                  <select id="est-venue" value={weddingVenue} onChange={(e) => setWeddingVenue(e.target.value)} className={field}>
+                    <option value="">Choose…</option>
+                    {WEDDING_VENUES.map((v) => (
+                      <option key={v.name} value={v.name}>{v.name}</option>
+                    ))}
+                  </select>
+                </div>
+              ) : null}
 
-              <div className="mt-5">
-                <label htmlFor="est-date" className={label}>Approximate event date <span className="text-stone">· optional</span></label>
-                <input id="est-date" type="date" value={date} onChange={(e) => setDate(e.target.value)} className={field} />
-              </div>
+              {mode === "conference" || mode === "wedding" || mode === "private" ? (
+                <div className="mt-5">
+                  <label htmlFor="est-guests" className={label}>{mode === "conference" ? "Estimated guests / delegates" : "Estimated guests"}</label>
+                  <input id="est-guests" type="number" min={1} step={1} inputMode="numeric" value={guests} onChange={(e) => setGuests(e.target.value)} className={field} placeholder="e.g. 200" />
+                  {guests.trim() !== "" && !guestsNum ? <p className="mt-1.5 text-[12.5px] text-champagne-dark">Enter a whole number of guests.</p> : null}
+                </div>
+              ) : null}
+
+              {mode === "accommodation" ? (
+                <>
+                  <div className="mt-5">
+                    <label htmlFor="est-roomType" className={label}>Room type</label>
+                    <select id="est-roomType" value={roomType} onChange={(e) => setRoomType(e.target.value)} className={field}>
+                      <option value="">Choose…</option>
+                      {ROOM_TYPES.map((t) => (
+                        <option key={t.name} value={t.name}>{t.name}</option>
+                      ))}
+                    </select>
+                  </div>
+                  <div className="mt-5 grid grid-cols-2 gap-5">
+                    <div>
+                      <label htmlFor="est-rooms" className={label}>Rooms</label>
+                      <input id="est-rooms" type="number" min={1} step={1} inputMode="numeric" value={rooms} onChange={(e) => setRooms(e.target.value)} className={field} placeholder="e.g. 2" />
+                    </div>
+                    <div>
+                      <label htmlFor="est-nights" className={label}>Nights</label>
+                      <input id="est-nights" type="number" min={1} step={1} inputMode="numeric" value={nights} onChange={(e) => setNights(e.target.value)} className={field} placeholder="e.g. 3" />
+                    </div>
+                  </div>
+                  {rt && !rt.breakfastIncluded ? (
+                    <div className="mt-5">
+                      <label htmlFor="est-breakfast" className={label}>Breakfast required?</label>
+                      <select id="est-breakfast" value={breakfast} onChange={(e) => setBreakfast(e.target.value)} className={field}>
+                        <option value="No">No</option>
+                        <option value="Yes">Yes</option>
+                      </select>
+                    </div>
+                  ) : null}
+                </>
+              ) : null}
+
+              {mode === "spa" ? (
+                <>
+                  <div className="mt-5">
+                    <label htmlFor="est-spa" className={label}>Spa package</label>
+                    <select id="est-spa" value={spaPackage} onChange={(e) => { setSpaPackage(e.target.value); setSpaBasis(""); }} className={field}>
+                      <option value="">Choose…</option>
+                      {SPA_PACKAGES.map((s) => (
+                        <option key={s.name} value={s.name}>{s.name}</option>
+                      ))}
+                    </select>
+                  </div>
+                  {spaHasBoth ? (
+                    <div className="mt-5">
+                      <label htmlFor="est-spaBasis" className={label}>Booking for</label>
+                      <select id="est-spaBasis" value={spaBasis} onChange={(e) => setSpaBasis(e.target.value)} className={field}>
+                        <option value="">Choose…</option>
+                        <option value="Couple">Couple</option>
+                        <option value="Per Person">Per Person</option>
+                      </select>
+                    </div>
+                  ) : null}
+                  {spaPkg ? (
+                    <div className="mt-5">
+                      <label htmlFor="est-spaQty" className={label}>{spaQtyLabel}</label>
+                      <input id="est-spaQty" type="number" min={1} step={1} inputMode="numeric" value={spaQty} onChange={(e) => setSpaQty(e.target.value)} className={field} placeholder="e.g. 2" />
+                    </div>
+                  ) : null}
+                </>
+              ) : null}
+
+              {mode ? (
+                <div className="mt-5">
+                  <label htmlFor="est-date" className={label}>
+                    {mode === "accommodation" ? "Approximate check-in date" : "Approximate date"} <span className="text-stone">· optional</span>
+                  </label>
+                  <input id="est-date" type="date" value={date} onChange={(e) => setDate(e.target.value)} className={field} />
+                </div>
+              ) : null}
             </div>
 
             {/* result */}
             <div className="border-t border-estate-700/10 pt-8 md:border-l md:border-t-0 md:pl-14 md:pt-1">
-              <EstimateResult
-                eventType={eventType}
-                noEstimate={noEstimate}
-                needsOrg={needsOrg}
-                organisationType={organisationType}
-                guestsValid={guestsValid}
-                guestsNum={guestsNum}
-                isPrivate={isPrivate}
-                showEstimate={showEstimate}
-                rate={rate}
-                venueFit={venueFit}
-              />
+              <EstimateResult mode={mode} eventType={eventType} r={r} venueFit={venueFit} />
 
               <button
                 type="button"
                 onClick={onContinue}
                 disabled={!canContinue}
                 data-cta="continue_enquiry"
-                data-location="conferences_estimator"
+                data-location={ctaLocation}
                 className="mt-8 inline-flex w-full items-center justify-center gap-2 rounded-md bg-champagne px-6 py-[15px] text-[14.5px] font-semibold text-ink shadow-accent transition-[transform,background-color] duration-200 ease-[cubic-bezier(.22,1,.36,1)] hover:-translate-y-px hover:bg-champagne-dark active:translate-y-0 disabled:cursor-not-allowed disabled:opacity-50 motion-reduce:transform-none"
               >
                 Continue with my enquiry
@@ -255,92 +453,91 @@ export function EventEstimator({
   );
 }
 
+type ResultView = {
+  ready: boolean;
+  eyebrow: string;
+  contextLine: string;
+  rateNumber: number | null;
+  rateUnit: string;
+  vat: boolean;
+  supporting: string;
+  inclusion: string;
+  capacityWarning: string;
+  showVenues: boolean;
+};
+
 function EstimateResult({
+  mode,
   eventType,
-  noEstimate,
-  needsOrg,
-  organisationType,
-  guestsValid,
-  guestsNum,
-  isPrivate,
-  showEstimate,
-  rate,
+  r,
   venueFit,
 }: {
+  mode: string;
   eventType: string;
-  noEstimate: boolean;
-  needsOrg: boolean;
-  organisationType: string;
-  guestsValid: boolean;
-  guestsNum: number;
-  isPrivate: boolean;
-  showEstimate: boolean;
-  rate: number | null;
+  r: ResultView;
   venueFit: { list: { name: string; cap: number }[]; overflow: boolean };
 }) {
   const hint = (text: string) => <p className="text-[15px] leading-[1.7] text-charcoal">{text}</p>;
 
-  // Empty / prompting states.
-  if (!eventType) return hint("Tell us a little about your event to see your indicative rate.");
-  if (noEstimate)
+  if (!eventType) return hint("Tell us a little about your enquiry to see your indicative rate.");
+  if (mode === "other")
     return (
       <div>
         <p className="text-[11px] font-semibold uppercase tracking-[.22em] text-champagne-dark">Tailored pricing</p>
         <p className="mt-3 text-[15px] leading-[1.7] text-charcoal">
-          For {eventType.toLowerCase()} enquiries, Velmoré prepares pricing based on your specific requirements. Continue with your
-          enquiry and the team will come back to you the same business day.
+          Velmoré prepares pricing for this enquiry based on your specific requirements. Continue with your enquiry and the team will
+          come back to you the same business day.
         </p>
       </div>
     );
-  if (needsOrg && !organisationType) return hint("Select the organisation type to see your indicative rate.");
-  if (!guestsValid) return hint("Add your estimated guest count to see your indicative rate.");
+  if (!r.ready) return hint("Add the details on the left to see your indicative rate.");
 
-  // Rate available. We deliberately lead with the per-person RATE (the hero
-  // figure) rather than the full subtotal — the subtotal still flows to GHL as
-  // estimatedSubtotal / estimatedValue, it is just not shown to the visitor.
   return (
     <div>
-      <p className="text-[11px] font-semibold uppercase tracking-[.22em] text-champagne-dark">
-        {isPrivate ? "Indicative package rate" : "Your indicative event rate"}
-      </p>
-      <p className="mt-3 text-[14px] text-steel">{guestsNum.toLocaleString("en-US")} guests / delegates</p>
+      <p className="text-[11px] font-semibold uppercase tracking-[.22em] text-champagne-dark">{r.eyebrow}</p>
+      {r.contextLine ? <p className="mt-3 text-[14px] text-steel">{r.contextLine}</p> : null}
       <p className="mt-4 text-[12px] font-semibold uppercase tracking-[.24em] text-stone">From</p>
       <p className="font-serif text-[44px] font-semibold leading-[1.05] tracking-[-.01em] text-estate-700 md:text-[52px]">
-        {rate != null ? `R${rate.toLocaleString("en-US")}` : ""}
-        <span className="ml-1.5 align-baseline text-[22px] font-sans font-medium tracking-normal text-steel md:text-[24px]">pp</span>
+        {r.rateNumber != null ? `R${r.rateNumber.toLocaleString("en-US")}` : ""}
+        {r.rateUnit === "pp" ? (
+          <span className="ml-1.5 align-baseline text-[22px] font-sans font-medium tracking-normal text-steel md:text-[24px]">pp</span>
+        ) : null}
       </p>
-      <p className="mt-1.5 text-[13px] font-medium uppercase tracking-[.14em] text-steel">excl. VAT</p>
+      {r.rateUnit !== "pp" ? <p className="mt-1 text-[14px] font-medium text-steel">{r.rateUnit}</p> : null}
+      {r.vat ? <p className="mt-1.5 text-[13px] font-medium uppercase tracking-[.14em] text-steel">excl. VAT</p> : null}
 
-      <p className="mt-5 text-[13.5px] leading-[1.65] text-charcoal">
-        {isPrivate
-          ? "Based on Velmoré's current second-tier private-event package. Alternative packages and additional options are available — final pricing will depend on your event requirements."
-          : "An indicative per-person rate based on Velmoré's current package. Final pricing may vary depending on your requirements, venue, accommodation, date and additional services."}
-      </p>
+      {r.inclusion ? <p className="mt-4 text-[13.5px] leading-[1.65] text-estate-700">{r.inclusion}</p> : null}
+      <p className="mt-4 text-[13.5px] leading-[1.65] text-charcoal">{r.supporting}</p>
 
-      {/* venue fit */}
-      <div className="mt-6 border-t border-estate-700/10 pt-5">
-        {venueFit.overflow ? (
-          <p className="text-[13.5px] leading-[1.65] text-charcoal">
-            Your event may need a tailored venue configuration. Continue with your enquiry and the Velmoré team will advise on the
-            best option.
-          </p>
-        ) : (
-          <>
-            <p className="text-[11px] font-semibold uppercase tracking-[.2em] text-champagne-dark">Venues that may suit your event</p>
-            <ul className="mt-3 space-y-2">
-              {venueFit.list.map((v) => (
-                <li key={v.name} className="flex items-baseline gap-3 text-[14px] text-estate-700">
-                  <span aria-hidden className="mt-[7px] h-1 w-1 shrink-0 rounded-full bg-champagne" />
-                  <span>
-                    {v.name} <span className="text-steel">— up to {v.cap.toLocaleString("en-US")}</span>
-                  </span>
-                </li>
-              ))}
-            </ul>
-            <p className="mt-3 text-[12px] text-stone">Based on your estimated guest count — availability is confirmed by the team.</p>
-          </>
-        )}
-      </div>
+      {r.capacityWarning ? (
+        <p className="mt-4 rounded-md bg-champagne/10 px-3.5 py-2.5 text-[13px] leading-[1.6] text-estate-700">{r.capacityWarning}</p>
+      ) : null}
+
+      {r.showVenues ? (
+        <div className="mt-6 border-t border-estate-700/10 pt-5">
+          {venueFit.overflow ? (
+            <p className="text-[13.5px] leading-[1.65] text-charcoal">
+              Your event may need a tailored venue configuration. Continue with your enquiry and the Velmoré team will advise on the
+              best option.
+            </p>
+          ) : (
+            <>
+              <p className="text-[11px] font-semibold uppercase tracking-[.2em] text-champagne-dark">Venues that may suit your event</p>
+              <ul className="mt-3 space-y-2">
+                {venueFit.list.map((v) => (
+                  <li key={v.name} className="flex items-baseline gap-3 text-[14px] text-estate-700">
+                    <span aria-hidden className="mt-[7px] h-1 w-1 shrink-0 rounded-full bg-champagne" />
+                    <span>
+                      {v.name} <span className="text-steel">— up to {v.cap.toLocaleString("en-US")}</span>
+                    </span>
+                  </li>
+                ))}
+              </ul>
+              <p className="mt-3 text-[12px] text-stone">Based on your estimated guest count — availability is confirmed by the team.</p>
+            </>
+          )}
+        </div>
+      ) : null}
     </div>
   );
 }

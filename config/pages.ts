@@ -822,8 +822,16 @@ export const pages = {
       variant: "estate" as const,
       note: "Estate photography required · arrival & entrance (shoot pending)",
       image: img.estateForecourt,
-      primary: { label: "Send an enquiry", href: "#enquire", cta: "enquiry_scroll", location: "contact_hero" },
+      primary: { label: "Start your enquiry", href: "#estimate", cta: "enquiry_scroll", location: "contact_hero" },
       secondary: { label: "Email us", href: "mailto:info@velmorehotel.co.za", cta: "email_click", location: "contact_hero" },
+    },
+    // Same shared calculator as /conferences (one engine) — the enquiry form is
+    // gated behind it here too.
+    estimator: {
+      eyebrow: "Plan your enquiry",
+      heading: "See your indicative rate.",
+      intro:
+        "A quick, indicative guide to your enquiry — tell us what you're planning and we'll estimate it on Velmoré's current rates. Final pricing depends on your requirements.",
     },
     form: {
       eyebrow: "Enquire",

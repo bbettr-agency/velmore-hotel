@@ -96,12 +96,20 @@ export function ViewingConversion({
   const [eventTypeVal, setEventTypeVal] = useState("");
   const [eventDateVal, setEventDateVal] = useState("");
   const [delegatesVal, setDelegatesVal] = useState("");
-  const [est, setEst] = useState({
+  const [est, setEst] = useState<Record<string, string>>({
     estimatedGuests: "",
     organisationType: "",
     ratePerPerson: "",
     estimatedSubtotal: "",
     recommendedVenue: "",
+    weddingVenue: "",
+    roomType: "",
+    numberOfRooms: "",
+    numberOfNights: "",
+    breakfastRequired: "",
+    spaPackage: "",
+    spaBookingBasis: "",
+    spaQuantity: "",
   });
   // Raw numeric estimate — kept as component state (NOT a form field), so the
   // form's String() serialization can't turn it into "204000"; it reaches the
@@ -109,27 +117,27 @@ export function ViewingConversion({
   const [estValue, setEstValue] = useState<number | null>(null);
   useEffect(() => {
     const onEst = (e: Event) => {
-      const detail = ((e as CustomEvent).detail || {}) as {
-        eventType?: string;
-        organisationType?: string;
-        estimatedGuests?: string;
-        eventDate?: string;
-        ratePerPerson?: string;
-        estimatedSubtotal?: string;
-        recommendedVenue?: string;
-        estimatedValue?: number | null;
-      };
+      const d = ((e as CustomEvent).detail || {}) as Record<string, unknown>;
+      const s = (k: string) => (typeof d[k] === "string" ? (d[k] as string) : "");
       setEst({
-        estimatedGuests: detail.estimatedGuests || "",
-        organisationType: detail.organisationType || "",
-        ratePerPerson: detail.ratePerPerson || "",
-        estimatedSubtotal: detail.estimatedSubtotal || "",
-        recommendedVenue: detail.recommendedVenue || "",
+        estimatedGuests: s("estimatedGuests"),
+        organisationType: s("organisationType"),
+        ratePerPerson: s("ratePerPerson"),
+        estimatedSubtotal: s("estimatedSubtotal"),
+        recommendedVenue: s("recommendedVenue"),
+        weddingVenue: s("weddingVenue"),
+        roomType: s("roomType"),
+        numberOfRooms: s("numberOfRooms"),
+        numberOfNights: s("numberOfNights"),
+        breakfastRequired: s("breakfastRequired"),
+        spaPackage: s("spaPackage"),
+        spaBookingBasis: s("spaBookingBasis"),
+        spaQuantity: s("spaQuantity"),
       });
-      setEstValue(typeof detail.estimatedValue === "number" ? detail.estimatedValue : null);
-      if (detail.eventType) setEventTypeVal(detail.eventType);
-      if (detail.eventDate) setEventDateVal(detail.eventDate);
-      if (detail.estimatedGuests) setDelegatesVal(bandForGuests(Number(detail.estimatedGuests)));
+      setEstValue(typeof d.estimatedValue === "number" ? d.estimatedValue : null);
+      if (s("eventType")) setEventTypeVal(s("eventType"));
+      if (s("eventDate")) setEventDateVal(s("eventDate"));
+      if (s("estimatedGuests")) setDelegatesVal(bandForGuests(Number(s("estimatedGuests"))));
       setRevealed(true);
     };
     window.addEventListener("velmore:estimate", onEst as EventListener);
@@ -163,6 +171,14 @@ export function ViewingConversion({
       v.conferenceType ? `Conference type: ${v.conferenceType}` : "",
       v.eventDate ? `Approx. event date: ${v.eventDate}` : "",
       guestsOut ? `Estimated guests / delegates: ${guestsOut}` : "",
+      v.weddingVenue ? `Wedding venue: ${v.weddingVenue}` : "",
+      v.roomType ? `Room type: ${v.roomType}` : "",
+      v.numberOfRooms ? `Rooms: ${v.numberOfRooms}` : "",
+      v.numberOfNights ? `Nights: ${v.numberOfNights}` : "",
+      v.breakfastRequired ? `Breakfast: ${v.breakfastRequired}` : "",
+      v.spaPackage ? `Spa package: ${v.spaPackage}` : "",
+      v.spaBookingBasis ? `Spa booking basis: ${v.spaBookingBasis}` : "",
+      v.spaQuantity ? `Spa quantity: ${v.spaQuantity}` : "",
       v.ratePerPerson ? `Indicative rate: ${v.ratePerPerson}` : "",
       v.estimatedSubtotal ? `Indicative estimate: ${v.estimatedSubtotal}` : "",
       v.recommendedVenue ? `Potential venues: ${v.recommendedVenue}` : "",
@@ -202,6 +218,15 @@ export function ViewingConversion({
       // included only when an automatic estimate exists (absent otherwise).
       ...(typeof estValue === "number" ? { estimatedValue: estValue } : {}),
       recommendedVenue: v.recommendedVenue,
+      // Wedding / accommodation / spa qualification (empty unless that mode used).
+      weddingVenue: v.weddingVenue,
+      roomType: v.roomType,
+      numberOfRooms: v.numberOfRooms,
+      numberOfNights: v.numberOfNights,
+      breakfastRequired: v.breakfastRequired,
+      spaPackage: v.spaPackage,
+      spaBookingBasis: v.spaBookingBasis,
+      spaQuantity: v.spaQuantity,
       message: v.message,
       summary: message,
       subject,
@@ -295,6 +320,14 @@ export function ViewingConversion({
               <input type="hidden" name="ratePerPerson" value={est.ratePerPerson} />
               <input type="hidden" name="estimatedSubtotal" value={est.estimatedSubtotal} />
               <input type="hidden" name="recommendedVenue" value={est.recommendedVenue} />
+              <input type="hidden" name="weddingVenue" value={est.weddingVenue} />
+              <input type="hidden" name="roomType" value={est.roomType} />
+              <input type="hidden" name="numberOfRooms" value={est.numberOfRooms} />
+              <input type="hidden" name="numberOfNights" value={est.numberOfNights} />
+              <input type="hidden" name="breakfastRequired" value={est.breakfastRequired} />
+              <input type="hidden" name="spaPackage" value={est.spaPackage} />
+              <input type="hidden" name="spaBookingBasis" value={est.spaBookingBasis} />
+              <input type="hidden" name="spaQuantity" value={est.spaQuantity} />
               {venue ? (
                 <p className="mb-5 flex items-center gap-2 rounded-md bg-mist px-3.5 py-2.5 text-[13px] text-estate-700">
                   <span aria-hidden className="h-1.5 w-1.5 rounded-full bg-champagne" />
