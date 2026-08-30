@@ -261,6 +261,9 @@ export function ViewingConversion({
     "mt-1.5 w-full rounded-md border border-estate-100 bg-white px-3.5 py-2.5 text-[15px] text-ink outline-none transition-colors placeholder:text-stone focus:border-champagne";
   const label = "block text-[12px] font-semibold uppercase tracking-[.12em] text-steel";
   const req = <span className="text-champagne-dark"> *</span>;
+  // A viewing must be in the future — min = today (local). The form is gated
+  // (client-only render), so computing this at render causes no hydration diff.
+  const today = `${new Date().getFullYear()}-${String(new Date().getMonth() + 1).padStart(2, "0")}-${String(new Date().getDate()).padStart(2, "0")}`;
 
   // Not revealed yet → render nothing at all (no DOM, no space, not focusable).
   if (!revealed) return null;
@@ -385,8 +388,8 @@ export function ViewingConversion({
                   </select>
                 </div>
                 <div>
-                  <label htmlFor="v-preferredViewing" className={label}>Preferred viewing date / window{req}</label>
-                  <input id="v-preferredViewing" name="preferredViewing" required className={field} placeholder="e.g. weekday mornings, or a date" />
+                  <label htmlFor="v-preferredViewing" className={label}>Preferred viewing date{req}</label>
+                  <input id="v-preferredViewing" name="preferredViewing" type="date" required min={today} className={field} />
                 </div>
               </div>
 
