@@ -22,7 +22,7 @@ import { CANONICAL_EVENT_TYPES } from "@/config/estimator";
  */
 const GHL_WEBHOOK =
   process.env.NEXT_PUBLIC_GHL_WEBHOOK_URL ||
-  "https://services.leadconnectorhq.com/hooks/yxytqQ4pB8M4Z4yrTIAP/webhook-trigger/d2279152-c84d-4b21-8d6c-58c7fe9524af";
+  "https://services.leadconnectorhq.com/hooks/yxytqQ4pB8M4Z4yrTIAP/webhook-trigger/U0dj3cswmo2rFO6U8Zvv";
 
 const PORTAL_ID = process.env.NEXT_PUBLIC_HUBSPOT_PORTAL_ID;
 const FORM_ID = process.env.NEXT_PUBLIC_HUBSPOT_FORM_ID;

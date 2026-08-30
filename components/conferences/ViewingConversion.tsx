@@ -24,14 +24,12 @@ const CONFERENCE_TYPE = ["Day conference", "Residential conference", "Unsure"];
 const DELEGATES = ["Under 50", "50–150", "150–400", "400+", "Unsure"];
 const ACCOMMODATION = ["Yes", "No", "Unsure"];
 
-// GHL / LeadConnector inbound webhooks — the viewing-request lead destinations.
-// Every submission is delivered to BOTH webhooks in parallel (two independent
-// GHL workflows each receive the full lead). Separate from the contact-form
-// webhook. Public inbound webhooks (not secrets); each is env-overridable.
+// GHL / LeadConnector inbound webhook — the conference viewing-request lead
+// destination. Single dedicated webhook (the old secondary 75a666fe was removed
+// so conferences and contact stay completely separate). Public inbound webhook
+// (not a secret); env-overridable.
 const GHL_VIEWING_WEBHOOKS = [
   process.env.NEXT_PUBLIC_GHL_VIEWING_WEBHOOK ||
-    "https://services.leadconnectorhq.com/hooks/yxytqQ4pB8M4Z4yrTIAP/webhook-trigger/75a666fe-e13d-4260-a7df-4bb50963e20c",
-  process.env.NEXT_PUBLIC_GHL_VIEWING_WEBHOOK_2 ||
     "https://services.leadconnectorhq.com/hooks/yxytqQ4pB8M4Z4yrTIAP/webhook-trigger/d2279152-c84d-4b21-8d6c-58c7fe9524af",
 ];
 
