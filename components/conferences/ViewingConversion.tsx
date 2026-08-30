@@ -4,21 +4,21 @@ import { useEffect, useRef, useState } from "react";
 import { site } from "@/config/site";
 import { Reveal } from "@/components/motion/Reveal";
 import { captureAttribution, getAttribution } from "@/lib/attribution";
+import { CANONICAL_EVENT_TYPES } from "@/config/estimator";
+import {
+  AccommodationFields,
+  SpaFields,
+  HiddenCalcInputs,
+  enquiryMode,
+  ACCOMMODATION_KEYS,
+  SPA_KEYS,
+} from "@/components/forms/CalculatorFields";
 
-// Qualifies the visitor's intent up front so leads can be routed in GHL. Broad
-// enough for all three Meta carousel angles (estate / glass hall / outdoor).
-const EVENT_TYPES = [
-  "Conference",
-  "Corporate event",
-  "Government event / function",
-  "Wedding",
-  "Private function / event",
-  "Birthday / celebration",
-  "Matric farewell",
-  "Awards / gala event",
-  "Outdoor event",
-  "Other",
-];
+// Qualifies the visitor's intent up front so leads can be routed in GHL. Uses
+// the shared canonical list (incl. Accommodation / Stay and Spa) so the form's
+// options always match the calculator — a prefilled eventType must resolve to a
+// real option, or the select silently falls back to the first entry.
+const EVENT_TYPES = CANONICAL_EVENT_TYPES;
 const ORGANISING = ["For my organisation", "For a client / Event agency", "Other"];
 const CONFERENCE_TYPE = ["Day conference", "Residential conference", "Unsure"];
 const DELEGATES = ["Under 50", "50–150", "150–400", "400+", "Unsure"];
@@ -113,6 +113,8 @@ export function ViewingConversion({
   // form's String() serialization can't turn it into "204000"; it reaches the
   // webhook payload as a real JSON number. null when there is no estimate.
   const [estValue, setEstValue] = useState<number | null>(null);
+  // Lets the short accommodation/spa forms edit their prefilled calculator values.
+  const setEstField = (k: string, val: string) => setEst((prev) => ({ ...prev, [k]: val }));
   useEffect(() => {
     const onEst = (e: Event) => {
       const d = ((e as CustomEvent).detail || {}) as Record<string, unknown>;
@@ -160,12 +162,12 @@ export function ViewingConversion({
     setStatus("submitting");
     const guestsOut = v.estimatedGuestsExact || v.delegates;
     const message = [
-      "Venue viewing request",
+      mode === "event" ? "Venue viewing request" : `${mode === "accommodation" ? "Accommodation" : "Spa"} request`,
       v.eventType ? `Planning: ${v.eventType}` : "",
       v.organisationType ? `Organisation type: ${v.organisationType}` : "",
       v.venueOfInterest ? `Venue of interest: ${v.venueOfInterest}` : "",
-      `Organising as: ${v.organisingAs}`,
-      `Preferred viewing: ${v.preferredViewing}`,
+      v.organisingAs ? `Organising as: ${v.organisingAs}` : "",
+      v.preferredViewing ? `Preferred viewing: ${v.preferredViewing}` : "",
       v.conferenceType ? `Conference type: ${v.conferenceType}` : "",
       v.eventDate ? `Approx. event date: ${v.eventDate}` : "",
       guestsOut ? `Estimated guests / delegates: ${guestsOut}` : "",
@@ -186,7 +188,8 @@ export function ViewingConversion({
     ]
       .filter(Boolean)
       .join("\n");
-    const subject = `Venue viewing request — ${v.company || `${v.firstName} ${v.lastName}`.trim()}`;
+    const subjectPrefix = mode === "accommodation" ? "Accommodation request" : mode === "spa" ? "Spa request" : "Venue viewing request";
+    const subject = `${subjectPrefix} — ${v.company || `${v.firstName} ${v.lastName}`.trim()}`;
     // Structured fields (so each GHL workflow can map/notify on them) plus a
     // ready-to-read summary and first-touch Meta attribution — sent to both
     // webhooks as one identical payload.
@@ -264,6 +267,14 @@ export function ViewingConversion({
   // A viewing must be in the future — min = today (local). The form is gated
   // (client-only render), so computing this at render causes no hydration diff.
   const today = `${new Date().getFullYear()}-${String(new Date().getMonth() + 1).padStart(2, "0")}-${String(new Date().getDate()).padStart(2, "0")}`;
+  const styles = { field, label, idPrefix: "v-" };
+
+  // The form adapts to the calculator's enquiry type: standard events keep the
+  // full viewing form; Accommodation and Spa show a short, already-qualified
+  // booking form (no company/organising/viewing/conference questions).
+  const mode = enquiryMode(eventTypeVal);
+  const shortDateLabel = mode === "accommodation" ? "Check-in date" : "Preferred spa date";
+  const submitLabel = mode === "accommodation" ? "Request Accommodation" : mode === "spa" ? "Request Spa Booking" : "Request my viewing →";
 
   // Not revealed yet → render nothing at all (no DOM, no space, not focusable).
   if (!revealed) return null;
@@ -299,10 +310,13 @@ export function ViewingConversion({
         <div className="md:col-span-7">
           {status === "success" ? (
             <div className="rounded-lg bg-white p-8 shadow-card md:p-10" role="status" aria-live="polite">
-              <p className="font-serif text-[26px] font-semibold text-estate-700">Viewing requested — thank you.</p>
+              <p className="font-serif text-[26px] font-semibold text-estate-700">
+                {mode === "event" ? "Viewing requested — thank you." : "Request received — thank you."}
+              </p>
               <p className="mt-4 max-w-[52ch] text-[15px] leading-[1.75] text-charcoal">
-                Your request is with our team. We&rsquo;ll confirm a viewing time with you the same business day and share directions to
-                the estate. When you arrive, one team walks you through the venues, the catering and the accommodation.
+                {mode === "event"
+                  ? "Your request is with our team. We’ll confirm a viewing time with you the same business day and share directions to the estate. When you arrive, one team walks you through the venues, the catering and the accommodation."
+                  : "Your request is with our team. We’ll reply the same business day to confirm availability and the next step."}
               </p>
               <p className="mt-4 text-[15px] leading-[1.75] text-charcoal">
                 Prefer to talk sooner? Email us at{" "}
@@ -322,13 +336,8 @@ export function ViewingConversion({
               <input type="hidden" name="estimatedSubtotal" value={est.estimatedSubtotal} />
               <input type="hidden" name="recommendedVenue" value={est.recommendedVenue} />
               <input type="hidden" name="weddingVenue" value={est.weddingVenue} />
-              <input type="hidden" name="roomType" value={est.roomType} />
-              <input type="hidden" name="numberOfRooms" value={est.numberOfRooms} />
-              <input type="hidden" name="numberOfNights" value={est.numberOfNights} />
-              <input type="hidden" name="breakfastRequired" value={est.breakfastRequired} />
-              <input type="hidden" name="spaPackage" value={est.spaPackage} />
-              <input type="hidden" name="spaBookingBasis" value={est.spaBookingBasis} />
-              <input type="hidden" name="spaQuantity" value={est.spaQuantity} />
+              {/* Accommodation/Spa keys are rendered (visible in their mode, hidden
+                  otherwise) with the mode branches below, so each appears once. */}
               {venue ? (
                 <p className="mb-5 flex items-center gap-2 rounded-md bg-mist px-3.5 py-2.5 text-[13px] text-estate-700">
                   <span aria-hidden className="h-1.5 w-1.5 rounded-full bg-champagne" />
@@ -372,64 +381,93 @@ export function ViewingConversion({
                 </div>
               </div>
 
+              {mode === "event" ? (
+                <>
+                  <div className="mt-5">
+                    <label htmlFor="v-company" className={label}>Company / Organisation / Agency{req}</label>
+                    <input id="v-company" name="company" required autoComplete="organization" className={field} placeholder="Who you represent" />
+                  </div>
+
+                  <div className="mt-5 grid grid-cols-1 gap-5 sm:grid-cols-2">
+                    <div>
+                      <label htmlFor="v-organisingAs" className={label}>You&rsquo;re organising this as{req}</label>
+                      <select id="v-organisingAs" name="organisingAs" required defaultValue="" className={field}>
+                        <option value="" disabled>Choose…</option>
+                        {ORGANISING.map((o) => (
+                          <option key={o} value={o}>{o}</option>
+                        ))}
+                      </select>
+                    </div>
+                    <div>
+                      <label htmlFor="v-preferredViewing" className={label}>Preferred viewing date{req}</label>
+                      <input id="v-preferredViewing" name="preferredViewing" type="date" required min={today} className={field} />
+                    </div>
+                  </div>
+
+                  <p className="mt-7 text-[11px] font-semibold uppercase tracking-[.16em] text-stone">Optional — helps us prepare</p>
+                  <div className="mt-3 grid grid-cols-1 gap-5 sm:grid-cols-2">
+                    <div>
+                      <label htmlFor="v-conferenceType" className={label}>Conference type</label>
+                      <select id="v-conferenceType" name="conferenceType" defaultValue="" className={field}>
+                        <option value="">Choose…</option>
+                        {CONFERENCE_TYPE.map((o) => (
+                          <option key={o} value={o}>{o}</option>
+                        ))}
+                      </select>
+                    </div>
+                    <div>
+                      <label htmlFor="v-delegates" className={label}>Estimated guests / delegates</label>
+                      <select id="v-delegates" name="delegates" value={delegatesVal} onChange={(e) => setDelegatesVal(e.target.value)} className={field}>
+                        <option value="">Choose…</option>
+                        {DELEGATES.map((o) => (
+                          <option key={o} value={o}>{o}</option>
+                        ))}
+                      </select>
+                    </div>
+                    <div>
+                      <label htmlFor="v-eventDate" className={label}>Approximate event date</label>
+                      <input id="v-eventDate" name="eventDate" type="date" value={eventDateVal} onChange={(e) => setEventDateVal(e.target.value)} className={field} />
+                    </div>
+                    <div>
+                      <label htmlFor="v-accommodation" className={label}>Accommodation required</label>
+                      <select id="v-accommodation" name="accommodation" defaultValue="" className={field}>
+                        <option value="">Choose…</option>
+                        {ACCOMMODATION.map((o) => (
+                          <option key={o} value={o}>{o}</option>
+                        ))}
+                      </select>
+                    </div>
+                  </div>
+                  {/* Room/spa keys carried hidden (empty) for a standard event. */}
+                  <HiddenCalcInputs keys={ACCOMMODATION_KEYS} values={est} />
+                  <HiddenCalcInputs keys={SPA_KEYS} values={est} />
+                </>
+              ) : (
+                <>
+                  {/* Short accommodation/spa form: the calculator already qualified
+                      the stay/booking, so we only need a date + the prefilled
+                      calculator fields. eventDate is reused (Check-in / Spa date). */}
+                  <div className="mt-5">
+                    <label htmlFor="v-shortDate" className={label}>{shortDateLabel}{req}</label>
+                    <input id="v-shortDate" name="eventDate" type="date" required min={today} value={eventDateVal} onChange={(e) => setEventDateVal(e.target.value)} className={field} />
+                  </div>
+                  <div className="mt-5">
+                    {mode === "accommodation" ? (
+                      <AccommodationFields values={est} onChange={setEstField} styles={styles} />
+                    ) : (
+                      <HiddenCalcInputs keys={ACCOMMODATION_KEYS} values={est} />
+                    )}
+                    {mode === "spa" ? (
+                      <SpaFields values={est} onChange={setEstField} styles={styles} />
+                    ) : (
+                      <HiddenCalcInputs keys={SPA_KEYS} values={est} />
+                    )}
+                  </div>
+                </>
+              )}
+
               <div className="mt-5">
-                <label htmlFor="v-company" className={label}>Company / Organisation / Agency{req}</label>
-                <input id="v-company" name="company" required autoComplete="organization" className={field} placeholder="Who you represent" />
-              </div>
-
-              <div className="mt-5 grid grid-cols-1 gap-5 sm:grid-cols-2">
-                <div>
-                  <label htmlFor="v-organisingAs" className={label}>You&rsquo;re organising this as{req}</label>
-                  <select id="v-organisingAs" name="organisingAs" required defaultValue="" className={field}>
-                    <option value="" disabled>Choose…</option>
-                    {ORGANISING.map((o) => (
-                      <option key={o} value={o}>{o}</option>
-                    ))}
-                  </select>
-                </div>
-                <div>
-                  <label htmlFor="v-preferredViewing" className={label}>Preferred viewing date{req}</label>
-                  <input id="v-preferredViewing" name="preferredViewing" type="date" required min={today} className={field} />
-                </div>
-              </div>
-
-              <p className="mt-7 text-[11px] font-semibold uppercase tracking-[.16em] text-stone">Optional — helps us prepare</p>
-              <div className="mt-3 grid grid-cols-1 gap-5 sm:grid-cols-2">
-                <div>
-                  <label htmlFor="v-conferenceType" className={label}>Conference type</label>
-                  <select id="v-conferenceType" name="conferenceType" defaultValue="" className={field}>
-                    <option value="">Choose…</option>
-                    {CONFERENCE_TYPE.map((o) => (
-                      <option key={o} value={o}>{o}</option>
-                    ))}
-                  </select>
-                </div>
-                <div>
-                  <label htmlFor="v-delegates" className={label}>Estimated guests / delegates</label>
-                  <select id="v-delegates" name="delegates" value={delegatesVal} onChange={(e) => setDelegatesVal(e.target.value)} className={field}>
-                    <option value="">Choose…</option>
-                    {DELEGATES.map((o) => (
-                      <option key={o} value={o}>{o}</option>
-                    ))}
-                  </select>
-                </div>
-                <div>
-                  <label htmlFor="v-eventDate" className={label}>Approximate event date</label>
-                  <input id="v-eventDate" name="eventDate" type="date" value={eventDateVal} onChange={(e) => setEventDateVal(e.target.value)} className={field} />
-                </div>
-                <div>
-                  <label htmlFor="v-accommodation" className={label}>Accommodation required</label>
-                  <select id="v-accommodation" name="accommodation" defaultValue="" className={field}>
-                    <option value="">Choose…</option>
-                    {ACCOMMODATION.map((o) => (
-                      <option key={o} value={o}>{o}</option>
-                    ))}
-                  </select>
-                </div>
-              </div>
-
-              <div className="mt-5">
-                <label htmlFor="v-message" className={label}>Message</label>
+                <label htmlFor="v-message" className={label}>{mode === "event" ? "Message" : "Message / special requests"}</label>
                 <textarea id="v-message" name="message" rows={3} className={field} placeholder="Anything that helps us prepare for your viewing" />
               </div>
 
@@ -441,7 +479,7 @@ export function ViewingConversion({
                   data-location="conferences_viewing"
                   className="inline-flex items-center justify-center gap-2 rounded-md bg-champagne px-6 py-[15px] text-[14.5px] font-semibold text-ink shadow-accent transition-colors duration-200 hover:bg-champagne-dark disabled:opacity-60"
                 >
-                  {status === "submitting" ? "Sending…" : "Request my viewing →"}
+                  {status === "submitting" ? "Sending…" : submitLabel}
                 </button>
                 <p className="text-[13px] text-steel">No obligation · we reply the same business day.</p>
               </div>
