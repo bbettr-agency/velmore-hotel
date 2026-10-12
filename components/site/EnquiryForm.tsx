@@ -136,8 +136,12 @@ export function EnquiryForm({
         spaBookingBasis: v.spaBookingBasis,
         spaQuantity: v.spaQuantity,
         message: v.message,
+        // Stable form identifier (additive; distinct from the free-text source).
+        form_name: "contact_enquiry",
         source: "Velmoré website — contact form",
         page: typeof window !== "undefined" ? window.location.href : "",
+        // Flat attribution: utm_*(5) + fbclid/gclid/gbraid/wbraid + landing_page
+        // (first-touch, from lib/attribution via the global AttributionCapture).
         ...getAttribution(),
       }),
     });
