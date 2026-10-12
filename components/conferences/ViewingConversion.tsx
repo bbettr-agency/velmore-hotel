@@ -231,6 +231,8 @@ export function ViewingConversion({
       message: v.message,
       summary: message,
       subject,
+      // Stable form identifier (additive; distinct from the free-text source).
+      form_name: "conference_viewing",
       source: "Velmoré website — conference viewing request",
       page: typeof window !== "undefined" ? window.location.href : "",
       // Meta / campaign attribution (flat keys) — utm_source/medium/campaign/

@@ -3,6 +3,7 @@ import { Fraunces, Inter } from "next/font/google";
 import { seo } from "@/config/seo";
 import { MotionProvider, NOSCRIPT_FALLBACK } from "@/engine/motion";
 import { MetaPixel } from "@/components/analytics/MetaPixel";
+import { AttributionCapture } from "@/components/analytics/AttributionCapture";
 import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 
@@ -28,6 +29,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en" className={`${fraunces.variable} ${inter.variable}`}>
       <body>
         <MetaPixel />
+        <AttributionCapture />
         <noscript>
           <style>{NOSCRIPT_FALLBACK}</style>
         </noscript>
