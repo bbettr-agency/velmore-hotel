@@ -3,6 +3,7 @@ import { Statement } from "@/components/sections/Statement";
 import { FeatureSplit } from "@/components/sections/FeatureSplit";
 import { SpecList } from "@/components/sections/SpecList";
 import { CtaBand } from "@/components/sections/CtaBand";
+import { EnquirySection } from "@/components/site/EnquirySection";
 import { Footer } from "@/components/site/Footer";
 import { pageMetadata } from "@/lib/metadata";
 import { JsonLd } from "@/components/seo/JsonLd";
@@ -23,6 +24,7 @@ export default function AboutPage() {
       <FeatureSplit {...p.halalSplit} imageSide="left" tone="ivory" />
       <SpecList {...p.numbers} tone="dark" columns={4} />
       <CtaBand {...p.cta} />
+      <EnquirySection heading="Begin Your Enquiry" ctaLocation="about_enquiry" />
       <Footer />
     </main>
   );

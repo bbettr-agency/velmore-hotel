@@ -42,14 +42,20 @@ export function EventEstimator({
   intro,
   venues,
   ctaLocation = "conferences_estimator",
+  initialEventType = "",
 }: {
   eyebrow: string;
   heading: string;
   intro?: string;
   venues: readonly Venue[];
   ctaLocation?: string;
+  // Optional page-specific preselection (e.g. /weddings → "Wedding"). Must be a
+  // canonical eventType value; empty = visitor chooses. Only sets the initial
+  // selection — the visitor can still change it, and the calculator is never
+  // bypassed (a valid estimate is still required to Continue).
+  initialEventType?: string;
 }) {
-  const [eventType, setEventType] = useState("");
+  const [eventType, setEventType] = useState(initialEventType);
   const [date, setDate] = useState("");
   // conference / wedding / private
   const [organisationType, setOrganisationType] = useState("");

@@ -5,6 +5,7 @@ import { ImageBand } from "@/components/sections/ImageBand";
 import { GalleryGrid } from "@/components/sections/GalleryGrid";
 import { Faq } from "@/components/sections/Faq";
 import { CtaBand } from "@/components/sections/CtaBand";
+import { EnquirySection } from "@/components/site/EnquirySection";
 import { Footer } from "@/components/site/Footer";
 import { pageMetadata } from "@/lib/metadata";
 import { JsonLd } from "@/components/seo/JsonLd";
@@ -25,6 +26,7 @@ export default function DiningPage() {
       <ImageBand {...p.halalBand} />
       <Faq {...p.faq} tone="ivory" />
       <CtaBand {...p.cta} />
+      <EnquirySection heading="Begin Your Enquiry" ctaLocation="dining_enquiry" />
       <Footer />
     </main>
   );

@@ -4,6 +4,7 @@ import { FeatureSplit } from "@/components/sections/FeatureSplit";
 import { SpecList } from "@/components/sections/SpecList";
 import { Faq } from "@/components/sections/Faq";
 import { CtaBand } from "@/components/sections/CtaBand";
+import { EnquirySection } from "@/components/site/EnquirySection";
 import { Footer } from "@/components/site/Footer";
 import { pageMetadata } from "@/lib/metadata";
 import { JsonLd } from "@/components/seo/JsonLd";
@@ -27,6 +28,7 @@ export default function AccommodationPage() {
       <SpecList {...p.numbers} tone="mist" columns={5} />
       <Faq {...p.faq} tone="ivory" />
       <CtaBand {...p.cta} />
+      <EnquirySection heading="Plan Your Stay" initialEventType="Accommodation / Stay" ctaLocation="accommodation_enquiry" />
       <Footer />
     </main>
   );

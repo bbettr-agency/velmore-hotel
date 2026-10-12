@@ -1,6 +1,7 @@
 import { PageHero } from "@/components/sections/PageHero";
 import { GalleryExperience } from "@/components/gallery/GalleryExperience";
 import { CtaBand } from "@/components/sections/CtaBand";
+import { EnquirySection } from "@/components/site/EnquirySection";
 import { Footer } from "@/components/site/Footer";
 import { pageMetadata } from "@/lib/metadata";
 import { JsonLd } from "@/components/seo/JsonLd";
@@ -17,6 +18,7 @@ export default function GalleryPage() {
       <PageHero {...p.hero} />
       <GalleryExperience />
       <CtaBand {...p.cta} />
+      <EnquirySection heading="Begin Your Enquiry" ctaLocation="gallery_enquiry" />
       <Footer />
     </main>
   );

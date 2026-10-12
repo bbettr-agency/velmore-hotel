@@ -264,7 +264,7 @@ export const pages = {
         { label: "Certified Halal", badge: true },
       ],
       primary: { label: "Book a Viewing", href: contact, cta: "book_viewing", location: "weddings_hero" },
-      secondary: { label: "Enquire for your date", href: contact, cta: "enquire_date", location: "weddings_hero" },
+      secondary: { label: "Enquire for your date", href: "#estimate", cta: "enquire_date", location: "weddings_hero" },
     },
     statement: {
       eyebrow: "The day that matters most",
@@ -357,7 +357,7 @@ export const pages = {
       body: "Book a viewing, tell us your date, and one team takes it from there.", // INDICATIVE
       image: img.estateThroughTrees,
       primary: { label: "Book a Viewing", href: contact, cta: "book_viewing", location: "weddings_cta" },
-      secondary: { label: "Enquire for your date", href: contact, cta: "enquire_date", location: "weddings_cta" },
+      secondary: { label: "Enquire for your date", href: "#estimate", cta: "enquire_date", location: "weddings_cta" },
     },
   },
 
@@ -376,7 +376,7 @@ export const pages = {
         { label: "Pretoria & Centurion" },
       ],
       primary: { label: "Check Availability", href: contact, cta: "check_availability", location: "accommodation_hero" },
-      secondary: { label: "Enquire for your date", href: contact, cta: "enquire_date", location: "accommodation_hero" },
+      secondary: { label: "Enquire for your date", href: "#estimate", cta: "enquire_date", location: "accommodation_hero" },
     },
     statement: {
       eyebrow: "Rest, on the estate",
@@ -493,7 +493,7 @@ export const pages = {
       body: "Tell us your dates and group, and one team takes it from there.", // INDICATIVE
       image: img.deluxeRoom,
       primary: { label: "Check Availability", href: contact, cta: "check_availability", location: "accommodation_cta" },
-      secondary: { label: "Enquire for your date", href: contact, cta: "enquire_date", location: "accommodation_cta" },
+      secondary: { label: "Enquire for your date", href: "#estimate", cta: "enquire_date", location: "accommodation_cta" },
     },
   },
 
@@ -510,7 +510,7 @@ export const pages = {
       image: img.diningRoom,
       chips: [{ label: "Certified Halal", badge: true }, { label: "For every guest" }, { label: "On the estate" }],
       primary: { label: "Book a Viewing", href: contact, cta: "book_viewing", location: "dining_hero" },
-      secondary: { label: "Enquire for your date", href: contact, cta: "enquire_date", location: "dining_hero" },
+      secondary: { label: "Enquire for your date", href: "#estimate", cta: "enquire_date", location: "dining_hero" },
     },
     statement: {
       eyebrow: "The gathering",
@@ -572,7 +572,7 @@ export const pages = {
       body: "Tell us your occasion and numbers, and one team takes it from there.", // INDICATIVE
       image: img.celebrationCatering,
       primary: { label: "Book a Viewing", href: contact, cta: "book_viewing", location: "dining_cta" },
-      secondary: { label: "Enquire for your date", href: contact, cta: "enquire_date", location: "dining_cta" },
+      secondary: { label: "Enquire for your date", href: "#estimate", cta: "enquire_date", location: "dining_cta" },
     },
   },
 
@@ -651,7 +651,7 @@ export const pages = {
       image: img.functionHall,
       chips: [{ label: "Year-end functions" }, { label: "Matric farewells" }, { label: "Certified Halal", badge: true }],
       primary: { label: "Book a Viewing", href: contact, cta: "book_viewing", location: "events_hero" },
-      secondary: { label: "Enquire for your date", href: contact, cta: "enquire_date", location: "events_hero" },
+      secondary: { label: "Enquire for your date", href: "#estimate", cta: "enquire_date", location: "events_hero" },
     },
     statement: {
       eyebrow: "The occasion, held",
@@ -707,7 +707,7 @@ export const pages = {
       body: "Tell us the occasion, the date and the numbers, and one team takes it from there.", // INDICATIVE
       image: img.arrivalForecourt,
       primary: { label: "Book a Viewing", href: contact, cta: "book_viewing", location: "events_cta" },
-      secondary: { label: "Enquire for your date", href: contact, cta: "enquire_date", location: "events_cta" },
+      secondary: { label: "Enquire for your date", href: "#estimate", cta: "enquire_date", location: "events_cta" },
     },
   },
 
@@ -721,7 +721,7 @@ export const pages = {
       image: img.estateFacade,
       chips: [{ label: "Weddings · conferences · events" }, { label: "50 rooms" }, { label: "Certified Halal", badge: true }],
       primary: { label: "Book a Viewing", href: contact, cta: "book_viewing", location: "about_hero" },
-      secondary: { label: "Enquire for your date", href: contact, cta: "enquire_date", location: "about_hero" },
+      secondary: { label: "Enquire for your date", href: "#estimate", cta: "enquire_date", location: "about_hero" },
     },
     statement: {
       eyebrow: "The idea",
@@ -779,7 +779,7 @@ export const pages = {
       body: "Book a viewing, tell us your occasion, and one team takes it from there.", // INDICATIVE
       image: img.welcomeGolden,
       primary: { label: "Book a Viewing", href: contact, cta: "book_viewing", location: "about_cta" },
-      secondary: { label: "Enquire for your date", href: contact, cta: "enquire_date", location: "about_cta" },
+      secondary: { label: "Enquire for your date", href: "#estimate", cta: "enquire_date", location: "about_cta" },
     },
   },
 
@@ -791,7 +791,7 @@ export const pages = {
       variant: "hero" as const,
       image: img.estateFacade,
       primary: { label: "Book a Viewing", href: contact, cta: "book_viewing", location: "gallery_hero" },
-      secondary: { label: "Enquire for your date", href: contact, cta: "enquire_date", location: "gallery_hero" },
+      secondary: { label: "Enquire for your date", href: "#estimate", cta: "enquire_date", location: "gallery_hero" },
     },
     gridNote: "Real photography from across the Velmoré estate. A dedicated spa shoot is still to come and will be added as it lands.",
     tiles: [
@@ -810,7 +810,7 @@ export const pages = {
       body: "Book a viewing and see the estate for yourself — we reply the same business day.", // INDICATIVE
       image: img.gardensArchway,
       primary: { label: "Book a Viewing", href: contact, cta: "book_viewing", location: "gallery_cta" },
-      secondary: { label: "Enquire for your date", href: contact, cta: "enquire_date", location: "gallery_cta" },
+      secondary: { label: "Enquire for your date", href: "#estimate", cta: "enquire_date", location: "gallery_cta" },
     },
   },
 

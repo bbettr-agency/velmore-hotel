@@ -4,6 +4,7 @@ import { FeatureSplit } from "@/components/sections/FeatureSplit";
 import { ImageBand } from "@/components/sections/ImageBand";
 import { Faq } from "@/components/sections/Faq";
 import { CtaBand } from "@/components/sections/CtaBand";
+import { EnquirySection } from "@/components/site/EnquirySection";
 import { Footer } from "@/components/site/Footer";
 import { pageMetadata } from "@/lib/metadata";
 import { JsonLd } from "@/components/seo/JsonLd";
@@ -24,6 +25,7 @@ export default function EventsPage() {
       <ImageBand {...p.band} />
       <Faq {...p.faq} tone="ivory" />
       <CtaBand {...p.cta} />
+      <EnquirySection heading="Let’s Plan Something Memorable" ctaLocation="events_enquiry" />
       <Footer />
     </main>
   );
