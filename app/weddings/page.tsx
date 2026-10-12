@@ -5,6 +5,7 @@ import { ImageBand } from "@/components/sections/ImageBand";
 import { SpecList } from "@/components/sections/SpecList";
 import { Faq } from "@/components/sections/Faq";
 import { CtaBand } from "@/components/sections/CtaBand";
+import { EnquirySection } from "@/components/site/EnquirySection";
 import { Footer } from "@/components/site/Footer";
 import { pageMetadata } from "@/lib/metadata";
 import { JsonLd } from "@/components/seo/JsonLd";
@@ -27,6 +28,7 @@ export default function WeddingsPage() {
       <SpecList {...p.numbers} tone="mist" columns={4} />
       <Faq {...p.faq} tone="ivory" />
       <CtaBand {...p.cta} />
+      <EnquirySection heading="Begin Planning Your Day" initialEventType="Wedding" ctaLocation="weddings_enquiry" />
       <Footer />
     </main>
   );

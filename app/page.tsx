@@ -10,6 +10,7 @@ import { DiningPreview } from "@/components/home/DiningPreview";
 import { GalleryShowcase } from "@/components/home/GalleryShowcase";
 import { ReviewsTrust } from "@/components/home/ReviewsTrust";
 import { FinalCta } from "@/components/home/FinalCta";
+import { EnquirySection } from "@/components/site/EnquirySection";
 import { Footer } from "@/components/site/Footer";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { homeJsonLd } from "@/lib/jsonld";
@@ -30,6 +31,7 @@ export default function HomePage() {
       <GalleryShowcase />
       <ReviewsTrust />
       <FinalCta />
+      <EnquirySection heading="Your Occasion Starts Here" ctaLocation="home_enquiry" />
       <Footer />
     </main>
   );
